@@ -1,0 +1,1149 @@
+// !$*UTF8*$!
+{
+	1500B6A310B97BFD0008473C /* GoogleCalAppDelegate.m:27 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 1D3623250D0F684500981E51 /* GoogleCalAppDelegate.m */;
+		functionName = "-applicationDidFinishLaunching:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 27;
+		location = GoogleCal;
+		modificationTime = 280771961.025633;
+		state = 2;
+	};
+	153D554310C2C7830053C894 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 48";
+		rLen = 0;
+		rLoc = 1110;
+		rType = 0;
+		vrLen = 1019;
+		vrLoc = 484;
+	};
+	154685E810B09331008E69F1 /* GoogleCal */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = GoogleCal;
+		savedGlobals = {
+		};
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	154685F010B09350008E69F1 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	154685F110B09350008E69F1 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	1546862110B0B590008E69F1 /* XDModelBookmark */ = {
+		isa = XDModelBookmark;
+		fRef = 28C3AD890F43EF2300507BA6 /* GoogleCal.xcdatamodel */;
+		fallbackIsa = PBXBookmark;
+	};
+	1546862210B0B590008E69F1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* GoogleCalAppDelegate.m */;
+		name = "GoogleCalAppDelegate.m: 6";
+		rLen = 9;
+		rLoc = 93;
+		rType = 0;
+		vrLen = 306;
+		vrLoc = 0;
+	};
+	1546862310B0B590008E69F1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* GoogleCalAppDelegate.h */;
+		name = "GoogleCalAppDelegate.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 587;
+		vrLoc = 0;
+	};
+	1546862510B0B590008E69F1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 32CA4F630368D1EE00C91783 /* GoogleCal_Prefix.pch */;
+		name = "GoogleCal_Prefix.pch: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 358;
+		vrLoc = 0;
+	};
+	1546864410B0BC1D008E69F1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 32CA4F630368D1EE00C91783 /* GoogleCal_Prefix.pch */;
+		name = "GoogleCal_Prefix.pch: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 358;
+		vrLoc = 0;
+	};
+	1546864810B0BC1D008E69F1 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* GoogleCal-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			CFBundleIconFile,
+		);
+		name = "/Users/rafaelchacon/Sandboxes/GoogleCal/GoogleCal-Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	1546864B10B0BC1D008E69F1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 29B97316FDCFA39411CA2CEA /* main.m */;
+		name = "main.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 373;
+		vrLoc = 0;
+	};
+	154686BE10B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686BF10B0C87D008E69F1 /* tick.png */;
+	};
+	154686BF10B0C87D008E69F1 /* tick.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = tick.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/graph/tick.png;
+		sourceTree = "<absolute>";
+	};
+	154686C010B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686C110B0C87D008E69F1 /* ind_blue_middle.png */;
+	};
+	154686C110B0C87D008E69F1 /* ind_blue_middle.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = ind_blue_middle.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/overview/ind_blue_middle.png;
+		sourceTree = "<absolute>";
+	};
+	154686C210B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686C310B0C87D008E69F1 /* note.png */;
+	};
+	154686C310B0C87D008E69F1 /* note.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = note.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/empty/note.png;
+		sourceTree = "<absolute>";
+	};
+	154686C410B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686C510B0C87D008E69F1 /* leftarrow.png */;
+	};
+	154686C510B0C87D008E69F1 /* leftarrow.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = leftarrow.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/calendar/leftarrow.png;
+		sourceTree = "<absolute>";
+	};
+	154686C610B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686C710B0C87D008E69F1 /* rightarrow.png */;
+	};
+	154686C710B0C87D008E69F1 /* rightarrow.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = rightarrow.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/calendar/rightarrow.png;
+		sourceTree = "<absolute>";
+	};
+	154686C810B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686C910B0C87D008E69F1 /* compass.png */;
+	};
+	154686C910B0C87D008E69F1 /* compass.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = compass.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/empty/compass.png;
+		sourceTree = "<absolute>";
+	};
+	154686CA10B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686CB10B0C87D008E69F1 /* search.png */;
+	};
+	154686CB10B0C87D008E69F1 /* search.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = search.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/empty/search.png;
+		sourceTree = "<absolute>";
+	};
+	154686CC10B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686CD10B0C87D008E69F1 /* movieclip.png */;
+	};
+	154686CD10B0C87D008E69F1 /* movieclip.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = movieclip.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/empty/movieclip.png;
+		sourceTree = "<absolute>";
+	};
+	154686CE10B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686CF10B0C87D008E69F1 /* photos.png */;
+	};
+	154686CF10B0C87D008E69F1 /* photos.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = photos.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/empty/photos.png;
+		sourceTree = "<absolute>";
+	};
+	154686D010B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686D110B0C87D008E69F1 /* ind_red_left.png */;
+	};
+	154686D110B0C87D008E69F1 /* ind_red_left.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = ind_red_left.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/overview/ind_red_left.png;
+		sourceTree = "<absolute>";
+	};
+	154686D210B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686D310B0C87D008E69F1 /* sign.png */;
+	};
+	154686D310B0C87D008E69F1 /* sign.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = sign.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/empty/sign.png;
+		sourceTree = "<absolute>";
+	};
+	154686D410B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686D510B0C87D008E69F1 /* ind_green_right.png */;
+	};
+	154686D510B0C87D008E69F1 /* ind_green_right.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = ind_green_right.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/overview/ind_green_right.png;
+		sourceTree = "<absolute>";
+	};
+	154686D610B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686D710B0C87D008E69F1 /* goalline.png */;
+	};
+	154686D710B0C87D008E69F1 /* goalline.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = goalline.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/graph/goalline.png;
+		sourceTree = "<absolute>";
+	};
+	154686D810B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686D910B0C87D008E69F1 /* star.png */;
+	};
+	154686D910B0C87D008E69F1 /* star.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = star.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/empty/star.png;
+		sourceTree = "<absolute>";
+	};
+	154686DA10B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686DB10B0C87D008E69F1 /* bottomline.png */;
+	};
+	154686DB10B0C87D008E69F1 /* bottomline.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = bottomline.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/graph/bottomline.png;
+		sourceTree = "<absolute>";
+	};
+	154686DC10B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686DD10B0C87D008E69F1 /* datecell.png */;
+	};
+	154686DD10B0C87D008E69F1 /* datecell.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = datecell.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/calendar/datecell.png;
+		sourceTree = "<absolute>";
+	};
+	154686DE10B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686DF10B0C87D008E69F1 /* chatbubble.png */;
+	};
+	154686DF10B0C87D008E69F1 /* chatbubble.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = chatbubble.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/empty/chatbubble.png;
+		sourceTree = "<absolute>";
+	};
+	154686E010B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686E110B0C87D008E69F1 /* popdown.png */;
+	};
+	154686E110B0C87D008E69F1 /* popdown.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = popdown.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/graph/popdown.png;
+		sourceTree = "<absolute>";
+	};
+	154686E310B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686E410B0C87D008E69F1 /* datecell.png */;
+	};
+	154686E410B0C87D008E69F1 /* datecell.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = datecell.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/calendar/datecell.png;
+		sourceTree = "<absolute>";
+	};
+	154686E510B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686E610B0C87D008E69F1 /* chatbubble.png */;
+	};
+	154686E610B0C87D008E69F1 /* chatbubble.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = chatbubble.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/empty/chatbubble.png;
+		sourceTree = "<absolute>";
+	};
+	154686E710B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686E810B0C87D008E69F1 /* popdown.png */;
+	};
+	154686E810B0C87D008E69F1 /* popdown.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = popdown.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/graph/popdown.png;
+		sourceTree = "<absolute>";
+	};
+	154686E910B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686EA10B0C87D008E69F1 /* bottomline.png */;
+	};
+	154686EA10B0C87D008E69F1 /* bottomline.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = bottomline.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/graph/bottomline.png;
+		sourceTree = "<absolute>";
+	};
+	154686ED10B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686EE10B0C87D008E69F1 /* tick.png */;
+	};
+	154686EE10B0C87D008E69F1 /* tick.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = tick.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/graph/tick.png;
+		sourceTree = "<absolute>";
+	};
+	154686EF10B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686F010B0C87D008E69F1 /* ind_blue_middle.png */;
+	};
+	154686F010B0C87D008E69F1 /* ind_blue_middle.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = ind_blue_middle.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/overview/ind_blue_middle.png;
+		sourceTree = "<absolute>";
+	};
+	154686F110B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686F210B0C87D008E69F1 /* note.png */;
+	};
+	154686F210B0C87D008E69F1 /* note.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = note.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/empty/note.png;
+		sourceTree = "<absolute>";
+	};
+	154686F310B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686F410B0C87D008E69F1 /* leftarrow.png */;
+	};
+	154686F410B0C87D008E69F1 /* leftarrow.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = leftarrow.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/calendar/leftarrow.png;
+		sourceTree = "<absolute>";
+	};
+	154686F510B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686F610B0C87D008E69F1 /* rightarrow.png */;
+	};
+	154686F610B0C87D008E69F1 /* rightarrow.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = rightarrow.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/calendar/rightarrow.png;
+		sourceTree = "<absolute>";
+	};
+	154686F710B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686F810B0C87D008E69F1 /* compass.png */;
+	};
+	154686F810B0C87D008E69F1 /* compass.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = compass.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/empty/compass.png;
+		sourceTree = "<absolute>";
+	};
+	154686F910B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686FA10B0C87D008E69F1 /* search.png */;
+	};
+	154686FA10B0C87D008E69F1 /* search.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = search.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/empty/search.png;
+		sourceTree = "<absolute>";
+	};
+	154686FB10B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686FC10B0C87D008E69F1 /* movieclip.png */;
+	};
+	154686FC10B0C87D008E69F1 /* movieclip.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = movieclip.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/empty/movieclip.png;
+		sourceTree = "<absolute>";
+	};
+	154686FD10B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 154686FE10B0C87D008E69F1 /* star.png */;
+	};
+	154686FE10B0C87D008E69F1 /* star.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = star.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/empty/star.png;
+		sourceTree = "<absolute>";
+	};
+	154686FF10B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 1546870010B0C87D008E69F1 /* photos.png */;
+	};
+	1546870010B0C87D008E69F1 /* photos.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = photos.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/empty/photos.png;
+		sourceTree = "<absolute>";
+	};
+	1546870110B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 1546870210B0C87D008E69F1 /* ind_red_left.png */;
+	};
+	1546870210B0C87D008E69F1 /* ind_red_left.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = ind_red_left.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/overview/ind_red_left.png;
+		sourceTree = "<absolute>";
+	};
+	1546870310B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 1546870410B0C87D008E69F1 /* sign.png */;
+	};
+	1546870410B0C87D008E69F1 /* sign.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = sign.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/empty/sign.png;
+		sourceTree = "<absolute>";
+	};
+	1546870510B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 1546870610B0C87D008E69F1 /* ind_green_right.png */;
+	};
+	1546870610B0C87D008E69F1 /* ind_green_right.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = ind_green_right.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/overview/ind_green_right.png;
+		sourceTree = "<absolute>";
+	};
+	1546870710B0C87D008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 1546870810B0C87D008E69F1 /* goalline.png */;
+	};
+	1546870810B0C87D008E69F1 /* goalline.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = goalline.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/graph/goalline.png;
+		sourceTree = "<absolute>";
+	};
+	1546873210B0CF27008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 1546873310B0CF27008E69F1 /* ind_green_middle.png */;
+	};
+	1546873310B0CF27008E69F1 /* ind_green_middle.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = ind_green_middle.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/overview/ind_green_middle.png;
+		sourceTree = "<absolute>";
+	};
+	1546873410B0CF27008E69F1 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 1546873510B0CF27008E69F1 /* ind_green_middle.png */;
+	};
+	1546873510B0CF27008E69F1 /* ind_green_middle.png */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = image.png;
+		name = ind_green_middle.png;
+		path = /Users/rafaelchacon/Sandboxes/tapkulibrary/src/TapkuLibrary.bundle/Images/overview/ind_green_middle.png;
+		sourceTree = "<absolute>";
+	};
+	1546875510B1937D008E69F1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 29B97316FDCFA39411CA2CEA /* main.m */;
+		name = "main.m: 10";
+		rLen = 0;
+		rLoc = 168;
+		rType = 0;
+		vrLen = 375;
+		vrLoc = 0;
+	};
+	1587E39D10BC411000F0FD12 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* GoogleCalAppDelegate.m */;
+		name = "GoogleCalAppDelegate.m: 9";
+		rLen = 0;
+		rLoc = 192;
+		rType = 0;
+		vrLen = 858;
+		vrLoc = 0;
+	};
+	1587E3A110BC411000F0FD12 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603110B2A9CD006EC0AB /* MonthCalendar.h */;
+		name = "MonthCalendar.h: 13";
+		rLen = 0;
+		rLoc = 226;
+		rType = 0;
+		vrLen = 276;
+		vrLoc = 0;
+	};
+	1587E3A210BC411000F0FD12 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 46";
+		rLen = 11;
+		rLoc = 968;
+		rType = 0;
+		vrLen = 766;
+		vrLoc = 0;
+	};
+	1587E3A310BC411000F0FD12 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* GoogleCalAppDelegate.h */;
+		name = "GoogleCalAppDelegate.h: 8";
+		rLen = 0;
+		rLoc = 159;
+		rType = 0;
+		vrLen = 902;
+		vrLoc = 0;
+	};
+	1587E3A410BC411000F0FD12 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* GoogleCalAppDelegate.m */;
+		name = "GoogleCalAppDelegate.m: 9";
+		rLen = 0;
+		rLoc = 192;
+		rType = 0;
+		vrLen = 858;
+		vrLoc = 0;
+	};
+	1587E3A510BC411000F0FD12 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* GoogleCalAppDelegate.h */;
+		name = "GoogleCalAppDelegate.h: 8";
+		rLen = 0;
+		rLoc = 159;
+		rType = 0;
+		vrLen = 902;
+		vrLoc = 0;
+	};
+	1587E3A610BC411000F0FD12 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603110B2A9CD006EC0AB /* MonthCalendar.h */;
+		name = "MonthCalendar.h: 13";
+		rLen = 0;
+		rLoc = 226;
+		rType = 0;
+		vrLen = 276;
+		vrLoc = 0;
+	};
+	1587E3B710BC557200F0FD12 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* GoogleCal-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			CFBundleIconFile,
+		);
+		name = "/Users/rafaelchacon/Sandboxes/GoogleCal/GoogleCal-Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	1587E3B810BC557200F0FD12 /* XDModelBookmark */ = {
+		isa = XDModelBookmark;
+		fRef = 28C3AD890F43EF2300507BA6 /* GoogleCal.xcdatamodel */;
+		fallbackIsa = PBXBookmark;
+	};
+	1587E3B910BC557200F0FD12 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603110B2A9CD006EC0AB /* MonthCalendar.h */;
+		name = "MonthCalendar.h: 13";
+		rLen = 0;
+		rLoc = 226;
+		rType = 0;
+		vrLen = 276;
+		vrLoc = 0;
+	};
+	1587E3BA10BC557200F0FD12 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* GoogleCalAppDelegate.h */;
+		name = "GoogleCalAppDelegate.h: 8";
+		rLen = 0;
+		rLoc = 159;
+		rType = 0;
+		vrLen = 902;
+		vrLoc = 0;
+	};
+	1587E3BB10BC557200F0FD12 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 46";
+		rLen = 11;
+		rLoc = 968;
+		rType = 0;
+		vrLen = 766;
+		vrLoc = 0;
+	};
+	1587E3BC10BC557200F0FD12 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 46";
+		rLen = 11;
+		rLoc = 968;
+		rType = 0;
+		vrLen = 766;
+		vrLoc = 0;
+	};
+	1587E3BD10BC557200F0FD12 /* XDModelBookmark */ = {
+		isa = XDModelBookmark;
+		fRef = 28C3AD890F43EF2300507BA6 /* GoogleCal.xcdatamodel */;
+		fallbackIsa = PBXBookmark;
+	};
+	1587E3BE10BC557200F0FD12 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* GoogleCal-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			CFBundleIconFile,
+		);
+		name = "/Users/rafaelchacon/Sandboxes/GoogleCal/GoogleCal-Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	1587E3BF10BC557200F0FD12 /* XDModelBookmark */ = {
+		isa = XDModelBookmark;
+		fRef = 28C3AD890F43EF2300507BA6 /* GoogleCal.xcdatamodel */;
+		fallbackIsa = PBXBookmark;
+	};
+	1587E3C010BC557200F0FD12 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 46";
+		rLen = 11;
+		rLoc = 968;
+		rType = 0;
+		vrLen = 766;
+		vrLoc = 0;
+	};
+	1587E3C110BC557200F0FD12 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603110B2A9CD006EC0AB /* MonthCalendar.h */;
+		name = "MonthCalendar.h: 13";
+		rLen = 0;
+		rLoc = 226;
+		rType = 0;
+		vrLen = 276;
+		vrLoc = 0;
+	};
+	1587E3C210BC557200F0FD12 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* GoogleCalAppDelegate.h */;
+		name = "GoogleCalAppDelegate.h: 8";
+		rLen = 0;
+		rLoc = 159;
+		rType = 0;
+		vrLen = 902;
+		vrLoc = 0;
+	};
+	1587E3C310BC557200F0FD12 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 48";
+		rLen = 0;
+		rLoc = 1110;
+		rType = 0;
+		vrLen = 1025;
+		vrLoc = 483;
+	};
+	1595603110B2A9CD006EC0AB /* MonthCalendar.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1037, 529}}";
+			sepNavSelRange = "{226, 0}";
+			sepNavVisRange = "{0, 276}";
+		};
+	};
+	1595603210B2A9CD006EC0AB /* MonthCalendar.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1037, 924}}";
+			sepNavSelRange = "{1110, 0}";
+			sepNavVisRange = "{484, 1019}";
+			sepNavWindowFrame = "{{145, 0}, {750, 878}}";
+		};
+	};
+	1595604C10B2AB24006EC0AB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603110B2A9CD006EC0AB /* MonthCalendar.h */;
+		name = "MonthCalendar.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 234;
+		vrLoc = 0;
+	};
+	1595604D10B2AB24006EC0AB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 712;
+		vrLoc = 0;
+	};
+	1D3623240D0F684500981E51 /* GoogleCalAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1037, 529}}";
+			sepNavSelRange = "{159, 0}";
+			sepNavVisRange = "{0, 902}";
+			sepNavWindowFrame = "{{145, 252}, {750, 558}}";
+		};
+	};
+	1D3623250D0F684500981E51 /* GoogleCalAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {2034, 2142}}";
+			sepNavSelRange = "{192, 0}";
+			sepNavVisRange = "{0, 858}";
+			sepNavWindowFrame = "{{122, 273}, {750, 558}}";
+		};
+	};
+	1D6058900D05DD3D006BFB54 /* GoogleCal */ = {
+		activeExec = 0;
+		executables = (
+			154685E810B09331008E69F1 /* GoogleCal */,
+		);
+	};
+	28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {5520, 6076}}";
+			sepNavSelRange = "{3889, 9}";
+			sepNavVisRange = "{3616, 1155}";
+		};
+	};
+	28C3AD890F43EF2300507BA6 /* GoogleCal.xcdatamodel */ = {
+		uiCtxt = {
+			"Xdesign Model Editor Bookmark Key" = {
+				UIContextForDetailArea = {
+					_indexOfSelectedPane = 0;
+					_indexOfSelectedView = 1;
+				};
+				UIContextForEntityArea = {
+					_indexOfSelectedView = 0;
+					chosenTableColumnns = (
+						"ET Entity",
+						"ET Abstract",
+						"ET Class",
+					);
+					chosenTableColumnns_sortDirections = (
+						YES,
+					);
+					chosenTableColumnns_sortKeys = (
+						name,
+					);
+					chosenTableColumnns_sortSelectors = (
+						"_xdcaseInsensitiveNumericCompare:",
+					);
+					chosenTableWidths = (
+						103.000000,
+						22.000000,
+						86.080078,
+					);
+				};
+				UIContextForLayoutManager = {
+					detailSplitGeometry = {
+						_collapsingFrameDimension = 0;
+						_indexOfCollapsedView = 0;
+						_percentageOfCollapsedView = 0;
+						isCollapsed = yes;
+						sizes = (
+							"{{0, 0}, {716, 218}}",
+							"{{721, 0}, {375, 218}}",
+						);
+					};
+					diagramSplitGeometry = {
+						_collapsingFrameDimension = 0;
+						_indexOfCollapsedView = 0;
+						_percentageOfCollapsedView = 0;
+						isCollapsed = yes;
+						sizes = (
+							"{{0, 0}, {1096, 220}}",
+							"{{0, 225}, {1096, 319}}",
+						);
+					};
+					tableSplitGeometry = {
+						_collapsingFrameDimension = 0;
+						_indexOfCollapsedView = 0;
+						_percentageOfCollapsedView = 0;
+						isCollapsed = yes;
+						sizes = (
+							"{{0, 0}, {236, 218}}",
+							"{{241, 0}, {475, 218}}",
+						);
+					};
+				};
+				UIContextForPropertyArea = {
+					_indexOfSelectedView = 0;
+					chosenTableColumnnFRTs = (
+						"FT Fetch Request",
+						"FT Predicate",
+					);
+					chosenTableColumnnFRTs_sortDirections = (
+						YES,
+					);
+					chosenTableColumnnFRTs_sortKeys = (
+						name,
+					);
+					chosenTableColumnnFRTs_sortSelectors = (
+						"_xdcaseInsensitiveNumericCompare:",
+					);
+					chosenTableColumnnsAT = (
+						"AT Attribute",
+						"AT Type",
+					);
+					chosenTableColumnnsAT_sortDirections = (
+						YES,
+					);
+					chosenTableColumnnsAT_sortKeys = (
+						name,
+					);
+					chosenTableColumnnsAT_sortSelectors = (
+						"_xdcaseInsensitiveNumericCompare:",
+					);
+					chosenTableColumnnsFPT = (
+						"FP FetchedProperty",
+						"FP Destination",
+						"FP Predicate",
+					);
+					chosenTableColumnnsFPT_sortDirections = (
+						YES,
+					);
+					chosenTableColumnnsFPT_sortKeys = (
+						name,
+					);
+					chosenTableColumnnsFPT_sortSelectors = (
+						"_xdcaseInsensitiveNumericCompare:",
+					);
+					chosenTableColumnnsPT = (
+						"PT Property",
+						"PT Kind",
+						"PT SharedKeyOne",
+					);
+					chosenTableColumnnsPT_sortDirections = (
+						YES,
+					);
+					chosenTableColumnnsPT_sortKeys = (
+						name,
+					);
+					chosenTableColumnnsPT_sortSelectors = (
+						"_xdcaseInsensitiveNumericCompare:",
+					);
+					chosenTableColumnnsRT = (
+						"RT Relationship",
+						"RT Destination",
+					);
+					chosenTableColumnnsRT_sortDirections = (
+						YES,
+					);
+					chosenTableColumnnsRT_sortKeys = (
+						name,
+					);
+					chosenTableColumnnsRT_sortSelectors = (
+						"_xdcaseInsensitiveNumericCompare:",
+					);
+					chosenTableWidthsAT = (
+						128.000000,
+						64.000000,
+					);
+					chosenTableWidthsFPT = (
+						128.000000,
+						64.000000,
+						144.764160,
+					);
+					chosenTableWidthsFRT = (
+						128.000000,
+						249.764160,
+					);
+					chosenTableWidthsPT = (
+						128.000000,
+						108.110840,
+						212.570801,
+					);
+					chosenTableWidthsRT = (
+						128.000000,
+						64.000000,
+					);
+				};
+				"xdesign model browser state key - shown/hidden" = 1;
+				"xdesign model diagram view visible rect key" = "{{-192, 0}, {1081, 304}}";
+			};
+			sepNavWindowFrame = "{{214, 189}, {750, 558}}";
+		};
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 154685E810B09331008E69F1 /* GoogleCal */;
+		activeSDKPreference = iphonesimulator3.1.2;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* GoogleCal */;
+		addToTargets = (
+			1D6058900D05DD3D006BFB54 /* GoogleCal */,
+		);
+		breakpoints = (
+			1500B6A310B97BFD0008473C /* GoogleCalAppDelegate.m:27 */,
+		);
+		codeSenseManager = 154685F110B09350008E69F1 /* Code sense */;
+		executables = (
+			154685E810B09331008E69F1 /* GoogleCal */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXExecutablesDataSource_NameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					22,
+					300,
+					263,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXExecutablesDataSource_ActiveFlagID,
+					PBXExecutablesDataSource_NameID,
+					PBXExecutablesDataSource_CommentsID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					859,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					335,
+					60,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 281200507;
+			PBXWorkspaceStateSaveDate = 281200507;
+		};
+		perUserProjectItems = {
+			153D554310C2C7830053C894 /* PBXTextBookmark */ = 153D554310C2C7830053C894 /* PBXTextBookmark */;
+			1546862110B0B590008E69F1 = 1546862110B0B590008E69F1 /* XDModelBookmark */;
+			1546862210B0B590008E69F1 = 1546862210B0B590008E69F1 /* PBXTextBookmark */;
+			1546862310B0B590008E69F1 = 1546862310B0B590008E69F1 /* PBXTextBookmark */;
+			1546862510B0B590008E69F1 = 1546862510B0B590008E69F1 /* PBXTextBookmark */;
+			1546864410B0BC1D008E69F1 = 1546864410B0BC1D008E69F1 /* PBXTextBookmark */;
+			1546864810B0BC1D008E69F1 = 1546864810B0BC1D008E69F1 /* PlistBookmark */;
+			1546864B10B0BC1D008E69F1 = 1546864B10B0BC1D008E69F1 /* PBXTextBookmark */;
+			154686BE10B0C87D008E69F1 = 154686BE10B0C87D008E69F1 /* PBXBookmark */;
+			154686C010B0C87D008E69F1 = 154686C010B0C87D008E69F1 /* PBXBookmark */;
+			154686C210B0C87D008E69F1 = 154686C210B0C87D008E69F1 /* PBXBookmark */;
+			154686C410B0C87D008E69F1 = 154686C410B0C87D008E69F1 /* PBXBookmark */;
+			154686C610B0C87D008E69F1 = 154686C610B0C87D008E69F1 /* PBXBookmark */;
+			154686C810B0C87D008E69F1 = 154686C810B0C87D008E69F1 /* PBXBookmark */;
+			154686CA10B0C87D008E69F1 = 154686CA10B0C87D008E69F1 /* PBXBookmark */;
+			154686CC10B0C87D008E69F1 = 154686CC10B0C87D008E69F1 /* PBXBookmark */;
+			154686CE10B0C87D008E69F1 = 154686CE10B0C87D008E69F1 /* PBXBookmark */;
+			154686D010B0C87D008E69F1 = 154686D010B0C87D008E69F1 /* PBXBookmark */;
+			154686D210B0C87D008E69F1 = 154686D210B0C87D008E69F1 /* PBXBookmark */;
+			154686D410B0C87D008E69F1 = 154686D410B0C87D008E69F1 /* PBXBookmark */;
+			154686D610B0C87D008E69F1 = 154686D610B0C87D008E69F1 /* PBXBookmark */;
+			154686D810B0C87D008E69F1 = 154686D810B0C87D008E69F1 /* PBXBookmark */;
+			154686DA10B0C87D008E69F1 = 154686DA10B0C87D008E69F1 /* PBXBookmark */;
+			154686DC10B0C87D008E69F1 = 154686DC10B0C87D008E69F1 /* PBXBookmark */;
+			154686DE10B0C87D008E69F1 = 154686DE10B0C87D008E69F1 /* PBXBookmark */;
+			154686E010B0C87D008E69F1 = 154686E010B0C87D008E69F1 /* PBXBookmark */;
+			154686E310B0C87D008E69F1 = 154686E310B0C87D008E69F1 /* PBXBookmark */;
+			154686E510B0C87D008E69F1 = 154686E510B0C87D008E69F1 /* PBXBookmark */;
+			154686E710B0C87D008E69F1 = 154686E710B0C87D008E69F1 /* PBXBookmark */;
+			154686E910B0C87D008E69F1 = 154686E910B0C87D008E69F1 /* PBXBookmark */;
+			154686ED10B0C87D008E69F1 = 154686ED10B0C87D008E69F1 /* PBXBookmark */;
+			154686EF10B0C87D008E69F1 = 154686EF10B0C87D008E69F1 /* PBXBookmark */;
+			154686F110B0C87D008E69F1 = 154686F110B0C87D008E69F1 /* PBXBookmark */;
+			154686F310B0C87D008E69F1 = 154686F310B0C87D008E69F1 /* PBXBookmark */;
+			154686F510B0C87D008E69F1 = 154686F510B0C87D008E69F1 /* PBXBookmark */;
+			154686F710B0C87D008E69F1 = 154686F710B0C87D008E69F1 /* PBXBookmark */;
+			154686F910B0C87D008E69F1 = 154686F910B0C87D008E69F1 /* PBXBookmark */;
+			154686FB10B0C87D008E69F1 = 154686FB10B0C87D008E69F1 /* PBXBookmark */;
+			154686FD10B0C87D008E69F1 = 154686FD10B0C87D008E69F1 /* PBXBookmark */;
+			154686FF10B0C87D008E69F1 = 154686FF10B0C87D008E69F1 /* PBXBookmark */;
+			1546870110B0C87D008E69F1 = 1546870110B0C87D008E69F1 /* PBXBookmark */;
+			1546870310B0C87D008E69F1 = 1546870310B0C87D008E69F1 /* PBXBookmark */;
+			1546870510B0C87D008E69F1 = 1546870510B0C87D008E69F1 /* PBXBookmark */;
+			1546870710B0C87D008E69F1 = 1546870710B0C87D008E69F1 /* PBXBookmark */;
+			1546873210B0CF27008E69F1 = 1546873210B0CF27008E69F1 /* PBXBookmark */;
+			1546873410B0CF27008E69F1 = 1546873410B0CF27008E69F1 /* PBXBookmark */;
+			1546875510B1937D008E69F1 = 1546875510B1937D008E69F1 /* PBXTextBookmark */;
+			1587E39D10BC411000F0FD12 = 1587E39D10BC411000F0FD12 /* PBXTextBookmark */;
+			1587E3A110BC411000F0FD12 = 1587E3A110BC411000F0FD12 /* PBXTextBookmark */;
+			1587E3A210BC411000F0FD12 = 1587E3A210BC411000F0FD12 /* PBXTextBookmark */;
+			1587E3A310BC411000F0FD12 = 1587E3A310BC411000F0FD12 /* PBXTextBookmark */;
+			1587E3A410BC411000F0FD12 = 1587E3A410BC411000F0FD12 /* PBXTextBookmark */;
+			1587E3A510BC411000F0FD12 = 1587E3A510BC411000F0FD12 /* PBXTextBookmark */;
+			1587E3A610BC411000F0FD12 = 1587E3A610BC411000F0FD12 /* PBXTextBookmark */;
+			1587E3B710BC557200F0FD12 = 1587E3B710BC557200F0FD12 /* PlistBookmark */;
+			1587E3B810BC557200F0FD12 = 1587E3B810BC557200F0FD12 /* XDModelBookmark */;
+			1587E3B910BC557200F0FD12 = 1587E3B910BC557200F0FD12 /* PBXTextBookmark */;
+			1587E3BA10BC557200F0FD12 = 1587E3BA10BC557200F0FD12 /* PBXTextBookmark */;
+			1587E3BB10BC557200F0FD12 = 1587E3BB10BC557200F0FD12 /* PBXTextBookmark */;
+			1587E3BC10BC557200F0FD12 = 1587E3BC10BC557200F0FD12 /* PBXTextBookmark */;
+			1587E3BD10BC557200F0FD12 = 1587E3BD10BC557200F0FD12 /* XDModelBookmark */;
+			1587E3BE10BC557200F0FD12 = 1587E3BE10BC557200F0FD12 /* PlistBookmark */;
+			1587E3BF10BC557200F0FD12 = 1587E3BF10BC557200F0FD12 /* XDModelBookmark */;
+			1587E3C010BC557200F0FD12 = 1587E3C010BC557200F0FD12 /* PBXTextBookmark */;
+			1587E3C110BC557200F0FD12 = 1587E3C110BC557200F0FD12 /* PBXTextBookmark */;
+			1587E3C210BC557200F0FD12 = 1587E3C210BC557200F0FD12 /* PBXTextBookmark */;
+			1587E3C310BC557200F0FD12 = 1587E3C310BC557200F0FD12 /* PBXTextBookmark */;
+			1595604C10B2AB24006EC0AB = 1595604C10B2AB24006EC0AB /* PBXTextBookmark */;
+			1595604D10B2AB24006EC0AB = 1595604D10B2AB24006EC0AB /* PBXTextBookmark */;
+		};
+		sourceControlManager = 154685F010B09350008E69F1 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	29B97316FDCFA39411CA2CEA /* main.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {553, 347}}";
+			sepNavSelRange = "{168, 0}";
+			sepNavVisRange = "{0, 375}";
+			sepNavWindowFrame = "{{168, 231}, {750, 558}}";
+		};
+	};
+	32CA4F630368D1EE00C91783 /* GoogleCal_Prefix.pch */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {552, 230}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 358}";
+			sepNavWindowFrame = "{{191, 210}, {750, 558}}";
+		};
+	};
+	8D1107310486CEB800E47090 /* GoogleCal-Info.plist */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{99, 294}, {750, 558}}";
+		};
+	};
+}

@@ -60,6 +60,15 @@
 	
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *) indexPath {
+	
+	//[appDelegate recipeClicked:[[[tableView cellForRowAtIndexPath:indexPath] textLabel] text]];
+		NSLog(@"Vamos bien becerro");
+	
+}
+
+
+
 
 
 @end

@@ -8,12 +8,15 @@
 
 #import "GoogleCalAppDelegate.h"
 #import "MonthCalendar.h"
+#import "DayViewController.h"
+#import "EventViewController.h"
 
 
 @implementation GoogleCalAppDelegate
 
 @synthesize window;
 @synthesize monthcal;
+@synthesize dayview;
 
 
 #pragma mark -
@@ -22,13 +25,20 @@
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
     
 
+	 
+//	MonthCalendar *aMonthCal = [[MonthCalendar alloc] init];
+//	[self setMonthcal:aMonthCal]; 
+//	[aMonthCal release]; 
+//	navController.viewControllers= [NSArray arrayWithObject:aMonthCal];
+//	[window addSubview:navController.view];
 	
-	MonthCalendar *aMonthCal = [[MonthCalendar alloc] init];
-	[self setMonthcal:aMonthCal]; 
-	[aMonthCal release]; 
-	UIView *controllersView = [aMonthCal view]; 
-	[window addSubview:controllersView]; 
-
+	
+	DayViewController *aDayView = [[DayViewController alloc] init];
+	[self setDayview:aDayView]; 
+	[aDayView release]; 
+	navController.viewControllers= [NSArray arrayWithObject:aDayView];
+	[window addSubview:navController.view];
+	
 	[window makeKeyAndVisible];
 }
 

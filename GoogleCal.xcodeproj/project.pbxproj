@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1546868010B0C818008E69F1 /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1546867F10B0C818008E69F1 /* TapkuLibrary.bundle */; };
+		151D0A8110D11A1800C89C83 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 151D0A7F10D11A1800C89C83 /* EventViewController.m */; };
+		151D0A8210D11A1800C89C83 /* EventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 151D0A8010D11A1800C89C83 /* EventViewController.xib */; };
+		151D0AD710D1206800C89C83 /* DayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 151D0AD510D1206800C89C83 /* DayViewController.m */; };
+		153D55E710C2D8230053C894 /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 153D55E610C2D8230053C894 /* TapkuLibrary.bundle */; };
+		153D563710C2D8FB0053C894 /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 153D55A310C2D7010053C894 /* libTapkuLibrary.a */; };
 		1546871710B0C8E6008E69F1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1546871610B0C8E6008E69F1 /* QuartzCore.framework */; };
 		1546872510B0CF0C008E69F1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1546872410B0CF0C008E69F1 /* MapKit.framework */; };
 		1595603310B2A9CD006EC0AB /* MonthCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */; };
-		1595609710B2AE5F006EC0AB /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15955FD510B2A5E8006EC0AB /* libTapkuLibrary.a */; };
 		1D3623260D0F684500981E51 /* GoogleCalAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* GoogleCalAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -23,29 +26,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		154686BC10B0C87B008E69F1 /* PBXContainerItemProxy */ = {
+		153D55A210C2D7010053C894 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 154686B510B0C872008E69F1 /* TapkuLibrary.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			containerPortal = 153D559E10C2D7010053C894 /* TapkuLibrary.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
 			remoteInfo = TapkuLibrary;
 		};
-		15955FD410B2A5E8006EC0AB /* PBXContainerItemProxy */ = {
+		153D55B010C2D7BA0053C894 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 154686B510B0C872008E69F1 /* TapkuLibrary.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 15955FD110B2A5E7006EC0AB;
+			containerPortal = 153D559E10C2D7010053C894 /* TapkuLibrary.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = TapkuLibrary;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1546867F10B0C818008E69F1 /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TapkuLibrary.bundle; path = ../tapkulibrary/src/TapkuLibrary.bundle; sourceTree = SOURCE_ROOT; };
-		154686B510B0C872008E69F1 /* TapkuLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TapkuLibrary.xcodeproj; path = ../tapkulibrary/src/TapkuLibrary.xcodeproj; sourceTree = SOURCE_ROOT; };
+		151D0A7E10D11A1800C89C83 /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventViewController.h; path = Classes/EventViewController.h; sourceTree = "<group>"; };
+		151D0A7F10D11A1800C89C83 /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventViewController.m; path = Classes/EventViewController.m; sourceTree = "<group>"; };
+		151D0A8010D11A1800C89C83 /* EventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = EventViewController.xib; path = Classes/EventViewController.xib; sourceTree = "<group>"; };
+		151D0AD410D1206800C89C83 /* DayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayViewController.h; sourceTree = "<group>"; };
+		151D0AD510D1206800C89C83 /* DayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayViewController.m; sourceTree = "<group>"; };
+		153D559E10C2D7010053C894 /* TapkuLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TapkuLibrary.xcodeproj; path = ../rtapkulibrary/src/TapkuLibrary.xcodeproj; sourceTree = SOURCE_ROOT; };
+		153D55E610C2D8230053C894 /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TapkuLibrary.bundle; path = ../rtapkulibrary/src/TapkuLibrary.bundle; sourceTree = SOURCE_ROOT; };
 		1546871610B0C8E6008E69F1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = ../../../../System/Library/Frameworks/QuartzCore.framework; sourceTree = SOURCE_ROOT; };
 		1546872410B0CF0C008E69F1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		1595603110B2A9CD006EC0AB /* MonthCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MonthCalendar.h; path = ../MonthCalendar.h; sourceTree = "<group>"; };
-		1595603210B2A9CD006EC0AB /* MonthCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MonthCalendar.m; path = ../MonthCalendar.m; sourceTree = "<group>"; };
+		1595603110B2A9CD006EC0AB /* MonthCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthCalendar.h; sourceTree = "<group>"; };
+		1595603210B2A9CD006EC0AB /* MonthCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthCalendar.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* GoogleCalAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleCalAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* GoogleCalAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleCalAppDelegate.m; sourceTree = "<group>"; };
@@ -71,7 +79,7 @@
 				28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */,
 				1546871710B0C8E6008E69F1 /* QuartzCore.framework in Frameworks */,
 				1546872510B0CF0C008E69F1 /* MapKit.framework in Frameworks */,
-				1595609710B2AE5F006EC0AB /* libTapkuLibrary.a in Frameworks */,
+				153D563710C2D8FB0053C894 /* libTapkuLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,18 +89,16 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1595603210B2A9CD006EC0AB /* MonthCalendar.m */,
-				1595603110B2A9CD006EC0AB /* MonthCalendar.h */,
 				1D3623240D0F684500981E51 /* GoogleCalAppDelegate.h */,
 				1D3623250D0F684500981E51 /* GoogleCalAppDelegate.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		154686B610B0C872008E69F1 /* Products */ = {
+		153D559F10C2D7010053C894 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				15955FD510B2A5E8006EC0AB /* libTapkuLibrary.a */,
+				153D55A310C2D7010053C894 /* libTapkuLibrary.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,6 +106,12 @@
 		1595602E10B2A955006EC0AB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1595603210B2A9CD006EC0AB /* MonthCalendar.m */,
+				1595603110B2A9CD006EC0AB /* MonthCalendar.h */,
+				151D0A7E10D11A1800C89C83 /* EventViewController.h */,
+				151D0A7F10D11A1800C89C83 /* EventViewController.m */,
+				151D0AD410D1206800C89C83 /* DayViewController.h */,
+				151D0AD510D1206800C89C83 /* DayViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -115,7 +127,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				154686B510B0C872008E69F1 /* TapkuLibrary.xcodeproj */,
+				153D559E10C2D7010053C894 /* TapkuLibrary.xcodeproj */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				1595602E10B2A955006EC0AB /* ViewControllers */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -138,7 +150,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1546867F10B0C818008E69F1 /* TapkuLibrary.bundle */,
+				151D0A8010D11A1800C89C83 /* EventViewController.xib */,
+				153D55E610C2D8230053C894 /* TapkuLibrary.bundle */,
 				28C3AD890F43EF2300507BA6 /* GoogleCal.xcdatamodel */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* GoogleCal-Info.plist */,
@@ -173,7 +186,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				154686BD10B0C87B008E69F1 /* PBXTargetDependency */,
+				153D55B110C2D7BA0053C894 /* PBXTargetDependency */,
 			);
 			name = GoogleCal;
 			productName = GoogleCal;
@@ -192,8 +205,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 154686B610B0C872008E69F1 /* Products */;
-					ProjectRef = 154686B510B0C872008E69F1 /* TapkuLibrary.xcodeproj */;
+					ProductGroup = 153D559F10C2D7010053C894 /* Products */;
+					ProjectRef = 153D559E10C2D7010053C894 /* TapkuLibrary.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -204,11 +217,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		15955FD510B2A5E8006EC0AB /* libTapkuLibrary.a */ = {
+		153D55A310C2D7010053C894 /* libTapkuLibrary.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libTapkuLibrary.a;
-			remoteRef = 15955FD410B2A5E8006EC0AB /* PBXContainerItemProxy */;
+			remoteRef = 153D55A210C2D7010053C894 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -219,7 +232,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
-				1546868010B0C818008E69F1 /* TapkuLibrary.bundle in Resources */,
+				153D55E710C2D8230053C894 /* TapkuLibrary.bundle in Resources */,
+				151D0A8210D11A1800C89C83 /* EventViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,16 +248,18 @@
 				1D3623260D0F684500981E51 /* GoogleCalAppDelegate.m in Sources */,
 				28C3AD8A0F43EF2300507BA6 /* GoogleCal.xcdatamodel in Sources */,
 				1595603310B2A9CD006EC0AB /* MonthCalendar.m in Sources */,
+				151D0A8110D11A1800C89C83 /* EventViewController.m in Sources */,
+				151D0AD710D1206800C89C83 /* DayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		154686BD10B0C87B008E69F1 /* PBXTargetDependency */ = {
+		153D55B110C2D7BA0053C894 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = TapkuLibrary;
-			targetProxy = 154686BC10B0C87B008E69F1 /* PBXContainerItemProxy */;
+			targetProxy = 153D55B010C2D7BA0053C894 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -300,7 +316,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "../tapkulibrary/src//**";
+				HEADER_SEARCH_PATHS = "../rtapkulibrary/src//**";
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",

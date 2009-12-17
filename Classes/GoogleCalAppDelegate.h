@@ -8,12 +8,16 @@
 
 @class MonthCalendar;
 @class DayViewController;
-@interface GoogleCalAppDelegate : NSObject <UIApplicationDelegate> {
+@class EventViewController;
 
+@interface GoogleCalAppDelegate : NSObject <UIApplicationDelegate> {
+	NSMutableDictionary *data;
     NSManagedObjectModel *managedObjectModel;
     NSManagedObjectContext *managedObjectContext;	    
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
 	IBOutlet UINavigationController *navController;
+	IBOutlet EventViewController *EventController;
+	
     UIWindow *window;
 	
 	MonthCalendar *monthcal;
@@ -31,8 +35,15 @@
 @property (nonatomic, retain) MonthCalendar *monthcal; 
 
 @property (nonatomic, retain)  DayViewController *dayview; 
+@property (readonly) NSArray *events;
+
+
 
 - (NSString *)applicationDocumentsDirectory;
+-(void) eventClicked:(NSString *) eventId;
+-(NSArray *) eventInfo:(NSString *) eventId;
+-(void) createDefaultData;
+
 
 @end
 

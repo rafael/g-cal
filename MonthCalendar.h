@@ -9,9 +9,9 @@
 
 #import "TapkuLibrary.h"
 
-
+@class GoogleCalAppDelegate;
 @interface MonthCalendar : TKCalendarMonthTableViewController {
-	
+	IBOutlet GoogleCalAppDelegate *appDelegate;	
 }
 
 @end

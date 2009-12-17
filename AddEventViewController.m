@@ -1,15 +1,15 @@
 //
-//  DayViewController.m
+//  AddEventViewController.m
 //  GoogleCal
 //
-//  Created by Rafael Chacon on 10/12/09.
+//  Created by Rafael Chacon on 17/12/09.
 //  Copyright 2009 Universidad Simon Bolivar. All rights reserved.
 //
 
-#import "DayViewController.h"
+#import "AddEventViewController.h"
 
 
-@implementation DayViewController
+@implementation AddEventViewController
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -21,12 +21,13 @@
 }
 */
 
-
+/*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-//- (void)viewDidLoad {
-//    [super viewDidLoad];
-//}
-//
+- (void)viewDidLoad {
+    [super viewDidLoad];
+}
+*/
+
 /*
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

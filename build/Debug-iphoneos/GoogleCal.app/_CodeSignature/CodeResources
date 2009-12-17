@@ -4,13 +4,17 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>EventViewController.nib</key>
+		<data>
+		B1+h3rGOT6LgrjEnV4nd0/ZyfeA=
+		</data>
 		<key>GoogleCal.mom</key>
 		<data>
 		35OriAI4yQPkBw9EpxjWtanMl+U=
 		</data>
 		<key>MainWindow.nib</key>
 		<data>
-		Bey4A2QSMlm5OykfN4+1euX++jI=
+		/GFWecvvU2soM6j6KIB88rCKW5w=
 		</data>
 		<key>MyViewController.nib</key>
 		<data>

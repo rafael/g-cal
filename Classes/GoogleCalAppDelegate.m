@@ -17,29 +17,64 @@
 @synthesize window;
 @synthesize monthcal;
 @synthesize dayview;
-
+@synthesize events;
 
 #pragma mark -
 #pragma mark Application lifecycle
+
+-(NSArray *) events{
+	return [data allKeys];
+	
+}
+
+-(NSArray *) eventInfo:(NSString *) eventId{
+	
+	return [data valueForKey:eventId];
+}
+
+-(void) createDefaultData {
+	data = [[NSMutableDictionary dictionary] retain];
+	[data setValue:[NSMutableArray arrayWithObjects:@"Harina",@"cafe",nil] forKey:@"Torta"];
+	[data setValue:[NSMutableArray arrayWithObjects:@"Agua",@"Sal",@"X",nil] forKey:@"Agua con sal"];
+	[data setValue:[NSMutableArray arrayWithObjects:@"Agua",@"azucar",@"maiz",@"etx",nil] forKey:@"Agua con azucar"];
+	
+}
+
+
+-(void) eventClicked:(NSString *) eventId{
+
+	
+	EventController.eventinformation =  [self eventInfo:eventId];
+
+	
+	[EventController loadEvent];
+	[navController pushViewController:EventController animated:YES];
+}
+
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
     
 
 	 
-//	MonthCalendar *aMonthCal = [[MonthCalendar alloc] init];
-//	[self setMonthcal:aMonthCal]; 
-//	[aMonthCal release]; 
-//	navController.viewControllers= [NSArray arrayWithObject:aMonthCal];
-//	[window addSubview:navController.view];
+	MonthCalendar *aMonthCal = [[MonthCalendar alloc] init];
+
 	
 	
-	DayViewController *aDayView = [[DayViewController alloc] init];
-	[self setDayview:aDayView]; 
-	[aDayView release]; 
-	navController.viewControllers= [NSArray arrayWithObject:aDayView];
+	[self setMonthcal:aMonthCal]; 
+	[aMonthCal release]; 
+	navController.viewControllers= [NSArray arrayWithObject:aMonthCal];
 	[window addSubview:navController.view];
 	
-	[window makeKeyAndVisible];
+	[self createDefaultData];
+	
+	
+//	DayViewController *aDayView = [[DayViewController alloc] init];
+//	[self setDayview:aDayView]; 
+//	[aDayView release]; 
+//	navController.viewControllers= [NSArray arrayWithObject:aDayView];
+//	[window addSubview:navController.view];
+//	
+//	[window makeKeyAndVisible];
 }
 
 /**

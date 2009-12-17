@@ -9,8 +9,16 @@
 #import <UIKit/UIKit.h>
 
 
-@interface EventViewController : UIViewController {
+@interface EventViewController :  UIViewController<UITableViewDataSource> {
+	
+	
+	NSArray *eventinformation;
+	IBOutlet UITableView *eventTableView;
 
 }
+
+
+@property (nonatomic, retain) NSArray *eventinformation; 
+-(void) loadEvent;
 
 @end

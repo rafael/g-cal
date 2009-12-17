@@ -7,12 +7,15 @@
 //
 // Modified by rafael chacon
 #import "MonthCalendar.h"
-
+#import "GoogleCalAppDelegate.h"
 
 @implementation MonthCalendar
+ 
 
 - (void) viewDidLoad{
 	[super viewDidLoad];
+	appDelegate = [[UIApplication sharedApplication] delegate];
+	
 	
 	srand([[NSDate date] timeIntervalSince1970]);
 }
@@ -26,23 +29,25 @@
 // delegate
 
 - (void) calendarMonthView:(TKCalendarMonthView*)monthView dateWasSelected:(NSDate*)date{
-	NSLog(@"%@",date);
+
 	[tableView reloadData];
 }
+
 - (void) calendarMonthView:(TKCalendarMonthView*)mv monthWillAppear:(NSDate*)month{
 	[super calendarMonthView:mv monthWillAppear:month];
-	
 	
 }
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	return 1;
-	
+	return 1;	
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return rand() % 5;
+	
+    return [appDelegate.events count];
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier = @"Cell";
@@ -52,18 +57,19 @@
         cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    
 	// Configure the cell.
-	cell.textLabel.text = [NSString stringWithFormat:@"Cell %d (Tap to reload marks)",indexPath.row];
-	
+
+	cell.textLabel.text = [appDelegate.events objectAtIndex:indexPath.row];
     return cell;
 	
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *) indexPath {
+-(void)tableView:(UITableView *)tableView2 didSelectRowAtIndexPath:(NSIndexPath *) indexPath {
 	
-	//[appDelegate recipeClicked:[[[tableView cellForRowAtIndexPath:indexPath] textLabel] text]];
-		NSLog(@"Vamos bien becerro");
+	
+	[appDelegate eventClicked:[[[tableView2 cellForRowAtIndexPath:indexPath] textLabel] text]];
+	
+	
 	
 }
 

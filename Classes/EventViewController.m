@@ -31,9 +31,6 @@
 	}
 	
 	cell.textLabel.text = [self.eventinformation objectAtIndex:indexPath.row];
-	
-		NSLog(@"estoy pasando poniendo %@", cell.textLabel.text);
-	
 	return cell;
 }
 

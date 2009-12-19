@@ -8,9 +8,31 @@
 
 #import <UIKit/UIKit.h>
 
+@class MonthCalendar;
+@class AddEventViewController;
 
-@interface AddEventViewController : UIViewController {
 
+@protocol AddEventDelegate <NSObject>
+
+@required
+
+- (void)addEventViewController:(AddEventViewController *)addEventViewController 
+				   didAddEvent:(NSString *)eventId;
+
+@end
+
+
+@interface AddEventViewController : UIViewController<UITableViewDataSource> {
+	id <AddEventDelegate> delegate;
+	IBOutlet UITextField *titleTextField;
+	IBOutlet UITableViewCell *titlePlacetextFieldCell;	
 }
+
+
+@property (nonatomic, assign) id <AddEventDelegate> delegate;
+
+-(IBAction)save:(id)sender;
+-(IBAction)cancel:(id)sender;
+
 
 @end

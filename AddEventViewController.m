@@ -7,10 +7,43 @@
 //
 
 #import "AddEventViewController.h"
+#import "MonthCalendar.h"
+
+
 
 
 @implementation AddEventViewController
 
+@synthesize delegate;
+-(IBAction)save:(id)sender{
+    [self dismissModalViewControllerAnimated:YES];
+    if ([delegate respondsToSelector:@selector(addEventViewController:didAddEvent:)]) {
+		
+        [delegate addEventViewController:self didAddEvent:titleTextField.text];
+    }
+}
+
+-(IBAction)cancel:(id)sender{
+	
+ [self dismissModalViewControllerAnimated:YES];
+	
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+	
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"firstFieldCell"];
+	
+	if( nil == cell) {
+		cell = titlePlacetextFieldCell;	
+	}
+	
+	return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+	return 1;
+}
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -21,12 +54,15 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	//monthCalendarController = self.parentViewController;
+	
 }
-*/
+
 
 /*
 // Override to allow orientations other than the default portrait orientation.

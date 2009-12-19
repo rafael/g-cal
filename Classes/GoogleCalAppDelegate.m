@@ -22,6 +22,13 @@
 #pragma mark -
 #pragma mark Application lifecycle
 
+-(void) addNewEvent:(NSString *) eventId{
+	
+	[data setValue:[NSMutableArray array] forKey:eventId];
+
+	
+}
+
 -(NSArray *) events{
 	return [data allKeys];
 	

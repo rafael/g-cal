@@ -8,18 +8,45 @@
 // Modified by rafael chacon
 #import "MonthCalendar.h"
 #import "GoogleCalAppDelegate.h"
-
+//#import "AddEventViewController.h"
 @implementation MonthCalendar
  
+
+- (void)addEventViewController:(AddEventViewController *)addEventViewController 
+				   didAddEvent:(NSString *)eventId{
+	
+	if (eventId != @""){
+	[appDelegate addNewEvent:eventId];
+	[tableView reloadData];
+	}
+	
+}
+
+
+-(IBAction)addEvent:(id)sender{
+	[self presentModalViewController:addEventController animated:YES];
+
+}
+
 
 - (void) viewDidLoad{
 	[super viewDidLoad];
 	appDelegate = [[UIApplication sharedApplication] delegate];
-	
-	
+	addEventController = [[AddEventViewController alloc] initWithNibName:@"AddEventViewController" bundle:nil];
+	addEventController.delegate = self;
+		
 	srand([[NSDate date] timeIntervalSince1970]);
+	self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] 
+											   initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:
+											   @selector(addEvent:)] autorelease];
 }
 
+
+- (void)viewDidUnload {
+	// Release any retained subviews of the main view.
+	// e.g. self.myOutlet = nil;
+	[addEventController release];
+}
 // data source
 
 - (BOOL) calendarMonthView:(TKCalendarMonthView*)monthView markForDay:(NSDate*)date{

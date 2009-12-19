@@ -44,6 +44,8 @@
 -(NSArray *) eventInfo:(NSString *) eventId;
 -(void) createDefaultData;
 
+-(void) addNewEvent:(NSString *) eventId;
+
 
 @end
 

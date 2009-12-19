@@ -26,6 +26,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"eventCell"];
+
 	if (cell == nil) {
 		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"eventCell"] autorelease];
 	}

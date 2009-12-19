@@ -22,14 +22,16 @@
 @end
 
 
-@interface AddEventViewController : UIViewController<UITableViewDataSource> {
+@interface AddEventViewController : UIViewController<UITableViewDataSource, UITextFieldDelegate> {
 	id <AddEventDelegate> delegate;
-	IBOutlet UITextField *titleTextField;
-	IBOutlet UITableViewCell *titlePlacetextFieldCell;	
+	UITextField *titleTextField;
+	UITextField *placeTextField;
 }
 
 
 @property (nonatomic, assign) id <AddEventDelegate> delegate;
+@property (nonatomic, retain, readonly) UITextField	*placeTextField;
+@property (nonatomic, retain, readonly) UITextField	*titleTextField;
 
 -(IBAction)save:(id)sender;
 -(IBAction)cancel:(id)sender;

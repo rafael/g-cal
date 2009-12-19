@@ -277,7 +277,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>13</integer>
+									<integer>14</integer>
 									<integer>6</integer>
 									<integer>0</integer>
 								</array>
@@ -302,7 +302,7 @@
 							<real>259</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>144 103 1201 768 0 0 1440 878 </string>
+						<string>144 104 1201 768 0 0 1440 878 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -320,7 +320,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>AddEventViewController.h</string>
+								<string>AddEventViewController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -328,11 +328,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>AddEventViewController.h</string>
+										<string>AddEventViewController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>15FD2F1F10DD24B2008688AE</string>
+										<string>15FD2FFA10DD482A008688AE</string>
 										<key>history</key>
 										<array>
 											<string>1546864410B0BC1D008E69F1</string>
@@ -357,7 +357,6 @@
 											<string>1546873210B0CF27008E69F1</string>
 											<string>1546875510B1937D008E69F1</string>
 											<string>1587E3B710BC557200F0FD12</string>
-											<string>1587E3B810BC557200F0FD12</string>
 											<string>153D561F10C2D8850053C894</string>
 											<string>153D562110C2D8850053C894</string>
 											<string>153D562310C2D8850053C894</string>
@@ -371,13 +370,14 @@
 											<string>157753CD10DA85DA00B2F1D6</string>
 											<string>15FD2D1110DCF276008688AE</string>
 											<string>15FD2EFC10DD2413008688AE</string>
-											<string>15FD2EFD10DD2413008688AE</string>
 											<string>15FD2F0E10DD24B2008688AE</string>
-											<string>15FD2F0F10DD24B2008688AE</string>
-											<string>15FD2F1010DD24B2008688AE</string>
-											<string>15FD2F1110DD24B2008688AE</string>
-											<string>15FD2F1210DD24B2008688AE</string>
-											<string>15FD2F1310DD24B2008688AE</string>
+											<string>15FD2F2210DD26B6008688AE</string>
+											<string>15FD2F2810DD317A008688AE</string>
+											<string>15FD2F7510DD3B29008688AE</string>
+											<string>15FD2F8410DD3DA8008688AE</string>
+											<string>15FD2FE910DD4614008688AE</string>
+											<string>15FD2FF410DD47E3008688AE</string>
+											<string>15FD2FF510DD47E3008688AE</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -601,6 +601,47 @@
 											<string>15FD2F1C10DD24B2008688AE</string>
 											<string>15FD2F1D10DD24B2008688AE</string>
 											<string>15FD2F1E10DD24B2008688AE</string>
+											<string>15FD2F2310DD26B6008688AE</string>
+											<string>15FD2F2410DD26B6008688AE</string>
+											<string>15FD2F2B10DD317A008688AE</string>
+											<string>15FD2F2C10DD317A008688AE</string>
+											<string>15FD2F2D10DD317A008688AE</string>
+											<string>15FD2F7810DD3B29008688AE</string>
+											<string>15FD2F7910DD3B29008688AE</string>
+											<string>15FD2F7A10DD3B29008688AE</string>
+											<string>15FD2F7B10DD3B29008688AE</string>
+											<string>15FD2F7C10DD3B29008688AE</string>
+											<string>15FD2F7D10DD3B29008688AE</string>
+											<string>15FD2F7E10DD3B29008688AE</string>
+											<string>15FD2F7F10DD3B29008688AE</string>
+											<string>15FD2F8010DD3B29008688AE</string>
+											<string>15FD2F8110DD3B29008688AE</string>
+											<string>15FD2F8710DD3DA8008688AE</string>
+											<string>15FD2F8810DD3DA8008688AE</string>
+											<string>15FD2F8910DD3DA8008688AE</string>
+											<string>15FD2FB910DD41C1008688AE</string>
+											<string>15FD2FBA10DD41C1008688AE</string>
+											<string>15FD2FBF10DD424C008688AE</string>
+											<string>15FD2FC010DD424C008688AE</string>
+											<string>15FD2FCD10DD43AF008688AE</string>
+											<string>15FD2FCE10DD43AF008688AE</string>
+											<string>15FD2FCF10DD43AF008688AE</string>
+											<string>15FD2FD010DD43AF008688AE</string>
+											<string>15FD2FD110DD43AF008688AE</string>
+											<string>15FD2FD210DD43AF008688AE</string>
+											<string>15FD2FD710DD43DE008688AE</string>
+											<string>15FD2FDF10DD45D5008688AE</string>
+											<string>15FD2FE010DD45D5008688AE</string>
+											<string>15FD2FE110DD45D5008688AE</string>
+											<string>15FD2FE210DD45D5008688AE</string>
+											<string>15FD2FE310DD45D5008688AE</string>
+											<string>15FD2FE410DD45D5008688AE</string>
+											<string>15FD2FE510DD45D5008688AE</string>
+											<string>15FD2FEA10DD4614008688AE</string>
+											<string>15FD2FEB10DD4614008688AE</string>
+											<string>15FD2FF110DD46C6008688AE</string>
+											<string>15FD2FF610DD47E3008688AE</string>
+											<string>15FD2FF710DD47E3008688AE</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -614,7 +655,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {920, 506}}</string>
 								<key>RubberWindowFrame</key>
-								<string>144 103 1201 768 0 0 1440 878 </string>
+								<string>144 104 1201 768 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -634,7 +675,7 @@
 								<key>Frame</key>
 								<string>{{0, 511}, {920, 216}}</string>
 								<key>RubberWindowFrame</key>
-								<string>144 103 1201 768 0 0 1440 878 </string>
+								<string>144 104 1201 768 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -802,7 +843,7 @@
 		<string>/Users/rafaelchacon/Sandboxes/GoogleCal/GoogleCal.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>144 103 1201 768 0 0 1440 878 </string>
+	<string>144 104 1201 768 0 0 1440 878 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -825,7 +866,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>MonthCalendar.m</string>
+								<string>AddEventViewController.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>

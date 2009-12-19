@@ -8,14 +8,16 @@
 // Modified by rafael chacon
 #import "MonthCalendar.h"
 #import "GoogleCalAppDelegate.h"
-//#import "AddEventViewController.h"
+
+#define allTrim( object ) [object stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet] ]
+
 @implementation MonthCalendar
  
 
 - (void)addEventViewController:(AddEventViewController *)addEventViewController 
 				   didAddEvent:(NSString *)eventId{
 	
-	if (eventId != @""){
+	if ( [allTrim( eventId ) length] != 0 ){
 	[appDelegate addNewEvent:eventId];
 	[tableView reloadData];
 	}

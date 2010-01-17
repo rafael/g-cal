@@ -8,12 +8,12 @@
 
 #import "EventViewController.h"
 
-
 @implementation EventViewController
 
 @synthesize eventinformation;
 
 -(void) loadEvent{
+	//NSLog(@"Si voy bien %@", eventTableView);
 	
 	[eventTableView reloadData];
 }
@@ -24,11 +24,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-	
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"eventCell"];
+	static NSString *kCell_ID = @"eventCell";
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCell_ID];
 
 	if (cell == nil) {
-		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"eventCell"] autorelease];
+		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:kCell_ID] autorelease];
 	}
 	
 	cell.textLabel.text = [self.eventinformation objectAtIndex:indexPath.row];

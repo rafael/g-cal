@@ -10,12 +10,16 @@
 		151D0A8110D11A1800C89C83 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 151D0A7F10D11A1800C89C83 /* EventViewController.m */; };
 		151D0A8210D11A1800C89C83 /* EventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 151D0A8010D11A1800C89C83 /* EventViewController.xib */; };
 		151D0AD710D1206800C89C83 /* DayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 151D0AD510D1206800C89C83 /* DayViewController.m */; };
+		1536BAE010F73F770090FEF2 /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1536BADE10F73F770090FEF2 /* AddEventViewController.m */; };
+		1536BAE110F73F770090FEF2 /* AddEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1536BADF10F73F770090FEF2 /* AddEventViewController.xib */; };
+		1536BAE210F73F770090FEF2 /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1536BADE10F73F770090FEF2 /* AddEventViewController.m */; };
+		1536BAE310F73F770090FEF2 /* AddEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1536BADF10F73F770090FEF2 /* AddEventViewController.xib */; };
 		153D55E710C2D8230053C894 /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 153D55E610C2D8230053C894 /* TapkuLibrary.bundle */; };
 		153D563710C2D8FB0053C894 /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 153D55A310C2D7010053C894 /* libTapkuLibrary.a */; };
 		1546871710B0C8E6008E69F1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1546871610B0C8E6008E69F1 /* QuartzCore.framework */; };
 		1546872510B0CF0C008E69F1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1546872410B0CF0C008E69F1 /* MapKit.framework */; };
-		1577539810DA85CC00B2F1D6 /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1577539610DA85CC00B2F1D6 /* AddEventViewController.m */; };
-		1577539910DA85CC00B2F1D6 /* AddEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1577539710DA85CC00B2F1D6 /* AddEventViewController.xib */; };
+		1577539810DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1577539610DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.m */; };
+		1577539910DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1577539710DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib */; };
 		1595603310B2A9CD006EC0AB /* MonthCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */; };
 		1D3623260D0F684500981E51 /* GoogleCalAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* GoogleCalAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
@@ -50,13 +54,18 @@
 		151D0A8010D11A1800C89C83 /* EventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = EventViewController.xib; path = Classes/EventViewController.xib; sourceTree = "<group>"; };
 		151D0AD410D1206800C89C83 /* DayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayViewController.h; sourceTree = "<group>"; };
 		151D0AD510D1206800C89C83 /* DayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayViewController.m; sourceTree = "<group>"; };
+		1522510610E29FEA0088802F /* UnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1522510710E29FEA0088802F /* UnitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnitTests-Info.plist"; sourceTree = "<group>"; };
+		1536BADD10F73F770090FEF2 /* AddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventViewController.h; sourceTree = "<group>"; };
+		1536BADE10F73F770090FEF2 /* AddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventViewController.m; sourceTree = "<group>"; };
+		1536BADF10F73F770090FEF2 /* AddEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddEventViewController.xib; sourceTree = "<group>"; };
 		153D559E10C2D7010053C894 /* TapkuLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TapkuLibrary.xcodeproj; path = ../rtapkulibrary/src/TapkuLibrary.xcodeproj; sourceTree = SOURCE_ROOT; };
 		153D55E610C2D8230053C894 /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TapkuLibrary.bundle; path = ../rtapkulibrary/src/TapkuLibrary.bundle; sourceTree = SOURCE_ROOT; };
 		1546871610B0C8E6008E69F1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = ../../../../System/Library/Frameworks/QuartzCore.framework; sourceTree = SOURCE_ROOT; };
 		1546872410B0CF0C008E69F1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		1577539510DA85CC00B2F1D6 /* AddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventViewController.h; sourceTree = "<group>"; };
-		1577539610DA85CC00B2F1D6 /* AddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventViewController.m; sourceTree = "<group>"; };
-		1577539710DA85CC00B2F1D6 /* AddEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddEventViewController.xib; sourceTree = "<group>"; };
+		1577539510DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTitlePlaceEventViewController.h; sourceTree = "<group>"; };
+		1577539610DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTitlePlaceEventViewController.m; sourceTree = "<group>"; };
+		1577539710DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTitlePlaceEventViewController.xib; sourceTree = "<group>"; };
 		1595603110B2A9CD006EC0AB /* MonthCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthCalendar.h; sourceTree = "<group>"; };
 		1595603210B2A9CD006EC0AB /* MonthCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthCalendar.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -74,6 +83,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1522510310E29FEA0088802F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -100,6 +116,13 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		1522512210E2A05A0088802F /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
 		153D559F10C2D7010053C894 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,8 +140,10 @@
 				151D0A7F10D11A1800C89C83 /* EventViewController.m */,
 				151D0AD410D1206800C89C83 /* DayViewController.h */,
 				151D0AD510D1206800C89C83 /* DayViewController.m */,
-				1577539510DA85CC00B2F1D6 /* AddEventViewController.h */,
-				1577539610DA85CC00B2F1D6 /* AddEventViewController.m */,
+				1577539510DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.h */,
+				1577539610DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.m */,
+				1536BADD10F73F770090FEF2 /* AddEventViewController.h */,
+				1536BADE10F73F770090FEF2 /* AddEventViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -127,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* GoogleCal.app */,
+				1522510610E29FEA0088802F /* UnitTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -135,12 +161,14 @@
 			isa = PBXGroup;
 			children = (
 				153D559E10C2D7010053C894 /* TapkuLibrary.xcodeproj */,
+				1522512210E2A05A0088802F /* Tests */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				1595602E10B2A955006EC0AB /* ViewControllers */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				1522510710E29FEA0088802F /* UnitTests-Info.plist */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -157,7 +185,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1577539710DA85CC00B2F1D6 /* AddEventViewController.xib */,
+				1536BADF10F73F770090FEF2 /* AddEventViewController.xib */,
+				1577539710DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib */,
 				151D0A8010D11A1800C89C83 /* EventViewController.xib */,
 				153D55E610C2D8230053C894 /* TapkuLibrary.bundle */,
 				28C3AD890F43EF2300507BA6 /* GoogleCal.xcdatamodel */,
@@ -183,6 +212,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1522510510E29FEA0088802F /* UnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1522510A10E29FEC0088802F /* Build configuration list for PBXNativeTarget "UnitTests" */;
+			buildPhases = (
+				1522510110E29FEA0088802F /* Resources */,
+				1522510210E29FEA0088802F /* Sources */,
+				1522510310E29FEA0088802F /* Frameworks */,
+				1522510410E29FEA0088802F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UnitTests;
+			productName = UnitTests;
+			productReference = 1522510610E29FEA0088802F /* UnitTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		1D6058900D05DD3D006BFB54 /* GoogleCal */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "GoogleCal" */;
@@ -220,6 +267,7 @@
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* GoogleCal */,
+				1522510510E29FEA0088802F /* UnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -235,6 +283,14 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1522510110E29FEA0088802F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1536BAE310F73F770090FEF2 /* AddEventViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1D60588D0D05DD3D006BFB54 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -242,13 +298,38 @@
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				153D55E710C2D8230053C894 /* TapkuLibrary.bundle in Resources */,
 				151D0A8210D11A1800C89C83 /* EventViewController.xib in Resources */,
-				1577539910DA85CC00B2F1D6 /* AddEventViewController.xib in Resources */,
+				1577539910DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib in Resources */,
+				1536BAE110F73F770090FEF2 /* AddEventViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1522510410E29FEA0088802F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		1522510210E29FEA0088802F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1536BAE210F73F770090FEF2 /* AddEventViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1D60588E0D05DD3D006BFB54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -259,7 +340,8 @@
 				1595603310B2A9CD006EC0AB /* MonthCalendar.m in Sources */,
 				151D0A8110D11A1800C89C83 /* EventViewController.m in Sources */,
 				151D0AD710D1206800C89C83 /* DayViewController.m in Sources */,
-				1577539810DA85CC00B2F1D6 /* AddEventViewController.m in Sources */,
+				1577539810DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.m in Sources */,
+				1536BAE010F73F770090FEF2 /* AddEventViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +356,62 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		1522510810E29FEC0088802F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = "UnitTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					SenTestingKit,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = UnitTests;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		1522510910E29FEC0088802F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				INFOPLIST_FILE = "UnitTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					SenTestingKit,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = UnitTests;
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -352,6 +490,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1522510A10E29FEC0088802F /* Build configuration list for PBXNativeTarget "UnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1522510810E29FEC0088802F /* Debug */,
+				1522510910E29FEC0088802F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "GoogleCal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

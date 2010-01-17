@@ -49,11 +49,7 @@
 
 
 -(void) eventClicked:(NSString *) eventId{
-
-	
 	EventController.eventinformation =  [self eventInfo:eventId];
-
-	
 	[EventController loadEvent];
 	[navController pushViewController:EventController animated:YES];
 }

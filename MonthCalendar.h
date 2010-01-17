@@ -8,15 +8,19 @@
 // Modified by rafael Chacon
 
 #import "TapkuLibrary.h"
+//#import "AddTitlePlaceEventViewController.h"
 #import "AddEventViewController.h"
 @class GoogleCalAppDelegate;
-@class AddEventViewController;
-@interface MonthCalendar : TKCalendarMonthTableViewController<AddEventDelegate> {
+@class AddTitlePlaceEventViewController;
+@interface MonthCalendar : TKCalendarMonthTableViewController {
 	GoogleCalAppDelegate *appDelegate;	
 	AddEventViewController *addEventController;
+	UINavigationController *addNavController;
+	
 	
 }
 
+@property (nonatomic,retain)  UINavigationController *addNavController;
 -(IBAction)addEvent:(id)sender;
 
 

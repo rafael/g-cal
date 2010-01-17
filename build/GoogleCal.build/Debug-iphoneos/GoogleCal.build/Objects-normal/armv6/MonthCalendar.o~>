@@ -1,4 +1,0 @@
-/Users/rafaelchacon/Sandboxes/GoogleCal/MonthCalendar.m: In function '-[MonthCalendar viewDidLoad]':
-/Users/rafaelchacon/Sandboxes/GoogleCal/MonthCalendar.m:30: error: 'curTrail' undeclared (first use in this function)
-/Users/rafaelchacon/Sandboxes/GoogleCal/MonthCalendar.m:30: error: (Each undeclared identifier is reported only once
-/Users/rafaelchacon/Sandboxes/GoogleCal/MonthCalendar.m:30: error: for each function it appears in.)

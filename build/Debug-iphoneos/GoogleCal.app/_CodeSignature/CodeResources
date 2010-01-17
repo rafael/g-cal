@@ -4,9 +4,13 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>AddEventViewController.nib</key>
+		<data>
+		fXr13ASJ7S5d2P+0vE55xRpjKb4=
+		</data>
 		<key>EventViewController.nib</key>
 		<data>
-		B1+h3rGOT6LgrjEnV4nd0/ZyfeA=
+		QZ+X7bJHru3nXdPnIN8E+sbEt8Y=
 		</data>
 		<key>GoogleCal.mom</key>
 		<data>
@@ -14,7 +18,7 @@
 		</data>
 		<key>MainWindow.nib</key>
 		<data>
-		/GFWecvvU2soM6j6KIB88rCKW5w=
+		NBYFzQo72kF794LX0A9hlYz0UNw=
 		</data>
 		<key>MyViewController.nib</key>
 		<data>

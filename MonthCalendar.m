@@ -9,34 +9,45 @@
 #import "MonthCalendar.h"
 #import "GoogleCalAppDelegate.h"
 
-#define allTrim( object ) [object stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet] ]
+//#define allTrim( object ) [object stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet] ]
 
 @implementation MonthCalendar
+
+@synthesize addNavController;
  
 
-- (void)addEventViewController:(AddEventViewController *)addEventViewController 
-				   didAddEvent:(NSString *)eventId{
-	
-	if ( [allTrim( eventId ) length] != 0 ){
-	[appDelegate addNewEvent:eventId];
-	[tableView reloadData];
-	}
-	
-}
+//- (void)addTitlePlaceEventViewController:(AddTitlePlaceEventViewController *)addTitlePlaceEventViewController 
+//				   didAddTitlePlaceEvent:(NSString *)eventId{
+//	
+//	if ( [allTrim( eventId ) length] != 0 ){
+//	[appDelegate addNewEvent:eventId];
+//	[tableView reloadData];
+//	}
+//	
+//}
 
 
 -(IBAction)addEvent:(id)sender{
-	[self presentModalViewController:addEventController animated:YES];
+	addNavController.navigationBarHidden = YES;
+	[self presentModalViewController:addNavController animated:YES];
+	
+
 
 }
+
+
+
 
 
 - (void) viewDidLoad{
 	[super viewDidLoad];
 	appDelegate = [[UIApplication sharedApplication] delegate];
 	addEventController = [[AddEventViewController alloc] initWithNibName:@"AddEventViewController" bundle:nil];
-	addEventController.delegate = self;
-		
+	//addEventController.delegate = self;
+	addNavController = [[UINavigationController alloc] initWithRootViewController:addEventController];
+	//[addNavController navigationBarHidden:YES];
+	
+
 	srand([[NSDate date] timeIntervalSince1970]);
 	self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] 
 											   initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:
@@ -79,11 +90,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *kCellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tv dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [tv dequeueReusableCellWithIdentifier:kCellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:kCellIdentifier] autorelease];
     }
     
 	// Configure the cell.
@@ -103,7 +114,20 @@
 }
 
 
+- (void)viewWillAppear:(BOOL)animated
+{
+	// this UIViewController is about to re-appear, make sure we remove the current selection in our table view
+	NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];
+	[self.tableView deselectRowAtIndexPath:tableSelection animated:YES];
+}
 
+
+-(void)dealloc {
+	
+	[addNavController release];
+	[super dealloc];
+	
+}
 
 
 @end

@@ -18,9 +18,15 @@
 		153D563710C2D8FB0053C894 /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 153D55A310C2D7010053C894 /* libTapkuLibrary.a */; };
 		1546871710B0C8E6008E69F1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1546871610B0C8E6008E69F1 /* QuartzCore.framework */; };
 		1546872510B0CF0C008E69F1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1546872410B0CF0C008E69F1 /* MapKit.framework */; };
+		1561C8D9110CB02E00176F1A /* AddDateEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1561C8D7110CB02E00176F1A /* AddDateEventViewController.m */; };
+		1561C8DA110CB02E00176F1A /* AddDateEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1561C8D8110CB02E00176F1A /* AddDateEventViewController.xib */; };
 		1577539810DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1577539610DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.m */; };
 		1577539910DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1577539710DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib */; };
 		1595603310B2A9CD006EC0AB /* MonthCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */; };
+		15FF3E6A1103330F004BBA6F /* AddNoteEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FF3E681103330F004BBA6F /* AddNoteEventViewController.m */; };
+		15FF3E6B1103330F004BBA6F /* AddNoteEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15FF3E691103330F004BBA6F /* AddNoteEventViewController.xib */; };
+		15FF3E6C1103330F004BBA6F /* AddNoteEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FF3E681103330F004BBA6F /* AddNoteEventViewController.m */; };
+		15FF3E6D1103330F004BBA6F /* AddNoteEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15FF3E691103330F004BBA6F /* AddNoteEventViewController.xib */; };
 		1D3623260D0F684500981E51 /* GoogleCalAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* GoogleCalAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -63,11 +69,17 @@
 		153D55E610C2D8230053C894 /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TapkuLibrary.bundle; path = ../rtapkulibrary/src/TapkuLibrary.bundle; sourceTree = SOURCE_ROOT; };
 		1546871610B0C8E6008E69F1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = ../../../../System/Library/Frameworks/QuartzCore.framework; sourceTree = SOURCE_ROOT; };
 		1546872410B0CF0C008E69F1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		1561C8D6110CB02E00176F1A /* AddDateEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDateEventViewController.h; sourceTree = "<group>"; };
+		1561C8D7110CB02E00176F1A /* AddDateEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDateEventViewController.m; sourceTree = "<group>"; };
+		1561C8D8110CB02E00176F1A /* AddDateEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddDateEventViewController.xib; sourceTree = "<group>"; };
 		1577539510DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTitlePlaceEventViewController.h; sourceTree = "<group>"; };
 		1577539610DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTitlePlaceEventViewController.m; sourceTree = "<group>"; };
 		1577539710DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTitlePlaceEventViewController.xib; sourceTree = "<group>"; };
 		1595603110B2A9CD006EC0AB /* MonthCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthCalendar.h; sourceTree = "<group>"; };
 		1595603210B2A9CD006EC0AB /* MonthCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthCalendar.m; sourceTree = "<group>"; };
+		15FF3E671103330F004BBA6F /* AddNoteEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNoteEventViewController.h; sourceTree = "<group>"; };
+		15FF3E681103330F004BBA6F /* AddNoteEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNoteEventViewController.m; sourceTree = "<group>"; };
+		15FF3E691103330F004BBA6F /* AddNoteEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNoteEventViewController.xib; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* GoogleCalAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleCalAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* GoogleCalAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleCalAppDelegate.m; sourceTree = "<group>"; };
@@ -144,6 +156,10 @@
 				1577539610DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.m */,
 				1536BADD10F73F770090FEF2 /* AddEventViewController.h */,
 				1536BADE10F73F770090FEF2 /* AddEventViewController.m */,
+				15FF3E671103330F004BBA6F /* AddNoteEventViewController.h */,
+				15FF3E681103330F004BBA6F /* AddNoteEventViewController.m */,
+				1561C8D6110CB02E00176F1A /* AddDateEventViewController.h */,
+				1561C8D7110CB02E00176F1A /* AddDateEventViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -185,6 +201,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1561C8D8110CB02E00176F1A /* AddDateEventViewController.xib */,
+				15FF3E691103330F004BBA6F /* AddNoteEventViewController.xib */,
 				1536BADF10F73F770090FEF2 /* AddEventViewController.xib */,
 				1577539710DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib */,
 				151D0A8010D11A1800C89C83 /* EventViewController.xib */,
@@ -288,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1536BAE310F73F770090FEF2 /* AddEventViewController.xib in Resources */,
+				15FF3E6D1103330F004BBA6F /* AddNoteEventViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +319,8 @@
 				151D0A8210D11A1800C89C83 /* EventViewController.xib in Resources */,
 				1577539910DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib in Resources */,
 				1536BAE110F73F770090FEF2 /* AddEventViewController.xib in Resources */,
+				15FF3E6B1103330F004BBA6F /* AddNoteEventViewController.xib in Resources */,
+				1561C8DA110CB02E00176F1A /* AddDateEventViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1536BAE210F73F770090FEF2 /* AddEventViewController.m in Sources */,
+				15FF3E6C1103330F004BBA6F /* AddNoteEventViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +364,8 @@
 				151D0AD710D1206800C89C83 /* DayViewController.m in Sources */,
 				1577539810DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.m in Sources */,
 				1536BAE010F73F770090FEF2 /* AddEventViewController.m in Sources */,
+				15FF3E6A1103330F004BBA6F /* AddNoteEventViewController.m in Sources */,
+				1561C8D9110CB02E00176F1A /* AddDateEventViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

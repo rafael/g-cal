@@ -29,10 +29,22 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 
 - (void)addTitlePlaceEventViewController:(AddTitlePlaceEventViewController *)addTitlePlaceEventViewController 
 				   didAddTitlePlaceEvent:(NSString *)eventId{
-	
+	NSLog(@"delegation for Title and place it's working");
 	if ( [allTrim( eventId ) length] != 0 ){
 		//[appDelegate addNewEvent:eventId];
 		//[tableView reloadData];
+		
+	}
+	
+}
+
+- (void)addNoteEventViewController:(AddNoteEventViewController *)addNoteEventViewController 
+				   didAddNoteEvent:(NSString *)eventId{
+	NSLog(@"delegation for Notes and place it's working");
+	if ( [allTrim( eventId ) length] != 0 ){
+		//[appDelegate addNewEvent:eventId];
+		//[tableView reloadData];
+		
 	}
 	
 }
@@ -45,64 +57,11 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 }
 
 
-
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
+	
     [super viewDidLoad];
-	// construct the array of page descriptions we will use (each description is a dictionary)
-	//
-	self.menuList = [NSMutableArray array];
-	
-	// for showing various UIButtons:
-	AddTitlePlaceEventViewController *addTitlePlaceEventViewController = [[AddTitlePlaceEventViewController alloc]
-													initWithNibName:@"AddTitlePlaceEventViewController" bundle:nil];
-	addTitlePlaceEventViewController.delegate = self;
-	[addTitlePlaceEventViewController.navigationItem setHidesBackButton:YES];
-	[self.menuList addObject:[NSDictionary dictionaryWithObjectsAndKeys:
-							  @"Title and Place", kTitleKey,
-							  addTitlePlaceEventViewController, kViewControllerKey,
-							  @"54.0f", kRowSizeKey,
-							  @"NO",kNormalRowsizeKey,
-							  nil]];
-	[addTitlePlaceEventViewController release];
-	
-	// for showing various UIButtons:
-	AddTitlePlaceEventViewController *addTitlePlaceEventViewController2 = [[AddTitlePlaceEventViewController alloc]
-																		  initWithNibName:@"AddTitlePlaceEventViewController" bundle:nil];
-	addTitlePlaceEventViewController2.delegate = self;
-	[self.menuList addObject:[NSDictionary dictionaryWithObjectsAndKeys:
-							  @"Starts Ends", kTitleKey,
-							  addTitlePlaceEventViewController2, kViewControllerKey,
-							  @"54.0f", kRowSizeKey,
-							  
-							  @"NO",kNormalRowsizeKey,
-							  nil]];
-	[addTitlePlaceEventViewController2 release];
-	
-	addTitlePlaceEventViewController2 = [[AddTitlePlaceEventViewController alloc]
-																		   initWithNibName:@"AddTitlePlaceEventViewController" bundle:nil];
-	addTitlePlaceEventViewController2.delegate = self;
-	[self.menuList addObject:[NSDictionary dictionaryWithObjectsAndKeys:
-							  @"Calendar", kTitleKey,
-							  addTitlePlaceEventViewController2, kViewControllerKey,
-							  @"44.0f", kRowSizeKey,
-							  @"YES",kNormalRowsizeKey,
-							  nil]];
-	[addTitlePlaceEventViewController2 release];
-	
-	
-	addTitlePlaceEventViewController2 = [[AddTitlePlaceEventViewController alloc]
-																		   initWithNibName:@"AddTitlePlaceEventViewController" bundle:nil];
-	addTitlePlaceEventViewController2.delegate = self;
-	[self.menuList addObject:[NSDictionary dictionaryWithObjectsAndKeys:
-							  @"Notes", kTitleKey,
-							  addTitlePlaceEventViewController2, kViewControllerKey,
-							  @"44.0f", kRowSizeKey,
-							  @"YES",kNormalRowsizeKey,
-							  nil]];
-	[addTitlePlaceEventViewController2 release];
-	
-
+	[self initializeMenuList];
 	
 }
 
@@ -118,43 +77,76 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	UIViewController *targetViewController = [[self.menuList objectAtIndex: indexPath.row] objectForKey:kViewControllerKey];
+	UIViewController *targetViewController = [[self.menuList objectAtIndex: indexPath.section] objectForKey:kViewControllerKey];
 	[[self navigationController] pushViewController:targetViewController animated:YES];
 }
 
+
+#pragma mark -
+#pragma mark Table View dataSource Methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 	return 1;
 }
 
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
 	return [self.menuList count];
 }
 
-// tell our table what kind of cell to use and its title for the given row
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
 	NSString *normalHeightSize = [[self.menuList objectAtIndex:indexPath.section] objectForKey:kNormalRowsizeKey];
+	
 	if (normalHeightSize == @"NO") {
+		
 		cell = [self cellForNoNormalHeight:cell indexAt:indexPath];
 	}
+	
 	else {
+		
 		cell = [self cellForNormalHeight:cell indexAt:indexPath];
 	}
 
 	return cell;
+	
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	
 	CGFloat		result =  [[[self.menuList objectAtIndex:indexPath.section] objectForKey:kRowSizeKey] floatValue];
-	
-	NSLog(@" %i,%f",indexPath.section,result);
-	//result = 44.0f;
-	
 	return result;
 }
+
+
+
+- (void)didReceiveMemoryWarning {
+	// Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+	
+	// Release any cached data, images, etc that aren't in use.
+}
+
+- (void)viewDidUnload {
+	[super viewDidUnload];
+	
+	
+	self.menuList = nil;
+	
+}
+
+- (void)dealloc {
+	
+	
+	[self.menuList release];
+    [super dealloc];
+}
+
+
+
 
 -(UITableViewCell *)cellForNoNormalHeight:(UITableViewCell *)cell indexAt:(NSIndexPath *) indexPath {
 	
@@ -232,28 +224,61 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 	return cell;
 }
 
-- (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
+-(void) initializeMenuList{
 	
-	// Release any cached data, images, etc that aren't in use.
+	self.menuList = [NSMutableArray array];
+	// for showing various UIButtons:
+	AddTitlePlaceEventViewController *addTitlePlaceEventViewController = [[AddTitlePlaceEventViewController alloc]
+																		  initWithNibName:@"AddTitlePlaceEventViewController" bundle:nil];
+	addTitlePlaceEventViewController.delegate = self;
+	[addTitlePlaceEventViewController.navigationItem setHidesBackButton:YES];
+	[self.menuList addObject:[NSDictionary dictionaryWithObjectsAndKeys:
+							  @"Title and Place", kTitleKey,
+							  addTitlePlaceEventViewController, kViewControllerKey,
+							  @"54.0f", kRowSizeKey,
+							  @"NO",kNormalRowsizeKey,
+							  nil]];
+	[addTitlePlaceEventViewController release];
+	
+	AddDateEventViewController *addDateViewController = [[AddDateEventViewController alloc] 
+														 initWithNibName:@"AddDateEventViewController" bundle:nil];
+
+	[self.menuList addObject:[NSDictionary dictionaryWithObjectsAndKeys:
+							  @"Starts Ends", kTitleKey,
+							  addDateViewController, kViewControllerKey,
+							  @"54.0f", kRowSizeKey,
+							  
+							  @"NO",kNormalRowsizeKey,
+							  nil]];
+	[addDateViewController release];
+	
+	
+	
+	AddTitlePlaceEventViewController *addTitlePlaceEventViewController2 = [[AddTitlePlaceEventViewController alloc]
+																		   initWithNibName:@"AddTitlePlaceEventViewController" bundle:nil];
+	addTitlePlaceEventViewController2.delegate = self;
+	
+	[self.menuList addObject:[NSDictionary dictionaryWithObjectsAndKeys:
+							  @"Calendar", kTitleKey,
+							  addTitlePlaceEventViewController2, kViewControllerKey,
+							  @"44.0f", kRowSizeKey,
+							  @"YES",kNormalRowsizeKey,
+							  nil]];
+	[addTitlePlaceEventViewController2 release];
+	
+	AddNoteEventViewController *addNoteEventViewController = [[AddNoteEventViewController alloc]
+																initWithNibName:@"AddNoteEventViewController" bundle:nil];
+	addNoteEventViewController.delegate = self;
+	[self.menuList addObject:[NSDictionary dictionaryWithObjectsAndKeys:
+							  @"Notes", kTitleKey,
+							  addNoteEventViewController, kViewControllerKey,
+							  @"44.0f", kRowSizeKey,
+							  @"YES",kNormalRowsizeKey,
+							  nil]];
+	[addNoteEventViewController release];
+	
 }
 
-- (void)viewDidUnload {
-	[super viewDidUnload];
-	
-
-	self.menuList = nil;
-	
-}
-
-
-- (void)dealloc {
-	
-	
-	[self.menuList release];
-    [super dealloc];
-}
 
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "AddTitlePlaceEventViewController.h"
-#import "MonthCalendar.h"
+
 
 #define kTextFieldWidth	277
 #define kTextFieldHeight 31
@@ -23,9 +23,8 @@
 
 
 -(IBAction)save:(id)sender{
-    [self dismissModalViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
     if ([delegate respondsToSelector:@selector(addTitlePlaceEventViewController:didAddTitlePlaceEvent:)]) {
-		
         [delegate addTitlePlaceEventViewController:self didAddTitlePlaceEvent:titleTextField.text];
     }
 }
@@ -36,7 +35,8 @@
 	
 }
 
-
+#pragma mark -
+#pragma mark Table View dataSource Methods
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 	UITableViewCell *cell = nil;
@@ -95,15 +95,17 @@
 	return cell;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+	return 2;
+}
+
+
 - (void)viewWillAppear:(BOOL)flag {
     [super viewWillAppear:flag];
     [titleTextField becomeFirstResponder];
 }
 
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-	return 2;
-}
 
 
 

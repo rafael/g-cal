@@ -16,15 +16,7 @@
 @synthesize addNavController;
  
 
-//- (void)addTitlePlaceEventViewController:(AddTitlePlaceEventViewController *)addTitlePlaceEventViewController 
-//				   didAddTitlePlaceEvent:(NSString *)eventId{
-//	
-//	if ( [allTrim( eventId ) length] != 0 ){
-//	[appDelegate addNewEvent:eventId];
-//	[tableView reloadData];
-//	}
-//	
-//}
+
 
 
 -(IBAction)addEvent:(id)sender{
@@ -43,9 +35,8 @@
 	[super viewDidLoad];
 	appDelegate = [[UIApplication sharedApplication] delegate];
 	addEventController = [[AddEventViewController alloc] initWithNibName:@"AddEventViewController" bundle:nil];
-	//addEventController.delegate = self;
 	addNavController = [[UINavigationController alloc] initWithRootViewController:addEventController];
-	//[addNavController navigationBarHidden:YES];
+
 	
 
 	srand([[NSDate date] timeIntervalSince1970]);

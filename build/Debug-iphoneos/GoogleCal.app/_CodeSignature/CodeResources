@@ -4,13 +4,25 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>AddDateEventViewController.nib</key>
+		<data>
+		6/f3NE5ONbIRQoJeyPC96K74l54=
+		</data>
 		<key>AddEventViewController.nib</key>
 		<data>
-		fXr13ASJ7S5d2P+0vE55xRpjKb4=
+		sheQdLxlmHXdz+k6Qu5BnMkZXuI=
+		</data>
+		<key>AddNoteEventViewController.nib</key>
+		<data>
+		+N04e411E2fBuNGMb2ojbe99d4A=
+		</data>
+		<key>AddTitlePlaceEventViewController.nib</key>
+		<data>
+		N9OPguFlBmJst8roLbAKFxHuobk=
 		</data>
 		<key>EventViewController.nib</key>
 		<data>
-		QZ+X7bJHru3nXdPnIN8E+sbEt8Y=
+		Mjb/WdYcncf9VA8ESpEZyzsr5/o=
 		</data>
 		<key>GoogleCal.mom</key>
 		<data>
@@ -18,7 +30,7 @@
 		</data>
 		<key>MainWindow.nib</key>
 		<data>
-		NBYFzQo72kF794LX0A9hlYz0UNw=
+		/GFWecvvU2soM6j6KIB88rCKW5w=
 		</data>
 		<key>MyViewController.nib</key>
 		<data>
@@ -194,7 +206,7 @@
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
-		8xl6bXjWYN2HJc7KkksqyNop0eA=
+		yDH++xIOkejc6n+bqstC6zkcV58=
 		</data>
 	</dict>
 	<key>rules</key>

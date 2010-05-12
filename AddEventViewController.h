@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "AddTitlePlaceEventViewController.h"
+#import "AddNoteEventViewController.h"
+#import "AddDateEventViewController.h"
 
-@interface AddEventViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,AddEventDelegate> {
+
+@interface AddEventViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,AddTitlePlaceEventDelegate,AddNoteEventDelegate> {
 	
 	NSMutableArray *menuList;
-	
-	
  	IBOutlet UITableView *addElementsTableView;
 	
 
@@ -28,5 +29,6 @@
 - (UITableViewCell *) getCellContentView:(NSString *)cellIdentifier;
 -(UITableViewCell *)cellForNoNormalHeight:(UITableViewCell *)cell indexAt:(NSIndexPath *) indexPath;
 -(UITableViewCell *)cellForNormalHeight:(UITableViewCell *)cell indexAt:(NSIndexPath *) indexPath;
+-(void) initializeMenuList;
 
 @end

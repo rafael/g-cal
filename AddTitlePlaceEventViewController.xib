@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="11"/>
+			<integer value="1"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -72,7 +72,7 @@
 								</object>
 								<object class="IBUIBarButtonItem" key="IBUIRightBarButtonItem" id="100390572">
 									<int key="IBUIStyle">1</int>
-									<int key="IBUISystemItemIdentifier">3</int>
+									<int key="IBUISystemItemIdentifier">0</int>
 								</object>
 							</object>
 						</object>
@@ -172,15 +172,10 @@
 						<reference key="object" ref="158608248"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="100390572"/>
 							<reference ref="970399591"/>
+							<reference ref="100390572"/>
 						</object>
 						<reference key="parent" ref="739943183"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">13</int>
-						<reference key="object" ref="100390572"/>
-						<reference key="parent" ref="158608248"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">14</int>
@@ -191,6 +186,11 @@
 						<int key="objectID">15</int>
 						<reference key="object" ref="633200542"/>
 						<reference key="parent" ref="191373211"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">13</int>
+						<reference key="object" ref="100390572"/>
+						<reference key="parent" ref="158608248"/>
 					</object>
 				</object>
 			</object>
@@ -212,7 +212,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>AddTitlePlaceEventViewController</string>
 					<string>UIResponder</string>
-					<string>{{568, 186}, {320, 480}}</string>
+					<string>{{264, 232}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -241,7 +241,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">32</int>
+			<int key="maxID">33</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

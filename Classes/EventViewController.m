@@ -18,6 +18,9 @@
 	[eventTableView reloadData];
 }
 
+#pragma mark -
+#pragma mark Table View dataSource Methods
+
 -(NSInteger)tableView:(UITableView *)tv numberOfRowsInSection:(NSInteger)section {
 	//NSLog("TENGO TANTOS %@", [self.eventinformation count]);
 		return [self.eventinformation count];

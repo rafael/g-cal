@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class MonthCalendar;
 @class AddTitlePlaceEventViewController;
 
-@protocol AddEventDelegate <NSObject>
+@protocol AddTitlePlaceEventDelegate <NSObject>
 
 @required
 
@@ -22,13 +21,13 @@
 
 
 @interface AddTitlePlaceEventViewController : UIViewController<UITableViewDataSource, UITextFieldDelegate> {
-	id <AddEventDelegate> delegate;
+	id <AddTitlePlaceEventDelegate> delegate;
 	UITextField *titleTextField;
 	UITextField *placeTextField;
 }
 
 
-@property (nonatomic, assign) id <AddEventDelegate> delegate;
+@property (nonatomic, assign) id <AddTitlePlaceEventDelegate> delegate;
 @property (nonatomic, retain, readonly) UITextField	*placeTextField;
 @property (nonatomic, retain, readonly) UITextField	*titleTextField;
 

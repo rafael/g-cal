@@ -278,13 +278,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>15</integer>
+									<integer>20</integer>
 									<integer>6</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {259, 764}}</string>
+							<string>{{0, 21}, {259, 764}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -303,7 +303,7 @@
 							<real>259</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>58 55 1381 823 0 0 1440 878 </string>
+						<string>61 54 1381 823 0 0 1440 878 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -321,7 +321,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>AddEventViewController.h</string>
+								<string>AddDateEventViewController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -329,11 +329,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>AddEventViewController.h</string>
+										<string>AddDateEventViewController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>15FF3E5D110330BE004BBA6F</string>
+										<string>151D0280119B0247003EFE13</string>
 										<key>history</key>
 										<array>
 											<string>1546864410B0BC1D008E69F1</string>
@@ -369,19 +369,23 @@
 											<string>15C495A010CEB29A009A3691</string>
 											<string>15C495A210CEB29A009A3691</string>
 											<string>15FD2FE910DD4614008688AE</string>
-											<string>1536BC1710F74FDA0090FEF2</string>
-											<string>15FA9FC510FA3C8200427120</string>
 											<string>15FA9FCA10FA40E700427120</string>
-											<string>15FA9FCE10FA40E700427120</string>
-											<string>158812A510FA8D5C00E82765</string>
-											<string>158812A610FA8D5C00E82765</string>
 											<string>158812A910FA8D5C00E82765</string>
-											<string>153D5608110321B0000DFD6B</string>
-											<string>153D5609110321B0000DFD6B</string>
-											<string>153D560A110321B0000DFD6B</string>
-											<string>153D560B110321B0000DFD6B</string>
-											<string>15FF3E56110330BE004BBA6F</string>
-											<string>15FF3E57110330BE004BBA6F</string>
+											<string>15FF3F121103426A004BBA6F</string>
+											<string>15E067F511074765005F5B89</string>
+											<string>15CDBAB511174B2000543B12</string>
+											<string>15CDBB5E111B294C00543B12</string>
+											<string>15CDBB5F111B294C00543B12</string>
+											<string>1551D721111B30290049DE34</string>
+											<string>1551D722111B30290049DE34</string>
+											<string>15D76080119AECB800A311B0</string>
+											<string>15D76081119AECB800A311B0</string>
+											<string>15D76082119AECB800A311B0</string>
+											<string>15D76083119AECB800A311B0</string>
+											<string>15D76084119AECB800A311B0</string>
+											<string>151D0253119AFE69003EFE13</string>
+											<string>151D027A119B021C003EFE13</string>
+											<string>151D027B119B021C003EFE13</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -431,11 +435,35 @@
 											<string>1536BB1310F744C00090FEF2</string>
 											<string>1536BB1610F744C00090FEF2</string>
 											<string>158812BC10FA8D5C00E82765</string>
-											<string>15FF3E58110330BE004BBA6F</string>
-											<string>15FF3E59110330BE004BBA6F</string>
-											<string>15FF3E5A110330BE004BBA6F</string>
-											<string>15FF3E5B110330BE004BBA6F</string>
-											<string>15FF3E5C110330BE004BBA6F</string>
+											<string>15FF3E7E11033785004BBA6F</string>
+											<string>15FF3E90110339EC004BBA6F</string>
+											<string>15CDBAB811174B2000543B12</string>
+											<string>15CDBAE011175A3C00543B12</string>
+											<string>151D021A119AF8CE003EFE13</string>
+											<string>151D021B119AF8CE003EFE13</string>
+											<string>151D0220119AF985003EFE13</string>
+											<string>151D0221119AF985003EFE13</string>
+											<string>151D0248119AFD4F003EFE13</string>
+											<string>151D0249119AFD4F003EFE13</string>
+											<string>151D024F119AFE0B003EFE13</string>
+											<string>151D0250119AFE0B003EFE13</string>
+											<string>151D0256119AFE69003EFE13</string>
+											<string>151D0257119AFE69003EFE13</string>
+											<string>151D0258119AFE69003EFE13</string>
+											<string>151D0259119AFE69003EFE13</string>
+											<string>151D025A119AFE69003EFE13</string>
+											<string>151D025B119AFE69003EFE13</string>
+											<string>151D025C119AFE69003EFE13</string>
+											<string>151D025D119AFE69003EFE13</string>
+											<string>151D025E119AFE69003EFE13</string>
+											<string>151D025F119AFE69003EFE13</string>
+											<string>151D0260119AFE69003EFE13</string>
+											<string>151D026F119B01C3003EFE13</string>
+											<string>151D0270119B01C3003EFE13</string>
+											<string>151D0271119B01C3003EFE13</string>
+											<string>151D0276119B01D4003EFE13</string>
+											<string>151D027C119B021C003EFE13</string>
+											<string>151D027D119B021C003EFE13</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -449,7 +477,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1100, 561}}</string>
 								<key>RubberWindowFrame</key>
-								<string>58 55 1381 823 0 0 1440 878 </string>
+								<string>61 54 1381 823 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -469,7 +497,7 @@
 								<key>Frame</key>
 								<string>{{0, 566}, {1100, 216}}</string>
 								<key>RubberWindowFrame</key>
-								<string>58 55 1381 823 0 0 1440 878 </string>
+								<string>61 54 1381 823 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -493,9 +521,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>15FF3E4C1103301E004BBA6F</string>
+				<string>151D020C119AF6B3003EFE13</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>15FF3E4D1103301E004BBA6F</string>
+				<string>151D020D119AF6B3003EFE13</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -629,13 +657,15 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>151D0226119AF99C003EFE13</string>
+		<string>151D0227119AF99C003EFE13</string>
 		<string>1C78EAAD065D492600B07095</string>
-		<string>154685F810B0B23A008E69F1</string>
 		<string>1CD10A99069EF8BA00B06720</string>
+		<string>154685F810B0B23A008E69F1</string>
 		<string>/Users/rafaelchacon/Sandboxes/GoogleCal/GoogleCal.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>58 55 1381 823 0 0 1440 878 </string>
+	<string>61 54 1381 823 0 0 1440 878 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -656,7 +686,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>AddEventViewController.h</string>
+								<string>AddDateEventViewController.h</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -714,7 +744,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>154685F810B0B23A008E69F1</string>
-				<string>15FF3E4311032FDD004BBA6F</string>
+				<string>151D020E119AF6B3003EFE13</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -834,13 +864,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>15FF3E4411032FDD004BBA6F</string>
+				<string>151D020F119AF6B3003EFE13</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>15FF3E4511032FDD004BBA6F</string>
-				<string>15FF3E4611032FDD004BBA6F</string>
-				<string>15FF3E4711032FDD004BBA6F</string>
-				<string>15FF3E4811032FDD004BBA6F</string>
-				<string>15FF3E4911032FDD004BBA6F</string>
+				<string>151D0210119AF6B3003EFE13</string>
+				<string>151D0211119AF6B3003EFE13</string>
+				<string>151D0212119AF6B3003EFE13</string>
+				<string>151D0213119AF6B3003EFE13</string>
+				<string>151D0214119AF6B3003EFE13</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -1002,7 +1032,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>15FF3E4E1103301E004BBA6F</string>
+				<string>151D0215119AF6B3003EFE13</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>

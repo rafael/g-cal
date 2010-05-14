@@ -8,10 +8,13 @@
 
 #import "AddDateEventViewController.h"
 
+#define kTextFieldWidth	155
+#define kTextFieldHeight 31
+
 
 @implementation AddDateEventViewController
 
-@synthesize wDaySelector,dateSelect;
+@synthesize wDaySelector,dateSelect,endDate,startDate,dateFormatter,startHourLabel,endHourLabel,dtableView;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -23,12 +26,22 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
+	NSTimeInterval one_hour = 3600; 
+	dateFormatter = [[NSDateFormatter alloc] init];
+	[dateFormatter setPMSymbol:@"p.m."];
+	[dateFormatter setAMSymbol:@"a.m."];
+	[dateFormatter setDateStyle:NSDateFormatterShortStyle];
+	[dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+	startDate = [[NSDate alloc] init];
+	[dateSelect setDate:startDate animated:NO];
+	endDate = [[NSDate alloc] initWithTimeInterval:one_hour sinceDate:startDate]; 
+
     [super viewDidLoad];
 }
-*/
+
 
 /*
 // Override to allow orientations other than the default portrait orientation.
@@ -39,6 +52,7 @@
 */
 - (void)viewWillAppear:(BOOL)flag {
     [super viewWillAppear:flag];
+	[dtableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:0];
 	[self.dateSelect setDate:[NSDate date] animated:YES];
     
      
@@ -60,9 +74,25 @@
 
 	
 	if (wDaySelector.on) {
+		[dateFormatter setDateStyle:NSDateFormatterLongStyle];
+		[dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+		NSString *endDateString = [dateFormatter stringFromDate:endDate];
+		NSString *startDateString = [dateFormatter stringFromDate:startDate];
+		startHourLabel.text = startDateString;
+		endHourLabel.text = endDateString;
 		dateSelect.datePickerMode = UIDatePickerModeDate;
 	}
 	else {
+		[dateFormatter setDateStyle:NSDateFormatterShortStyle];
+		[dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+	
+		NSString *startDateString = [dateFormatter stringFromDate:startDate];
+		[dateFormatter setDateStyle:NSDateFormatterNoStyle];
+		NSString *endDateString = [dateFormatter stringFromDate:endDate];
+		
+		startHourLabel.text = startDateString;
+		endHourLabel.text = endDateString;
+		
 		dateSelect.datePickerMode = UIDatePickerModeDateAndTime;
 		
 	}
@@ -78,42 +108,114 @@
 }
 
 - (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-	self.wDaySelector = nil;
-	self.dateSelect = nil;
+	wDaySelector = nil;
+	dateSelect = nil;
+	startDate = nil;
+	endDate = nil;
+	dateFormatter = nil;
+	endHourLabel = nil;
+	startHourLabel = nil;
+	dtableView = nil;
 }
 
 
 - (void)dealloc {
-	
-	[self.wDaySelector release];
-	[self.dateSelect release];
+	[wDaySelector release];
+	[startHourLabel release];
+	[endHourLabel release];
+	[dateSelect release];
+	[startDate release];
+	[endDate release];
+	[dateFormatter release];
+	[dtableView release];
     [super dealloc];
 }
 
+#pragma mark -
+#pragma mark Table View delegate Methods
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+	NSUInteger row = [indexPath row];
+	if (row == 0) {
+		
+		[dateSelect setDate:startDate animated:YES];
+		
+	
+	}
+	else{		
+		
+		[dateSelect setDate:endDate animated:YES];
 
+	}
+	
+	
+}
 
 #pragma mark -
 #pragma mark Table View dataSource Methods
 
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-	static NSString *kDateCell_ID = @"dateCell";
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kDateCell_ID];
+	
+	UITableViewCell *cell = nil;
+	NSUInteger row = [indexPath row];
+		
+	if (row == 0) {
+		
+		static NSString *kstartDateCell_ID = @"startDateCell_ID";
+		cell = [tableView dequeueReusableCellWithIdentifier:kstartDateCell_ID];
+		
+		if( cell == nil) {
+		
+			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kstartDateCell_ID] autorelease];			
+		}		
 
-	if (cell == nil) {
-		cell = [self getCellForWholeDay:kDateCell_ID];
+////		
+////		
+//	//	startDate = [NSDate date];
+		[dtableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:0];
+
+		NSString *startDateString =[dateFormatter stringFromDate:startDate]; 
+		
+		
+////	
+		
+		cell.textLabel.text = [NSString stringWithFormat:@"Starts"]; 
+		UILabel *hLabel = [self initStartHourLabelWithHourString:startDateString];
+		[cell.contentView addSubview:hLabel];
+		
 	}
+	else if (row == 1) {
+	
+		static NSString *kendDateCell_ID = @"endDateCell_ID";
+		cell = [tableView dequeueReusableCellWithIdentifier:kendDateCell_ID];
+		if( cell == nil) {
+			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kendDateCell_ID] autorelease];
+		}
+		[dateFormatter setDateStyle:NSDateFormatterNoStyle];
+		NSString *endDateString = [dateFormatter stringFromDate:endDate];
+		
+		
+		cell.textLabel.text = [NSString stringWithFormat:@"Ends"]; 
+		UILabel *hLabel = [self initEndHourLabelWithHourString:endDateString];
+		[cell.contentView addSubview:hLabel];
+		
+		}
 
+	else{
+
+		static NSString *kwholeDayCell_ID = @"wholeDayCell";
+		cell = [tableView dequeueReusableCellWithIdentifier:kwholeDayCell_ID];
+
+		if (cell == nil) {
+			cell = [self getCellForWholeDay:kwholeDayCell_ID];
+		}
+	}
 	
 	return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-	return 1;
+	return 3;
 }
 
 #pragma mark -
@@ -141,11 +243,7 @@
 	switchTemp = self.wDaySelector;
 	[cell.contentView addSubview:switchTemp];
 	cell.accessoryView = wDaySelector;
-	[(UISwitch *)cell.accessoryView setOn:NO];   // Or NO, obviously!
-//	[(UISwitch *)cell.accessoryView addTarget:self action:@selector(switchChange)
-//	 forControlEvents:UIControlEventValueChanged];
-////	
-
+	[(UISwitch *)cell.accessoryView setOn:NO];   
 	
 	
 	
@@ -163,6 +261,48 @@
 	
 	
 	return wDaySelector;
+}
+// deprecated
+//- (UILabel *)hourLabel:(NSString *)hourString{
+//	CGRect frame = CGRectMake(140, 8, kTextFieldWidth, kTextFieldHeight);
+//	UILabel *label = [[[UILabel alloc] initWithFrame:frame] autorelease];
+//	//	label.highlightedTextColor = [UIColor whiteColor];
+//	label.textColor =  [UIColor colorWithRed:0.243 green:0.306 blue:0.435 alpha:1.0];
+//	label.highlightedTextColor = [UIColor whiteColor];
+//	label.textAlignment = UITextAlignmentRight;
+//	label.font = [UIFont systemFontOfSize:18.0];
+//	label.text = hourString;
+//	return label;
+//}
+
+- (UILabel *)initStartHourLabelWithHourString:(NSString *)string{
+	if (startHourLabel == nil){
+		CGRect frame = CGRectMake(135, 8, kTextFieldWidth, kTextFieldHeight);
+		startHourLabel = [[[UILabel alloc] initWithFrame:frame] autorelease];
+		//	label.highlightedTextColor = [UIColor whiteColor];
+		startHourLabel.textColor =  [UIColor colorWithRed:0.243 green:0.306 blue:0.435 alpha:1.0];
+		startHourLabel.highlightedTextColor = [UIColor whiteColor];
+		startHourLabel.textAlignment = UITextAlignmentRight;
+		startHourLabel.font = [UIFont systemFontOfSize:18.0];
+		startHourLabel.text = string;
+		}
+	return startHourLabel;
+	
+}
+
+
+- (UILabel *)initEndHourLabelWithHourString:(NSString *)string{
+		if (endHourLabel == nil){
+			CGRect frame = CGRectMake(135, 8, kTextFieldWidth, kTextFieldHeight);
+			endHourLabel = [[UILabel alloc] initWithFrame:frame];
+		//	label.highlightedTextColor = [UIColor whiteColor];
+			endHourLabel.textColor =  [UIColor colorWithRed:0.243 green:0.306 blue:0.435 alpha:1.0];
+			endHourLabel.highlightedTextColor = [UIColor whiteColor];
+			endHourLabel.textAlignment = UITextAlignmentRight;
+			endHourLabel.font = [UIFont systemFontOfSize:18.0];
+			endHourLabel.text = string;
+		}
+		return endHourLabel;
 }
 
 

@@ -126,7 +126,7 @@
 		titleTextField.tag = 1;		
 		titleTextField.delegate = self;		
 		// Add an accessibility label that describes what the text field is for.
-		[titleTextField setAccessibilityLabel:NSLocalizedString(@"NormalTextField", @"")];
+		[titleTextField setAccessibilityLabel:NSLocalizedString(@"titleTextField", @"")];
 	}	
 	return titleTextField;
 }
@@ -149,7 +149,7 @@
 		placeTextField.tag = 2;		// tag this control so we can remove it later for recycled cells
 		placeTextField.delegate = self;	// let us be the delegate so we know when the keyboard's "Done" button is pressed		
 		// Add an accessibility label that describes what the text field is for.
-		[placeTextField setAccessibilityLabel:NSLocalizedString(@"NormalTextField", @"")];
+		[placeTextField setAccessibilityLabel:NSLocalizedString(@"placeTextField", @"")];
 	}	
 	return placeTextField;
 }

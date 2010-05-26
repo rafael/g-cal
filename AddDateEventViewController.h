@@ -13,21 +13,20 @@
 	UISwitch *wDaySelector;
 	NSDate *startDate;
 	NSDate *endDate;
-	NSDateFormatter *dateFormatter;
+	NSDateFormatter *dateFormater;
 	UILabel *endHourLabel;
 	UILabel *startHourLabel;
 	UITableView *dtableView;
-	
-	
-	
-
+	NSInteger rowSelected;
 }
--(IBAction)cancel:(id)sender;
 
+
+
+//@property (nonatomic, retain) NSIndexPath *rowSelected;
 @property (nonatomic, retain) UISwitch *wDaySelector;
 @property (nonatomic, retain) UILabel *startHourLabel;
 @property (nonatomic, retain) UILabel *endHourLabel;
-@property (nonatomic, retain) NSDateFormatter *dateFormatter;
+@property (nonatomic, retain) NSDateFormatter *dateFormater;
 @property (nonatomic, retain) NSDate *startDate;
 @property (nonatomic, retain) NSDate *endDate;
 @property (nonatomic, retain) IBOutlet UIDatePicker *dateSelect;
@@ -38,9 +37,14 @@
 -(IBAction)cancel:(id)sender;
 -(UILabel*) initStartHourLabelWithHourString:(NSString *)string;
 -(UILabel*) initEndHourLabelWithHourString:(NSString *)string;
+- (void) dateChanged:(UIDatePicker *)sender;
 
 - (UITableViewCell *) getCellForWholeDay:(NSString *)cellIdentifier;
 //- (UILabel *)hourLabel:(NSString *)hourString; deprecated
 - (void) switchChange:(UISwitch *)sender;  
+- (void) startDateFormater;
+- (void) endDateFormater;
+- (UIColor *) labelColor;
+
 @end
 

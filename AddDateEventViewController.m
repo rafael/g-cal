@@ -14,42 +14,24 @@
 
 @implementation AddDateEventViewController
 
-@synthesize wDaySelector,dateSelect,endDate,startDate,dateFormatter,startHourLabel,endHourLabel,dtableView;
 
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
+@synthesize wDaySelector,dateSelect,endDate,startDate,dateFormater,startHourLabel,endHourLabel,dtableView;
 
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	NSTimeInterval one_hour = 3600; 
-	dateFormatter = [[NSDateFormatter alloc] init];
-	[dateFormatter setPMSymbol:@"p.m."];
-	[dateFormatter setAMSymbol:@"a.m."];
-	[dateFormatter setDateStyle:NSDateFormatterShortStyle];
-	[dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+	dateFormater = [[NSDateFormatter alloc] init];
+	[dateFormater setPMSymbol:@"p.m."];
+	[dateFormater setAMSymbol:@"a.m."];
+	[dateFormater setDateStyle:NSDateFormatterShortStyle];
+	[dateFormater setTimeStyle:NSDateFormatterShortStyle];
 	startDate = [[NSDate alloc] init];
 	[dateSelect setDate:startDate animated:NO];
-	endDate = [[NSDate alloc] initWithTimeInterval:one_hour sinceDate:startDate]; 
-
+	endDate =[[NSDate alloc] initWithTimeInterval:one_hour sinceDate:startDate]; 
+	dtableView.scrollEnabled= NO;
     [super viewDidLoad];
 }
 
-
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
 - (void)viewWillAppear:(BOOL)flag {
     [super viewWillAppear:flag];
 	[dtableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:0];
@@ -70,33 +52,59 @@
 	[self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void) switchChange:(UISwitch *)sender{
 
+- (void) dateChanged:(UIDatePicker *)sender{
+
+		if (rowSelected == 0){
+			
+				[startDate release];
+ 				startDate = [[dateSelect date] retain];
+				[self startDateFormater];
+				endHourLabel.textColor = [self labelColor];
+				startHourLabel.text = [dateFormater stringFromDate:startDate];		
+	
+		}
+		
+		else{
+			
+			[endDate release];
+			endDate = [[dateSelect date] retain];
+			NSComparisonResult startLaterThanEnd = [startDate compare:endDate];
+			if (startLaterThanEnd == NSOrderedDescending)
+				startHourLabel.textColor = [UIColor redColor];
+			else
+				startHourLabel.textColor = [UIColor blackColor];
+			endHourLabel.text = [dateFormater stringFromDate:endDate];
+			
+		}
+}
+
+- (void) switchChange:(UISwitch *)sender{
+	
 	
 	if (wDaySelector.on) {
-		[dateFormatter setDateStyle:NSDateFormatterLongStyle];
-		[dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-		NSString *endDateString = [dateFormatter stringFromDate:endDate];
-		NSString *startDateString = [dateFormatter stringFromDate:startDate];
+		
+		[self startDateFormater];
+		// it's the same for ] both not neccesary to do this.
+		//[self endDateFormater];
+		NSString *endDateString = [dateFormater stringFromDate:endDate];
+		NSString *startDateString = [dateFormater stringFromDate:startDate];
 		startHourLabel.text = startDateString;
 		endHourLabel.text = endDateString;
 		dateSelect.datePickerMode = UIDatePickerModeDate;
 	}
-	else {
-		[dateFormatter setDateStyle:NSDateFormatterShortStyle];
-		[dateFormatter setTimeStyle:NSDateFormatterShortStyle];
 	
-		NSString *startDateString = [dateFormatter stringFromDate:startDate];
-		[dateFormatter setDateStyle:NSDateFormatterNoStyle];
-		NSString *endDateString = [dateFormatter stringFromDate:endDate];
+	else {
 		
+		[self startDateFormater];
+		NSString *startDateString = [dateFormater stringFromDate:startDate];
+		[self endDateFormater];
+		NSString *endDateString = [dateFormater stringFromDate:endDate];
 		startHourLabel.text = startDateString;
 		endHourLabel.text = endDateString;
-		
 		dateSelect.datePickerMode = UIDatePickerModeDateAndTime;
-		
-	}
 	
+	}
 	
 }
 
@@ -112,10 +120,11 @@
 	dateSelect = nil;
 	startDate = nil;
 	endDate = nil;
-	dateFormatter = nil;
+	dateFormater = nil;
 	endHourLabel = nil;
 	startHourLabel = nil;
 	dtableView = nil;
+//	rowSelected = nil;
 }
 
 
@@ -126,8 +135,9 @@
 	[dateSelect release];
 	[startDate release];
 	[endDate release];
-	[dateFormatter release];
+	[dateFormater release];
 	[dtableView release];
+	//[rowSelected release];
     [super dealloc];
 }
 
@@ -136,20 +146,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 	NSUInteger row = [indexPath row];
+	//rowSelected = indexPath;
 	if (row == 0) {
-		
+		rowSelected = 0;
 		[dateSelect setDate:startDate animated:YES];
-		
-	
 	}
-	else{		
-		
+	else{	
+		rowSelected = 1;
 		[dateSelect setDate:endDate animated:YES];
 
 	}
 	
 	
 }
+
 
 #pragma mark -
 #pragma mark Table View dataSource Methods
@@ -169,16 +179,8 @@
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kstartDateCell_ID] autorelease];			
 		}		
 
-////		
-////		
-//	//	startDate = [NSDate date];
 		[dtableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:0];
-
-		NSString *startDateString =[dateFormatter stringFromDate:startDate]; 
-		
-		
-////	
-		
+		NSString *startDateString =[dateFormater stringFromDate:startDate]; 
 		cell.textLabel.text = [NSString stringWithFormat:@"Starts"]; 
 		UILabel *hLabel = [self initStartHourLabelWithHourString:startDateString];
 		[cell.contentView addSubview:hLabel];
@@ -191,8 +193,8 @@
 		if( cell == nil) {
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kendDateCell_ID] autorelease];
 		}
-		[dateFormatter setDateStyle:NSDateFormatterNoStyle];
-		NSString *endDateString = [dateFormatter stringFromDate:endDate];
+		[dateFormater setDateStyle:NSDateFormatterNoStyle];
+		NSString *endDateString = [dateFormater stringFromDate:endDate];
 		
 		
 		cell.textLabel.text = [NSString stringWithFormat:@"Ends"]; 
@@ -262,18 +264,6 @@
 	
 	return wDaySelector;
 }
-// deprecated
-//- (UILabel *)hourLabel:(NSString *)hourString{
-//	CGRect frame = CGRectMake(140, 8, kTextFieldWidth, kTextFieldHeight);
-//	UILabel *label = [[[UILabel alloc] initWithFrame:frame] autorelease];
-//	//	label.highlightedTextColor = [UIColor whiteColor];
-//	label.textColor =  [UIColor colorWithRed:0.243 green:0.306 blue:0.435 alpha:1.0];
-//	label.highlightedTextColor = [UIColor whiteColor];
-//	label.textAlignment = UITextAlignmentRight;
-//	label.font = [UIFont systemFontOfSize:18.0];
-//	label.text = hourString;
-//	return label;
-//}
 
 - (UILabel *)initStartHourLabelWithHourString:(NSString *)string{
 	if (startHourLabel == nil){
@@ -305,6 +295,49 @@
 		return endHourLabel;
 }
 
+- (void) startDateFormater{
+	if (wDaySelector.on){
+		
+		[dateFormater setDateStyle:NSDateFormatterLongStyle];
+		[dateFormater setTimeStyle:NSDateFormatterNoStyle];
+		
+	}
+	else{
+		[dateFormater setDateStyle:NSDateFormatterShortStyle];
+		[dateFormater setTimeStyle:NSDateFormatterShortStyle];
 
+	}
+	
+		
+}
+
+- (void) endDateFormater{
+	
+	if (wDaySelector.on){
+		
+		[dateFormater setDateStyle:NSDateFormatterLongStyle];
+		[dateFormater setTimeStyle:NSDateFormatterNoStyle];
+		
+	}
+	else{
+	 
+		[dateFormater setDateStyle:NSDateFormatterNoStyle];
+		[dateFormater setTimeStyle:NSDateFormatterShortStyle];
+	}
+	
+}
+
+- (UIColor *) labelColor{
+	
+	NSComparisonResult startLaterThanEnd = [startDate compare:endDate];
+	if (startLaterThanEnd == NSOrderedDescending){
+		return [UIColor redColor];
+		
+	}
+	else{
+		return [UIColor blackColor];
+	}
+	
+}
 
 @end

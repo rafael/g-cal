@@ -19,42 +19,11 @@
 @synthesize wDaySelector,dateSelect,endDate,startDate,dateFormater,startHourLabel,endHourLabel,dtableView;
 
 
-- (void)viewDidLoad {
-	NSTimeInterval one_hour = 3600; 
-	dateFormater = [[NSDateFormatter alloc] init];
-	[dateFormater setPMSymbol:@"p.m."];
-	[dateFormater setAMSymbol:@"a.m."];
-	[dateFormater setDateStyle:NSDateFormatterShortStyle];
-	[dateFormater setTimeStyle:NSDateFormatterShortStyle];
-	startDate = [[NSDate  date] retain];
-	[dateSelect setDate:startDate animated:NO];
-	endDate =[[NSDate alloc] initWithTimeInterval:one_hour sinceDate:startDate]; 
-	dtableView.scrollEnabled= NO;
-	
-	self.title = @"Add Dates";
-	self.navigationItem.prompt = @"Set the details for this event";
-	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
-    self.navigationItem.leftBarButtonItem = cancelButtonItem;
-    [cancelButtonItem release];
-    
-    UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(done)];
-    self.navigationItem.rightBarButtonItem = saveButtonItem;
-    [saveButtonItem release];
-		
 
-	
-    [super viewDidLoad];
-}
-
-- (void)viewWillAppear:(BOOL)flag {
-    [super viewWillAppear:flag];
-	[dtableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:0];
-	[self.dateSelect setDate:[NSDate date] animated:YES];
-    
-	
-}
 
 -(void)done{
+	self.event.startDate = self.startDate;
+	self.event.endDate = self.endDate;
 	[self.navigationController popViewControllerAnimated:YES];
 
 }
@@ -139,39 +108,6 @@
 	
 }
 
-- (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-	
-	self.wDaySelector = nil;
-	self.startHourLabel = nil;
-	self.endHourLabel = nil;
-	self.dateFormater = nil;
-	self.startDate = nil;
-	self.endDate = nil;
-	self.dateSelect = nil;
-//	self.dtableView = nil;
-	
-}
-
-
-- (void)dealloc {
-	[wDaySelector release];
-	[startHourLabel release];
-	[endHourLabel release];
-	[dateFormater release];
-	[startDate release];
-	[endDate release];
-	[dateSelect release];
-//	[dtableView release];
-
-    [super dealloc];
-}
 
 #pragma mark -
 #pragma mark Table View delegate Methods
@@ -297,21 +233,6 @@
 	return wDaySelector;
 }
 
-- (UILabel *)newHourLabel:(NSString *)string{
-	
-		CGRect frame = CGRectMake(110, 8, kTextFieldWidth, kTextFieldHeight);
-		UILabel *newHourLabel = [[UILabel alloc] initWithFrame:frame] ;
-		//	label.highlightedTextColor = [UIColor whiteColor];
-		newHourLabel.textColor =  [UIColor colorWithRed:0.243 green:0.306 blue:0.435 alpha:1.0];
-		newHourLabel.highlightedTextColor = [UIColor whiteColor];
-		newHourLabel.textAlignment = UITextAlignmentRight;
-		newHourLabel.font = [UIFont systemFontOfSize:18.0];
-		newHourLabel.text = string;
-	
-	return newHourLabel;
-	
-}
-
 
 - (UILabel *)initStartHourLabelWithHourString:(NSString *)string{
 	if (startHourLabel == nil){
@@ -397,5 +318,79 @@
 		return NO;
 	
 }
+
+#pragma mark -
+#pragma mark UIViewController functions
+
+- (void)didReceiveMemoryWarning {
+	// Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+	
+	// Release any cached data, images, etc that aren't in use.
+}
+
+
+- (void)viewDidLoad {
+
+	dateFormater = [[NSDateFormatter alloc] init];
+	[dateFormater setPMSymbol:@"p.m."];
+	[dateFormater setAMSymbol:@"a.m."];
+	[dateFormater setDateStyle:NSDateFormatterShortStyle];
+	[dateFormater setTimeStyle:NSDateFormatterShortStyle];
+	self.startDate = self.event.startDate;
+	[dateSelect setDate:startDate animated:NO];
+	self.endDate = self.event.endDate;
+	dtableView.scrollEnabled= NO;
+	
+	self.title = @"Add Dates";
+	self.navigationItem.prompt = @"Set the details for this event";
+	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
+    self.navigationItem.leftBarButtonItem = cancelButtonItem;
+    [cancelButtonItem release];
+    
+    UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(done)];
+    self.navigationItem.rightBarButtonItem = saveButtonItem;
+    [saveButtonItem release];
+	
+	
+	
+    [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)flag {
+    [super viewWillAppear:flag];
+	[dtableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:0];
+	[self.dateSelect setDate:[NSDate date] animated:YES];
+    
+	
+}
+
+
+- (void)viewDidUnload {
+	
+	self.wDaySelector = nil;
+	self.startHourLabel = nil;
+	self.endHourLabel = nil;
+	self.dateFormater = nil;
+	self.startDate = nil;
+	self.endDate = nil;
+	self.dateSelect = nil;
+	//	self.dtableView = nil;
+	
+}
+
+- (void)dealloc {
+	[wDaySelector release];
+	[startHourLabel release];
+	[endHourLabel release];
+	[dateFormater release];
+	[startDate release];
+	[endDate release];
+	[dateSelect release];
+	//	[dtableView release];
+	
+    [super dealloc];
+}
+
 
 @end

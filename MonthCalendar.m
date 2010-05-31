@@ -8,6 +8,7 @@
 // Modified by rafael chacon
 #import "MonthCalendar.h"
 #import "GoogleCalAppDelegate.h"
+#import "Event.h"
 
 @implementation MonthCalendar
 @synthesize managedObjectContext, fetchedResultsController;
@@ -19,6 +20,16 @@
 	addEventController.delegate = self;
 	Event *newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
 	addEventController.event = newEvent;
+	
+	NSTimeInterval one_hour = 3600; 
+
+	addEventController.event.startDate = [NSDate  date];
+	NSDate *endDate = [[NSDate alloc] initWithTimeInterval:one_hour sinceDate:addEventController.event.startDate]; 
+	addEventController.event.endDate =endDate;
+	[endDate release];
+
+	
+	
 	
 	UINavigationController *addNavController =  [[UINavigationController alloc] initWithRootViewController:addEventController];
 	

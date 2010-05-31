@@ -15,6 +15,10 @@
 #define kTextFieldWidth	277
 #define kTextFieldHeight 31
 
+#define kTextFieldWidthForHour	180
+#define kTextFieldHeightForHour 26
+
+
 #define allTrim( object ) [object stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet] ]
 
 static NSString *kCellIdentifier = @"cell_ID";
@@ -39,6 +43,7 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 @synthesize event;
 @synthesize delegate;
 @synthesize addElementsTableView;
+@synthesize dateFormater;
 
 
 
@@ -55,34 +60,6 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 //	}
 	
 }
-
-- (void)viewWillAppear:(BOOL)animated
-{
-	// this UIViewController is about to re-appear, make sure we remove the current selection in our table view
-	NSIndexPath *tableSelection = [addElementsTableView indexPathForSelectedRow];
-	[addElementsTableView deselectRowAtIndexPath:tableSelection animated:NO];
-	[addElementsTableView reloadData]; 
-}
-
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-
-	self.title = @"Add Event";
-	self.navigationItem.prompt = @"Set the details for this event";
-	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
-    self.navigationItem.leftBarButtonItem = cancelButtonItem;
-    [cancelButtonItem release];
-    
-    UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(save)];
-    self.navigationItem.rightBarButtonItem = saveButtonItem;
-    [saveButtonItem release];
-	
-    [super viewDidLoad];
-	[self initializeMenuList];
-	
-}
-
 
 
 -(void)save{
@@ -174,27 +151,9 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 }
 
 
+#pragma mark -
+#pragma mark utility functions
 
-- (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-	self.menuList = nil;
-	self.event = nil;
-	addElementsTableView = nil;
-	[super viewDidUnload];
-}
-
-- (void)dealloc {
-	[menuList release];
-	[event release];
-	[addElementsTableView release];
-    [super dealloc];
-}
 
 
 
@@ -227,12 +186,63 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 				
 	}
 	else{
+		
+		UILabel *hLabel1;
+		
+		//		UILabel *hLabel2 = (UILabel *)[cell viewWithTag:4];
 		lblTemp1.textColor = [UIColor blackColor];
 		lblTemp1.font = [UIFont boldSystemFontOfSize:16];
 		lblTemp2.textColor = [UIColor blackColor];
 		lblTemp2.font = [UIFont boldSystemFontOfSize:16];
 		lblTemp1.text = @"Starts";
-		lblTemp2.text = @"Ends";			
+		lblTemp2.text = @"Ends";	
+		
+		[self startDateFormater];
+		NSString *startDateString =[dateFormater stringFromDate:self.event.startDate]; 
+	
+		
+		if( ![[cell contentView] viewWithTag:3] ){
+	
+			hLabel1 = [self newStartHourLabel:startDateString];
+			hLabel1.tag = 3;
+			[cell.contentView addSubview:hLabel1];
+			[hLabel1 release];
+			
+		}
+		
+		else{			
+			UILabel *alreadySetLabel = (UILabel *)[[cell contentView] viewWithTag:3];
+			alreadySetLabel.text = startDateString;
+
+		}
+		
+		[self endDateFormater];
+		NSString *endDateString =[dateFormater stringFromDate:self.event.endDate]; 
+		
+		if( ![[cell contentView] viewWithTag:4] ){
+			
+			hLabel1 = [self newEndHourLabel:endDateString];
+			hLabel1.tag = 4;
+			[cell.contentView addSubview:hLabel1];
+			[hLabel1 release];
+			
+		}
+		else{			
+			UILabel *alreadySetLabel = (UILabel *)[[cell contentView] viewWithTag:4];
+			alreadySetLabel.text = endDateString;
+		}
+		
+		
+
+
+	
+		
+		
+	
+		
+		
+		
+		
 	}
 	return cell;
 	
@@ -285,6 +295,40 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 }
 
 
+- (UILabel *)newStartHourLabel:(NSString *)string{
+	
+	CGRect frame = CGRectMake(90, 2, kTextFieldWidthForHour, kTextFieldHeightForHour);
+	UILabel *newHourLabel = [[UILabel alloc] initWithFrame:frame] ;
+	//	label.highlightedTextColor = [UIColor whiteColor];
+	newHourLabel.textColor =  [UIColor colorWithRed:0.243 green:0.306 blue:0.435 alpha:1.0];
+	newHourLabel.highlightedTextColor = [UIColor whiteColor];
+	newHourLabel.textAlignment = UITextAlignmentRight;
+	newHourLabel.font = [UIFont systemFontOfSize:16.0];
+	newHourLabel.text = string;
+	
+	return newHourLabel;
+	
+}
+
+- (UILabel *)newEndHourLabel:(NSString *)string{
+	
+	CGRect frame = CGRectMake(90, 22, kTextFieldWidthForHour, kTextFieldHeightForHour);
+	UILabel *newHourLabel = [[UILabel alloc] initWithFrame:frame] ;
+	//	label.highlightedTextColor = [UIColor whiteColor];
+	newHourLabel.textColor =  [UIColor colorWithRed:0.243 green:0.306 blue:0.435 alpha:1.0];
+	newHourLabel.highlightedTextColor = [UIColor whiteColor];
+	newHourLabel.textAlignment = UITextAlignmentRight;
+	newHourLabel.font = [UIFont systemFontOfSize:16.0];
+	newHourLabel.text = string;
+	
+	return newHourLabel;
+	
+}
+
+
+
+
+
 -(void) initializeMenuList{
 	
 	menuList = [[NSMutableArray alloc] init];
@@ -324,6 +368,100 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 }
 
 
+- (void) startDateFormater{
+//	if (wDaySelector.on){
+		
+//		[dateFormater setDateStyle:NSDateFormatterLongStyle];
+//		[dateFormater setTimeStyle:NSDateFormatterNoStyle];
+		
+//	}
+//	else{
+		[dateFormater setDateStyle:NSDateFormatterShortStyle];
+		[dateFormater setTimeStyle:NSDateFormatterShortStyle];
+//		
+//	}
+	
+	
+}
+
+- (void) endDateFormater{
+	
+//	if (wDaySelector.on){
+		
+//		[dateFormater setDateStyle:NSDateFormatterLongStyle];
+//		[dateFormater setTimeStyle:NSDateFormatterNoStyle];
+		
+//	}
+//	else{
+//		
+		[dateFormater setDateStyle:NSDateFormatterNoStyle];
+		[dateFormater setTimeStyle:NSDateFormatterShortStyle];
+//	}
+//	
+}
+
+#pragma mark -
+#pragma mark UIViewController Functions
+
+- (void)didReceiveMemoryWarning {
+	// Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+	
+	// Release any cached data, images, etc that aren't in use.
+}
+
+- (void)viewDidUnload {
+	self.menuList = nil;
+	self.event = nil;
+	addElementsTableView = nil;
+	self.dateFormater = nil;
+	[super viewDidUnload];
+}
+
+- (void)dealloc {
+	[menuList release];
+	[event release];
+	[addElementsTableView release];
+	[dateFormater release];
+    [super dealloc];
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	// this UIViewController is about to re-appear, make sure we remove the current selection in our table view
+	NSIndexPath *tableSelection = [addElementsTableView indexPathForSelectedRow];
+	[addElementsTableView deselectRowAtIndexPath:tableSelection animated:NO];
+	[addElementsTableView reloadData]; 
+}
+
+
+// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+- (void)viewDidLoad {
+	
+	dateFormater = [[NSDateFormatter alloc] init];
+	[dateFormater setPMSymbol:@"p.m."];
+	[dateFormater setAMSymbol:@"a.m."];
+	[dateFormater setDateStyle:NSDateFormatterShortStyle];
+	[dateFormater setTimeStyle:NSDateFormatterShortStyle];
+	
+	
+	
+	
+	self.title = @"Add Event";
+	self.navigationItem.prompt = @"Set the details for this event";
+	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
+    self.navigationItem.leftBarButtonItem = cancelButtonItem;
+    [cancelButtonItem release];
+    
+    UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(save)];
+    self.navigationItem.rightBarButtonItem = saveButtonItem;
+    [saveButtonItem release];
+	
+    [super viewDidLoad];
+	[self initializeMenuList];
+	
+}
 
 
 

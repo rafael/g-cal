@@ -10,8 +10,6 @@
 		151D0A8110D11A1800C89C83 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 151D0A7F10D11A1800C89C83 /* EventViewController.m */; };
 		151D0A8210D11A1800C89C83 /* EventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 151D0A8010D11A1800C89C83 /* EventViewController.xib */; };
 		151D0AD710D1206800C89C83 /* DayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 151D0AD510D1206800C89C83 /* DayViewController.m */; };
-		1535CFC011AC294400F66DAC /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 1535CFBD11AC294400F66DAC /* Event.m */; };
-		1535CFC111AC294400F66DAC /* Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1535CFBF11AC294400F66DAC /* Calendar.m */; };
 		1536BAE010F73F770090FEF2 /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1536BADE10F73F770090FEF2 /* AddEventViewController.m */; };
 		1536BAE110F73F770090FEF2 /* AddEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1536BADF10F73F770090FEF2 /* AddEventViewController.xib */; };
 		1536BAE210F73F770090FEF2 /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1536BADE10F73F770090FEF2 /* AddEventViewController.m */; };
@@ -20,11 +18,14 @@
 		153D563710C2D8FB0053C894 /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 153D55A310C2D7010053C894 /* libTapkuLibrary.a */; };
 		1546871710B0C8E6008E69F1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1546871610B0C8E6008E69F1 /* QuartzCore.framework */; };
 		1546872510B0CF0C008E69F1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1546872410B0CF0C008E69F1 /* MapKit.framework */; };
+		1561694011B3B81000E8AA68 /* AddCalendarEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1561693F11B3B81000E8AA68 /* AddCalendarEventViewController.m */; };
 		1561C8D9110CB02E00176F1A /* AddDateEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1561C8D7110CB02E00176F1A /* AddDateEventViewController.m */; };
 		1561C8DA110CB02E00176F1A /* AddDateEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1561C8D8110CB02E00176F1A /* AddDateEventViewController.xib */; };
 		1577539810DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1577539610DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.m */; };
 		1577539910DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1577539710DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib */; };
 		1595603310B2A9CD006EC0AB /* MonthCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */; };
+		15CED51F11B2BDB80092223E /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 15CED51E11B2BDB80092223E /* Event.m */; };
+		15F6EFCE11AD692800B54BB6 /* Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F6EFCD11AD692800B54BB6 /* Calendar.m */; };
 		15FF3E6A1103330F004BBA6F /* AddNoteEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FF3E681103330F004BBA6F /* AddNoteEventViewController.m */; };
 		15FF3E6B1103330F004BBA6F /* AddNoteEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15FF3E691103330F004BBA6F /* AddNoteEventViewController.xib */; };
 		15FF3E6C1103330F004BBA6F /* AddNoteEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FF3E681103330F004BBA6F /* AddNoteEventViewController.m */; };
@@ -64,10 +65,6 @@
 		151D0AD510D1206800C89C83 /* DayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayViewController.m; sourceTree = "<group>"; };
 		1522510610E29FEA0088802F /* UnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1522510710E29FEA0088802F /* UnitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnitTests-Info.plist"; sourceTree = "<group>"; };
-		1535CFBC11AC294400F66DAC /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = ../Event.h; sourceTree = "<group>"; };
-		1535CFBD11AC294400F66DAC /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = ../Event.m; sourceTree = "<group>"; };
-		1535CFBE11AC294400F66DAC /* Calendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Calendar.h; path = ../Calendar.h; sourceTree = "<group>"; };
-		1535CFBF11AC294400F66DAC /* Calendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Calendar.m; path = ../Calendar.m; sourceTree = "<group>"; };
 		1536BADD10F73F770090FEF2 /* AddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventViewController.h; sourceTree = "<group>"; };
 		1536BADE10F73F770090FEF2 /* AddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventViewController.m; sourceTree = "<group>"; };
 		1536BADF10F73F770090FEF2 /* AddEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddEventViewController.xib; sourceTree = "<group>"; };
@@ -75,6 +72,8 @@
 		153D55E610C2D8230053C894 /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TapkuLibrary.bundle; path = ../rtapkulibrary/src/TapkuLibrary.bundle; sourceTree = SOURCE_ROOT; };
 		1546871610B0C8E6008E69F1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = ../../../../System/Library/Frameworks/QuartzCore.framework; sourceTree = SOURCE_ROOT; };
 		1546872410B0CF0C008E69F1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		1561693E11B3B81000E8AA68 /* AddCalendarEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddCalendarEventViewController.h; path = ../AddCalendarEventViewController.h; sourceTree = "<group>"; };
+		1561693F11B3B81000E8AA68 /* AddCalendarEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddCalendarEventViewController.m; path = ../AddCalendarEventViewController.m; sourceTree = "<group>"; };
 		1561C8D6110CB02E00176F1A /* AddDateEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDateEventViewController.h; sourceTree = "<group>"; };
 		1561C8D7110CB02E00176F1A /* AddDateEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDateEventViewController.m; sourceTree = "<group>"; };
 		1561C8D8110CB02E00176F1A /* AddDateEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddDateEventViewController.xib; sourceTree = "<group>"; };
@@ -83,6 +82,10 @@
 		1577539710DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTitlePlaceEventViewController.xib; sourceTree = "<group>"; };
 		1595603110B2A9CD006EC0AB /* MonthCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthCalendar.h; sourceTree = "<group>"; };
 		1595603210B2A9CD006EC0AB /* MonthCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthCalendar.m; sourceTree = "<group>"; };
+		15CED51D11B2BDB80092223E /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		15CED51E11B2BDB80092223E /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		15F6EFCC11AD692800B54BB6 /* Calendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Calendar.h; path = ../Calendar.h; sourceTree = "<group>"; };
+		15F6EFCD11AD692800B54BB6 /* Calendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Calendar.m; path = ../Calendar.m; sourceTree = "<group>"; };
 		15FF3E671103330F004BBA6F /* AddNoteEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNoteEventViewController.h; sourceTree = "<group>"; };
 		15FF3E681103330F004BBA6F /* AddNoteEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNoteEventViewController.m; sourceTree = "<group>"; };
 		15FF3E691103330F004BBA6F /* AddNoteEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNoteEventViewController.xib; sourceTree = "<group>"; };
@@ -128,10 +131,12 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1535CFBC11AC294400F66DAC /* Event.h */,
-				1535CFBD11AC294400F66DAC /* Event.m */,
-				1535CFBE11AC294400F66DAC /* Calendar.h */,
-				1535CFBF11AC294400F66DAC /* Calendar.m */,
+				15CED51D11B2BDB80092223E /* Event.h */,
+				15CED51E11B2BDB80092223E /* Event.m */,
+				15F6EFCC11AD692800B54BB6 /* Calendar.h */,
+				15F6EFCD11AD692800B54BB6 /* Calendar.m */,
+				1561693E11B3B81000E8AA68 /* AddCalendarEventViewController.h */,
+				1561693F11B3B81000E8AA68 /* AddCalendarEventViewController.m */,
 				1D3623240D0F684500981E51 /* GoogleCalAppDelegate.h */,
 				1D3623250D0F684500981E51 /* GoogleCalAppDelegate.m */,
 			);
@@ -376,8 +381,9 @@
 				1536BAE010F73F770090FEF2 /* AddEventViewController.m in Sources */,
 				15FF3E6A1103330F004BBA6F /* AddNoteEventViewController.m in Sources */,
 				1561C8D9110CB02E00176F1A /* AddDateEventViewController.m in Sources */,
-				1535CFC011AC294400F66DAC /* Event.m in Sources */,
-				1535CFC111AC294400F66DAC /* Calendar.m in Sources */,
+				15F6EFCE11AD692800B54BB6 /* Calendar.m in Sources */,
+				15CED51F11B2BDB80092223E /* Event.m in Sources */,
+				1561694011B3B81000E8AA68 /* AddCalendarEventViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

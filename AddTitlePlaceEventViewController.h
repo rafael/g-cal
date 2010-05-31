@@ -7,32 +7,26 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddCalendarEventViewController.h"
 
-@class AddTitlePlaceEventViewController;
-
-@protocol AddTitlePlaceEventDelegate <NSObject>
-
-@required
-
-- (void)addTitlePlaceEventViewController:(AddTitlePlaceEventViewController *)addTitlePlaceEventViewController 
-				   didAddTitlePlaceEvent:(NSString *)eventId;
-
-@end
+@class Event;
 
 
-@interface AddTitlePlaceEventViewController : UIViewController<UITableViewDataSource, UITextFieldDelegate> {
-	id <AddTitlePlaceEventDelegate> delegate;
+
+@interface AddTitlePlaceEventViewController : AddCalendarEventViewController <UITableViewDataSource, UITextFieldDelegate> {
+
 	UITextField *titleTextField;
 	UITextField *placeTextField;
 }
 
 
-@property (nonatomic, assign) id <AddTitlePlaceEventDelegate> delegate;
-@property (nonatomic, retain, readonly) UITextField	*placeTextField;
-@property (nonatomic, retain, readonly) UITextField	*titleTextField;
+@property (nonatomic, retain) UITextField	*placeTextField;
+@property (nonatomic, retain) UITextField	*titleTextField;
 
--(IBAction)save:(id)sender;
--(IBAction)cancel:(id)sender;
+-(void)done;
+-(void)cancel;
 
 
 @end
+
+

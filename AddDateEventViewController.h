@@ -6,9 +6,10 @@
 //  Copyright 2010 Universidad Simon Bolivar. All rights reserved.
 //
 #import <UIKit/UIKit.h>
+#import "AddCalendarEventViewController.h"
 
 
-@interface AddDateEventViewController : UIViewController<UITableViewDataSource, UITableViewDelegate> {
+@interface AddDateEventViewController : AddCalendarEventViewController <UITableViewDataSource, UITableViewDelegate> {
 	UIDatePicker *dateSelect;
 	UISwitch *wDaySelector;
 	NSDate *startDate;
@@ -18,6 +19,7 @@
 	UILabel *startHourLabel;
 	UITableView *dtableView;
 	NSInteger rowSelected;
+
 }
 
 
@@ -33,8 +35,9 @@
 @property (nonatomic, retain) IBOutlet UITableView *dtableView;
 
 
--(IBAction)done:(id)sender;
--(IBAction)cancel:(id)sender;
+
+-(void)done;
+-(void)cancel;
 -(UILabel*) initStartHourLabelWithHourString:(NSString *)string;
 -(UILabel*) initEndHourLabelWithHourString:(NSString *)string;
 - (void) dateChanged:(UIDatePicker *)sender;
@@ -45,6 +48,7 @@
 - (void) startDateFormater;
 - (void) endDateFormater;
 - (UIColor *) labelColor;
+- (Boolean) checkStartEndHourDifference;
 
 @end
 

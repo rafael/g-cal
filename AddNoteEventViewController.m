@@ -9,24 +9,34 @@
 #import "AddNoteEventViewController.h"
 
 @implementation AddNoteEventViewController
-@synthesize delegate, noteTextView;
+@synthesize  noteTextView;
 
 
 
--(IBAction)done:(id)sender{
-	[self.navigationController popViewControllerAnimated:YES];
-    if ([delegate respondsToSelector:@selector(addNoteEventViewController:didAddNoteEvent:)]) {
-        [delegate addNoteEventViewController:self didAddNoteEvent:noteTextView.text];
-    }
+-(void)done{
+       [self.navigationController popViewControllerAnimated:YES];
 }
 
--(IBAction)cancel:(id)sender{
-	[self.navigationController popViewControllerAnimated:YES];
+-(void)cancel{
+	
+	    [self.navigationController popViewControllerAnimated:YES];
+
 }
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+	self.title = @"Add Note";
+	self.navigationItem.prompt = @"Set the details for this event";
+	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
+    self.navigationItem.leftBarButtonItem = cancelButtonItem;
+    [cancelButtonItem release];
+    
+    UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(done)];
+    self.navigationItem.rightBarButtonItem = saveButtonItem;
+    [saveButtonItem release];
 	[self noteTextView]; //to become first responder
+
+    [super viewDidLoad];
+
 }
 
 
@@ -47,12 +57,13 @@
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
-	[noteTextView release];
-	noteTextView = nil;
+	self.noteTextView = nil;
+
 }
 
 
 - (void)dealloc {
+
 	[noteTextView release];
     [super dealloc];
 }

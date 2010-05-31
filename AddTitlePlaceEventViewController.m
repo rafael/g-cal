@@ -7,29 +7,39 @@
 //
 
 #import "AddTitlePlaceEventViewController.h"
+#import "Event.h";
 
 
 #define kTextFieldWidth	277
 #define kTextFieldHeight 31
 
-
+static inline BOOL IsEmpty(id thing) {
+	return thing == nil
+	|| ([thing respondsToSelector:@selector(length)]
+		&& [(NSData *)thing length] == 0)
+	|| ([thing respondsToSelector:@selector(count)]
+		&& [(NSArray *)thing count] == 0);
+}
 
 @implementation AddTitlePlaceEventViewController
 
-@synthesize delegate,placeTextField,titleTextField;
+
+
+@synthesize placeTextField,titleTextField;
 
 
 
 
 
--(IBAction)save:(id)sender{
+-(void)done{
+	
+	self.event.title = self.titleTextField.text;
+	self.event.location = self.placeTextField.text;
     [self.navigationController popViewControllerAnimated:YES];
-    if ([delegate respondsToSelector:@selector(addTitlePlaceEventViewController:didAddTitlePlaceEvent:)]) {
-        [delegate addTitlePlaceEventViewController:self didAddTitlePlaceEvent:titleTextField.text];
-    }
+
 }
 
--(IBAction)cancel:(id)sender{
+-(void)cancel{
 	
  [self.navigationController popViewControllerAnimated:YES];
 	
@@ -39,12 +49,13 @@
 #pragma mark Table View dataSource Methods
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-	UITableViewCell *cell = nil;
-	NSUInteger row = [indexPath row];
 	
+	UITableViewCell *cell = nil;
+	NSUInteger row = [indexPath row];	
 	
 	if (row == 0) {
 		static NSString *kTitleCell_ID = @"TitleCell_ID";
+		
 	
 		cell = [tableView dequeueReusableCellWithIdentifier:kTitleCell_ID];
 		
@@ -61,9 +72,11 @@
 				[viewToCheck removeFromSuperview];
 		}
 		
-	
+			UITextField *textField = self.titleTextField;
+			
+
 				
-		[cell.contentView addSubview:titleTextField];
+		[cell.contentView addSubview:textField];
 	
 			
 	
@@ -132,6 +145,8 @@
 }
 
 
+
+
 - (UITextField *)placeTextField{
 	if (placeTextField == nil)
 	{
@@ -157,11 +172,20 @@
 
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-//	titleTextField = self.titleTextField;
-//	[titleTextField becomeFirstResponder];
+    
+
+	self.title = @"Add Title & Place";
+	self.navigationItem.prompt = @"Set the details for this event";
+	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
+    self.navigationItem.leftBarButtonItem = cancelButtonItem;
+    [cancelButtonItem release];
+    
+    UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(done)];
+    self.navigationItem.rightBarButtonItem = saveButtonItem;
+    [saveButtonItem release];
 	
 	titleTextField = self.titleTextField;
+	[super viewDidLoad];
 	
 
 }
@@ -200,15 +224,14 @@
 	// e.g. self.myOutlet = nil;
 	
 	[super viewDidUnload];
-	[placeTextField release];
-	placeTextField = nil;
-	[titleTextField release];
-	titleTextField = nil;
-
+	self.placeTextField = nil;
+	self.titleTextField = nil;
+//	self.event = nil;
 }
 
 
 - (void)dealloc {
+	//[event release];
 	[placeTextField release];
 	[titleTextField release];
 

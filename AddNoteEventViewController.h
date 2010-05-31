@@ -7,36 +7,31 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddCalendarEventViewController.h"
+
+//
+//@protocol AddNoteEventDelegate;
+@class Event;
 
 
-
-
-@class AddNoteEventViewController;
-
-@protocol AddNoteEventDelegate <NSObject>
-
-@required
-
-- (void)addNoteEventViewController:(AddNoteEventViewController *)addNoteEventViewController 
-				   didAddNoteEvent:(NSString *)eventId;
-
-@end
-
-
-
-
-
-@interface AddNoteEventViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextViewDelegate> {
+@interface AddNoteEventViewController : AddCalendarEventViewController <UITableViewDataSource,UITableViewDelegate,UITextViewDelegate> {
 	
-	id <AddNoteEventDelegate> delegate;
 	UITextView *noteTextView;
+
+		
 }
 
-@property (nonatomic, assign) id <AddNoteEventDelegate> delegate;
-@property (nonatomic, retain, readonly) UITextView	*noteTextView;
+@property (nonatomic, retain) UITextView	*noteTextView;
 
--(IBAction)done:(id)sender;
--(IBAction)cancel:(id)sender;
+-(void)done;
+-(void)cancel;
 
 
 @end
+//
+//@protocol AddNoteEventDelegate <NSObject>
+//
+//@required
+//- (void)addNoteEventViewController:(AddNoteEventViewController *)addNoteEventViewController didAddNoteEvent:(Event *)ievent;
+//@end
+

@@ -6,9 +6,12 @@
 //  Copyright 2010 Universidad Simon Bolivar. All rights reserved.
 //
 
-#import "AddEventViewController.h"
-#import "MonthCalendar.h"
 
+#import "AddEventViewController.h"
+#import "Event.h"
+
+
+#import "MonthCalendar.h"
 #define kTextFieldWidth	277
 #define kTextFieldHeight 31
 
@@ -20,32 +23,36 @@ static NSString *kViewControllerKey = @"viewController";
 static NSString *kRowSizeKey =@"rowSizeKey";
 static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 
+//static inline BOOL IsEmpty(NST thing) {
+//	NSLog(@"esto es todo: %i,%i ",thing == nil,[(NSData *)thing length] );
+//	return thing == nil
+//	|| ([thing respondsToSelector:@selector(length)]
+//		&& [(NSData *)thing length] == 0)
+//	|| ([thing respondsToSelector:@selector(count)]
+//		&& [(NSArray *)thing count] == 0);
+//}
 
 @implementation AddEventViewController
 
 
 @synthesize menuList;
+@synthesize event;
+@synthesize delegate;
+@synthesize addElementsTableView;
 
 
-- (void)addTitlePlaceEventViewController:(AddTitlePlaceEventViewController *)addTitlePlaceEventViewController 
-				   didAddTitlePlaceEvent:(NSString *)eventId{
-	NSLog(@"delegation for Title and place it's working");
-	if ( [allTrim( eventId ) length] != 0 ){
-		//[appDelegate addNewEvent:eventId];
-		//[tableView reloadData];
-		
-	}
+
+- (void)addNoteEventViewController:(AddNoteEventViewController *)addNoteEventViewController didAddNoteEvent:(Event *)ievent{
 	
-}
-
-- (void)addNoteEventViewController:(AddNoteEventViewController *)addNoteEventViewController 
-				   didAddNoteEvent:(NSString *)eventId{
-	NSLog(@"delegation for Notes and place it's working");
-	if ( [allTrim( eventId ) length] != 0 ){
-		//[appDelegate addNewEvent:eventId];
-		//[tableView reloadData];
-		
-	}
+	[self.navigationController popViewControllerAnimated:YES];
+	//NSLog(@"vamos bien rata");
+//	if ( IsEmpty(note) != NO ){
+//		
+//		NSLog(@"esta es la nota %@",note);
+//		//[appDelegate addNewEvent:eventId];
+//		//[tableView reloadData];
+//		
+//	}
 	
 }
 
@@ -54,11 +61,22 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 	// this UIViewController is about to re-appear, make sure we remove the current selection in our table view
 	NSIndexPath *tableSelection = [addElementsTableView indexPathForSelectedRow];
 	[addElementsTableView deselectRowAtIndexPath:tableSelection animated:NO];
+	[addElementsTableView reloadData]; 
 }
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
+
+	self.title = @"Add Event";
+	self.navigationItem.prompt = @"Set the details for this event";
+	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
+    self.navigationItem.leftBarButtonItem = cancelButtonItem;
+    [cancelButtonItem release];
+    
+    UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(save)];
+    self.navigationItem.rightBarButtonItem = saveButtonItem;
+    [saveButtonItem release];
 	
     [super viewDidLoad];
 	[self initializeMenuList];
@@ -67,18 +85,54 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 
 
 
--(IBAction)save:(id)sender{
-	[self dismissModalViewControllerAnimated:YES];
+-(void)save{
+	
+	[event.managedObjectContext deleteObject:event];
+	
+	NSError *error = nil;
+	if (![event.managedObjectContext save:&error]) {
+		/*
+		 Replace this implementation with code to handle the error appropriately.
+		 
+		 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+		 */
+		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+		abort();
+	}	
+	
+	[self.delegate addEventViewController:self didAddEvent:nil];
 }
 
--(IBAction)cancel:(id)sender{
-	[self dismissModalViewControllerAnimated:YES];
+-(void)cancel{
+	
+	[event.managedObjectContext deleteObject:event];
+	
+	NSError *error = nil;
+	if (![event.managedObjectContext save:&error]) {
+		/*
+		 Replace this implementation with code to handle the error appropriately.
+		 
+		 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+		 */
+		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+		abort();
+	}	
+	
+	[self.delegate addEventViewController:self didAddEvent:nil];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	UIViewController *targetViewController = [[self.menuList objectAtIndex: indexPath.section] objectForKey:kViewControllerKey];
-	[[self navigationController] pushViewController:targetViewController animated:YES];
+
+	NSString *className = [[menuList objectAtIndex: indexPath.section] objectForKey:kViewControllerKey];
+	Class viewControllerClass = NSClassFromString(className);
+	AddCalendarEventViewController *targetViewController = [[viewControllerClass alloc] initWithNibName:className bundle:nil];	
+	targetViewController.event = self.event;
+//UIViewController *targetViewController = [[menuList objectAtIndex: indexPath.section] objectForKey:kViewControllerKey];
+//	[self.navigationController pushViewController:targetViewController animated:YES];
+	[self.navigationController pushViewController:targetViewController animated:YES];
+	[targetViewController release];
+	
 }
 
 
@@ -91,15 +145,14 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-	return [self.menuList count];
+	return [menuList count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
-	NSString *normalHeightSize = [[self.menuList objectAtIndex:indexPath.section] objectForKey:kNormalRowsizeKey];
-	
+	NSString *normalHeightSize = [[menuList objectAtIndex:indexPath.section] objectForKey:kNormalRowsizeKey];
+
 	if (normalHeightSize == @"NO") {
 		
 		cell = [self cellForNoNormalHeight:cell indexAt:indexPath];
@@ -109,7 +162,6 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 		
 		cell = [self cellForNormalHeight:cell indexAt:indexPath];
 	}
-
 	return cell;
 	
 }
@@ -117,7 +169,7 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	
-	CGFloat		result =  [[[self.menuList objectAtIndex:indexPath.section] objectForKey:kRowSizeKey] floatValue];
+	CGFloat		result =  [[[menuList objectAtIndex:indexPath.section] objectForKey:kRowSizeKey] floatValue];
 	return result;
 }
 
@@ -131,17 +183,16 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 }
 
 - (void)viewDidUnload {
-	[super viewDidUnload];
-	
-	
 	self.menuList = nil;
-	
+	self.event = nil;
+	addElementsTableView = nil;
+	[super viewDidUnload];
 }
 
 - (void)dealloc {
-	
-	
-	[self.menuList release];
+	[menuList release];
+	[event release];
+	[addElementsTableView release];
     [super dealloc];
 }
 
@@ -162,9 +213,18 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 	
 	if (indexPath.section == 0) {
 		
-		lblTemp1.text = @"Title";
-		lblTemp2.text = @"Location";
+		if (self.event.title != nil && [self.event.title length] != 0)
+			lblTemp1.text = self.event.title;
+		else
+			lblTemp1.text = @"Title";
 		
+		
+		if (self.event.location != nil && [self.event.location length] != 0)
+			lblTemp2.text = self.event.location;
+		else
+			lblTemp2.text = @"Location";
+
+				
 	}
 	else{
 		lblTemp1.textColor = [UIColor blackColor];
@@ -188,7 +248,7 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	}
 	
-	cell.textLabel.text = [[self.menuList objectAtIndex:indexPath.section] objectForKey:kTitleKey];
+	cell.textLabel.text = [[menuList objectAtIndex:indexPath.section] objectForKey:kTitleKey];
 	
 	return cell;
 	
@@ -224,60 +284,47 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 	return cell;
 }
 
+
 -(void) initializeMenuList{
 	
-	self.menuList = [NSMutableArray array];
-	// for showing various UIButtons:
-	AddTitlePlaceEventViewController *addTitlePlaceEventViewController = [[AddTitlePlaceEventViewController alloc]
-																		  initWithNibName:@"AddTitlePlaceEventViewController" bundle:nil];
-	addTitlePlaceEventViewController.delegate = self;
-	[addTitlePlaceEventViewController.navigationItem setHidesBackButton:YES];
-	[self.menuList addObject:[NSDictionary dictionaryWithObjectsAndKeys:
+	menuList = [[NSMutableArray alloc] init];
+
+	[menuList addObject:[NSDictionary dictionaryWithObjectsAndKeys:
 							  @"Title and Place", kTitleKey,
-							  addTitlePlaceEventViewController, kViewControllerKey,
+							  @"AddTitlePlaceEventViewController", kViewControllerKey,
 							  @"54.0f", kRowSizeKey,
 							  @"NO",kNormalRowsizeKey,
 							  nil]];
-	[addTitlePlaceEventViewController release];
-	
-	AddDateEventViewController *addDateViewController = [[AddDateEventViewController alloc] 
-														 initWithNibName:@"AddDateEventViewController" bundle:nil];
 
-	[self.menuList addObject:[NSDictionary dictionaryWithObjectsAndKeys:
+
+	[menuList addObject:[NSDictionary dictionaryWithObjectsAndKeys:
 							  @"Starts Ends", kTitleKey,
-							  addDateViewController, kViewControllerKey,
+							  @"AddDateEventViewController", kViewControllerKey,
 							  @"54.0f", kRowSizeKey,
 							  
 							  @"NO",kNormalRowsizeKey,
 							  nil]];
-	[addDateViewController release];
+
+	[menuList addObject:[NSDictionary dictionaryWithObjectsAndKeys:
+						 @"Calendar", kTitleKey,
+						 @"AddNoteEventViewController", kViewControllerKey,
+						 @"44.0f", kRowSizeKey,
+						 @"YES",kNormalRowsizeKey,
+						 nil]];
+
 	
-	
-	
-	AddTitlePlaceEventViewController *addTitlePlaceEventViewController2 = [[AddTitlePlaceEventViewController alloc]
-																		   initWithNibName:@"AddTitlePlaceEventViewController" bundle:nil];
-	addTitlePlaceEventViewController2.delegate = self;
-	
-	[self.menuList addObject:[NSDictionary dictionaryWithObjectsAndKeys:
-							  @"Calendar", kTitleKey,
-							  addTitlePlaceEventViewController2, kViewControllerKey,
-							  @"44.0f", kRowSizeKey,
-							  @"YES",kNormalRowsizeKey,
-							  nil]];
-	[addTitlePlaceEventViewController2 release];
-	
-	AddNoteEventViewController *addNoteEventViewController = [[AddNoteEventViewController alloc]
-																initWithNibName:@"AddNoteEventViewController" bundle:nil];
-	addNoteEventViewController.delegate = self;
-	[self.menuList addObject:[NSDictionary dictionaryWithObjectsAndKeys:
+	[menuList addObject:[NSDictionary dictionaryWithObjectsAndKeys:
 							  @"Notes", kTitleKey,
-							  addNoteEventViewController, kViewControllerKey,
+							  @"AddNoteEventViewController", kViewControllerKey,
 							  @"44.0f", kRowSizeKey,
 							  @"YES",kNormalRowsizeKey,
 							  nil]];
-	[addNoteEventViewController release];
+
 	
 }
+
+
+
 
 
 

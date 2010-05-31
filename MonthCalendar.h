@@ -1,6 +1,6 @@
 //
-//  DemoCalendarMonth.h
-//  TapkuLibraryDemo
+//  
+//  
 //
 //  Created by Devin Ross on 10/31/09.
 //  Copyright 2009 Devin Ross. All rights reserved.
@@ -11,17 +11,17 @@
 //#import "AddTitlePlaceEventViewController.h"
 #import "AddEventViewController.h"
 @class GoogleCalAppDelegate;
-@class AddTitlePlaceEventViewController;
-@interface MonthCalendar : TKCalendarMonthTableViewController {
+@interface MonthCalendar : TKCalendarMonthTableViewController<AddEventDelegate> {
 	GoogleCalAppDelegate *appDelegate;	
-	AddEventViewController *addEventController;
-	UINavigationController *addNavController;
-	
+	@private
+		NSFetchedResultsController *fetchedResultsController;
+		NSManagedObjectContext *managedObjectContext;
 	
 }
 
-@property (nonatomic,retain)  UINavigationController *addNavController;
 -(IBAction)addEvent:(id)sender;
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 
 @end

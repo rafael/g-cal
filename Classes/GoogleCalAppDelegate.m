@@ -89,7 +89,7 @@
     if (managedObjectContext != nil) {
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
 	
-			// I'm not sure is this worls as I expected
+			// I'm not sure is this worlk as I expected
 			[managedObjectContext rollback];
 		
         } 

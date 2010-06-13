@@ -9,10 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "AddCalendarEventViewController.h"
 
-//
-//@protocol AddNoteEventDelegate;
-@class Event;
-
 
 @interface AddNoteEventViewController : AddCalendarEventViewController <UITableViewDataSource,UITableViewDelegate,UITextViewDelegate> {
 	
@@ -28,10 +24,4 @@
 
 
 @end
-//
-//@protocol AddNoteEventDelegate <NSObject>
-//
-//@required
-//- (void)addNoteEventViewController:(AddNoteEventViewController *)addNoteEventViewController didAddNoteEvent:(Event *)ievent;
-//@end
 

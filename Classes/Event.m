@@ -17,6 +17,7 @@
 @dynamic startDate;
 @dynamic id;
 @dynamic location;
-@dynamic belongs_to_calendar;
+@dynamic calendar;
+@dynamic note;
 
 @end

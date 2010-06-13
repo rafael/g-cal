@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-@class Event;
+#import "Event.h"
+
 
 @interface AddCalendarEventViewController : UIViewController {
 		@private

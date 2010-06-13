@@ -2,7 +2,7 @@
 //  Calendar.h
 //  GoogleCal
 //
-//  Created by Rafael Chacon on 26/05/10.
+//  Created by Rafael Chacon on 10/06/10.
 //  Copyright 2010 Universidad Simon Bolivar. All rights reserved.
 //
 
@@ -14,7 +14,8 @@
 {
 }
 
-@property (nonatomic, retain) NSNumber * id;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * calid;
 @property (nonatomic, retain) NSSet* has_many_events;
 
 @end

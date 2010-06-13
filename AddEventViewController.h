@@ -17,7 +17,7 @@
 
 
 
-@interface AddEventViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate> {
+@interface AddEventViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,NSFetchedResultsControllerDelegate> {
 	
 	NSMutableArray *menuList;
  	IBOutlet UITableView *addElementsTableView;
@@ -25,6 +25,8 @@
 		Event *event;
 		id <AddEventDelegate> delegate;
 		NSDateFormatter *dateFormater;
+		NSFetchedResultsController *fetchedResultsController;
+		NSManagedObjectContext *managedObjectContext;
 		
 
 }
@@ -36,6 +38,8 @@
 @property(nonatomic, retain) Event *event;
 @property (nonatomic, retain) NSDateFormatter *dateFormater;
 @property(nonatomic, assign) id <AddEventDelegate> delegate;
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 
 

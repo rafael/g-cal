@@ -19,7 +19,8 @@
 @property (nonatomic, retain) NSDate * startDate;
 @property (nonatomic, retain) NSNumber * id;
 @property (nonatomic, retain) NSString * location;
-@property (nonatomic, retain) Calendar * belongs_to_calendar;
+@property (nonatomic, retain) NSString * note;
+@property (nonatomic, retain) Calendar * calendar;
 
 @end
 

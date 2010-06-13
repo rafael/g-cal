@@ -11,15 +11,22 @@
 //#import "AddTitlePlaceEventViewController.h"
 #import "AddEventViewController.h"
 @class GoogleCalAppDelegate;
-@interface MonthCalendar : TKCalendarMonthTableViewController<AddEventDelegate> {
+@interface MonthCalendar : TKCalendarMonthTableViewController<AddEventDelegate,NSFetchedResultsControllerDelegate> {
 	GoogleCalAppDelegate *appDelegate;	
 	@private
 		NSFetchedResultsController *fetchedResultsController;
 		NSManagedObjectContext *managedObjectContext;
+		NSDate *selectedDate;
+		int numberOfRowsForGivenDate;
+		NSArray *eventsForGivenDate;
+	
 	
 }
 
 -(IBAction)addEvent:(id)sender;
+- (BOOL)isSameDay:(NSDate *)dateOne withDate:(NSDate *)dateTwo;
+@property (nonatomic, retain) NSArray *eventsForGivenDate;
+@property (nonatomic, retain) NSDate *selectedDate;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 

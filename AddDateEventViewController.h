@@ -49,6 +49,9 @@
 - (void) endDateFormater;
 - (UIColor *) labelColor;
 - (Boolean) checkStartEndHourDifference;
+- (void) startHourBehavior;
+- (void) endHourBehavior;
+
 
 @end
 

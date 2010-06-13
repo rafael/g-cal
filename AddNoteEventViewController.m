@@ -8,13 +8,15 @@
 
 #import "AddNoteEventViewController.h"
 
+
 @implementation AddNoteEventViewController
 @synthesize  noteTextView;
 
 
 
 -(void)done{
-       [self.navigationController popViewControllerAnimated:YES];
+		self.event.note = self.noteTextView.text;
+		[self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)cancel{
@@ -23,50 +25,27 @@
 
 }
 
-- (void)viewDidLoad {
-	self.title = @"Add Note";
-	self.navigationItem.prompt = @"Set the details for this event";
-	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
-    self.navigationItem.leftBarButtonItem = cancelButtonItem;
-    [cancelButtonItem release];
-    
-    UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(done)];
-    self.navigationItem.rightBarButtonItem = saveButtonItem;
-    [saveButtonItem release];
-	[self noteTextView]; //to become first responder
-
-    [super viewDidLoad];
-
-}
 
 
-- (void)viewWillAppear:(BOOL)flag {
-    [super viewWillAppear:flag];
-    [noteTextView becomeFirstResponder];
-}
+//#pragma mark -
+//#pragma mark UITextViewDelegate
+//- (void)textViewDidEndEditing:(UITextView *)textView
+//{
+//	
+//	NSLog(@"entre aqui donde creo que entreo");
+////	if(textField.tag ==1){
+////		[placeTextField becomeFirstResponder];
+////		
+////	}
+////	else{
+////		[self done];
+////		
+////	}
+//	//return YES; // We do not want UITextField to insert line-breaks.
+//	
+//}
 
 
-
-- (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-	self.noteTextView = nil;
-
-}
-
-
-- (void)dealloc {
-
-	[noteTextView release];
-    [super dealloc];
-}
 
 #pragma mark -
 #pragma mark Table View dataSource Methods
@@ -102,6 +81,8 @@
 	return result;
 }
 
+#pragma mark -
+#pragma mark Utility functions
 - (UITextView *)noteTextView{
 	if (noteTextView == nil)
 	{
@@ -112,10 +93,62 @@
 		noteTextView.keyboardType = UIKeyboardTypeDefault;	
 		noteTextView.returnKeyType = UIReturnKeyDefault;
 		
-		noteTextView.delegate = self;		
+				
 
 	}	
 	return noteTextView;
 }
+
+#pragma mark -
+#pragma mark UIViewController functions
+- (void)viewDidLoad {
+	self.title = @"Note";
+	self.navigationItem.prompt = @"Set the details for this event";
+	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
+    self.navigationItem.leftBarButtonItem = cancelButtonItem;
+    [cancelButtonItem release];
+    
+    UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(done)];
+    self.navigationItem.rightBarButtonItem = saveButtonItem;
+    [saveButtonItem release];
+	[self noteTextView]; //to become first responder
+	self.noteTextView.delegate = self;
+	
+	if (self.event.note != nil & [ self.event.note length] != 0)
+		self.noteTextView.text = self.event.note;
+	
+    [super viewDidLoad];
+	
+}
+
+
+- (void)viewWillAppear:(BOOL)flag {
+    [super viewWillAppear:flag];
+    [noteTextView becomeFirstResponder];
+}
+
+
+
+- (void)didReceiveMemoryWarning {
+	// Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+	
+	// Release any cached data, images, etc that aren't in use.
+}
+
+- (void)viewDidUnload {
+	// Release any retained subviews of the main view.
+	// e.g. self.myOutlet = nil;
+	self.noteTextView = nil;
+	
+}
+
+
+- (void)dealloc {
+	
+	[noteTextView release];
+    [super dealloc];
+}
+
 
 @end

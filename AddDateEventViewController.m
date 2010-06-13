@@ -7,7 +7,7 @@
 //
 
 #import "AddDateEventViewController.h"
-#import "Event.h"
+
 
 #define kTextFieldWidth	180
 #define kTextFieldHeight 31
@@ -39,40 +39,15 @@
 	if (rowSelected == 0){
 		[startDate release];
 		startDate = [[dateSelect date] retain];
-		Boolean diffrenceGreaterThan24h = [self checkStartEndHourDifference];
-		[self startDateFormater];
-		if (diffrenceGreaterThan24h == YES) {
-		
-			endHourLabel.text = [dateFormater stringFromDate:endDate];	
-			endHourLabel.textColor = [self labelColor];
-			startHourLabel.text = [dateFormater stringFromDate:startDate];	
-			
-			
-		}
-		else{
-			startHourLabel.text = [dateFormater stringFromDate:startDate];	
-			[self endDateFormater];
-			endHourLabel.text = [dateFormater stringFromDate:endDate];	
-			endHourLabel.textColor = [self labelColor];
-		}
+		[self startHourBehavior];
 		
 	}
 	else{
 		
 		[endDate release];
 		endDate = [[dateSelect date] retain];
-		Boolean diffrenceGreaterThan24h = [self checkStartEndHourDifference];
-		[self endDateFormater];
-		if (diffrenceGreaterThan24h == YES) {
-			[self startDateFormater];
-			startHourLabel.textColor = [self labelColor];
-			endHourLabel.text = [dateFormater stringFromDate:endDate];
-		}
-		else {
-			[self endDateFormater];
-			startHourLabel.textColor = [self labelColor];
-			endHourLabel.text = [dateFormater stringFromDate:endDate];
-		}
+		[self endHourBehavior];
+
 		
 		
 		
@@ -112,17 +87,20 @@
 #pragma mark -
 #pragma mark Table View delegate Methods
 
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 	NSUInteger row = [indexPath row];
 	//rowSelected = indexPath;
 	if (row == 0) {
 		rowSelected = 0;
 		[dateSelect setDate:startDate animated:YES];
+		[self startHourBehavior];
+
 	}
 	else{	
 		rowSelected = 1;
 		[dateSelect setDate:endDate animated:YES];
-		
+		[self endHourBehavior];
 	}
 	
 	
@@ -190,6 +168,43 @@
 
 #pragma mark -
 #pragma mark utility functions
+
+- (void) startHourBehavior {
+	Boolean diffrenceGreaterThan24h = [self checkStartEndHourDifference];
+	[self startDateFormater];
+	if (diffrenceGreaterThan24h == YES) {
+		
+		endHourLabel.text = [dateFormater stringFromDate:endDate];	
+		endHourLabel.textColor = [self labelColor];
+		startHourLabel.text = [dateFormater stringFromDate:startDate];	
+		
+		
+	}
+	else{
+		startHourLabel.text = [dateFormater stringFromDate:startDate];	
+		[self endDateFormater];
+		endHourLabel.text = [dateFormater stringFromDate:endDate];	
+		endHourLabel.textColor = [self labelColor];
+	}
+	
+}
+
+
+- (void) endHourBehavior {
+	Boolean diffrenceGreaterThan24h = [self checkStartEndHourDifference];
+	[self endDateFormater];
+	if (diffrenceGreaterThan24h == YES) {
+		[self startDateFormater];
+		startHourLabel.textColor = [self labelColor];
+		endHourLabel.text = [dateFormater stringFromDate:endDate];
+	}
+	else {
+		[self endDateFormater];
+		startHourLabel.textColor = [self labelColor];
+		endHourLabel.text = [dateFormater stringFromDate:endDate];
+	}
+	
+}
 
 - (UITableViewCell *) getCellForWholeDay:(NSString *)cellIdentifier {
 	
@@ -342,7 +357,7 @@
 	self.endDate = self.event.endDate;
 	dtableView.scrollEnabled= NO;
 	
-	self.title = @"Add Dates";
+	self.title = @"Dates";
 	self.navigationItem.prompt = @"Set the details for this event";
 	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
     self.navigationItem.leftBarButtonItem = cancelButtonItem;

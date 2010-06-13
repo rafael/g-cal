@@ -7,19 +7,13 @@
 //
 
 #import "AddTitlePlaceEventViewController.h"
-#import "Event.h";
+
 
 
 #define kTextFieldWidth	277
 #define kTextFieldHeight 31
 
-static inline BOOL IsEmpty(id thing) {
-	return thing == nil
-	|| ([thing respondsToSelector:@selector(length)]
-		&& [(NSData *)thing length] == 0)
-	|| ([thing respondsToSelector:@selector(count)]
-		&& [(NSArray *)thing count] == 0);
-}
+
 
 @implementation AddTitlePlaceEventViewController
 
@@ -113,14 +107,33 @@ static inline BOOL IsEmpty(id thing) {
 }
 
 
-- (void)viewWillAppear:(BOOL)flag {
-    [super viewWillAppear:flag];
-    [titleTextField becomeFirstResponder];
+
+
+
+#pragma mark -
+#pragma mark Utility functions
+
+- (UITextField *)placeTextField{
+	if (placeTextField == nil)
+	{
+		CGRect frame = CGRectMake(13, 5, kTextFieldWidth, kTextFieldHeight);
+		placeTextField = [[UITextField alloc] initWithFrame:frame];
+		placeTextField.borderStyle = UITextBorderStyleNone;
+		placeTextField.textColor = [UIColor blackColor];
+		placeTextField.font = [UIFont systemFontOfSize:18.0];
+		placeTextField.placeholder = @"Place";
+		placeTextField.backgroundColor = [UIColor whiteColor];
+		placeTextField.autocorrectionType = UITextAutocorrectionTypeNo;	// no auto correction support
+		placeTextField.keyboardType = UIKeyboardTypeDefault;	// use the default type input method (entire keyboard)
+		placeTextField.returnKeyType = UIReturnKeyDefault;
+		placeTextField.clearButtonMode = UITextFieldViewModeWhileEditing;	// has a clear 'x' button to the right
+		placeTextField.tag = 2;		// tag this control so we can remove it later for recycled cells
+		placeTextField.delegate = self;	// let us be the delegate so we know when the keyboard's "Done" button is pressed		
+		// Add an accessibility label that describes what the text field is for.
+		[placeTextField setAccessibilityLabel:NSLocalizedString(@"placeTextField", @"")];
+	}	
+	return placeTextField;
 }
-
-
-
-
 
 - (UITextField *)titleTextField{
 	if (titleTextField == nil)
@@ -147,48 +160,6 @@ static inline BOOL IsEmpty(id thing) {
 
 
 
-- (UITextField *)placeTextField{
-	if (placeTextField == nil)
-	{
-		CGRect frame = CGRectMake(13, 5, kTextFieldWidth, kTextFieldHeight);
-		placeTextField = [[UITextField alloc] initWithFrame:frame];
-		placeTextField.borderStyle = UITextBorderStyleNone;
-		placeTextField.textColor = [UIColor blackColor];
-		placeTextField.font = [UIFont systemFontOfSize:18.0];
-		placeTextField.placeholder = @"Place";
-		placeTextField.backgroundColor = [UIColor whiteColor];
-		placeTextField.autocorrectionType = UITextAutocorrectionTypeNo;	// no auto correction support
-		placeTextField.keyboardType = UIKeyboardTypeDefault;	// use the default type input method (entire keyboard)
-		placeTextField.returnKeyType = UIReturnKeyDefault;
-		placeTextField.clearButtonMode = UITextFieldViewModeWhileEditing;	// has a clear 'x' button to the right
-		placeTextField.tag = 2;		// tag this control so we can remove it later for recycled cells
-		placeTextField.delegate = self;	// let us be the delegate so we know when the keyboard's "Done" button is pressed		
-		// Add an accessibility label that describes what the text field is for.
-		[placeTextField setAccessibilityLabel:NSLocalizedString(@"placeTextField", @"")];
-	}	
-	return placeTextField;
-}
-
-
-
-- (void)viewDidLoad {
-    
-
-	self.title = @"Add Title & Place";
-	self.navigationItem.prompt = @"Set the details for this event";
-	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
-    self.navigationItem.leftBarButtonItem = cancelButtonItem;
-    [cancelButtonItem release];
-    
-    UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(done)];
-    self.navigationItem.rightBarButtonItem = saveButtonItem;
-    [saveButtonItem release];
-	
-	titleTextField = self.titleTextField;
-	[super viewDidLoad];
-	
-
-}
 
 
 
@@ -204,11 +175,51 @@ static inline BOOL IsEmpty(id thing) {
 		
 	}
 	else{
-		[textField resignFirstResponder];
+		[self done];
 		
 	}
 	return YES; // We do not want UITextField to insert line-breaks.
 	
+}
+
+
+
+
+#pragma mark -
+#pragma mark UIViewController functions
+
+
+- (void)viewDidLoad {
+    
+	
+	self.title = @"Title & Place";
+	self.navigationItem.prompt = @"Set the details for this event";
+	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
+    self.navigationItem.leftBarButtonItem = cancelButtonItem;
+    [cancelButtonItem release];
+    
+    UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(done)];
+    self.navigationItem.rightBarButtonItem = saveButtonItem;
+    [saveButtonItem release];
+	
+	titleTextField = self.titleTextField;
+	if (self.event.title != nil && [self.event.title length] != 0)
+		titleTextField.text = self.event.title;
+	
+	placeTextField = self.placeTextField;
+	if (self.event.location != nil && [self.event.location length] != 0)
+		placeTextField.text = self.event.location;
+	[super viewDidLoad];
+	
+	
+}
+
+
+
+
+- (void)viewWillAppear:(BOOL)flag {
+    [super viewWillAppear:flag];
+    [titleTextField becomeFirstResponder];
 }
 
 
@@ -226,7 +237,7 @@ static inline BOOL IsEmpty(id thing) {
 	[super viewDidUnload];
 	self.placeTextField = nil;
 	self.titleTextField = nil;
-//	self.event = nil;
+	//	self.event = nil;
 }
 
 
@@ -234,9 +245,11 @@ static inline BOOL IsEmpty(id thing) {
 	//[event release];
 	[placeTextField release];
 	[titleTextField release];
-
+	
     [super dealloc];
 }
+
+
 
 
 @end

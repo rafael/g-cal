@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "AddCalendarEventViewController.h"
 
-@class Event;
 
 
 

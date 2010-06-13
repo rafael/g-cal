@@ -8,6 +8,7 @@
 
 
 #import "AddEventViewController.h"
+#import "SelectCalendarForEventViewController.h"
 #import "Event.h"
 
 
@@ -44,7 +45,7 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 @synthesize delegate;
 @synthesize addElementsTableView;
 @synthesize dateFormater;
-
+@synthesize managedObjectContext, fetchedResultsController;
 
 
 - (void)addNoteEventViewController:(AddNoteEventViewController *)addNoteEventViewController didAddNoteEvent:(Event *)ievent{
@@ -64,20 +65,10 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 
 -(void)save{
 	
-	[event.managedObjectContext deleteObject:event];
+	if (event.title == nil)
+		event.title = @"New Event";
 	
-	NSError *error = nil;
-	if (![event.managedObjectContext save:&error]) {
-		/*
-		 Replace this implementation with code to handle the error appropriately.
-		 
-		 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-		 */
-		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-		abort();
-	}	
-	
-	[self.delegate addEventViewController:self didAddEvent:nil];
+	[self.delegate addEventViewController:self didAddEvent:self.event];
 }
 
 -(void)cancel{
@@ -86,13 +77,9 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 	
 	NSError *error = nil;
 	if (![event.managedObjectContext save:&error]) {
-		/*
-		 Replace this implementation with code to handle the error appropriately.
-		 
-		 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-		 */
+
 		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-		abort();
+
 	}	
 	
 	[self.delegate addEventViewController:self didAddEvent:nil];
@@ -105,8 +92,9 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 	Class viewControllerClass = NSClassFromString(className);
 	AddCalendarEventViewController *targetViewController = [[viewControllerClass alloc] initWithNibName:className bundle:nil];	
 	targetViewController.event = self.event;
-//UIViewController *targetViewController = [[menuList objectAtIndex: indexPath.section] objectForKey:kViewControllerKey];
-//	[self.navigationController pushViewController:targetViewController animated:YES];
+	if ( [className isEqualToString:@"SelectCalendarForEventViewController"]) {
+		((SelectCalendarForEventViewController *)targetViewController).fetchedResultsController = self.fetchedResultsController;
+	}
 	[self.navigationController pushViewController:targetViewController animated:YES];
 	[targetViewController release];
 	
@@ -150,6 +138,38 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 	return result;
 }
 
+#pragma mark -
+#pragma mark Fetched results controller
+
+- (NSFetchedResultsController *)fetchedResultsController {
+	
+    if (fetchedResultsController == nil) {
+		
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+		NSEntityDescription *entity = [NSEntityDescription entityForName:@"Calendar" inManagedObjectContext:managedObjectContext];
+        [fetchRequest setEntity:entity];
+        
+		
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+        NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+        
+        [fetchRequest setSortDescriptors:sortDescriptors];
+		
+        NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:@"Root"];
+        aFetchedResultsController.delegate = self;
+        self.fetchedResultsController = aFetchedResultsController;
+
+
+        [aFetchedResultsController release];
+        [fetchRequest release];
+        [sortDescriptor release];
+        [sortDescriptors release];
+	
+    }
+	
+	return fetchedResultsController;
+}    
+
 
 #pragma mark -
 #pragma mark utility functions
@@ -181,7 +201,7 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 		if (self.event.location != nil && [self.event.location length] != 0)
 			lblTemp2.text = self.event.location;
 		else
-			lblTemp2.text = @"Location";
+			lblTemp2.text = @"Place";
 
 				
 	}
@@ -231,16 +251,6 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 			UILabel *alreadySetLabel = (UILabel *)[[cell contentView] viewWithTag:4];
 			alreadySetLabel.text = endDateString;
 		}
-		
-		
-
-
-	
-		
-		
-	
-		
-		
 		
 		
 	}
@@ -351,7 +361,7 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 
 	[menuList addObject:[NSDictionary dictionaryWithObjectsAndKeys:
 						 @"Calendar", kTitleKey,
-						 @"AddNoteEventViewController", kViewControllerKey,
+						 @"SelectCalendarForEventViewController", kViewControllerKey,
 						 @"44.0f", kRowSizeKey,
 						 @"YES",kNormalRowsizeKey,
 						 nil]];
@@ -415,6 +425,8 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 	self.event = nil;
 	addElementsTableView = nil;
 	self.dateFormater = nil;
+	self.managedObjectContext = nil;
+	self.fetchedResultsController = nil;
 	[super viewDidUnload];
 }
 
@@ -423,6 +435,9 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 	[event release];
 	[addElementsTableView release];
 	[dateFormater release];
+	[fetchedResultsController release];
+	[managedObjectContext release];
+
     [super dealloc];
 }
 
@@ -457,6 +472,21 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
     UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(save)];
     self.navigationItem.rightBarButtonItem = saveButtonItem;
     [saveButtonItem release];
+	
+	
+	NSError *error = nil;
+	if (![[self fetchedResultsController] performFetch:&error]) {
+		/*
+		 Replace this implementation with code to handle the error appropriately.
+		 
+		 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+		 */
+		NSLog(@"Unresolved error fetching calendars %@, %@", error, [error userInfo]);
+		abort();
+	}
+	
+	Calendar *aDefaultCalendar = (Calendar *)[fetchedResultsController.fetchedObjects objectAtIndex:0];
+	event.calendar = aDefaultCalendar;
 	
     [super viewDidLoad];
 	[self initializeMenuList];

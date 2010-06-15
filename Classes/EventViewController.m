@@ -10,20 +10,21 @@
 
 @implementation EventViewController
 
-@synthesize eventinformation;
 
--(void) loadEvent{
-	//NSLog(@"Si voy bien %@", eventTableView);
-	
-	[eventTableView reloadData];
+
+
+
+-(void)edit{
+	//self.event.note = self.noteTextView.text;
+	[self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark -
 #pragma mark Table View dataSource Methods
 
 -(NSInteger)tableView:(UITableView *)tv numberOfRowsInSection:(NSInteger)section {
-	//NSLog("TENGO TANTOS %@", [self.eventinformation count]);
-		return [self.eventinformation count];
+
+		return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -34,11 +35,31 @@
 		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:kCell_ID] autorelease];
 	}
 	
-	cell.textLabel.text = [self.eventinformation objectAtIndex:indexPath.row];
+    cell.textLabel.text = self.event.title;
+	
+
 	return cell;
 }
+#pragma mark -
+#pragma mark UIViewController functions
 
+-(void)viewDidLoad{
+	self.title = @"Event";
+	
 
+	//	self.navigationItem.prompt = @"Set the details for this event";
+	//	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
+	//    self.navigationItem.leftBarButtonItem = cancelButtonItem;
+	//    [cancelButtonItem release];
+    
+    UIBarButtonItem *editButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleDone target:self action:@selector(edit)];
+    self.navigationItem.rightBarButtonItem = editButtonItem;
+    [editButtonItem release];
+	
+	
+    [super viewDidLoad];	
+	
+}
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -48,8 +69,7 @@
 }
 
 - (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
+
 }
 
 

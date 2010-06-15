@@ -10,66 +10,54 @@
 #import "MonthCalendar.h"
 #import "DayViewController.h"
 #import "EventViewController.h"
+#import "CalendarViewController.h"
 
 
 @implementation GoogleCalAppDelegate
 
 @synthesize window;
-@synthesize monthcal;
-@synthesize dayview;
-@synthesize events;
+@synthesize username;
+@synthesize password;
+
 
 #pragma mark -
 #pragma mark Application lifecycle
 
--(void) addNewEvent:(NSString *) eventId{
-	
-	[data setValue:[NSMutableArray array] forKey:eventId];
-
-	
-}
-
--(NSArray *) events{
-	return [data allKeys];
-	
-}
-
--(NSArray *) eventInfo:(NSString *) eventId{
-	
-	return [data valueForKey:eventId];
-}
-
--(void) createDefaultData {
-	data = [[NSMutableDictionary dictionary] retain];
-	[data setValue:[NSMutableArray arrayWithObjects:@"Harina",@"cafe",nil] forKey:@"Torta"];
-	[data setValue:[NSMutableArray arrayWithObjects:@"Agua",@"Sal",@"X",nil] forKey:@"Agua con sal"];
-	[data setValue:[NSMutableArray arrayWithObjects:@"Agua",@"azucar",@"maiz",@"etx",nil] forKey:@"Agua con azucar"];
-	
-}
 
 
--(void) eventClicked:(NSString *) eventId{
-	EventController.eventinformation =  [self eventInfo:eventId];
-	[EventController loadEvent];
-	[navController pushViewController:EventController animated:YES];
-}
+
 
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
     
 
 	MonthCalendar *aMonthCal = [[MonthCalendar alloc] init];
-
-	
-	
-	[self setMonthcal:aMonthCal]; 
 	aMonthCal.managedObjectContext = self.managedObjectContext;
-	[aMonthCal release]; 
+	
+	
+	CalendarViewController *calendarController = [[CalendarViewController alloc] initWithNibName:@"CalendarViewController" bundle:nil];
+	
 	navController.viewControllers= [NSArray arrayWithObject:aMonthCal];
 	[window addSubview:navController.view];
+	[aMonthCal release]; 
+	[calendarController release];
 	
-	[self createDefaultData];
 	
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+   
+	
+	self.username = [defaults stringForKey:@"username_pref"];
+	if (!self.username)
+		self.username = @"user@gmail.com";
+	if( ![username rangeOfString:@"@"].length )		
+		username = [username stringByAppendingString:@"@gmail.com"];
+	
+	self.password =  [defaults stringForKey:@"password"];
+	if( !self.password )
+		password = @"password";
+	NSLog(@" esto es lo que hay en los preferences %@, %@", self.username, self.password );
+
+
 	
 //	DayViewController *aDayView = [[DayViewController alloc] init];
 //	[self setDayview:aDayView]; 
@@ -185,7 +173,7 @@
     [managedObjectContext release];
     [managedObjectModel release];
     [persistentStoreCoordinator release];
-    [monthcal release]; 
+    //[monthcal release]; 
 
 	[window release];
 	

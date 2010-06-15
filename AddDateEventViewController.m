@@ -36,21 +36,17 @@
 
 - (void) dateChanged:(UIDatePicker *)sender{
 	
-	if (rowSelected == 0){
-		[startDate release];
-		startDate = [[dateSelect date] retain];
+	if (rowSelected == 0){		
+		
+		self.startDate = [dateSelect date];
 		[self startHourBehavior];
 		
 	}
 	else{
 		
-		[endDate release];
-		endDate = [[dateSelect date] retain];
+		self.endDate = [dateSelect date];
 		[self endHourBehavior];
 
-		
-		
-		
 	}
 }
 

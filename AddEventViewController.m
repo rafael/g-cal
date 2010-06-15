@@ -47,20 +47,12 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 @synthesize dateFormater;
 @synthesize managedObjectContext, fetchedResultsController;
 
-
-- (void)addNoteEventViewController:(AddNoteEventViewController *)addNoteEventViewController didAddNoteEvent:(Event *)ievent{
-	
-	[self.navigationController popViewControllerAnimated:YES];
-	//NSLog(@"vamos bien rata");
-//	if ( IsEmpty(note) != NO ){
-//		
-//		NSLog(@"esta es la nota %@",note);
-//		//[appDelegate addNewEvent:eventId];
-//		//[tableView reloadData];
-//		
-//	}
-	
-}
+//
+//- (void)addNoteEventViewController:(AddNoteEventViewController *)addNoteEventViewController didAddNoteEvent:(Event *)ievent{
+//	
+//	[self.navigationController popViewControllerAnimated:YES];
+//	
+//}
 
 
 -(void)save{
@@ -484,10 +476,19 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 		NSLog(@"Unresolved error fetching calendars %@, %@", error, [error userInfo]);
 		abort();
 	}
-	
-	Calendar *aDefaultCalendar = (Calendar *)[fetchedResultsController.fetchedObjects objectAtIndex:0];
-	event.calendar = aDefaultCalendar;
-	
+	if ([fetchedResultsController.fetchedObjects count] > 0){
+		Calendar *aDefaultCalendar = (Calendar *)[fetchedResultsController.fetchedObjects objectAtIndex:0];
+		event.calendar = aDefaultCalendar;
+	}
+	else {
+		UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"No Calendars Found" message:@"We were not able to find any calendars for your google account. It's not possbile to create events" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] autorelease];
+		// optional - add more buttons:
+		[alert addButtonWithTitle:@"Ok"];
+		[alert show];
+		
+	}
+
+		//	
     [super viewDidLoad];
 	[self initializeMenuList];
 	

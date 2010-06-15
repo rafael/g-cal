@@ -8,7 +8,7 @@
 
 @class MonthCalendar;
 @class DayViewController;
-@class EventViewController;
+
 
 @interface GoogleCalAppDelegate : NSObject <UIApplicationDelegate> {
 	NSMutableDictionary *data;
@@ -16,12 +16,14 @@
     NSManagedObjectContext *managedObjectContext;	    
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
 	IBOutlet UINavigationController *navController;
-	IBOutlet EventViewController *EventController;
+	
 	
     UIWindow *window;
 	
-	MonthCalendar *monthcal;
-	DayViewController *dayview;
+	//DayViewController *dayview;
+	NSString* username;
+	NSString* password;
+
 	
 
 }
@@ -32,19 +34,18 @@
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
-@property (nonatomic, retain) MonthCalendar *monthcal; 
+//@property (nonatomic, retain) MonthCalendar *monthcal; 
 
-@property (nonatomic, retain)  DayViewController *dayview; 
-@property (readonly) NSArray *events;
+//@property (nonatomic, retain)  DayViewController *dayview; 
+
+@property (nonatomic, retain) NSString* username;
+@property (nonatomic, retain) NSString* password;
+
 
 
 
 - (NSString *)applicationDocumentsDirectory;
--(void) eventClicked:(NSString *) eventId;
--(NSArray *) eventInfo:(NSString *) eventId;
--(void) createDefaultData;
 
--(void) addNewEvent:(NSString *) eventId;
 
 
 @end

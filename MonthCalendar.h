@@ -19,12 +19,18 @@
 		NSDate *selectedDate;
 		int numberOfRowsForGivenDate;
 		NSArray *eventsForGivenDate;
+		UIToolbar *bottomToolBar;
+	
 	
 	
 }
 
 -(IBAction)addEvent:(id)sender;
 - (BOOL)isSameDay:(NSDate *)dateOne withDate:(NSDate *)dateTwo;
+-(void) setDayElements;
+- (void) today:(id)sender;
+-(void) addToolBar;
+@property (nonatomic, retain) UIToolbar *bottomToolBar;
 @property (nonatomic, retain) NSArray *eventsForGivenDate;
 @property (nonatomic, retain) NSDate *selectedDate;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;

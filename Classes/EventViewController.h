@@ -7,18 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddEventViewController.h"
 
-
-@interface EventViewController :  UIViewController<UITableViewDataSource> {
+@interface EventViewController :  AddCalendarEventViewController <UITableViewDataSource> {
 	
-	
-	NSArray *eventinformation;
 	IBOutlet UITableView *eventTableView;
 
 }
 
 
-@property (nonatomic, retain) NSArray *eventinformation; 
--(void) loadEvent;
+
+
+-(void)edit;
 
 @end

@@ -10,14 +10,16 @@
 #import "GoogleCalAppDelegate.h"
 #import "Event.h"
 #import "Calendar.h"
+#import "EventViewController.h"
 
 @implementation MonthCalendar
 @synthesize managedObjectContext, fetchedResultsController;
 @synthesize selectedDate;
 @synthesize eventsForGivenDate;
+@synthesize bottomToolBar;
 -(IBAction)addEvent:(id)sender{
 
-		
+//		
 	AddEventViewController *addEventController = [[AddEventViewController alloc] initWithNibName:@"AddEventViewController" bundle:nil];
 	addEventController.delegate = self;
 //	Calendar *newCal = [NSEntityDescription insertNewObjectForEntityForName:@"Calendar" inManagedObjectContext:self.managedObjectContext];
@@ -27,7 +29,7 @@
 //	
 //	
 //	NSError *error = nil;
-//	NSLog(@"este es mi context %@",newCal.managedObjectContext);
+//	
 //	if (![newCal.managedObjectContext save:&error]) {
 //		/*
 //		 Replace this implementation with code to handle the error appropriately.
@@ -37,9 +39,7 @@
 //		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 //		//abort();
 //	}
-//	NSLog(@"wbhhhaaaat tha fuck");
-//	
-//	NSLog(@"id %@", newCal);
+
 ////	
 	Event *newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
 	
@@ -48,8 +48,11 @@
 	addEventController.managedObjectContext = self.managedObjectContext;
 	
 	NSTimeInterval one_hour = 3600; 
-
-	addEventController.event.startDate = [NSDate  date];
+	if (self.selectedDate != nil)
+		addEventController.event.startDate = self.selectedDate;
+	else
+		addEventController.event.startDate = [NSDate date];
+		
 	NSDate *endDate = [[NSDate alloc] initWithTimeInterval:one_hour sinceDate:addEventController.event.startDate]; 
 	addEventController.event.endDate =endDate;
 	[endDate release];
@@ -75,9 +78,14 @@
 		NSError *error = nil;
 		if (![event.managedObjectContext save:&error]) {
 
-			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+			NSLog(@"Unresolved error saving the event%@, %@", error, [error userInfo]);
 		
-		}	
+		}
+		
+		[self setDayElements];
+		[tableView reloadData];
+		[self.monthView reload];
+		
 	
 	}
 	
@@ -109,34 +117,12 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	
-//	NSInteger count = [[self.fetchedResultsController sections] count];
-//    
-//	if (count == 0) {
-//		count = 1;
-//	}
-//	
-//    return count;	
 	return 1;
 }
 
 - (void) calendarMonthView:(TKCalendarMonthView*)monthView dateWasSelected:(NSDate*)date{
 	self.selectedDate = date;
-	NSArray *allMonthEvents = [self.fetchedResultsController fetchedObjects];
-	//	
-	NSMutableArray *eventsForToday = [[NSMutableArray alloc] init];
-
-	for (Event *event in allMonthEvents) {
-		
-		BOOL isTheSameDay = [self isSameDay:event.startDate withDate:date];
-		if (isTheSameDay)
-			[eventsForToday  addObject:event];
-	}
-	self.eventsForGivenDate = [[NSArray alloc] initWithArray:eventsForToday];
-	[eventsForToday release];
-	numberOfRowsForGivenDate = [self.eventsForGivenDate count];
-	
-	
+	[self setDayElements];
 	[tableView reloadData];
 }
 
@@ -168,15 +154,22 @@
 	
 }
 
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    // Configure the cell
+	Event *event = (Event *)[fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = event.title;
+}
 
 
--(void)tableView:(UITableView *)tableView2 didSelectRowAtIndexPath:(NSIndexPath *) indexPath {
+
+-(void)tableView:(UITableView *)tv didSelectRowAtIndexPath:(NSIndexPath *) indexPath {
 	
-	
-	[appDelegate eventClicked:[[[tableView2 cellForRowAtIndexPath:indexPath] textLabel] text]];
-	
-	
-	
+	EventViewController *eventController = [[EventViewController alloc] initWithNibName:@"EventViewController" bundle:nil];
+	Event *event = (Event *)[fetchedResultsController objectAtIndexPath:indexPath];
+	eventController.event = event;
+	[self.navigationController pushViewController:eventController animated:YES];
+	[eventController release];
+
 }
 
 
@@ -223,6 +216,55 @@
 	
 	return fetchedResultsController;
 }    
+//
+//- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+//	// The fetch controller is about to start sending change notifications, so prepare the table view for updates.
+//	[self.tableView beginUpdates];
+//}
+////
+////
+//- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+//
+//	
+//	switch(type) {
+//		case NSFetchedResultsChangeInsert:
+//			[tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+//			break;
+//			
+//		case NSFetchedResultsChangeDelete:
+//			[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//			break;
+//			
+//		case NSFetchedResultsChangeUpdate:
+//			[self configureCell:(UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+//			break;
+//			
+//		case NSFetchedResultsChangeMove:
+//			[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+//            break;
+//	}
+//}
+////
+////
+//- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+//	switch(type) {
+//		case NSFetchedResultsChangeInsert:
+//			[self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+//			break;
+//			
+//		case NSFetchedResultsChangeDelete:
+//			[self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+//			break;
+//	}
+//}
+//
+//
+//- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+//	// The fetch controller has sent all current change notifications, so tell the table view to process all updates.
+//	NSLog(@"vamos a ver como funciona esta mieeeer %@", controller);
+//	//[tableView reloadData];
+//}
 
 
 #pragma mark -
@@ -236,21 +278,86 @@
 }
 
 
-#pragma mark -
-#pragma mark UIViewController Functions
 
-- (void) viewDidLoad{
-	[super viewDidLoad];
-	appDelegate = [[UIApplication sharedApplication] delegate];
+
+//Action methods for toolbar buttons:
+- (void) today:(id)sender{
+
+	[self.monthView selectDate:[NSDate date]];
+}
+- (void) list:(id)sender{
+NSLog(@"tyee2");
+}
+- (void) month:(id)sender{
+NSLog(@"tyee3");	
+}
+
+
+-(void) addToolBar {
+	
+	UIToolbar *toolbar;
 	
 	
-	UIBarButtonItem *addButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addEvent:)];
-    self.navigationItem.rightBarButtonItem = addButtonItem;
-    [addButtonItem release];
+	
+	//create toolbar using new
+	toolbar = [UIToolbar new];
+	toolbar.barStyle = UIBarStyleDefault;
+	[toolbar sizeToFit];
+	toolbar.frame = CGRectMake(0, 370, 320, 50);
+	
+	//Add buttons
+	UIBarButtonItem *systemItem1 = [[UIBarButtonItem alloc]  initWithTitle:@"Today" style:UIBarButtonItemStyleBordered
+																				 target:self
+																				 action:@selector(today:)];
+
+	
+	UIBarButtonItem *systemItem2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+																				 target:self
+																				 action:@selector(list:)];
+	
+	UIBarButtonItem *systemItem3 = [[UIBarButtonItem alloc]
+									initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+									target:self action:@selector(list:)];
+	
+	UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"List", @"Day",
+																					  @"Month", nil]];
+	segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+	[segmentedControl addTarget:self action:@selector(month:)
+			forControlEvents:UIControlEventValueChanged];
+	
+	
+	UIBarButtonItem *segmentButton = [[UIBarButtonItem alloc]
+									  initWithCustomView:segmentedControl];
+	//Use this to put space in between your toolbox buttons
+	UIBarButtonItem *flexItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+																			  target:nil
+																			  action:nil];
+	
+	//Add buttons to the array
+	NSArray *items = [NSArray arrayWithObjects: systemItem1, flexItem,segmentButton ,flexItem,systemItem3, flexItem, nil];
+	
+	//release buttons
+	[systemItem1 release];
+	[systemItem2 release];
+	[systemItem3 release];
+	[flexItem release];
+	[segmentButton release];
+	[segmentedControl release];
+	
+	//add array of buttons to toolbar
+	[toolbar setItems:items animated:NO];
+	
+	[self.view addSubview:toolbar];
+	
+	[toolbar release];	
+	
+}
+
+-(void) setDayElements{
 	
 	
 	NSArray *allMonthEvents = [self.fetchedResultsController fetchedObjects];
-//	
+	//	
 	NSMutableArray *eventsForToday = [[NSMutableArray alloc] init];
 	NSDate *today = [NSDate date];
 	for (Event *event in allMonthEvents) {
@@ -259,14 +366,14 @@
 		if (isTheSameDay)
 			[eventsForToday  addObject:event];
 	}
-	self.eventsForGivenDate = [[NSArray alloc] initWithArray:eventsForToday];
+	self.eventsForGivenDate = [NSArray arrayWithArray:eventsForToday];
 	[eventsForToday release];
-	numberOfRowsForGivenDate = [self.eventsForGivenDate count];
+	numberOfRowsForGivenDate = [self.eventsForGivenDate count];	
 	
-
 }
 
-
+#pragma mark -
+#pragma mark UIViewController functions
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -282,6 +389,21 @@
 	self.selectedDate = nil;
 	self.eventsForGivenDate = nil;
 
+}
+
+- (void) viewDidLoad{
+	[super viewDidLoad];
+	appDelegate = [[UIApplication sharedApplication] delegate];
+	
+	
+	UIBarButtonItem *addButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addEvent:)];
+    self.navigationItem.rightBarButtonItem = addButtonItem;
+    [addButtonItem release];
+	[self setDayElements];
+	
+	[self addToolBar];
+	
+	
 }
 
 

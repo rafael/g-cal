@@ -71,14 +71,6 @@
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">eventTableView</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="440628952"/>
-					</object>
-					<int key="connectionID">33</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">dataSource</string>
 						<reference key="source" ref="440628952"/>
 						<reference key="destination" ref="372490531"/>
@@ -200,10 +192,6 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">EventViewController</string>
 					<string key="superclassName">AddCalendarEventViewController</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">eventTableView</string>
-						<string key="NS.object.0">UITableView</string>
-					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">Classes/EventViewController.h</string>

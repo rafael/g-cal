@@ -8,15 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-
-@interface CalendarViewController : UIViewController <UITableViewDataSource> {
+@class GoogleCalAppDelegate;
+@interface CalendarViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
 	
 	@private
 		NSFetchedResultsController *fetchedResultsController;
 		NSManagedObjectContext *managedObjectContext;
+		GoogleCalAppDelegate *appDelegate;
+		IBOutlet UITableView *calendarsTableView;
 
 }
-
+@property (nonatomic, retain) IBOutlet UITableView *calendarsTableView;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 

@@ -77,6 +77,9 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 	[self.delegate addEventViewController:self didAddEvent:nil];
 }
 
+
+#pragma mark -
+#pragma mark Table View dataSource delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 

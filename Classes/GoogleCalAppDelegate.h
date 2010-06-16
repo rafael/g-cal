@@ -19,7 +19,7 @@
 	
 	
     UIWindow *window;
-	
+	MonthCalendar *mainMonthCal;
 	//DayViewController *dayview;
 	NSString* username;
 	NSString* password;
@@ -34,7 +34,7 @@
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
-//@property (nonatomic, retain) MonthCalendar *monthcal; 
+@property (nonatomic, retain) MonthCalendar *mainMonthCal; 
 
 //@property (nonatomic, retain)  DayViewController *dayview; 
 

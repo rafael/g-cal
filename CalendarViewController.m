@@ -8,11 +8,25 @@
 
 #import "CalendarViewController.h"
 #import "Calendar.h"
+#import "MonthCalendar.h"
+#import "GoogleCalAppDelegate.h"
+
 
 @implementation CalendarViewController
 @synthesize fetchedResultsController;
 @synthesize managedObjectContext;
-
+@synthesize calendarsTableView;
+#pragma mark -
+#pragma mark Table View dataSource delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	
+	MonthCalendar *mainMonthCal = appDelegate.mainMonthCal;
+//	Event *event = (Event *)[fetchedResultsController objectAtIndexPath:indexPath];
+//	eventController.event = event;
+	[self.navigationController pushViewController:mainMonthCal animated:YES];
+		
+}
 
 
 
@@ -54,12 +68,19 @@
 
 #pragma mark -
 #pragma mark UIViewController functions
+- (void)viewWillAppear:(BOOL)animated
+{
+	// this UIViewController is about to re-appear, make sure we remove the current selection in our table view
+	NSIndexPath *tableSelection = [self.calendarsTableView indexPathForSelectedRow];
+	[self.calendarsTableView deselectRowAtIndexPath:tableSelection animated:YES];
+}
 
 
 
 - (void)viewDidLoad {
-	
 	self.title = @"Calendars";
+	
+	appDelegate = [[UIApplication sharedApplication] delegate];
     [super viewDidLoad];
 }
 

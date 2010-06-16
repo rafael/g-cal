@@ -16,8 +16,10 @@
 @synthesize managedObjectContext, fetchedResultsController;
 @synthesize selectedDate;
 @synthesize eventsForGivenDate;
-@synthesize bottomToolBar;
--(IBAction)addEvent:(id)sender{
+@synthesize selectedCalendar;
+
+
+-(void)addEvent:(id)sender{
 
 //		
 	AddEventViewController *addEventController = [[AddEventViewController alloc] initWithNibName:@"AddEventViewController" bundle:nil];
@@ -121,7 +123,10 @@
 }
 
 - (void) calendarMonthView:(TKCalendarMonthView*)monthView dateWasSelected:(NSDate*)date{
+	
+	
 	self.selectedDate = date;
+	NSLog(@"Aqui voy esta es la fecha %@", self.selectedDate);
 	[self setDayElements];
 	[tableView reloadData];
 }
@@ -167,6 +172,7 @@
 	EventViewController *eventController = [[EventViewController alloc] initWithNibName:@"EventViewController" bundle:nil];
 	Event *event = (Event *)[fetchedResultsController objectAtIndexPath:indexPath];
 	eventController.event = event;
+	
 	[self.navigationController pushViewController:eventController animated:YES];
 	[eventController release];
 
@@ -357,17 +363,20 @@ NSLog(@"tyee3");
 	
 	
 	NSArray *allMonthEvents = [self.fetchedResultsController fetchedObjects];
-	//	
-	NSMutableArray *eventsForToday = [[NSMutableArray alloc] init];
-	NSDate *today = [NSDate date];
+	NSDate *day;	
+	NSMutableArray *eventsForDay = [[NSMutableArray alloc] init];
+	if (self.selectedDate)
+		day = selectedDate;
+	else
+		day = [NSDate date];
 	for (Event *event in allMonthEvents) {
 		
-		BOOL isTheSameDay = [self isSameDay:event.startDate withDate:today];
+		BOOL isTheSameDay = [self isSameDay:event.startDate withDate:day];
 		if (isTheSameDay)
-			[eventsForToday  addObject:event];
+			[eventsForDay  addObject:event];
 	}
-	self.eventsForGivenDate = [NSArray arrayWithArray:eventsForToday];
-	[eventsForToday release];
+	self.eventsForGivenDate = [NSArray arrayWithArray:eventsForDay];
+	[eventsForDay release];
 	numberOfRowsForGivenDate = [self.eventsForGivenDate count];	
 	
 }
@@ -379,23 +388,34 @@ NSLog(@"tyee3");
 {
 	// this UIViewController is about to re-appear, make sure we remove the current selection in our table view
 	NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];
+
 	[self.tableView deselectRowAtIndexPath:tableSelection animated:YES];
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+	NSLog(@"estoy en months");
+	self.navigationController.navigationBar.backItem.title = @"Calendars";
+}
 - (void)viewDidUnload {
 	
 	self.fetchedResultsController = nil;
 	self.managedObjectContext =nil ;
 	self.selectedDate = nil;
 	self.eventsForGivenDate = nil;
+	self.selectedCalendar = nil;
 
 }
 
 - (void) viewDidLoad{
 	[super viewDidLoad];
+	self.title = @"All Calendars";
+	//	CalendarViewController.navigationController.navigationBar.backItem.title = @"Calendars";
+	
+	
+	
 	appDelegate = [[UIApplication sharedApplication] delegate];
-	
-	
+
+
 	UIBarButtonItem *addButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addEvent:)];
     self.navigationItem.rightBarButtonItem = addButtonItem;
     [addButtonItem release];
@@ -412,6 +432,7 @@ NSLog(@"tyee3");
 	[managedObjectContext release];
 	[selectedDate release];
 	[eventsForGivenDate release];
+	[selectedCalendar release];
 	[super dealloc];
 	
 }

@@ -42,16 +42,25 @@
 }
 #pragma mark -
 #pragma mark UIViewController functions
+- (void)viewWillAppear:(BOOL)flag{
+
+	
+	
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+	
+	NSLog(@"estoy en events");
+	//add code to put the month
+	self.navigationController.navigationBar.backItem.title = @"June";
+}
+
+
 
 -(void)viewDidLoad{
 	self.title = @"Event";
 	
-
-	//	self.navigationItem.prompt = @"Set the details for this event";
-	//	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
-	//    self.navigationItem.leftBarButtonItem = cancelButtonItem;
-	//    [cancelButtonItem release];
-    
+   
     UIBarButtonItem *editButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleDone target:self action:@selector(edit)];
     self.navigationItem.rightBarButtonItem = editButtonItem;
     [editButtonItem release];

@@ -11,7 +11,7 @@
 
 @interface EventViewController :  AddCalendarEventViewController <UITableViewDataSource> {
 	
-	IBOutlet UITableView *eventTableView;
+
 
 }
 

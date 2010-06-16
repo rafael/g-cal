@@ -18,6 +18,7 @@
 @synthesize window;
 @synthesize username;
 @synthesize password;
+@synthesize mainMonthCal;
 
 
 #pragma mark -
@@ -33,15 +34,15 @@
 
 	MonthCalendar *aMonthCal = [[MonthCalendar alloc] init];
 	aMonthCal.managedObjectContext = self.managedObjectContext;
-	
+	self.mainMonthCal = aMonthCal;
 	
 	CalendarViewController *calendarController = [[CalendarViewController alloc] initWithNibName:@"CalendarViewController" bundle:nil];
-	
-	navController.viewControllers= [NSArray arrayWithObject:aMonthCal];
+
+	navController.viewControllers= [NSArray arrayWithObjects:calendarController,aMonthCal,nil];
 	[window addSubview:navController.view];
 	[aMonthCal release]; 
 	[calendarController release];
-	
+
 	
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
    
@@ -173,7 +174,7 @@
     [managedObjectContext release];
     [managedObjectModel release];
     [persistentStoreCoordinator release];
-    //[monthcal release]; 
+    [mainMonthCal release]; 
 
 	[window release];
 	

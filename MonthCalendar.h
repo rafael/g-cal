@@ -10,27 +10,31 @@
 #import "TapkuLibrary.h"
 //#import "AddTitlePlaceEventViewController.h"
 #import "AddEventViewController.h"
+@class Calendar;
 @class GoogleCalAppDelegate;
 @interface MonthCalendar : TKCalendarMonthTableViewController<AddEventDelegate,NSFetchedResultsControllerDelegate> {
-	GoogleCalAppDelegate *appDelegate;	
+		
 	@private
 		NSFetchedResultsController *fetchedResultsController;
 		NSManagedObjectContext *managedObjectContext;
 		NSDate *selectedDate;
+		Calendar *selectedCalendar;
 		int numberOfRowsForGivenDate;
 		NSArray *eventsForGivenDate;
-		UIToolbar *bottomToolBar;
+		GoogleCalAppDelegate *appDelegate;
+		
 	
 	
 	
 }
 
--(IBAction)addEvent:(id)sender;
+-(void)addEvent:(id)sender;
 - (BOOL)isSameDay:(NSDate *)dateOne withDate:(NSDate *)dateTwo;
 -(void) setDayElements;
 - (void) today:(id)sender;
 -(void) addToolBar;
-@property (nonatomic, retain) UIToolbar *bottomToolBar;
+
+@property (nonatomic, retain) Calendar *selectedCalendar;
 @property (nonatomic, retain) NSArray *eventsForGivenDate;
 @property (nonatomic, retain) NSDate *selectedDate;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;

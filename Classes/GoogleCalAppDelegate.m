@@ -16,9 +16,9 @@
 @implementation GoogleCalAppDelegate
 
 @synthesize window;
-@synthesize username;
-@synthesize password;
 @synthesize mainMonthCal;
+@synthesize gCalService;
+@synthesize username;
 
 
 #pragma mark -
@@ -35,28 +35,16 @@
 	MonthCalendar *aMonthCal = [[MonthCalendar alloc] init];
 	aMonthCal.managedObjectContext = self.managedObjectContext;
 	self.mainMonthCal = aMonthCal;
-	
+	[self.mainMonthCal allCalendars:YES];
 	CalendarViewController *calendarController = [[CalendarViewController alloc] initWithNibName:@"CalendarViewController" bundle:nil];
-
+	calendarController.managedObjectContext = self.managedObjectContext;
 	navController.viewControllers= [NSArray arrayWithObjects:calendarController,aMonthCal,nil];
 	[window addSubview:navController.view];
 	[aMonthCal release]; 
 	[calendarController release];
 
 	
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-   
-	
-	self.username = [defaults stringForKey:@"username_pref"];
-	if (!self.username)
-		self.username = @"user@gmail.com";
-	if( ![username rangeOfString:@"@"].length )		
-		username = [username stringByAppendingString:@"@gmail.com"];
-	
-	self.password =  [defaults stringForKey:@"password"];
-	if( !self.password )
-		password = @"password";
-	NSLog(@" esto es lo que hay en los preferences %@, %@", self.username, self.password );
+
 
 
 	
@@ -152,6 +140,39 @@
     }    
 	
     return persistentStoreCoordinator;
+}
+
+
+- (GDataServiceGoogleCalendar *)gCalService {
+	
+	
+	if (gCalService == nil) {
+		gCalService = [[GDataServiceGoogleCalendar alloc] init];
+		 [gCalService setUserAgent:@"A_and_R_development-GoogleCalc-1.0"];
+		[gCalService setShouldCacheDatedData:YES];
+		[gCalService setServiceShouldFollowNextLinks:YES];
+	}
+	
+	// update the username/password each time the service is requested
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	
+	
+	self.username = [defaults stringForKey:@"username_pref"];
+	if (!self.username)
+		self.username = @"user@gmail.com";
+	if( ![self.username rangeOfString:@"@"].length )		
+		self.username = [self.username stringByAppendingString:@"@gmail.com"];
+	
+	NSString *password =  [defaults stringForKey:@"password_pref"];
+	if( !password )
+		password = @"password";
+	
+
+	NSLog(@"esto es lo que voe en el user %@, %@", username,password);
+	[gCalService setUserCredentialsWithUsername:username
+								   password:password];
+	
+	return gCalService;
 }
 
 

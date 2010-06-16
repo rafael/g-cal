@@ -479,11 +479,15 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 		NSLog(@"Unresolved error fetching calendars %@, %@", error, [error userInfo]);
 		abort();
 	}
-	if ([fetchedResultsController.fetchedObjects count] > 0){
-		Calendar *aDefaultCalendar = (Calendar *)[fetchedResultsController.fetchedObjects objectAtIndex:0];
+	
+	Calendar *aDefaultCalendar = self.event.calendar;
+	if ( [fetchedResultsController.fetchedObjects count] > 0){
+		if (!self.event.calendar){
+		aDefaultCalendar = (Calendar *)[fetchedResultsController.fetchedObjects objectAtIndex:0];
 		event.calendar = aDefaultCalendar;
+		}
 	}
-	else {
+	else   {
 		UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"No Calendars Found" message:@"We were not able to find any calendars for your google account. It's not possbile to create events" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] autorelease];
 		// optional - add more buttons:
 		[alert addButtonWithTitle:@"Ok"];

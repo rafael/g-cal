@@ -9,6 +9,8 @@
 @class MonthCalendar;
 @class DayViewController;
 
+#import "GDataCalendar.h"
+
 
 @interface GoogleCalAppDelegate : NSObject <UIApplicationDelegate> {
 	NSMutableDictionary *data;
@@ -20,14 +22,16 @@
 	
     UIWindow *window;
 	MonthCalendar *mainMonthCal;
-	//DayViewController *dayview;
-	NSString* username;
-	NSString* password;
+	GDataServiceGoogleCalendar *gCalService;
+	NSString *username;
+
+
 
 	
 
 }
-
+@property (nonatomic,retain) NSString *username;
+@property (nonatomic,retain) GDataServiceGoogleCalendar *gCalService;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
@@ -38,8 +42,7 @@
 
 //@property (nonatomic, retain)  DayViewController *dayview; 
 
-@property (nonatomic, retain) NSString* username;
-@property (nonatomic, retain) NSString* password;
+
 
 
 

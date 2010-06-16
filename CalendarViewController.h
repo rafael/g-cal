@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class GoogleCalAppDelegate;
-@interface CalendarViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+@interface CalendarViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,NSFetchedResultsControllerDelegate> {
 	
 	@private
 		NSFetchedResultsController *fetchedResultsController;

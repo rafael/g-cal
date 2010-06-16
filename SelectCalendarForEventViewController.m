@@ -33,7 +33,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 	
-	Calendar *acalendar = (Calendar *)[fetchedResultsController objectAtIndexPath:indexPath];
+	Calendar *acalendar = (Calendar *)[self.fetchedResultsController objectAtIndexPath:indexPath];
 	self.event.calendar = acalendar;
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	

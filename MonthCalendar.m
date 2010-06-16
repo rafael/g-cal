@@ -12,6 +12,7 @@
 #import "Calendar.h"
 #import "EventViewController.h"
 
+
 @implementation MonthCalendar
 @synthesize managedObjectContext, fetchedResultsController;
 @synthesize selectedDate;
@@ -24,10 +25,12 @@
 //		
 	AddEventViewController *addEventController = [[AddEventViewController alloc] initWithNibName:@"AddEventViewController" bundle:nil];
 	addEventController.delegate = self;
+	
+	
 //	Calendar *newCal = [NSEntityDescription insertNewObjectForEntityForName:@"Calendar" inManagedObjectContext:self.managedObjectContext];
 //
-//	newCal.name = @"google leisure";
-//	newCal.calid = [NSNumber numberWithInt:1];
+//	newCal.name = @"google work";
+//	newCal.calid = [NSNumber numberWithInt:2];
 //	
 //	
 //	NSError *error = nil;
@@ -48,7 +51,7 @@
 	
 	addEventController.event = newEvent;
 	addEventController.managedObjectContext = self.managedObjectContext;
-	
+	addEventController.event.calendar = self.selectedCalendar;
 	NSTimeInterval one_hour = 3600; 
 	if (self.selectedDate != nil)
 		addEventController.event.startDate = self.selectedDate;
@@ -83,7 +86,8 @@
 			NSLog(@"Unresolved error saving the event%@, %@", error, [error userInfo]);
 		
 		}
-		
+		if (!allCalendarsValue)
+			self.selectedCalendar = event.calendar;
 		[self setDayElements];
 		[tableView reloadData];
 		[self.monthView reload];
@@ -126,7 +130,7 @@
 	
 	
 	self.selectedDate = date;
-	NSLog(@"Aqui voy esta es la fecha %@", self.selectedDate);
+
 	[self setDayElements];
 	[tableView reloadData];
 }
@@ -276,6 +280,80 @@
 #pragma mark -
 #pragma mark Utility functions
 
+-(void)allCalendars:(BOOL)value{
+	allCalendarsValue = value;
+	
+}
+
+
+- (void)calendarsTicket:(GDataServiceTicket *)ticket finishedWithFeed:(GDataFeedCalendar *)feed error:(NSError *)error{
+	if( !error ){
+		
+		NSLog(@"Auntentique adecuadamente");
+//		int count = [[feed entries] count];
+//		for( int i=0; i<count; i++ ){
+//			GDataEntryCalendar *calendar = [[feed entries] objectAtIndex:i];
+//			
+//			// Create a dictionary containing the calendar and the ticket to fetch its events.
+//			NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+//			[data addObject:dictionary];
+//			
+//			[dictionary setObject:calendar forKey:KEY_CALENDAR];
+//			[dictionary setObject:[[NSMutableArray alloc] init] forKey:KEY_EVENTS];
+//			
+//			if( [calendar ACLLink] )  // We can determine whether the calendar is under user's control by the existence of its edit link.
+//				[dictionary setObject:KEY_EDITABLE forKey:KEY_EDITABLE];
+//			
+//			NSURL *feedURL = [[calendar alternateLink] URL];
+//			if( feedURL ){
+//				GDataQueryCalendar* query = [GDataQueryCalendar calendarQueryWithFeedURL:feedURL];
+//				
+//				// Currently, the app just shows calendar entries from 15 days ago to 31 days from now.
+//				// Ideally, we would instead use similar controls found in Google Calendar web interface, or even iCal's UI.
+//				NSDate *minDate = [NSDate date];  // From right now...
+//				NSDate *maxDate = [NSDate dateWithTimeIntervalSinceNow:60*60*24*90];  // ...to 90 days from now.
+//				
+//				[query setMinimumStartTime:[GDataDateTime dateTimeWithDate:minDate timeZone:[NSTimeZone systemTimeZone]]];
+//				[query setMaximumStartTime:[GDataDateTime dateTimeWithDate:maxDate timeZone:[NSTimeZone systemTimeZone]]];
+//				[query setOrderBy:@"starttime"];  // http://code.google.com/apis/calendar/docs/2.0/reference.html#Parameters
+//				[query setIsAscendingOrder:YES];
+//				[query setShouldExpandRecurrentEvents:YES];
+//				
+//				GDataServiceTicket *ticket = [googleCalendarService fetchFeedWithQuery:query
+//																			  delegate:self
+//																	 didFinishSelector:@selector( eventsTicket:finishedWithEntries:error: )];
+//				// I add the service ticket to the dictionary to make it easy to find which calendar each reply belongs to.
+//				[dictionary setObject:ticket forKey:KEY_TICKET];
+//			}
+//		}
+	}else
+		[self handleError:error];
+	
+	[self.tableView reloadData];
+}
+
+
+- (void)handleError:(NSError *)error{
+	NSString *title, *msg;
+	if( [error code]==kGDataBadAuthentication ){
+		title = @"Authentication Failed";
+		msg = @"Invalid username/password\n\nPlease go to the iPhone's settings to change your Google account credentials.";
+	}else{
+		// some other error authenticating or retrieving the GData object or a 304 status
+		// indicating the data has not been modified since it was previously fetched
+		title = @"Unknown Error";
+		msg = [error localizedDescription];
+	}
+	
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+													message:msg
+												   delegate:nil
+										  cancelButtonTitle:@"Ok"
+										  otherButtonTitles:nil];
+	[alert show];
+	[alert release];
+}
+
 - (BOOL)isSameDay:(NSDate *)dateOne withDate:(NSDate *)dateTwo{
     NSUInteger desiredComponents = NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit;
     NSDateComponents *myCalendarDate = [[NSCalendar currentCalendar] components:desiredComponents fromDate:dateOne];
@@ -390,10 +468,15 @@ NSLog(@"tyee3");
 	NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];
 
 	[self.tableView deselectRowAtIndexPath:tableSelection animated:YES];
+
+	if (self.selectedCalendar)
+		self.title = self.selectedCalendar.name;
+	else
+		self.title = @"All Calendars";
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-	NSLog(@"estoy en months");
+
 	self.navigationController.navigationBar.backItem.title = @"Calendars";
 }
 - (void)viewDidUnload {
@@ -408,13 +491,20 @@ NSLog(@"tyee3");
 
 - (void) viewDidLoad{
 	[super viewDidLoad];
-	self.title = @"All Calendars";
+
+
 	//	CalendarViewController.navigationController.navigationBar.backItem.title = @"Calendars";
 	
 	
 	
 	appDelegate = [[UIApplication sharedApplication] delegate];
-
+	GDataServiceGoogleCalendar *gCalService = appDelegate.gCalService;
+	[gCalService fetchCalendarFeedForUsername:appDelegate.username
+											   delegate:self
+									  didFinishSelector:@selector( calendarsTicket:finishedWithFeed:error:)];
+	
+	
+	
 
 	UIBarButtonItem *addButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addEvent:)];
     self.navigationItem.rightBarButtonItem = addButtonItem;

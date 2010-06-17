@@ -25,27 +25,6 @@
 //		
 	AddEventViewController *addEventController = [[AddEventViewController alloc] initWithNibName:@"AddEventViewController" bundle:nil];
 	addEventController.delegate = self;
-	
-	
-//	Calendar *newCal = [NSEntityDescription insertNewObjectForEntityForName:@"Calendar" inManagedObjectContext:self.managedObjectContext];
-//
-//	newCal.name = @"google work";
-//	newCal.calid = [NSNumber numberWithInt:2];
-//	
-//	
-//	NSError *error = nil;
-//	
-//	if (![newCal.managedObjectContext save:&error]) {
-//		/*
-//		 Replace this implementation with code to handle the error appropriately.
-//		 
-//		 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-//		 */
-//		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-//		//abort();
-//	}
-
-////	
 	Event *newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
 	
 	
@@ -172,7 +151,7 @@
 
 
 -(void)tableView:(UITableView *)tv didSelectRowAtIndexPath:(NSIndexPath *) indexPath {
-	
+	self.title = @"June";
 	EventViewController *eventController = [[EventViewController alloc] initWithNibName:@"EventViewController" bundle:nil];
 	Event *event = (Event *)[fetchedResultsController objectAtIndexPath:indexPath];
 	eventController.event = event;
@@ -182,6 +161,17 @@
 
 }
 
+
+#pragma mark -
+#pragma mark MBProgressHUDDelegate methods
+
+
+- (void)hudWasHidden {
+    // Remove HUD from screen when the HUD was hidded
+	NSLog(@"vamos  ver %i", test);
+    [HUD removeFromSuperview];
+    [HUD release];
+}
 
 
 #pragma mark -
@@ -285,10 +275,88 @@
 	
 }
 
+-(void) initializeData{
+	
+	HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    HUD.delegate = self;
+    HUD.labelText = @"Loading";
+    HUD.detailsLabelText = @"Retreiving Data From Google";
+    // Show the HUD while the provided method executes in a new thread
+	GDataServiceGoogleCalendar *gCalService = appDelegate.gCalService;
+	
+	
+	[gCalService fetchCalendarFeedForUsername:appDelegate.username
+									 delegate:self
+							didFinishSelector:@selector( calendarsTicket:finishedWithFeed:error:)];
+	
+	
+	
+  }
 
-- (void)calendarsTicket:(GDataServiceTicket *)ticket finishedWithFeed:(GDataFeedCalendar *)feed error:(NSError *)error{
-	if( !error ){
+-(void) loadCalendarsAndEvents:(GDataFeedCalendar *)feed{
+	if (feed){
+		int count = [[feed entries] count];
+		test = count;
+		for( int i=0; i<count; i++ ){
+			GDataEntryCalendar *calendar = [[feed entries] objectAtIndex:i];
+			
+			Calendar *newCalendar = [NSEntityDescription insertNewObjectForEntityForName:@"Calendar" inManagedObjectContext:self.managedObjectContext];
+			newCalendar.name = [[calendar title] stringValue];
+			newCalendar.calid = [[calendar id] stringValue];
+			NSError *error = nil;
+			if (![self.managedObjectContext save:&error]) {
+				
+				NSLog(@"Unresolved error saving the calenadar%@, %@", error, [error userInfo]);
+				
+			}
+			
+			// Create a dictionary containing the calendar and the ticket to fetch its events.
+			dictionary = [[NSMutableDictionary alloc] init];
+		//	[data addObject:dictionary];
+			
+			[dictionary setObject:calendar forKey:KEY_CALENDAR];
+			[dictionary setObject:[[NSMutableArray alloc] init] forKey:KEY_EVENTS];
+			
+		//	if( [calendar ACLLink] )  // We can determine whether the calendar is under user's control by the existence of its edit link.
+//				[dictionary setObject:KEY_EDITABLE forKey:KEY_EDITABLE];
+			
+//			NSURL *feedURL = [[calendar alternateLink] URL];
+//			if( feedURL ){
+//				GDataQueryCalendar* query = [GDataQueryCalendar calendarQueryWithFeedURL:feedURL];
+//				
+//				// Currently, the app just shows calendar entries from 15 days ago to 31 days from now.
+//				// Ideally, we would instead use similar controls found in Google Calendar web interface, or even iCal's UI.
+//				NSDate *minDate = [NSDate date];  // From right now...
+//				NSDate *maxDate = [NSDate dateWithTimeIntervalSinceNow:60*60*24*90];  // ...to 90 days from now.
+//				
+//				[query setMinimumStartTime:[GDataDateTime dateTimeWithDate:minDate timeZone:[NSTimeZone systemTimeZone]]];
+//				[query setMaximumStartTime:[GDataDateTime dateTimeWithDate:maxDate timeZone:[NSTimeZone systemTimeZone]]];
+//				[query setOrderBy:@"starttime"];  // http://code.google.com/apis/calendar/docs/2.0/reference.html#Parameters
+//				[query setIsAscendingOrder:YES];
+//				[query setShouldExpandRecurrentEvents:YES];
+//				
+//				GDataServiceTicket *ticket = [googleCalendarService fetchFeedWithQuery:query
+//																			  delegate:self
+//																	 didFinishSelector:@selector( eventsTicket:finishedWithEntries:error: )];
+//				// I add the service ticket to the dictionary to make it easy to find which calendar each reply belongs to.
+//				[dictionary setObject:ticket forKey:KEY_TICKET];
+//			}
+		}
+
 		
+		
+	}
+//	test = @"loadCalendarsAndEvents";
+	[NSThread sleepForTimeInterval:2];
+
+	
+}
+- (void)calendarsTicket:(GDataServiceTicket *)ticket finishedWithFeed:(GDataFeedCalendar *)feed error:(NSError *)error{
+	
+	if( !error ){
+		[HUD showWhileExecuting:@selector(loadCalendarsAndEvents:) onTarget:self withObject:feed animated:YES];
+
 		NSLog(@"Auntentique adecuadamente");
 //		int count = [[feed entries] count];
 //		for( int i=0; i<count; i++ ){
@@ -329,7 +397,7 @@
 	}else
 		[self handleError:error];
 	
-	[self.tableView reloadData];
+	//[self.tableView reloadData];
 }
 
 
@@ -344,7 +412,7 @@
 		title = @"Unknown Error";
 		msg = [error localizedDescription];
 	}
-	
+	NSLog(msg);
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
 													message:msg
 												   delegate:nil
@@ -468,16 +536,20 @@ NSLog(@"tyee3");
 	NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];
 
 	[self.tableView deselectRowAtIndexPath:tableSelection animated:YES];
+	self.title = @"All Calendars";
 
+
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+	
 	if (self.selectedCalendar)
 		self.title = self.selectedCalendar.name;
 	else
 		self.title = @"All Calendars";
-}
-
-- (void)viewDidAppear:(BOOL)animated{
-
 	self.navigationController.navigationBar.backItem.title = @"Calendars";
+
+	
 }
 - (void)viewDidUnload {
 	
@@ -491,20 +563,13 @@ NSLog(@"tyee3");
 
 - (void) viewDidLoad{
 	[super viewDidLoad];
-
-
-	//	CalendarViewController.navigationController.navigationBar.backItem.title = @"Calendars";
+	
+	
 	
 	
 	
 	appDelegate = [[UIApplication sharedApplication] delegate];
-	GDataServiceGoogleCalendar *gCalService = appDelegate.gCalService;
-	[gCalService fetchCalendarFeedForUsername:appDelegate.username
-											   delegate:self
-									  didFinishSelector:@selector( calendarsTicket:finishedWithFeed:error:)];
-	
-	
-	
+	[self initializeData];
 
 	UIBarButtonItem *addButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addEvent:)];
     self.navigationItem.rightBarButtonItem = addButtonItem;

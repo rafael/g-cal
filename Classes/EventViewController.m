@@ -50,9 +50,9 @@
 
 - (void)viewDidAppear:(BOOL)animated{
 	
-	NSLog(@"estoy en events");
+
 	//add code to put the month
-	self.navigationController.navigationBar.backItem.title = @"June";
+	//self.navigationController.navigationBar.backItem.title = @"June";
 }
 
 

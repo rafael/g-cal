@@ -126,6 +126,7 @@
 		15B377E211C7E53E00EB9314 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B377E111C7E53E00EB9314 /* Security.framework */; };
 		15B3786011C80A2500EB9314 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B3785E11C80A2500EB9314 /* CalendarViewController.m */; };
 		15B3786111C80A2500EB9314 /* CalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B3785F11C80A2500EB9314 /* CalendarViewController.xib */; };
+		15B37C6B11C94F8F00EB9314 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B37C6A11C94F8F00EB9314 /* MBProgressHUD.m */; };
 		15CED51F11B2BDB80092223E /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 15CED51E11B2BDB80092223E /* Event.m */; };
 		15F021B011C6A562001F1730 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 15F021AF11C6A562001F1730 /* Icon.png */; };
 		15F021B911C6A927001F1730 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 15F021B811C6A927001F1730 /* Settings.bundle */; };
@@ -393,6 +394,8 @@
 		15B3785D11C80A2500EB9314 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
 		15B3785E11C80A2500EB9314 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		15B3785F11C80A2500EB9314 /* CalendarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarViewController.xib; sourceTree = "<group>"; };
+		15B37C6911C94F8F00EB9314 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		15B37C6A11C94F8F00EB9314 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		15CED51D11B2BDB80092223E /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		15CED51E11B2BDB80092223E /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		15F021AF11C6A562001F1730 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -828,6 +831,8 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				15B37C6911C94F8F00EB9314 /* MBProgressHUD.h */,
+				15B37C6A11C94F8F00EB9314 /* MBProgressHUD.m */,
 				15B373C311C7E0C600EB9314 /* GData Sources */,
 				32CA4F630368D1EE00C91783 /* GoogleCal_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
@@ -1111,6 +1116,7 @@
 				15B376EC11C7E0C700EB9314 /* GDataQueryCalendar.m in Sources */,
 				15B376ED11C7E0C700EB9314 /* GDataServiceGoogleCalendar.m in Sources */,
 				15B3786011C80A2500EB9314 /* CalendarViewController.m in Sources */,
+				15B37C6B11C94F8F00EB9314 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

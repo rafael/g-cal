@@ -15,7 +15,7 @@
 }
 
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * calid;
+@property (nonatomic, retain) NSString * calid;
 @property (nonatomic, retain) NSSet* has_many_events;
 
 @end

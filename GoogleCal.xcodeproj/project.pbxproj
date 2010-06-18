@@ -22,7 +22,6 @@
 		1561C8DA110CB02E00176F1A /* AddDateEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1561C8D8110CB02E00176F1A /* AddDateEventViewController.xib */; };
 		1564C70811C0EC9A00A80045 /* SelectCalendarForEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1564C70611C0EC9A00A80045 /* SelectCalendarForEventViewController.m */; };
 		1564C70911C0EC9A00A80045 /* SelectCalendarForEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1564C70711C0EC9A00A80045 /* SelectCalendarForEventViewController.xib */; };
-		1564C87611C138EB00A80045 /* Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1564C87511C138EB00A80045 /* Calendar.m */; };
 		1577539810DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1577539610DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.m */; };
 		1577539910DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1577539710DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib */; };
 		1595603310B2A9CD006EC0AB /* MonthCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */; };
@@ -127,7 +126,8 @@
 		15B3786011C80A2500EB9314 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B3785E11C80A2500EB9314 /* CalendarViewController.m */; };
 		15B3786111C80A2500EB9314 /* CalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B3785F11C80A2500EB9314 /* CalendarViewController.xib */; };
 		15B37C6B11C94F8F00EB9314 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B37C6A11C94F8F00EB9314 /* MBProgressHUD.m */; };
-		15CED51F11B2BDB80092223E /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 15CED51E11B2BDB80092223E /* Event.m */; };
+		15B37D4C11CA3CD700EB9314 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B37D4911CA3CD700EB9314 /* Event.m */; };
+		15B3809311CB573300EB9314 /* Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B3809211CB573300EB9314 /* Calendar.m */; };
 		15F021B011C6A562001F1730 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 15F021AF11C6A562001F1730 /* Icon.png */; };
 		15F021B911C6A927001F1730 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 15F021B811C6A927001F1730 /* Settings.bundle */; };
 		15FF3E6A1103330F004BBA6F /* AddNoteEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FF3E681103330F004BBA6F /* AddNoteEventViewController.m */; };
@@ -184,8 +184,6 @@
 		1564C70511C0EC9A00A80045 /* SelectCalendarForEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCalendarForEventViewController.h; sourceTree = "<group>"; };
 		1564C70611C0EC9A00A80045 /* SelectCalendarForEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCalendarForEventViewController.m; sourceTree = "<group>"; };
 		1564C70711C0EC9A00A80045 /* SelectCalendarForEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectCalendarForEventViewController.xib; sourceTree = "<group>"; };
-		1564C87411C138EB00A80045 /* Calendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Calendar.h; path = ../Calendar.h; sourceTree = "<group>"; };
-		1564C87511C138EB00A80045 /* Calendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Calendar.m; path = ../Calendar.m; sourceTree = "<group>"; };
 		1577539510DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTitlePlaceEventViewController.h; sourceTree = "<group>"; };
 		1577539610DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTitlePlaceEventViewController.m; sourceTree = "<group>"; };
 		1577539710DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTitlePlaceEventViewController.xib; sourceTree = "<group>"; };
@@ -396,8 +394,10 @@
 		15B3785F11C80A2500EB9314 /* CalendarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarViewController.xib; sourceTree = "<group>"; };
 		15B37C6911C94F8F00EB9314 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		15B37C6A11C94F8F00EB9314 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		15CED51D11B2BDB80092223E /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		15CED51E11B2BDB80092223E /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		15B37D4811CA3CD700EB9314 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = ../Event.h; sourceTree = "<group>"; };
+		15B37D4911CA3CD700EB9314 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = ../Event.m; sourceTree = "<group>"; };
+		15B3809111CB573300EB9314 /* Calendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Calendar.h; path = ../Calendar.h; sourceTree = "<group>"; };
+		15B3809211CB573300EB9314 /* Calendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Calendar.m; path = ../Calendar.m; sourceTree = "<group>"; };
 		15F021AF11C6A562001F1730 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		15F021B811C6A927001F1730 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		15FF3E671103330F004BBA6F /* AddNoteEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNoteEventViewController.h; sourceTree = "<group>"; };
@@ -446,10 +446,10 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				15CED51D11B2BDB80092223E /* Event.h */,
-				15CED51E11B2BDB80092223E /* Event.m */,
-				1564C87411C138EB00A80045 /* Calendar.h */,
-				1564C87511C138EB00A80045 /* Calendar.m */,
+				15B37D4811CA3CD700EB9314 /* Event.h */,
+				15B37D4911CA3CD700EB9314 /* Event.m */,
+				15B3809111CB573300EB9314 /* Calendar.h */,
+				15B3809211CB573300EB9314 /* Calendar.m */,
 				1561693F11B3B81000E8AA68 /* AddCalendarEventViewController.m */,
 				1561693E11B3B81000E8AA68 /* AddCalendarEventViewController.h */,
 				1D3623240D0F684500981E51 /* GoogleCalAppDelegate.h */,
@@ -1017,10 +1017,8 @@
 				1536BAE010F73F770090FEF2 /* AddEventViewController.m in Sources */,
 				15FF3E6A1103330F004BBA6F /* AddNoteEventViewController.m in Sources */,
 				1561C8D9110CB02E00176F1A /* AddDateEventViewController.m in Sources */,
-				15CED51F11B2BDB80092223E /* Event.m in Sources */,
 				1561694011B3B81000E8AA68 /* AddCalendarEventViewController.m in Sources */,
 				1564C70811C0EC9A00A80045 /* SelectCalendarForEventViewController.m in Sources */,
-				1564C87611C138EB00A80045 /* Calendar.m in Sources */,
 				15B3766711C7E0C700EB9314 /* GDataFramework.m in Sources */,
 				15B3766811C7E0C700EB9314 /* GDataUtilities.m in Sources */,
 				15B3766911C7E0C700EB9314 /* GDataObject.m in Sources */,
@@ -1117,6 +1115,8 @@
 				15B376ED11C7E0C700EB9314 /* GDataServiceGoogleCalendar.m in Sources */,
 				15B3786011C80A2500EB9314 /* CalendarViewController.m in Sources */,
 				15B37C6B11C94F8F00EB9314 /* MBProgressHUD.m in Sources */,
+				15B37D4C11CA3CD700EB9314 /* Event.m in Sources */,
+				15B3809311CB573300EB9314 /* Calendar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1240,11 +1240,12 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/Users/rafaelchacon/Sandboxes/tapkulibrary/**",
+					"/Users/rafaelchacon/Sandboxes/rtapkulibrary/**",
 					"/usr/include/libxml2/**",
 				);
 				OTHER_CFLAGS = "-DDEBUG=1";
 				OTHER_LDFLAGS = (
+					"-all_load",
 					"-ObjC",
 					"-lxml2",
 				);
@@ -1262,11 +1263,12 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/Users/rafaelchacon/Sandboxes/tapkulibrary/**",
+					"/Users/rafaelchacon/Sandboxes/rtapkulibrary/**",
 					"/usr/include/libxml2/**",
 				);
 				OTHER_CFLAGS = "-DDEBUG=1";
 				OTHER_LDFLAGS = (
+					"-all_load",
 					"-ObjC",
 					"-lxml2",
 				);

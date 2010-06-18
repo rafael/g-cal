@@ -168,7 +168,7 @@
 		password = @"password";
 	
 
-	NSLog(@"esto es lo que voe en el user %@, %@", username,password);
+
 	[gCalService setUserCredentialsWithUsername:username
 								   password:password];
 	

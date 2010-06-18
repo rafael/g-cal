@@ -2,7 +2,7 @@
 //  Event.m
 //  GoogleCal
 //
-//  Created by Rafael Chacon on 30/05/10.
+//  Created by Rafael Chacon on 17/06/10.
 //  Copyright 2010 Universidad Simon Bolivar. All rights reserved.
 //
 
@@ -12,12 +12,12 @@
 
 @implementation Event 
 
+@dynamic location;
+@dynamic note;
 @dynamic title;
 @dynamic endDate;
 @dynamic startDate;
 @dynamic id;
-@dynamic location;
 @dynamic calendar;
-@dynamic note;
 
 @end

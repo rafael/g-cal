@@ -13,9 +13,8 @@
 #import "GDataCalendar.h"
 
 #define KEY_CALENDAR @"calendar"
-#define KEY_EVENTS @"events"
 #define KEY_TICKET @"ticket"
-#define KEY_EDITABLE @"editable"
+
 
 @class Calendar;
 @class GoogleCalAppDelegate;
@@ -33,13 +32,17 @@
 		int numberOfRowsForGivenDate;
 		NSArray *eventsForGivenDate;
 		GoogleCalAppDelegate *appDelegate;
+		GDataServiceGoogleCalendar *gCalService;
 		BOOL allCalendarsValue;
-		int test;
-		NSMutableDictionary *dictionary;
+		NSMutableArray *calendarsTicket;
+	
+		
 	
 	
 	
 }
+
+
 
 -(void)allCalendars:(BOOL)value;
 
@@ -62,7 +65,7 @@
 
 -(void) initializeData;
 
-
+@property (nonatomic, retain) NSMutableArray *calendarsTicket;
 @property (nonatomic, retain) Calendar *selectedCalendar;
 @property (nonatomic, retain) NSArray *eventsForGivenDate;
 @property (nonatomic, retain) NSDate *selectedDate;

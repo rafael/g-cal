@@ -13,7 +13,7 @@
 @interface Calendar :  NSManagedObject  
 {
 }
-+(NSArray *)getCalendarWithId:(NSString *)calId andContext:(NSManagedObjectContext *) context;
++(Calendar *)getCalendarWithId:(NSString *)calId andContext:(NSManagedObjectContext *) context;
 +(Calendar *)createCalendarFromGCal:(GDataEntryCalendar *)calendar withContext:(NSManagedObjectContext *)context;
 @property (nonatomic, retain) NSNumber * edit_permission;
 @property (nonatomic, retain) NSDate * updated;

@@ -19,10 +19,11 @@
 @dynamic startDate;
 @dynamic eventid;
 @dynamic calendar;
+@dynamic updated;
 
 
-+(NSArray *)getCalendarWithId:(NSString *)eventId andContext:(NSManagedObjectContext *) context{
-	NSLog(@"funciono bello");
++(NSArray *)getEventWithId:(NSString *)eventId andContext:(NSManagedObjectContext *) context{
+
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Calendar" inManagedObjectContext:context];
 	[request setEntity:entity];

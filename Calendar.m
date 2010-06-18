@@ -19,8 +19,8 @@
 @dynamic color;
 @dynamic has_many_events;
 
-+(NSArray *)getCalendarWithId:(NSString *)calId andContext:(NSManagedObjectContext *) context{
-	NSLog(@"funciono bello");
++(Calendar *)getCalendarWithId:(NSString *)calId andContext:(NSManagedObjectContext *) context{
+
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Calendar" inManagedObjectContext:context];
 	[request setEntity:entity];
@@ -47,7 +47,11 @@
 	[sortDescriptors release];
 	[aFetchedResultsController release];
 	if (error) return nil;
-	return result;
+	if(result != nil && [result count] == 1){
+		NSLog(@"ok estoy entendiendo como funciona esta meirda");
+		return (Calendar *)[result objectAtIndex:0];
+		
+	}
 	//	
 	return nil;
 	

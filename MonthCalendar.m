@@ -322,37 +322,23 @@
 		for( int i=0; i<count; i++ ){
 		
 			GDataEntryCalendar *calendar = [[feed entries] objectAtIndex:i];
-	
-			NSArray *result = [Calendar getCalendarWithId:[calendar identifier] andContext:self.managedObjectContext];
-			
-			Calendar *aCalendar;
-			if (  result != nil && [result count] == 0 ){
-				
+			Calendar *aCalendar = [Calendar getCalendarWithId:[calendar identifier] andContext:self.managedObjectContext];
+			if (  !aCalendar )
 				aCalendar = [Calendar createCalendarFromGCal:calendar withContext:self.managedObjectContext];
-			}
-			else if (result != nil){
-				//there is a calendar
-				
-				 aCalendar = (Calendar *)[result objectAtIndex:0];
-				
-				
-			}
+			
 			NSURL *feedURL = [[calendar alternateLink] URL];
 			if( feedURL ){
 				NSMutableDictionary *calendarTicketPair = [NSMutableDictionary dictionaryWithCapacity:2];
 				GDataQueryCalendar* query = [GDataQueryCalendar calendarQueryWithFeedURL:feedURL];
-//				
-//				// Currently, the app just shows calendar entries from 15 days ago to 31 days from now.
-//				// Ideally, we would instead use similar controls found in Google Calendar web interface, or even iCal's UI.
+
 				NSDate *minDate = [NSDate date];  // From right now...
 				NSDate *maxDate = [NSDate dateWithTimeIntervalSinceNow:60*60*24*90];  // ...to 90 days from now.
-//				
+				
 				[query setMinimumStartTime:[GDataDateTime dateTimeWithDate:minDate timeZone:[NSTimeZone systemTimeZone]]];
 				[query setMaximumStartTime:[GDataDateTime dateTimeWithDate:maxDate timeZone:[NSTimeZone systemTimeZone]]];
 				[query setOrderBy:@"starttime"];  //http://code.google.com/apis/calendar/docs/2.0/reference.html#Parameters
 				[query setIsAscendingOrder:YES];
-				[query setShouldExpandRecurrentEvents:YES];
-//				
+				[query setShouldExpandRecurrentEvents:YES];			
 				GDataServiceTicket *ticket = [gCalService fetchFeedWithQuery:query
 																			  delegate:self
 																	 didFinishSelector:@selector( eventsTicket:finishedWithEntries:error: )];
@@ -363,13 +349,10 @@
 			}
 			
 		}
-		
-
-		
 	}else
 		[self handleError:error];
 	
-	//[self.tableView reloadData];
+
 }
 
 
@@ -587,6 +570,7 @@ NSLog(@"tyee3");
 	self.selectedDate = nil;
 	self.eventsForGivenDate = nil;
 	self.selectedCalendar = nil;
+	self.calendarsTicket = nil;
 
 }
 
@@ -617,6 +601,7 @@ NSLog(@"tyee3");
 	[selectedDate release];
 	[eventsForGivenDate release];
 	[selectedCalendar release];
+	[calendarsTicket release];
 	[super dealloc];
 	
 }

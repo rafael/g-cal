@@ -17,7 +17,44 @@
 @dynamic title;
 @dynamic endDate;
 @dynamic startDate;
-@dynamic id;
+@dynamic eventid;
 @dynamic calendar;
+
+
++(NSArray *)getCalendarWithId:(NSString *)eventId andContext:(NSManagedObjectContext *) context{
+	NSLog(@"funciono bello");
+	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Calendar" inManagedObjectContext:context];
+	[request setEntity:entity];
+	// retrive the objects with a given value for a certain property
+	NSPredicate *predicate = [NSPredicate predicateWithFormat: @"eventid == %@", eventId];
+	[request setPredicate:predicate];
+	
+	// Edit the sort key as appropriate.
+	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"calid" ascending:YES];
+	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+	[request setSortDescriptors:sortDescriptors];
+	NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+																								managedObjectContext:context 
+																								  sectionNameKeyPath:nil
+																										   cacheName:@"Root"];
+	
+	aFetchedResultsController.delegate = self;
+	
+	NSError *error = nil;
+	NSArray *result = [context executeFetchRequest:request error:&error];
+	
+	[request release];
+	[sortDescriptor release];
+	[sortDescriptors release];
+	[aFetchedResultsController release];
+	if (error) return nil;
+	return result;
+	//	
+	return nil;
+	
+	
+}
+
 
 @end

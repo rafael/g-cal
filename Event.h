@@ -13,13 +13,13 @@
 @interface Event :  NSManagedObject  
 {
 }
-
++(NSArray *)getCalendarWithId:(NSString *)eventId andContext:(NSManagedObjectContext *) context;
 @property (nonatomic, retain) NSString * location;
 @property (nonatomic, retain) NSString * note;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSDate * endDate;
 @property (nonatomic, retain) NSDate * startDate;
-@property (nonatomic, retain) NSNumber * id;
+@property (nonatomic, retain) NSString * eventid;
 @property (nonatomic, retain) Calendar * calendar;
 
 @end

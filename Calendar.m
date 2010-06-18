@@ -19,4 +19,56 @@
 @dynamic color;
 @dynamic has_many_events;
 
++(NSArray *)getCalendarWithId:(NSString *)calId andContext:(NSManagedObjectContext *) context{
+	NSLog(@"funciono bello");
+	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Calendar" inManagedObjectContext:context];
+	[request setEntity:entity];
+	// retrive the objects with a given value for a certain property
+	NSPredicate *predicate = [NSPredicate predicateWithFormat: @"calid == %@", calId];
+	[request setPredicate:predicate];
+	
+	// Edit the sort key as appropriate.
+	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"calid" ascending:YES];
+	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+	[request setSortDescriptors:sortDescriptors];
+	NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+																								managedObjectContext:context 
+																								  sectionNameKeyPath:nil
+																										   cacheName:@"Root"];
+	
+	aFetchedResultsController.delegate = self;
+	
+	NSError *error = nil;
+	NSArray *result = [context executeFetchRequest:request error:&error];
+	
+	[request release];
+	[sortDescriptor release];
+	[sortDescriptors release];
+	[aFetchedResultsController release];
+	if (error) return nil;
+	return result;
+	//	
+	return nil;
+	
+	
+}
++(Calendar *)createCalendarFromGCal:(GDataEntryCalendar *)calendar withContext:(NSManagedObjectContext *)context {
+		
+		Calendar *aCalendar;
+		aCalendar = [NSEntityDescription insertNewObjectForEntityForName:@"Calendar" inManagedObjectContext:context];
+		aCalendar.name = [[calendar title] stringValue];
+		aCalendar.color = [[calendar color] stringValue];
+		aCalendar.calid = [calendar identifier];
+		aCalendar.updated = [[calendar updatedDate] date];
+		aCalendar.edit_permission = [NSNumber numberWithBool:[calendar canEdit]];
+		NSError *core_data_error = nil;
+		if (![context save:&core_data_error]) {
+			NSLog(@"Unresolved error saving a calenadar%@, %@", core_data_error, [core_data_error userInfo]);
+		}
+		return aCalendar;
+}
+
+
 @end
+

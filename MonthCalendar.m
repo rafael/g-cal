@@ -309,40 +309,7 @@
 	
 }
 
--(NSArray *)getCalendarWithId:(NSString *)calid andContext:(NSManagedObjectContext *) context{
-	
-	NSFetchRequest *request = [[NSFetchRequest alloc] init];
-	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Calendar" inManagedObjectContext:context];
-	[request setEntity:entity];
-	// retrive the objects with a given value for a certain property
-	NSPredicate *predicate = [NSPredicate predicateWithFormat: @"calid == %@", calid];
-	[request setPredicate:predicate];
-	
-	// Edit the sort key as appropriate.
-	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"calid" ascending:YES];
-	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-	[request setSortDescriptors:sortDescriptors];
-	NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
-																								managedObjectContext:context 
-																								sectionNameKeyPath:nil
-																								cacheName:@"Root"];
-	
-	aFetchedResultsController.delegate = self;
-	
-	NSError *error = nil;
-	NSArray *result = [context executeFetchRequest:request error:&error];
-	
-	[request release];
-	[sortDescriptor release];
-	[sortDescriptors release];
-	[aFetchedResultsController release];
-	if (error) return nil;
-	return result;
-//	
-	return nil;
-	
-	
-}
+
 
 
 - (void)calendarsTicket:(GDataServiceTicket *)ticket finishedWithFeed:(GDataFeedCalendar *)feed error:(NSError *)error{
@@ -356,21 +323,12 @@
 		
 			GDataEntryCalendar *calendar = [[feed entries] objectAtIndex:i];
 	
-			NSArray *result = [self getCalendarWithId:[calendar identifier] andContext:self.managedObjectContext];
+			NSArray *result = [Calendar getCalendarWithId:[calendar identifier] andContext:self.managedObjectContext];
 			
 			Calendar *aCalendar;
 			if (  result != nil && [result count] == 0 ){
 				
-				aCalendar = [NSEntityDescription insertNewObjectForEntityForName:@"Calendar" inManagedObjectContext:self.managedObjectContext];
-				aCalendar.name = [[calendar title] stringValue];
-				aCalendar.color = [[calendar color] stringValue];
-				aCalendar.calid = [calendar identifier];
-				aCalendar.updated = [[calendar updatedDate] date];
-				aCalendar.edit_permission = [NSNumber numberWithBool:[calendar canEdit]];
-				NSError *core_data_error = nil;
-				if (![self.managedObjectContext save:&core_data_error]) {
-					NSLog(@"Unresolved error saving a calenadar%@, %@", core_data_error, [core_data_error userInfo]);
-				}
+				aCalendar = [Calendar createCalendarFromGCal:calendar withContext:self.managedObjectContext];
 			}
 			else if (result != nil){
 				//there is a calendar

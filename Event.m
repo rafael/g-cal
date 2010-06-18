@@ -22,23 +22,23 @@
 @dynamic updated;
 
 
-+(NSArray *)getEventWithId:(NSString *)eventId andContext:(NSManagedObjectContext *) context{
++(Event *)getEventWithId:(NSString *)eventId andContext:(NSManagedObjectContext *) context{
 
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
-	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Calendar" inManagedObjectContext:context];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:context];
 	[request setEntity:entity];
 	// retrive the objects with a given value for a certain property
 	NSPredicate *predicate = [NSPredicate predicateWithFormat: @"eventid == %@", eventId];
 	[request setPredicate:predicate];
 	
 	// Edit the sort key as appropriate.
-	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"calid" ascending:YES];
+	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"eventid" ascending:YES];
 	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
 	[request setSortDescriptors:sortDescriptors];
 	NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
 																								managedObjectContext:context 
 																								  sectionNameKeyPath:nil
-																										   cacheName:@"Root"];
+																										   cacheName:@"RootEvent"];
 	
 	aFetchedResultsController.delegate = self;
 	
@@ -50,11 +50,47 @@
 	[sortDescriptors release];
 	[aFetchedResultsController release];
 	if (error) return nil;
-	return result;
-	//	
+	if (error) return nil;
+	if(result != nil && [result count] == 1)
+		return (Event *)[result objectAtIndex:0];
 	return nil;
 	
 	
+}
+
++(Event *)createEventFromGCal:(GDataEntryCalendarEvent *)event forCalendar:(Calendar *)calendar withContext:(NSManagedObjectContext *)context{
+
+	GDataWhen *when = [[event objectsForExtensionClass:[GDataWhen class]] objectAtIndex:0];
+	// Note: An event might have multiple locations.  We're only displaying the first one.
+	GDataWhere *addr = [[event locations] objectAtIndex:0];
+	Event *anEvent;
+	anEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:context];
+	anEvent.title = [[event title] stringValue];
+	
+	if( when ){
+		anEvent.startDate =  [[when startTime] date];
+		anEvent.endDate = [[when endTime] date];
+	}
+	NSLog(@"hasta aqui vamos fino");
+	anEvent.eventid = [event iCalUID];
+	anEvent.updated = [[event updatedDate] date];
+	anEvent.note = [[event content] stringValue];
+	if( addr )
+		anEvent.location =  [addr stringValue];
+	anEvent.calendar = calendar;
+	
+	//anEvent.calendar =
+
+
+	
+
+	NSError *core_data_error = nil;
+	if (![context save:&core_data_error]) {
+		NSLog(@"Unresolved error saving a event %@, %@", core_data_error, [core_data_error userInfo]);
+	}
+	return anEvent;
+	
+	return nil;
 }
 
 

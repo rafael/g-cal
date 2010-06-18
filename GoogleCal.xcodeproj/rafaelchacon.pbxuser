@@ -45,7 +45,7 @@
 		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
 		name = "MonthCalendar.m: 356";
 		rLen = 0;
-		rLoc = 9782;
+		rLoc = 9807;
 		rType = 0;
 		vrLen = 1907;
 		vrLoc = 10263;
@@ -65,7 +65,7 @@
 		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
 		name = "MonthCalendar.m: 312";
 		rLen = 0;
-		rLoc = 9514;
+		rLoc = 9655;
 		rType = 0;
 		vrLen = 1610;
 		vrLoc = 9427;
@@ -85,7 +85,7 @@
 		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
 		name = "Calendar.m: 22";
 		rLen = 0;
-		rLoc = 2550;
+		rLoc = 3075;
 		rType = 0;
 		vrLen = 1549;
 		vrLoc = 0;
@@ -95,7 +95,7 @@
 		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
 		name = "Calendar.h: 16";
 		rLen = 0;
-		rLoc = 473;
+		rLoc = 584;
 		rType = 0;
 		vrLen = 893;
 		vrLoc = 0;
@@ -105,7 +105,7 @@
 		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
 		name = "Calendar.m: 22";
 		rLen = 0;
-		rLoc = 2550;
+		rLoc = 3075;
 		rType = 0;
 		vrLen = 1528;
 		vrLoc = 149;
@@ -115,7 +115,7 @@
 		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
 		name = "MonthCalendar.m: 326";
 		rLen = 0;
-		rLoc = 10036;
+		rLoc = 10062;
 		rType = 0;
 		vrLen = 1557;
 		vrLoc = 9427;
@@ -125,7 +125,7 @@
 		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
 		name = "Calendar.h: 16";
 		rLen = 0;
-		rLoc = 473;
+		rLoc = 584;
 		rType = 0;
 		vrLen = 893;
 		vrLoc = 0;
@@ -135,7 +135,7 @@
 		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
 		name = "Calendar.m: 22";
 		rLen = 0;
-		rLoc = 2550;
+		rLoc = 3075;
 		rType = 0;
 		vrLen = 1429;
 		vrLoc = 0;
@@ -145,7 +145,7 @@
 		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
 		name = "MonthCalendar.m: 326";
 		rLen = 0;
-		rLoc = 10036;
+		rLoc = 10062;
 		rType = 0;
 		vrLen = 1364;
 		vrLoc = 27;
@@ -155,7 +155,7 @@
 		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
 		name = "Calendar.h: 16";
 		rLen = 0;
-		rLoc = 473;
+		rLoc = 584;
 		rType = 0;
 		vrLen = 893;
 		vrLoc = 0;
@@ -165,7 +165,7 @@
 		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
 		name = "Calendar.m: 22";
 		rLen = 0;
-		rLoc = 2550;
+		rLoc = 3075;
 		rType = 0;
 		vrLen = 1490;
 		vrLoc = 189;
@@ -175,7 +175,7 @@
 		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
 		name = "Calendar.h: 16";
 		rLen = 0;
-		rLoc = 473;
+		rLoc = 584;
 		rType = 0;
 		vrLen = 893;
 		vrLoc = 0;
@@ -185,7 +185,7 @@
 		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
 		name = "Calendar.m: 25";
 		rLen = 0;
-		rLoc = 2558;
+		rLoc = 3083;
 		rType = 0;
 		vrLen = 1510;
 		vrLoc = 243;
@@ -195,7 +195,7 @@
 		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
 		name = "Calendar.h: 16";
 		rLen = 0;
-		rLoc = 473;
+		rLoc = 584;
 		rType = 0;
 		vrLen = 895;
 		vrLoc = 0;
@@ -229,7 +229,7 @@
 		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
 		name = "Event.h: 16";
 		rLen = 0;
-		rLoc = 251;
+		rLoc = 274;
 		rType = 0;
 		vrLen = 679;
 		vrLoc = 0;
@@ -238,7 +238,7 @@
 		isa = PBXTextBookmark;
 		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
 		name = "Calendar.m: 21";
-		rLen = 2217;
+		rLen = 2742;
 		rLoc = 334;
 		rType = 0;
 		vrLen = 1494;
@@ -249,7 +249,7 @@
 		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
 		name = "Event.h: 22";
 		rLen = 0;
-		rLoc = 620;
+		rLoc = 786;
 		rType = 0;
 		vrLen = 684;
 		vrLoc = 0;
@@ -259,7 +259,7 @@
 		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
 		name = "Event.m: 30";
 		rLen = 0;
-		rLoc = 799;
+		rLoc = 794;
 		rType = 0;
 		vrLen = 1532;
 		vrLoc = 0;
@@ -319,7 +319,7 @@
 		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
 		name = "Event.h: 16";
 		rLen = 0;
-		rLoc = 251;
+		rLoc = 274;
 		rType = 0;
 		vrLen = 684;
 		vrLoc = 0;
@@ -329,7 +329,7 @@
 		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
 		name = "Event.m: 30";
 		rLen = 0;
-		rLoc = 799;
+		rLoc = 794;
 		rType = 0;
 		vrLen = 1532;
 		vrLoc = 0;
@@ -339,7 +339,7 @@
 		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
 		name = "Event.h: 22";
 		rLen = 0;
-		rLoc = 612;
+		rLoc = 778;
 		rType = 0;
 		vrLen = 684;
 		vrLoc = 0;
@@ -359,7 +359,7 @@
 		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
 		name = "Event.h: 16";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 495;
 		rType = 0;
 		vrLen = 687;
 		vrLoc = 0;
@@ -369,7 +369,7 @@
 		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
 		name = "Event.m: 30";
 		rLen = 0;
-		rLoc = 784;
+		rLoc = 779;
 		rType = 0;
 		vrLen = 1509;
 		vrLoc = 211;
@@ -379,7 +379,7 @@
 		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
 		name = "Calendar.m: 56";
 		rLen = 113;
-		rLoc = 1819;
+		rLoc = 1755;
 		rType = 0;
 		vrLen = 1464;
 		vrLoc = 979;
@@ -389,7 +389,7 @@
 		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
 		name = "Event.h: 16";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 495;
 		rType = 0;
 		vrLen = 687;
 		vrLoc = 0;
@@ -409,7 +409,7 @@
 		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
 		name = "Event.h: 16";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 495;
 		rType = 0;
 		vrLen = 687;
 		vrLoc = 0;
@@ -429,7 +429,7 @@
 		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
 		name = "Event.h: 16";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 495;
 		rType = 0;
 		vrLen = 687;
 		vrLoc = 0;
@@ -449,7 +449,7 @@
 		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
 		name = "Event.h: 16";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 495;
 		rType = 0;
 		vrLen = 687;
 		vrLoc = 0;
@@ -469,7 +469,7 @@
 		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
 		name = "Event.h: 16";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 495;
 		rType = 0;
 		vrLen = 687;
 		vrLoc = 0;
@@ -489,7 +489,7 @@
 		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
 		name = "Event.h: 16";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 495;
 		rType = 0;
 		vrLen = 687;
 		vrLoc = 0;
@@ -509,7 +509,7 @@
 		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
 		name = "Event.h: 16";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 495;
 		rType = 0;
 		vrLen = 687;
 		vrLoc = 0;
@@ -529,7 +529,7 @@
 		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
 		name = "Event.h: 16";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 495;
 		rType = 0;
 		vrLen = 687;
 		vrLoc = 0;
@@ -549,7 +549,7 @@
 		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
 		name = "Event.h: 16";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 495;
 		rType = 0;
 		vrLen = 687;
 		vrLoc = 0;
@@ -559,7 +559,7 @@
 		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
 		name = "Event.m: 30";
 		rLen = 0;
-		rLoc = 784;
+		rLoc = 779;
 		rType = 0;
 		vrLen = 1475;
 		vrLoc = 245;
@@ -569,7 +569,7 @@
 		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
 		name = "MonthCalendar.m: 341";
 		rLen = 0;
-		rLoc = 10270;
+		rLoc = 10331;
 		rType = 0;
 		vrLen = 2167;
 		vrLoc = 9516;
@@ -579,7 +579,7 @@
 		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
 		name = "Calendar.h: 17";
 		rLen = 0;
-		rLoc = 473;
+		rLoc = 584;
 		rType = 0;
 		vrLen = 932;
 		vrLoc = 0;
@@ -589,7 +589,7 @@
 		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
 		name = "MonthCalendar.m: 324";
 		rLen = 18;
-		rLoc = 9972;
+		rLoc = 9998;
 		rType = 0;
 		vrLen = 1389;
 		vrLoc = 0;
@@ -609,7 +609,7 @@
 		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
 		name = "Calendar.h: 21";
 		rLen = 0;
-		rLoc = 473;
+		rLoc = 584;
 		rType = 0;
 		vrLen = 996;
 		vrLoc = 0;
@@ -619,7 +619,7 @@
 		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
 		name = "MonthCalendar.m: 326";
 		rLen = 0;
-		rLoc = 10270;
+		rLoc = 10331;
 		rType = 0;
 		vrLen = 2173;
 		vrLoc = 9516;
@@ -639,7 +639,7 @@
 		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
 		name = "Calendar.h: 21";
 		rLen = 0;
-		rLoc = 473;
+		rLoc = 584;
 		rType = 0;
 		vrLen = 996;
 		vrLoc = 0;
@@ -649,7 +649,7 @@
 		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
 		name = "Calendar.m: 71";
 		rLen = 0;
-		rLoc = 2550;
+		rLoc = 3075;
 		rType = 0;
 		vrLen = 1601;
 		vrLoc = 842;
@@ -659,7 +659,7 @@
 		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
 		name = "Calendar.h: 17";
 		rLen = 0;
-		rLoc = 473;
+		rLoc = 584;
 		rType = 0;
 		vrLen = 987;
 		vrLoc = 0;
@@ -669,7 +669,7 @@
 		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
 		name = "Calendar.m: 56";
 		rLen = 112;
-		rLoc = 1819;
+		rLoc = 1755;
 		rType = 0;
 		vrLen = 1928;
 		vrLoc = 515;
@@ -679,7 +679,7 @@
 		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
 		name = "Calendar.h: 17";
 		rLen = 0;
-		rLoc = 473;
+		rLoc = 584;
 		rType = 0;
 		vrLen = 1033;
 		vrLoc = 0;
@@ -689,7 +689,7 @@
 		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
 		name = "MonthCalendar.m: 325";
 		rLen = 0;
-		rLoc = 10270;
+		rLoc = 10331;
 		rType = 0;
 		vrLen = 1732;
 		vrLoc = 9508;
@@ -699,7 +699,7 @@
 		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
 		name = "Calendar.h: 17";
 		rLen = 0;
-		rLoc = 473;
+		rLoc = 584;
 		rType = 0;
 		vrLen = 1033;
 		vrLoc = 0;
@@ -709,7 +709,7 @@
 		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
 		name = "Calendar.m: 56";
 		rLen = 0;
-		rLoc = 1829;
+		rLoc = 1765;
 		rType = 0;
 		vrLen = 1012;
 		vrLoc = 1431;
@@ -719,7 +719,7 @@
 		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
 		name = "MonthCalendar.m: 328";
 		rLen = 110;
-		rLoc = 10040;
+		rLoc = 10066;
 		rType = 0;
 		vrLen = 1805;
 		vrLoc = 9514;
@@ -739,7 +739,7 @@
 		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
 		name = "Event.m: 30";
 		rLen = 0;
-		rLoc = 784;
+		rLoc = 779;
 		rType = 0;
 		vrLen = 1490;
 		vrLoc = 230;
@@ -749,7 +749,7 @@
 		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
 		name = "Event.h: 16";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 495;
 		rType = 0;
 		vrLen = 687;
 		vrLoc = 0;
@@ -759,7 +759,7 @@
 		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
 		name = "Event.m: 30";
 		rLen = 0;
-		rLoc = 784;
+		rLoc = 779;
 		rType = 0;
 		vrLen = 1509;
 		vrLoc = 211;
@@ -769,7 +769,7 @@
 		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
 		name = "Calendar.m: 56";
 		rLen = 113;
-		rLoc = 1819;
+		rLoc = 1755;
 		rType = 0;
 		vrLen = 1464;
 		vrLoc = 979;
@@ -779,7 +779,7 @@
 		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
 		name = "Calendar.h: 17";
 		rLen = 0;
-		rLoc = 473;
+		rLoc = 584;
 		rType = 0;
 		vrLen = 1034;
 		vrLoc = 0;
@@ -799,7 +799,7 @@
 		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
 		name = "MonthCalendar.m: 405";
 		rLen = 0;
-		rLoc = 13243;
+		rLoc = 13188;
 		rType = 0;
 		vrLen = 1679;
 		vrLoc = 11650;
@@ -809,7 +809,7 @@
 		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
 		name = "Calendar.h: 17";
 		rLen = 0;
-		rLoc = 473;
+		rLoc = 584;
 		rType = 0;
 		vrLen = 1034;
 		vrLoc = 0;
@@ -819,7 +819,7 @@
 		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
 		name = "MonthCalendar.m: 405";
 		rLen = 0;
-		rLoc = 13243;
+		rLoc = 13188;
 		rType = 0;
 		vrLen = 1683;
 		vrLoc = 11646;
@@ -839,7 +839,7 @@
 		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
 		name = "MonthCalendar.m: 610";
 		rLen = 0;
-		rLoc = 19110;
+		rLoc = 19055;
 		rType = 0;
 		vrLen = 885;
 		vrLoc = 18392;
@@ -1779,16 +1779,16 @@
 	1595603110B2A9CD006EC0AB /* MonthCalendar.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {998, 1204}}";
-			sepNavSelRange = "{885, 15}";
+			sepNavSelRange = "{809, 0}";
 			sepNavVisRange = "{165, 933}";
 			sepNavWindowFrame = "{{76, 48}, {953, 825}}";
 		};
 	};
 	1595603210B2A9CD006EC0AB /* MonthCalendar.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1314, 8274}}";
-			sepNavSelRange = "{10270, 0}";
-			sepNavVisRange = "{9508, 2040}";
+			sepNavIntBoundsRect = "{{0, 0}, {2034, 8372}}";
+			sepNavSelRange = "{9366, 89}";
+			sepNavVisRange = "{8852, 1453}";
 			sepNavWindowFrame = "{{145, 0}, {750, 878}}";
 		};
 	};
@@ -1825,6 +1825,34 @@
 			sepNavIntBoundsRect = "{{0, 0}, {998, 10976}}";
 			sepNavSelRange = "{23159, 31}";
 			sepNavVisRange = "{22473, 1058}";
+		};
+	};
+	15B373D511C7E0C600EB9314 /* GDataServiceBase.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {998, 8190}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{5289, 1393}";
+		};
+	};
+	15B373D611C7E0C600EB9314 /* GDataServiceBase.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {998, 29652}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1695}";
+		};
+	};
+	15B373D711C7E0C600EB9314 /* GDataServiceGoogle.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {998, 4536}}";
+			sepNavSelRange = "{2385, 0}";
+			sepNavVisRange = "{2931, 2092}";
+		};
+	};
+	15B373D811C7E0C600EB9314 /* GDataServiceGoogle.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {998, 19026}}";
+			sepNavSelRange = "{17772, 10}";
+			sepNavVisRange = "{15080, 2119}";
 		};
 	};
 	15B373DA11C7E0C600EB9314 /* GDataElements.h */ = {
@@ -1964,9 +1992,9 @@
 	};
 	15B374D611C7E0C700EB9314 /* GDataEntryCalendarEvent.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {998, 6678}}";
-			sepNavSelRange = "{5716, 13}";
-			sepNavVisRange = "{5042, 1514}";
+			sepNavIntBoundsRect = "{{0, 0}, {998, 6580}}";
+			sepNavSelRange = "{12394, 7}";
+			sepNavVisRange = "{11693, 1234}";
 		};
 	};
 	15B374D711C7E0C700EB9314 /* GDataEntryMessage.h */ = {
@@ -1988,6 +2016,20 @@
 			sepNavIntBoundsRect = "{{0, 0}, {998, 1106}}";
 			sepNavSelRange = "{0, 0}";
 			sepNavVisRange = "{992, 1085}";
+		};
+	};
+	15B374EB11C7E0C700EB9314 /* GDataServiceGoogleCalendar.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1074, 1344}}";
+			sepNavSelRange = "{2165, 18}";
+			sepNavVisRange = "{1705, 2476}";
+		};
+	};
+	15B374EC11C7E0C700EB9314 /* GDataServiceGoogleCalendar.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {998, 1246}}";
+			sepNavSelRange = "{2037, 16}";
+			sepNavVisRange = "{597, 1357}";
 		};
 	};
 	15B377C511C7E36100EB9314 /* PBXTextBookmark */ = {
@@ -2202,11 +2244,18 @@
 		vrLen = 1178;
 		vrLoc = 0;
 	};
+	15B37C6911C94F8F00EB9314 /* MBProgressHUD.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {998, 3948}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{2203, 1582}";
+		};
+	};
 	15B37C6A11C94F8F00EB9314 /* MBProgressHUD.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1140, 7350}}";
-			sepNavSelRange = "{14105, 4}";
-			sepNavVisRange = "{13986, 1482}";
+			sepNavIntBoundsRect = "{{0, 0}, {1326, 7810}}";
+			sepNavSelRange = "{11932, 8}";
+			sepNavVisRange = "{11540, 992}";
 		};
 	};
 	15B37C6F11C953B200EB9314 /* PBXTextBookmark */ = {
@@ -2224,7 +2273,7 @@
 		fRef = 15B37C6A11C94F8F00EB9314 /* MBProgressHUD.m */;
 		name = "MBProgressHUD.m: 466";
 		rLen = 4;
-		rLoc = 14105;
+		rLoc = 14107;
 		rType = 0;
 		vrLen = 1482;
 		vrLoc = 13986;
@@ -2234,7 +2283,7 @@
 		fRef = 15B37C6A11C94F8F00EB9314 /* MBProgressHUD.m */;
 		name = "MBProgressHUD.m: 466";
 		rLen = 4;
-		rLoc = 14105;
+		rLoc = 14107;
 		rType = 0;
 		vrLen = 1482;
 		vrLoc = 13986;
@@ -2291,16 +2340,16 @@
 	};
 	15B37D4811CA3CD700EB9314 /* Event.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {998, 630}}";
-			sepNavSelRange = "{262, 0}";
-			sepNavVisRange = "{0, 732}";
+			sepNavIntBoundsRect = "{{0, 0}, {1326, 485}}";
+			sepNavSelRange = "{428, 0}";
+			sepNavVisRange = "{0, 898}";
 		};
 	};
 	15B37D4911CA3CD700EB9314 /* Event.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {998, 868}}";
-			sepNavSelRange = "{368, 14}";
-			sepNavVisRange = "{211, 1493}";
+			sepNavIntBoundsRect = "{{0, 0}, {998, 1372}}";
+			sepNavSelRange = "{1869, 0}";
+			sepNavVisRange = "{187, 1602}";
 		};
 	};
 	15B37D4A11CA3CD700EB9314 /* Calendar.h */ = {
@@ -2311,9 +2360,9 @@
 		path = /Users/rafaelchacon/Sandboxes/GoogleCal/Calendar.h;
 		sourceTree = "<absolute>";
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {998, 607}}";
-			sepNavSelRange = "{359, 0}";
-			sepNavVisRange = "{0, 1035}";
+			sepNavIntBoundsRect = "{{0, 0}, {998, 630}}";
+			sepNavSelRange = "{584, 0}";
+			sepNavVisRange = "{0, 1147}";
 		};
 	};
 	15B37D4B11CA3CD700EB9314 /* Calendar.m */ = {
@@ -2324,9 +2373,9 @@
 		path = /Users/rafaelchacon/Sandboxes/GoogleCal/Calendar.m;
 		sourceTree = "<absolute>";
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {998, 1134}}";
-			sepNavSelRange = "{335, 94}";
-			sepNavVisRange = "{261, 1676}";
+			sepNavIntBoundsRect = "{{0, 0}, {998, 1330}}";
+			sepNavSelRange = "{2488, 106}";
+			sepNavVisRange = "{1689, 1394}";
 		};
 	};
 	15B37D5A11CA3E4100EB9314 /* PBXTextBookmark */ = {
@@ -2344,7 +2393,7 @@
 		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
 		name = "Event.h: 15";
 		rLen = 0;
-		rLoc = 235;
+		rLoc = 260;
 		rType = 0;
 		vrLen = 586;
 		vrLoc = 0;
@@ -3056,7 +3105,7 @@
 		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
 		name = "MonthCalendar.m: 610";
 		rLen = 0;
-		rLoc = 19110;
+		rLoc = 19055;
 		rType = 0;
 		vrLen = 885;
 		vrLoc = 18392;
@@ -3235,15 +3284,15 @@
 		comments = "warning: initialization from distinct Objective-C type";
 		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
 		rLen = 1;
-		rLoc = 324;
+		rLoc = 321;
 		rType = 1;
 	};
 	15E3CA7911CB8A14002A9883 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
 		name = "MonthCalendar.m: 328";
-		rLen = 114;
-		rLoc = 10037;
+		rLen = 117;
+		rLoc = 10063;
 		rType = 0;
 		vrLen = 1720;
 		vrLoc = 9675;
@@ -3422,7 +3471,7 @@
 		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
 		name = "Event.h: 16";
 		rLen = 0;
-		rLoc = 262;
+		rLoc = 285;
 		rType = 0;
 		vrLen = 732;
 		vrLoc = 0;
@@ -3432,7 +3481,7 @@
 		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
 		name = "Event.m: 25";
 		rLen = 14;
-		rLoc = 368;
+		rLoc = 366;
 		rType = 0;
 		vrLen = 1493;
 		vrLoc = 211;
@@ -3471,8 +3520,8 @@
 		isa = PBXTextBookmark;
 		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
 		name = "MonthCalendar.m: 328";
-		rLen = 114;
-		rLoc = 10037;
+		rLen = 117;
+		rLoc = 10063;
 		rType = 0;
 		vrLen = 1120;
 		vrLoc = 9337;
@@ -3482,7 +3531,7 @@
 		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
 		name = "MonthCalendar.m: 298";
 		rLen = 56;
-		rLoc = 9348;
+		rLoc = 9284;
 		rType = 0;
 		vrLen = 2131;
 		vrLoc = 9511;
@@ -3492,7 +3541,7 @@
 		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
 		name = "Event.h: 16";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 495;
 		rType = 0;
 		vrLen = 687;
 		vrLoc = 0;
@@ -3502,7 +3551,7 @@
 		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
 		name = "Event.m: 30";
 		rLen = 0;
-		rLoc = 784;
+		rLoc = 779;
 		rType = 0;
 		vrLen = 1504;
 		vrLoc = 211;
@@ -3512,7 +3561,7 @@
 		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
 		name = "Event.h: 16";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 495;
 		rType = 0;
 		vrLen = 687;
 		vrLoc = 0;
@@ -3522,7 +3571,7 @@
 		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
 		name = "Event.m: 30";
 		rLen = 0;
-		rLoc = 784;
+		rLoc = 779;
 		rType = 0;
 		vrLen = 1505;
 		vrLoc = 210;
@@ -3532,7 +3581,7 @@
 		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
 		name = "Event.h: 16";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 495;
 		rType = 0;
 		vrLen = 687;
 		vrLoc = 0;
@@ -3542,7 +3591,7 @@
 		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
 		name = "Event.m: 30";
 		rLen = 0;
-		rLoc = 784;
+		rLoc = 779;
 		rType = 0;
 		vrLen = 1504;
 		vrLoc = 210;
@@ -3552,7 +3601,7 @@
 		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
 		name = "Calendar.h: 19";
 		rLen = 47;
-		rLoc = 532;
+		rLoc = 644;
 		rType = 0;
 		vrLen = 1034;
 		vrLoc = 0;
@@ -3562,7 +3611,7 @@
 		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
 		name = "Event.h: 24";
 		rLen = 0;
-		rLoc = 722;
+		rLoc = 888;
 		rType = 0;
 		vrLen = 735;
 		vrLoc = 0;
@@ -3582,7 +3631,7 @@
 		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
 		name = "Event.m: 30";
 		rLen = 0;
-		rLoc = 784;
+		rLoc = 779;
 		rType = 0;
 		vrLen = 1526;
 		vrLoc = 187;
@@ -3592,7 +3641,7 @@
 		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
 		name = "Event.h: 24";
 		rLen = 0;
-		rLoc = 722;
+		rLoc = 888;
 		rType = 0;
 		vrLen = 735;
 		vrLoc = 0;
@@ -3791,7 +3840,7 @@
 		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
 		name = "Calendar.h: 19";
 		rLen = 47;
-		rLoc = 532;
+		rLoc = 644;
 		rType = 0;
 		vrLen = 1034;
 		vrLoc = 0;
@@ -3801,7 +3850,7 @@
 		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
 		name = "Calendar.m: 58";
 		rLen = 610;
-		rLoc = 1937;
+		rLoc = 1873;
 		rType = 0;
 		vrLen = 1601;
 		vrLoc = 816;
@@ -3821,7 +3870,7 @@
 		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
 		name = "Calendar.m: 57";
 		rLen = 0;
-		rLoc = 1936;
+		rLoc = 1872;
 		rType = 0;
 		vrLen = 1791;
 		vrLoc = 243;
@@ -3831,7 +3880,7 @@
 		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
 		name = "Event.m: 25";
 		rLen = 14;
-		rLoc = 368;
+		rLoc = 366;
 		rType = 0;
 		vrLen = 1493;
 		vrLoc = 211;
@@ -3841,7 +3890,7 @@
 		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
 		name = "Event.h: 16";
 		rLen = 0;
-		rLoc = 262;
+		rLoc = 285;
 		rType = 0;
 		vrLen = 732;
 		vrLoc = 0;
@@ -3851,7 +3900,7 @@
 		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
 		name = "Event.m: 25";
 		rLen = 14;
-		rLoc = 368;
+		rLoc = 366;
 		rType = 0;
 		vrLen = 1492;
 		vrLoc = 211;
@@ -3861,7 +3910,7 @@
 		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
 		name = "Event.h: 16";
 		rLen = 0;
-		rLoc = 262;
+		rLoc = 285;
 		rType = 0;
 		vrLen = 732;
 		vrLoc = 0;
@@ -3871,7 +3920,7 @@
 		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
 		name = "Event.m: 25";
 		rLen = 14;
-		rLoc = 368;
+		rLoc = 366;
 		rType = 0;
 		vrLen = 1493;
 		vrLoc = 210;
@@ -3881,7 +3930,7 @@
 		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
 		name = "Event.h: 16";
 		rLen = 0;
-		rLoc = 262;
+		rLoc = 285;
 		rType = 0;
 		vrLen = 732;
 		vrLoc = 0;
@@ -3891,7 +3940,7 @@
 		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
 		name = "Event.m: 25";
 		rLen = 14;
-		rLoc = 368;
+		rLoc = 366;
 		rType = 0;
 		vrLen = 1493;
 		vrLoc = 211;
@@ -3901,7 +3950,7 @@
 		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
 		name = "Calendar.m: 50";
 		rLen = 0;
-		rLoc = 1787;
+		rLoc = 1734;
 		rType = 0;
 		vrLen = 1634;
 		vrLoc = 216;
@@ -3911,7 +3960,7 @@
 		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
 		name = "MonthCalendar.m: 333";
 		rLen = 0;
-		rLoc = 10274;
+		rLoc = 10605;
 		rType = 0;
 		vrLen = 2051;
 		vrLoc = 9517;
@@ -3931,7 +3980,7 @@
 		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
 		name = "Calendar.m: 50";
 		rLen = 0;
-		rLoc = 1787;
+		rLoc = 1734;
 		rType = 0;
 		vrLen = 1634;
 		vrLoc = 216;
@@ -3941,7 +3990,7 @@
 		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
 		name = "MonthCalendar.m: 331";
 		rLen = 0;
-		rLoc = 10270;
+		rLoc = 10331;
 		rType = 0;
 		vrLen = 2024;
 		vrLoc = 9514;
@@ -3951,7 +4000,7 @@
 		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
 		name = "Calendar.m: 51";
 		rLen = 0;
-		rLoc = 1741;
+		rLoc = 1688;
 		rType = 0;
 		vrLen = 1673;
 		vrLoc = 261;
@@ -3960,8 +4009,8 @@
 		isa = PBXTextBookmark;
 		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
 		name = "MonthCalendar.m: 328";
-		rLen = 114;
-		rLoc = 10037;
+		rLen = 117;
+		rLoc = 10063;
 		rType = 0;
 		vrLen = 1120;
 		vrLoc = 9337;
@@ -3971,7 +4020,7 @@
 		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
 		name = "Calendar.h: 19";
 		rLen = 47;
-		rLoc = 532;
+		rLoc = 644;
 		rType = 0;
 		vrLen = 1034;
 		vrLoc = 0;
@@ -4001,7 +4050,7 @@
 		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
 		name = "MonthCalendar.m: 327";
 		rLen = 0;
-		rLoc = 10036;
+		rLoc = 10062;
 		rType = 0;
 		vrLen = 2067;
 		vrLoc = 9516;
@@ -4351,7 +4400,7 @@
 		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
 		name = "MonthCalendar.m: 327";
 		rLen = 0;
-		rLoc = 10270;
+		rLoc = 10331;
 		rType = 0;
 		vrLen = 2040;
 		vrLoc = 9508;
@@ -4527,6 +4576,2989 @@
 			);
 		};
 	};
+	15E3CAB511CB8B3E002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 327";
+		rLen = 0;
+		rLoc = 10331;
+		rType = 0;
+		vrLen = 2040;
+		vrLoc = 9508;
+	};
+	15E3CAB611CB8B3E002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
+		name = "Calendar.h: 16";
+		rLen = 0;
+		rLoc = 359;
+		rType = 0;
+		vrLen = 1035;
+		vrLoc = 0;
+	};
+	15E3CAB711CB8B3E002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
+		name = "Calendar.m: 38";
+		rLen = 0;
+		rLoc = 1362;
+		rType = 0;
+		vrLen = 1915;
+		vrLoc = 292;
+	};
+	15E3CAB811CB8B3E002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 16";
+		rLen = 0;
+		rLoc = 268;
+		rType = 0;
+		vrLen = 730;
+		vrLoc = 0;
+	};
+	15E3CAB911CB8B3E002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 41";
+		rLen = 9;
+		rLoc = 1370;
+		rType = 0;
+		vrLen = 1558;
+		vrLoc = 245;
+	};
+	15E3CABA11CB8B3E002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 327";
+		rLen = 0;
+		rLoc = 10331;
+		rType = 0;
+		vrLen = 2040;
+		vrLoc = 9508;
+	};
+	15E3CABB11CB8B3E002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 25";
+		rLen = 0;
+		rLoc = 363;
+		rType = 0;
+		vrLen = 1531;
+		vrLoc = 165;
+	};
+	15E3CABC11CB8B3E002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 16";
+		rLen = 0;
+		rLoc = 268;
+		rType = 0;
+		vrLen = 730;
+		vrLoc = 0;
+	};
+	15E3CABD11CB8B3E002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
+		name = "Calendar.h: 16";
+		rLen = 0;
+		rLoc = 359;
+		rType = 0;
+		vrLen = 1035;
+		vrLoc = 0;
+	};
+	15E3CABE11CB8B3E002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
+		name = "Calendar.m: 49";
+		rLen = 125;
+		rLoc = 1623;
+		rType = 0;
+		vrLen = 1923;
+		vrLoc = 276;
+	};
+	15E3CABF11CB8B3E002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 41";
+		rLen = 9;
+		rLoc = 1370;
+		rType = 0;
+		vrLen = 1558;
+		vrLoc = 245;
+	};
+	15E3CAC011CB8B3E002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
+		name = "Calendar.h: 16";
+		rLen = 0;
+		rLoc = 359;
+		rType = 0;
+		vrLen = 1035;
+		vrLoc = 0;
+	};
+	15E3CAC111CB8B3E002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
+		name = "Calendar.m: 38";
+		rLen = 0;
+		rLoc = 1362;
+		rType = 0;
+		vrLen = 1915;
+		vrLoc = 292;
+	};
+	15E3CAC211CB8B3E002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
+		name = "Calendar.h: 16";
+		rLen = 0;
+		rLoc = 359;
+		rType = 0;
+		vrLen = 1035;
+		vrLoc = 0;
+	};
+	15E3CAC311CB8B3E002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
+		name = "Calendar.m: 38";
+		rLen = 0;
+		rLoc = 1362;
+		rType = 0;
+		vrLen = 1915;
+		vrLoc = 292;
+	};
+	15E3CAC411CB8B3E002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 16";
+		rLen = 0;
+		rLoc = 268;
+		rType = 0;
+		vrLen = 730;
+		vrLoc = 0;
+	};
+	15E3CAC511CB8B3E002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 42";
+		rLen = 0;
+		rLoc = 1384;
+		rType = 0;
+		vrLen = 1552;
+		vrLoc = 245;
+	};
+	15E3CAC611CB8B3E002A9883 /* XDModelBookmark */ = {
+		isa = XDModelBookmark;
+		fRef = 28C3AD890F43EF2300507BA6 /* GoogleCal.xcdatamodel */;
+		fallbackIsa = PBXBookmark;
+		uiCtxt = {
+			UIContextForDetailArea = {
+				_indexOfSelectedPane = 0;
+				_indexOfSelectedView = 1;
+			};
+			UIContextForEntityArea = {
+				_indexOfSelectedView = 0;
+				chosenTableColumnns = (
+					"ET Entity",
+					"ET Abstract",
+					"ET Class",
+				);
+				chosenTableColumnns_sortDirections = (
+					YES,
+				);
+				chosenTableColumnns_sortKeys = (
+					name,
+				);
+				chosenTableColumnns_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableWidths = (
+					103.000000,
+					22.000000,
+					82.080078,
+				);
+			};
+			UIContextForLayoutManager = {
+				detailSplitGeometry = {
+					_collapsingFrameDimension = 0;
+					_indexOfCollapsedView = 0;
+					_percentageOfCollapsedView = 0;
+					isCollapsed = yes;
+					sizes = (
+						"{{0, 0}, {718, 220}}",
+						"{{723, 0}, {379, 220}}",
+					);
+				};
+				diagramSplitGeometry = {
+					_collapsingFrameDimension = 0;
+					_indexOfCollapsedView = 0;
+					_percentageOfCollapsedView = 0;
+					isCollapsed = yes;
+					sizes = (
+						"{{0, 0}, {1102, 220}}",
+						"{{0, 225}, {1102, 220}}",
+					);
+				};
+				tableSplitGeometry = {
+					_collapsingFrameDimension = 0;
+					_indexOfCollapsedView = 0;
+					_percentageOfCollapsedView = 0;
+					isCollapsed = yes;
+					sizes = (
+						"{{0, 0}, {232, 218}}",
+						"{{237, 0}, {479, 218}}",
+					);
+				};
+			};
+			UIContextForPropertyArea = {
+				_indexOfSelectedView = 0;
+				chosenTableColumnnFRTs = (
+					"FT Fetch Request",
+					"FT Predicate",
+				);
+				chosenTableColumnnFRTs_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnFRTs_sortKeys = (
+					name,
+				);
+				chosenTableColumnnFRTs_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableColumnnsAT = (
+					"AT Attribute",
+					"AT Type",
+				);
+				chosenTableColumnnsAT_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnsAT_sortKeys = (
+					name,
+				);
+				chosenTableColumnnsAT_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableColumnnsFPT = (
+					"FP FetchedProperty",
+					"FP Destination",
+					"FP Predicate",
+				);
+				chosenTableColumnnsFPT_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnsFPT_sortKeys = (
+					name,
+				);
+				chosenTableColumnnsFPT_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableColumnnsPT = (
+					"PT Property",
+					"PT Kind",
+					"PT SharedKeyOne",
+				);
+				chosenTableColumnnsPT_sortDirections = (
+					NO,
+					NO,
+					YES,
+				);
+				chosenTableColumnnsPT_sortKeys = (
+					sharedKeyOne.name,
+					name,
+					propertyKind,
+				);
+				chosenTableColumnnsPT_sortSelectors = (
+					"compare:",
+					"_xdcaseInsensitiveNumericCompare:",
+					"compare:",
+				);
+				chosenTableColumnnsRT = (
+					"RT Relationship",
+					"RT Destination",
+				);
+				chosenTableColumnnsRT_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnsRT_sortKeys = (
+					name,
+				);
+				chosenTableColumnnsRT_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableWidthsAT = (
+					128.000000,
+					64.000000,
+				);
+				chosenTableWidthsFPT = (
+					128.000000,
+					64.000000,
+					144.764160,
+				);
+				chosenTableWidthsFRT = (
+					128.000000,
+					249.764160,
+				);
+				chosenTableWidthsPT = (
+					128.000000,
+					108.110840,
+					216.570801,
+				);
+				chosenTableWidthsRT = (
+					128.000000,
+					64.000000,
+				);
+			};
+			"xdesign model browser state key - shown/hidden" = 1;
+			"xdesign model diagram view visible rect key" = "{{-195, 0}, {1087, 205}}";
+			"xdesign model selected entities key" = (
+				"<XDPMEntity: 0x3069460>{name=Event, package=}",
+			);
+			"xdesign model selected properties key" = (
+				"<XDPMAttribute: 0x202bed0>{name=startDate, type=(null)}",
+			);
+		};
+	};
+	15E3CACB11CB8CEB002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 42";
+		rLen = 0;
+		rLoc = 1384;
+		rType = 0;
+		vrLen = 1586;
+		vrLoc = 211;
+	};
+	15E3CACC11CB8CEB002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
+		name = "Calendar.h: 17";
+		rLen = 113;
+		rLoc = 361;
+		rType = 0;
+		vrLen = 1035;
+		vrLoc = 0;
+	};
+	15E3CACD11CB8CEB002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 377";
+		rLen = 23;
+		rLoc = 12656;
+		rType = 0;
+		vrLen = 1696;
+		vrLoc = 11548;
+	};
+	15E3CACE11CB8CEB002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 17";
+		rLen = 0;
+		rLoc = 415;
+		rType = 0;
+		vrLen = 835;
+		vrLoc = 0;
+	};
+	15E3CACF11CB8CEB002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 42";
+		rLen = 0;
+		rLoc = 1384;
+		rType = 0;
+		vrLen = 1586;
+		vrLoc = 211;
+	};
+	15E3CAD011CB8CEB002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
+		name = "Calendar.h: 17";
+		rLen = 113;
+		rLoc = 361;
+		rType = 0;
+		vrLen = 1035;
+		vrLoc = 0;
+	};
+	15E3CAD111CB8CEB002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 17";
+		rLen = 0;
+		rLoc = 415;
+		rType = 0;
+		vrLen = 835;
+		vrLoc = 0;
+	};
+	15E3CAD211CB8CEB002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 377";
+		rLen = 23;
+		rLoc = 12656;
+		rType = 0;
+		vrLen = 1696;
+		vrLoc = 11548;
+	};
+	15E3CAD311CB8CEB002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 17";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 840;
+		vrLoc = 0;
+	};
+	15E3CAD411CB8CEB002A9883 /* XDModelBookmark */ = {
+		isa = XDModelBookmark;
+		fRef = 28C3AD890F43EF2300507BA6 /* GoogleCal.xcdatamodel */;
+		fallbackIsa = PBXBookmark;
+		uiCtxt = {
+			UIContextForDetailArea = {
+				_indexOfSelectedPane = 0;
+				_indexOfSelectedView = 1;
+			};
+			UIContextForEntityArea = {
+				_indexOfSelectedView = 0;
+				chosenTableColumnns = (
+					"ET Entity",
+					"ET Abstract",
+					"ET Class",
+				);
+				chosenTableColumnns_sortDirections = (
+					YES,
+				);
+				chosenTableColumnns_sortKeys = (
+					name,
+				);
+				chosenTableColumnns_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableWidths = (
+					103.000000,
+					22.000000,
+					82.080078,
+				);
+			};
+			UIContextForLayoutManager = {
+				detailSplitGeometry = {
+					_collapsingFrameDimension = 0;
+					_indexOfCollapsedView = 0;
+					_percentageOfCollapsedView = 0;
+					isCollapsed = yes;
+					sizes = (
+						"{{0, 0}, {718, 220}}",
+						"{{723, 0}, {379, 220}}",
+					);
+				};
+				diagramSplitGeometry = {
+					_collapsingFrameDimension = 0;
+					_indexOfCollapsedView = 0;
+					_percentageOfCollapsedView = 0;
+					isCollapsed = yes;
+					sizes = (
+						"{{0, 0}, {1102, 220}}",
+						"{{0, 225}, {1102, 243}}",
+					);
+				};
+				tableSplitGeometry = {
+					_collapsingFrameDimension = 0;
+					_indexOfCollapsedView = 0;
+					_percentageOfCollapsedView = 0;
+					isCollapsed = yes;
+					sizes = (
+						"{{0, 0}, {232, 218}}",
+						"{{237, 0}, {479, 218}}",
+					);
+				};
+			};
+			UIContextForPropertyArea = {
+				_indexOfSelectedView = 0;
+				chosenTableColumnnFRTs = (
+					"FT Fetch Request",
+					"FT Predicate",
+				);
+				chosenTableColumnnFRTs_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnFRTs_sortKeys = (
+					name,
+				);
+				chosenTableColumnnFRTs_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableColumnnsAT = (
+					"AT Attribute",
+					"AT Type",
+				);
+				chosenTableColumnnsAT_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnsAT_sortKeys = (
+					name,
+				);
+				chosenTableColumnnsAT_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableColumnnsFPT = (
+					"FP FetchedProperty",
+					"FP Destination",
+					"FP Predicate",
+				);
+				chosenTableColumnnsFPT_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnsFPT_sortKeys = (
+					name,
+				);
+				chosenTableColumnnsFPT_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableColumnnsPT = (
+					"PT Property",
+					"PT Kind",
+					"PT SharedKeyOne",
+				);
+				chosenTableColumnnsPT_sortDirections = (
+					NO,
+					NO,
+					YES,
+				);
+				chosenTableColumnnsPT_sortKeys = (
+					sharedKeyOne.name,
+					name,
+					propertyKind,
+				);
+				chosenTableColumnnsPT_sortSelectors = (
+					"compare:",
+					"_xdcaseInsensitiveNumericCompare:",
+					"compare:",
+				);
+				chosenTableColumnnsRT = (
+					"RT Relationship",
+					"RT Destination",
+				);
+				chosenTableColumnnsRT_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnsRT_sortKeys = (
+					name,
+				);
+				chosenTableColumnnsRT_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableWidthsAT = (
+					128.000000,
+					64.000000,
+				);
+				chosenTableWidthsFPT = (
+					128.000000,
+					64.000000,
+					144.764160,
+				);
+				chosenTableWidthsFRT = (
+					128.000000,
+					249.764160,
+				);
+				chosenTableWidthsPT = (
+					128.000000,
+					108.110840,
+					216.570801,
+				);
+				chosenTableWidthsRT = (
+					128.000000,
+					64.000000,
+				);
+			};
+			"xdesign model browser state key - shown/hidden" = 1;
+			"xdesign model diagram view visible rect key" = "{{-195, 0}, {1087, 228}}";
+			"xdesign model selected entities key" = (
+				"<XDPMEntity: 0x3069460>{name=Event, package=}",
+			);
+			"xdesign model selected properties key" = (
+				"<XDPMAttribute: 0x202bed0>{name=startDate, type=(null)}",
+			);
+		};
+	};
+	15E3CAD711CB8D30002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 63";
+		rLen = 0;
+		rLoc = 2932;
+		rType = 0;
+		vrLen = 1432;
+		vrLoc = 0;
+	};
+	15E3CAD811CB8D30002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
+		name = "Calendar.h: 10";
+		rLen = 25;
+		rLoc = 178;
+		rType = 0;
+		vrLen = 1035;
+		vrLoc = 0;
+	};
+	15E3CAD911CB8D30002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 10";
+		rLen = 0;
+		rLoc = 188;
+		rType = 0;
+		vrLen = 853;
+		vrLoc = 0;
+	};
+	15E3CADA11CB8D30002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 17";
+		rLen = 142;
+		rLoc = 353;
+		rType = 0;
+		vrLen = 840;
+		vrLoc = 0;
+	};
+	15E3CADB11CB8D30002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 63";
+		rLen = 0;
+		rLoc = 2932;
+		rType = 0;
+		vrLen = 1432;
+		vrLoc = 0;
+	};
+	15E3CADC11CB8D30002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 10";
+		rLen = 0;
+		rLoc = 188;
+		rType = 0;
+		vrLen = 853;
+		vrLoc = 0;
+	};
+	15E3CADD11CB8D30002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
+		name = "Calendar.h: 10";
+		rLen = 25;
+		rLoc = 178;
+		rType = 0;
+		vrLen = 1035;
+		vrLoc = 0;
+	};
+	15E3CADE11CB8D30002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 10";
+		rLen = 0;
+		rLoc = 200;
+		rType = 0;
+		vrLen = 865;
+		vrLoc = 0;
+	};
+	15E3CADF11CB8D30002A9883 /* XDModelBookmark */ = {
+		isa = XDModelBookmark;
+		fRef = 28C3AD890F43EF2300507BA6 /* GoogleCal.xcdatamodel */;
+		fallbackIsa = PBXBookmark;
+		uiCtxt = {
+			UIContextForDetailArea = {
+				_indexOfSelectedPane = 0;
+				_indexOfSelectedView = 1;
+			};
+			UIContextForEntityArea = {
+				_indexOfSelectedView = 0;
+				chosenTableColumnns = (
+					"ET Entity",
+					"ET Abstract",
+					"ET Class",
+				);
+				chosenTableColumnns_sortDirections = (
+					YES,
+				);
+				chosenTableColumnns_sortKeys = (
+					name,
+				);
+				chosenTableColumnns_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableWidths = (
+					103.000000,
+					22.000000,
+					82.080078,
+				);
+			};
+			UIContextForLayoutManager = {
+				detailSplitGeometry = {
+					_collapsingFrameDimension = 0;
+					_indexOfCollapsedView = 0;
+					_percentageOfCollapsedView = 0;
+					isCollapsed = yes;
+					sizes = (
+						"{{0, 0}, {718, 220}}",
+						"{{723, 0}, {379, 220}}",
+					);
+				};
+				diagramSplitGeometry = {
+					_collapsingFrameDimension = 0;
+					_indexOfCollapsedView = 0;
+					_percentageOfCollapsedView = 0;
+					isCollapsed = yes;
+					sizes = (
+						"{{0, 0}, {1102, 220}}",
+						"{{0, 225}, {1102, 243}}",
+					);
+				};
+				tableSplitGeometry = {
+					_collapsingFrameDimension = 0;
+					_indexOfCollapsedView = 0;
+					_percentageOfCollapsedView = 0;
+					isCollapsed = yes;
+					sizes = (
+						"{{0, 0}, {232, 218}}",
+						"{{237, 0}, {479, 218}}",
+					);
+				};
+			};
+			UIContextForPropertyArea = {
+				_indexOfSelectedView = 0;
+				chosenTableColumnnFRTs = (
+					"FT Fetch Request",
+					"FT Predicate",
+				);
+				chosenTableColumnnFRTs_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnFRTs_sortKeys = (
+					name,
+				);
+				chosenTableColumnnFRTs_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableColumnnsAT = (
+					"AT Attribute",
+					"AT Type",
+				);
+				chosenTableColumnnsAT_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnsAT_sortKeys = (
+					name,
+				);
+				chosenTableColumnnsAT_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableColumnnsFPT = (
+					"FP FetchedProperty",
+					"FP Destination",
+					"FP Predicate",
+				);
+				chosenTableColumnnsFPT_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnsFPT_sortKeys = (
+					name,
+				);
+				chosenTableColumnnsFPT_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableColumnnsPT = (
+					"PT Property",
+					"PT Kind",
+					"PT SharedKeyOne",
+				);
+				chosenTableColumnnsPT_sortDirections = (
+					NO,
+					NO,
+					YES,
+				);
+				chosenTableColumnnsPT_sortKeys = (
+					sharedKeyOne.name,
+					name,
+					propertyKind,
+				);
+				chosenTableColumnnsPT_sortSelectors = (
+					"compare:",
+					"_xdcaseInsensitiveNumericCompare:",
+					"compare:",
+				);
+				chosenTableColumnnsRT = (
+					"RT Relationship",
+					"RT Destination",
+				);
+				chosenTableColumnnsRT_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnsRT_sortKeys = (
+					name,
+				);
+				chosenTableColumnnsRT_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableWidthsAT = (
+					128.000000,
+					64.000000,
+				);
+				chosenTableWidthsFPT = (
+					128.000000,
+					64.000000,
+					144.764160,
+				);
+				chosenTableWidthsFRT = (
+					128.000000,
+					249.764160,
+				);
+				chosenTableWidthsPT = (
+					128.000000,
+					108.110840,
+					216.570801,
+				);
+				chosenTableWidthsRT = (
+					128.000000,
+					64.000000,
+				);
+			};
+			"xdesign model browser state key - shown/hidden" = 1;
+			"xdesign model diagram view visible rect key" = "{{-195, 0}, {1087, 228}}";
+			"xdesign model selected entities key" = (
+				"<XDPMEntity: 0x3069460>{name=Event, package=}",
+			);
+			"xdesign model selected properties key" = (
+				"<XDPMAttribute: 0x202bed0>{name=startDate, type=(null)}",
+			);
+		};
+	};
+	15E3CAE111CB8D89002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 10";
+		rLen = 0;
+		rLoc = 200;
+		rType = 0;
+		vrLen = 865;
+		vrLoc = 0;
+	};
+	15E3CAE211CB8D89002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 378";
+		rLen = 0;
+		rLoc = 13184;
+		rType = 0;
+		vrLen = 1478;
+		vrLoc = 11520;
+	};
+	15E3CAE311CB8D89002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 63";
+		rLen = 0;
+		rLoc = 2932;
+		rType = 0;
+		vrLen = 1457;
+		vrLoc = 0;
+	};
+	15E3CAE411CB8D89002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 10";
+		rLen = 0;
+		rLoc = 200;
+		rType = 0;
+		vrLen = 865;
+		vrLoc = 0;
+	};
+	15E3CAE511CB8D89002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 378";
+		rLen = 0;
+		rLoc = 13184;
+		rType = 0;
+		vrLen = 1478;
+		vrLoc = 11520;
+	};
+	15E3CAE611CB8D89002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 81";
+		rLen = 0;
+		rLoc = 2919;
+		rType = 0;
+		vrLen = 1365;
+		vrLoc = 1388;
+	};
+	15E3CAE711CB8D89002A9883 /* XDModelBookmark */ = {
+		isa = XDModelBookmark;
+		fRef = 28C3AD890F43EF2300507BA6 /* GoogleCal.xcdatamodel */;
+		fallbackIsa = PBXBookmark;
+		uiCtxt = {
+			UIContextForDetailArea = {
+				_indexOfSelectedPane = 0;
+				_indexOfSelectedView = 1;
+			};
+			UIContextForEntityArea = {
+				_indexOfSelectedView = 0;
+				chosenTableColumnns = (
+					"ET Entity",
+					"ET Abstract",
+					"ET Class",
+				);
+				chosenTableColumnns_sortDirections = (
+					YES,
+				);
+				chosenTableColumnns_sortKeys = (
+					name,
+				);
+				chosenTableColumnns_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableWidths = (
+					103.000000,
+					22.000000,
+					82.080078,
+				);
+			};
+			UIContextForLayoutManager = {
+				detailSplitGeometry = {
+					_collapsingFrameDimension = 0;
+					_indexOfCollapsedView = 0;
+					_percentageOfCollapsedView = 0;
+					isCollapsed = yes;
+					sizes = (
+						"{{0, 0}, {718, 220}}",
+						"{{723, 0}, {379, 220}}",
+					);
+				};
+				diagramSplitGeometry = {
+					_collapsingFrameDimension = 0;
+					_indexOfCollapsedView = 0;
+					_percentageOfCollapsedView = 0;
+					isCollapsed = yes;
+					sizes = (
+						"{{0, 0}, {1102, 220}}",
+						"{{0, 225}, {1102, 243}}",
+					);
+				};
+				tableSplitGeometry = {
+					_collapsingFrameDimension = 0;
+					_indexOfCollapsedView = 0;
+					_percentageOfCollapsedView = 0;
+					isCollapsed = yes;
+					sizes = (
+						"{{0, 0}, {232, 218}}",
+						"{{237, 0}, {479, 218}}",
+					);
+				};
+			};
+			UIContextForPropertyArea = {
+				_indexOfSelectedView = 0;
+				chosenTableColumnnFRTs = (
+					"FT Fetch Request",
+					"FT Predicate",
+				);
+				chosenTableColumnnFRTs_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnFRTs_sortKeys = (
+					name,
+				);
+				chosenTableColumnnFRTs_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableColumnnsAT = (
+					"AT Attribute",
+					"AT Type",
+				);
+				chosenTableColumnnsAT_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnsAT_sortKeys = (
+					name,
+				);
+				chosenTableColumnnsAT_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableColumnnsFPT = (
+					"FP FetchedProperty",
+					"FP Destination",
+					"FP Predicate",
+				);
+				chosenTableColumnnsFPT_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnsFPT_sortKeys = (
+					name,
+				);
+				chosenTableColumnnsFPT_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableColumnnsPT = (
+					"PT Property",
+					"PT Kind",
+					"PT SharedKeyOne",
+				);
+				chosenTableColumnnsPT_sortDirections = (
+					NO,
+					NO,
+					YES,
+				);
+				chosenTableColumnnsPT_sortKeys = (
+					sharedKeyOne.name,
+					name,
+					propertyKind,
+				);
+				chosenTableColumnnsPT_sortSelectors = (
+					"compare:",
+					"_xdcaseInsensitiveNumericCompare:",
+					"compare:",
+				);
+				chosenTableColumnnsRT = (
+					"RT Relationship",
+					"RT Destination",
+				);
+				chosenTableColumnnsRT_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnsRT_sortKeys = (
+					name,
+				);
+				chosenTableColumnnsRT_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableWidthsAT = (
+					128.000000,
+					64.000000,
+				);
+				chosenTableWidthsFPT = (
+					128.000000,
+					64.000000,
+					144.764160,
+				);
+				chosenTableWidthsFRT = (
+					128.000000,
+					249.764160,
+				);
+				chosenTableWidthsPT = (
+					128.000000,
+					108.110840,
+					216.570801,
+				);
+				chosenTableWidthsRT = (
+					128.000000,
+					64.000000,
+				);
+			};
+			"xdesign model browser state key - shown/hidden" = 1;
+			"xdesign model diagram view visible rect key" = "{{-195, 0}, {1087, 228}}";
+			"xdesign model selected entities key" = (
+				"<XDPMEntity: 0x3069460>{name=Event, package=}",
+			);
+			"xdesign model selected properties key" = (
+				"<XDPMAttribute: 0x202bed0>{name=startDate, type=(null)}",
+			);
+		};
+	};
+	15E3CAED11CB9141002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
+		name = "Calendar.m: 58";
+		rLen = 610;
+		rLoc = 1873;
+		rType = 0;
+		vrLen = 1639;
+		vrLoc = 855;
+	};
+	15E3CAEE11CB9141002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B374D611C7E0C700EB9314 /* GDataEntryCalendarEvent.m */;
+		name = "GDataEntryCalendarEvent.m: 346";
+		rLen = 7;
+		rLoc = 12394;
+		rType = 0;
+		vrLen = 1234;
+		vrLoc = 11693;
+	};
+	15E3CAEF11CB9141002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 61";
+		rLen = 23;
+		rLoc = 1825;
+		rType = 0;
+		vrLen = 1313;
+		vrLoc = 1530;
+	};
+	15E3CAF011CB9141002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 83";
+		rLen = 0;
+		rLoc = 2934;
+		rType = 0;
+		vrLen = 1365;
+		vrLoc = 1388;
+	};
+	15E3CAF111CB9141002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
+		name = "Calendar.m: 58";
+		rLen = 610;
+		rLoc = 1873;
+		rType = 0;
+		vrLen = 1639;
+		vrLoc = 855;
+	};
+	15E3CAF211CB9141002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 61";
+		rLen = 23;
+		rLoc = 1825;
+		rType = 0;
+		vrLen = 1313;
+		vrLoc = 1530;
+	};
+	15E3CAF311CB9141002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B374D611C7E0C700EB9314 /* GDataEntryCalendarEvent.m */;
+		name = "GDataEntryCalendarEvent.m: 346";
+		rLen = 7;
+		rLoc = 12394;
+		rType = 0;
+		vrLen = 1234;
+		vrLoc = 11693;
+	};
+	15E3CAF411CB9141002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 76";
+		rLen = 0;
+		rLoc = 2546;
+		rType = 0;
+		vrLen = 1323;
+		vrLoc = 1667;
+	};
+	15E3CAF511CB9141002A9883 /* XDModelBookmark */ = {
+		isa = XDModelBookmark;
+		fRef = 28C3AD890F43EF2300507BA6 /* GoogleCal.xcdatamodel */;
+		fallbackIsa = PBXBookmark;
+		uiCtxt = {
+			UIContextForDetailArea = {
+				_indexOfSelectedPane = 0;
+				_indexOfSelectedView = 1;
+			};
+			UIContextForEntityArea = {
+				_indexOfSelectedView = 0;
+				chosenTableColumnns = (
+					"ET Entity",
+					"ET Abstract",
+					"ET Class",
+				);
+				chosenTableColumnns_sortDirections = (
+					YES,
+				);
+				chosenTableColumnns_sortKeys = (
+					name,
+				);
+				chosenTableColumnns_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableWidths = (
+					103.000000,
+					22.000000,
+					82.080078,
+				);
+			};
+			UIContextForLayoutManager = {
+				detailSplitGeometry = {
+					_collapsingFrameDimension = 0;
+					_indexOfCollapsedView = 0;
+					_percentageOfCollapsedView = 0;
+					isCollapsed = yes;
+					sizes = (
+						"{{0, 0}, {718, 220}}",
+						"{{723, 0}, {379, 220}}",
+					);
+				};
+				diagramSplitGeometry = {
+					_collapsingFrameDimension = 0;
+					_indexOfCollapsedView = 0;
+					_percentageOfCollapsedView = 0;
+					isCollapsed = yes;
+					sizes = (
+						"{{0, 0}, {1102, 220}}",
+						"{{0, 225}, {1102, 220}}",
+					);
+				};
+				tableSplitGeometry = {
+					_collapsingFrameDimension = 0;
+					_indexOfCollapsedView = 0;
+					_percentageOfCollapsedView = 0;
+					isCollapsed = yes;
+					sizes = (
+						"{{0, 0}, {232, 218}}",
+						"{{237, 0}, {479, 218}}",
+					);
+				};
+			};
+			UIContextForPropertyArea = {
+				_indexOfSelectedView = 0;
+				chosenTableColumnnFRTs = (
+					"FT Fetch Request",
+					"FT Predicate",
+				);
+				chosenTableColumnnFRTs_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnFRTs_sortKeys = (
+					name,
+				);
+				chosenTableColumnnFRTs_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableColumnnsAT = (
+					"AT Attribute",
+					"AT Type",
+				);
+				chosenTableColumnnsAT_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnsAT_sortKeys = (
+					name,
+				);
+				chosenTableColumnnsAT_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableColumnnsFPT = (
+					"FP FetchedProperty",
+					"FP Destination",
+					"FP Predicate",
+				);
+				chosenTableColumnnsFPT_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnsFPT_sortKeys = (
+					name,
+				);
+				chosenTableColumnnsFPT_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableColumnnsPT = (
+					"PT Property",
+					"PT Kind",
+					"PT SharedKeyOne",
+				);
+				chosenTableColumnnsPT_sortDirections = (
+					NO,
+					NO,
+					YES,
+				);
+				chosenTableColumnnsPT_sortKeys = (
+					sharedKeyOne.name,
+					name,
+					propertyKind,
+				);
+				chosenTableColumnnsPT_sortSelectors = (
+					"compare:",
+					"_xdcaseInsensitiveNumericCompare:",
+					"compare:",
+				);
+				chosenTableColumnnsRT = (
+					"RT Relationship",
+					"RT Destination",
+				);
+				chosenTableColumnnsRT_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnsRT_sortKeys = (
+					name,
+				);
+				chosenTableColumnnsRT_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableWidthsAT = (
+					128.000000,
+					64.000000,
+				);
+				chosenTableWidthsFPT = (
+					128.000000,
+					64.000000,
+					144.764160,
+				);
+				chosenTableWidthsFRT = (
+					128.000000,
+					249.764160,
+				);
+				chosenTableWidthsPT = (
+					128.000000,
+					108.110840,
+					216.570801,
+				);
+				chosenTableWidthsRT = (
+					128.000000,
+					64.000000,
+				);
+			};
+			"xdesign model browser state key - shown/hidden" = 1;
+			"xdesign model diagram view visible rect key" = "{{-195, 0}, {1087, 205}}";
+			"xdesign model selected entities key" = (
+				"<XDPMEntity: 0x3069460>{name=Event, package=}",
+			);
+			"xdesign model selected properties key" = (
+				"<XDPMAttribute: 0x202bed0>{name=startDate, type=(null)}",
+			);
+		};
+	};
+	15E3CAF811CB91FC002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 10";
+		rLen = 0;
+		rLoc = 200;
+		rType = 0;
+		vrLen = 865;
+		vrLoc = 0;
+	};
+	15E3CAF911CB91FC002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 61";
+		rLen = 19;
+		rLoc = 1804;
+		rType = 0;
+		vrLen = 1326;
+		vrLoc = 1667;
+	};
+	15E3CAFA11CB91FC002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 378";
+		rLen = 0;
+		rLoc = 13184;
+		rType = 0;
+		vrLen = 1454;
+		vrLoc = 11520;
+	};
+	15E3CAFB11CB91FC002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 76";
+		rLen = 0;
+		rLoc = 2546;
+		rType = 0;
+		vrLen = 1329;
+		vrLoc = 1667;
+	};
+	15E3CAFC11CB91FC002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 10";
+		rLen = 0;
+		rLoc = 200;
+		rType = 0;
+		vrLen = 865;
+		vrLoc = 0;
+	};
+	15E3CAFD11CB91FC002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 61";
+		rLen = 19;
+		rLoc = 1804;
+		rType = 0;
+		vrLen = 1326;
+		vrLoc = 1667;
+	};
+	15E3CAFE11CB91FC002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 378";
+		rLen = 0;
+		rLoc = 13184;
+		rType = 0;
+		vrLen = 1416;
+		vrLoc = 11520;
+	};
+	15E3CAFF11CB91FC002A9883 /* XDModelBookmark */ = {
+		isa = XDModelBookmark;
+		fRef = 28C3AD890F43EF2300507BA6 /* GoogleCal.xcdatamodel */;
+		fallbackIsa = PBXBookmark;
+		uiCtxt = {
+			UIContextForDetailArea = {
+				_indexOfSelectedPane = 0;
+				_indexOfSelectedView = 1;
+			};
+			UIContextForEntityArea = {
+				_indexOfSelectedView = 0;
+				chosenTableColumnns = (
+					"ET Entity",
+					"ET Abstract",
+					"ET Class",
+				);
+				chosenTableColumnns_sortDirections = (
+					YES,
+				);
+				chosenTableColumnns_sortKeys = (
+					name,
+				);
+				chosenTableColumnns_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableWidths = (
+					103.000000,
+					22.000000,
+					82.080078,
+				);
+			};
+			UIContextForLayoutManager = {
+				detailSplitGeometry = {
+					_collapsingFrameDimension = 0;
+					_indexOfCollapsedView = 0;
+					_percentageOfCollapsedView = 0;
+					isCollapsed = yes;
+					sizes = (
+						"{{0, 0}, {718, 220}}",
+						"{{723, 0}, {379, 220}}",
+					);
+				};
+				diagramSplitGeometry = {
+					_collapsingFrameDimension = 0;
+					_indexOfCollapsedView = 0;
+					_percentageOfCollapsedView = 0;
+					isCollapsed = yes;
+					sizes = (
+						"{{0, 0}, {1102, 220}}",
+						"{{0, 225}, {1102, 220}}",
+					);
+				};
+				tableSplitGeometry = {
+					_collapsingFrameDimension = 0;
+					_indexOfCollapsedView = 0;
+					_percentageOfCollapsedView = 0;
+					isCollapsed = yes;
+					sizes = (
+						"{{0, 0}, {232, 218}}",
+						"{{237, 0}, {479, 218}}",
+					);
+				};
+			};
+			UIContextForPropertyArea = {
+				_indexOfSelectedView = 0;
+				chosenTableColumnnFRTs = (
+					"FT Fetch Request",
+					"FT Predicate",
+				);
+				chosenTableColumnnFRTs_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnFRTs_sortKeys = (
+					name,
+				);
+				chosenTableColumnnFRTs_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableColumnnsAT = (
+					"AT Attribute",
+					"AT Type",
+				);
+				chosenTableColumnnsAT_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnsAT_sortKeys = (
+					name,
+				);
+				chosenTableColumnnsAT_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableColumnnsFPT = (
+					"FP FetchedProperty",
+					"FP Destination",
+					"FP Predicate",
+				);
+				chosenTableColumnnsFPT_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnsFPT_sortKeys = (
+					name,
+				);
+				chosenTableColumnnsFPT_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableColumnnsPT = (
+					"PT Property",
+					"PT Kind",
+					"PT SharedKeyOne",
+				);
+				chosenTableColumnnsPT_sortDirections = (
+					NO,
+					NO,
+					YES,
+				);
+				chosenTableColumnnsPT_sortKeys = (
+					sharedKeyOne.name,
+					name,
+					propertyKind,
+				);
+				chosenTableColumnnsPT_sortSelectors = (
+					"compare:",
+					"_xdcaseInsensitiveNumericCompare:",
+					"compare:",
+				);
+				chosenTableColumnnsRT = (
+					"RT Relationship",
+					"RT Destination",
+				);
+				chosenTableColumnnsRT_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnsRT_sortKeys = (
+					name,
+				);
+				chosenTableColumnnsRT_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableWidthsAT = (
+					128.000000,
+					64.000000,
+				);
+				chosenTableWidthsFPT = (
+					128.000000,
+					64.000000,
+					144.764160,
+				);
+				chosenTableWidthsFRT = (
+					128.000000,
+					249.764160,
+				);
+				chosenTableWidthsPT = (
+					128.000000,
+					108.110840,
+					216.570801,
+				);
+				chosenTableWidthsRT = (
+					128.000000,
+					64.000000,
+				);
+			};
+			"xdesign model browser state key - shown/hidden" = 1;
+			"xdesign model diagram view visible rect key" = "{{-195, 0}, {1087, 205}}";
+			"xdesign model selected entities key" = (
+				"<XDPMEntity: 0x3069460>{name=Event, package=}",
+			);
+			"xdesign model selected properties key" = (
+				"<XDPMAttribute: 0x202bed0>{name=startDate, type=(null)}",
+			);
+		};
+	};
+	15E3CB0311CB927F002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 381";
+		rLen = 0;
+		rLoc = 12922;
+		rType = 0;
+		vrLen = 1551;
+		vrLoc = 11551;
+	};
+	15E3CB0411CB927F002A9883 /* XDModelBookmark */ = {
+		isa = XDModelBookmark;
+		fRef = 28C3AD890F43EF2300507BA6 /* GoogleCal.xcdatamodel */;
+		fallbackIsa = PBXBookmark;
+		uiCtxt = {
+			UIContextForDetailArea = {
+				_indexOfSelectedPane = 0;
+				_indexOfSelectedView = 1;
+			};
+			UIContextForEntityArea = {
+				_indexOfSelectedView = 0;
+				chosenTableColumnns = (
+					"ET Entity",
+					"ET Abstract",
+					"ET Class",
+				);
+				chosenTableColumnns_sortDirections = (
+					YES,
+				);
+				chosenTableColumnns_sortKeys = (
+					name,
+				);
+				chosenTableColumnns_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableWidths = (
+					103.000000,
+					22.000000,
+					82.080078,
+				);
+			};
+			UIContextForLayoutManager = {
+				detailSplitGeometry = {
+					_collapsingFrameDimension = 0;
+					_indexOfCollapsedView = 0;
+					_percentageOfCollapsedView = 0;
+					isCollapsed = yes;
+					sizes = (
+						"{{0, 0}, {718, 220}}",
+						"{{723, 0}, {379, 220}}",
+					);
+				};
+				diagramSplitGeometry = {
+					_collapsingFrameDimension = 0;
+					_indexOfCollapsedView = 0;
+					_percentageOfCollapsedView = 0;
+					isCollapsed = yes;
+					sizes = (
+						"{{0, 0}, {1102, 220}}",
+						"{{0, 225}, {1102, 220}}",
+					);
+				};
+				tableSplitGeometry = {
+					_collapsingFrameDimension = 0;
+					_indexOfCollapsedView = 0;
+					_percentageOfCollapsedView = 0;
+					isCollapsed = yes;
+					sizes = (
+						"{{0, 0}, {232, 218}}",
+						"{{237, 0}, {479, 218}}",
+					);
+				};
+			};
+			UIContextForPropertyArea = {
+				_indexOfSelectedView = 0;
+				chosenTableColumnnFRTs = (
+					"FT Fetch Request",
+					"FT Predicate",
+				);
+				chosenTableColumnnFRTs_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnFRTs_sortKeys = (
+					name,
+				);
+				chosenTableColumnnFRTs_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableColumnnsAT = (
+					"AT Attribute",
+					"AT Type",
+				);
+				chosenTableColumnnsAT_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnsAT_sortKeys = (
+					name,
+				);
+				chosenTableColumnnsAT_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableColumnnsFPT = (
+					"FP FetchedProperty",
+					"FP Destination",
+					"FP Predicate",
+				);
+				chosenTableColumnnsFPT_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnsFPT_sortKeys = (
+					name,
+				);
+				chosenTableColumnnsFPT_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableColumnnsPT = (
+					"PT Property",
+					"PT Kind",
+					"PT SharedKeyOne",
+				);
+				chosenTableColumnnsPT_sortDirections = (
+					NO,
+					NO,
+					YES,
+				);
+				chosenTableColumnnsPT_sortKeys = (
+					sharedKeyOne.name,
+					name,
+					propertyKind,
+				);
+				chosenTableColumnnsPT_sortSelectors = (
+					"compare:",
+					"_xdcaseInsensitiveNumericCompare:",
+					"compare:",
+				);
+				chosenTableColumnnsRT = (
+					"RT Relationship",
+					"RT Destination",
+				);
+				chosenTableColumnnsRT_sortDirections = (
+					YES,
+				);
+				chosenTableColumnnsRT_sortKeys = (
+					name,
+				);
+				chosenTableColumnnsRT_sortSelectors = (
+					"_xdcaseInsensitiveNumericCompare:",
+				);
+				chosenTableWidthsAT = (
+					128.000000,
+					64.000000,
+				);
+				chosenTableWidthsFPT = (
+					128.000000,
+					64.000000,
+					144.764160,
+				);
+				chosenTableWidthsFRT = (
+					128.000000,
+					249.764160,
+				);
+				chosenTableWidthsPT = (
+					128.000000,
+					108.110840,
+					216.570801,
+				);
+				chosenTableWidthsRT = (
+					128.000000,
+					64.000000,
+				);
+			};
+			"xdesign model browser state key - shown/hidden" = 1;
+			"xdesign model diagram view visible rect key" = "{{-195, 0}, {1087, 205}}";
+			"xdesign model selected entities key" = (
+				"<XDPMEntity: 0x3069460>{name=Event, package=}",
+			);
+			"xdesign model selected properties key" = (
+				"<XDPMAttribute: 0x202bed0>{name=startDate, type=(null)}",
+			);
+		};
+	};
+	15E3CB0811CB92E9002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 381";
+		rLen = 0;
+		rLoc = 12922;
+		rType = 0;
+		vrLen = 1551;
+		vrLoc = 11551;
+	};
+	15E3CB0911CB92E9002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 23";
+		rLen = 7;
+		rLoc = 781;
+		rType = 0;
+		vrLen = 865;
+		vrLoc = 0;
+	};
+	15E3CB0A11CB92E9002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 20";
+		rLen = 0;
+		rLoc = 315;
+		rType = 0;
+		vrLen = 1344;
+		vrLoc = 1643;
+	};
+	15E3CB0B11CB92E9002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 381";
+		rLen = 0;
+		rLoc = 12922;
+		rType = 0;
+		vrLen = 1551;
+		vrLoc = 11551;
+	};
+	15E3CB0C11CB92E9002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 23";
+		rLen = 7;
+		rLoc = 781;
+		rType = 0;
+		vrLen = 865;
+		vrLoc = 0;
+	};
+	15E3CB0D11CB92E9002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 74";
+		rLen = 0;
+		rLoc = 2483;
+		rType = 0;
+		vrLen = 1413;
+		vrLoc = 1605;
+	};
+	15E3CB1011CB933F002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 379";
+		rLen = 14;
+		rLoc = 12755;
+		rType = 0;
+		vrLen = 1582;
+		vrLoc = 11550;
+	};
+	15E3CB1111CB933F002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 23";
+		rLen = 7;
+		rLoc = 781;
+		rType = 0;
+		vrLen = 865;
+		vrLoc = 0;
+	};
+	15E3CB1211CB933F002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 74";
+		rLen = 0;
+		rLoc = 2483;
+		rType = 0;
+		vrLen = 1415;
+		vrLoc = 1605;
+	};
+	15E3CB1311CB933F002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 74";
+		rLen = 0;
+		rLoc = 2483;
+		rType = 0;
+		vrLen = 1415;
+		vrLoc = 1605;
+	};
+	15E3CB1411CB933F002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 379";
+		rLen = 14;
+		rLoc = 12755;
+		rType = 0;
+		vrLen = 1582;
+		vrLoc = 11550;
+	};
+	15E3CB1511CB933F002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 23";
+		rLen = 7;
+		rLoc = 781;
+		rType = 0;
+		vrLen = 865;
+		vrLoc = 0;
+	};
+	15E3CB1611CB933F002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 28";
+		rLen = 0;
+		rLoc = 580;
+		rType = 0;
+		vrLen = 1580;
+		vrLoc = 211;
+	};
+	15E3CB1911CB9388002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 28";
+		rLen = 0;
+		rLoc = 580;
+		rType = 0;
+		vrLen = 1292;
+		vrLoc = 1730;
+	};
+	15E3CB1A11CB9388002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 379";
+		rLen = 14;
+		rLoc = 12755;
+		rType = 0;
+		vrLen = 1579;
+		vrLoc = 11553;
+	};
+	15E3CB1B11CB9388002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 28";
+		rLen = 0;
+		rLoc = 580;
+		rType = 0;
+		vrLen = 1292;
+		vrLoc = 1730;
+	};
+	15E3CB1C11CB9388002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 382";
+		rLen = 0;
+		rLoc = 12927;
+		rType = 0;
+		vrLen = 1342;
+		vrLoc = 12056;
+	};
+	15E3CB1E11CB93F4002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 382";
+		rLen = 0;
+		rLoc = 12927;
+		rType = 0;
+		vrLen = 1390;
+		vrLoc = 12100;
+	};
+	15E3CB1F11CB93F4002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
+		name = "Calendar.h: 10";
+		rLen = 25;
+		rLoc = 178;
+		rType = 0;
+		vrLen = 1035;
+		vrLoc = 0;
+	};
+	15E3CB2011CB93F4002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
+		name = "Calendar.m: 67";
+		rLen = 9;
+		rLoc = 2396;
+		rType = 0;
+		vrLen = 1639;
+		vrLoc = 855;
+	};
+	15E3CB2111CB93F4002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 28";
+		rLen = 0;
+		rLoc = 580;
+		rType = 0;
+		vrLen = 1334;
+		vrLoc = 1688;
+	};
+	15E3CB2211CB93F4002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 382";
+		rLen = 0;
+		rLoc = 12927;
+		rType = 0;
+		vrLen = 1390;
+		vrLoc = 12100;
+	};
+	15E3CB2311CB93F4002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
+		name = "Calendar.h: 10";
+		rLen = 25;
+		rLoc = 178;
+		rType = 0;
+		vrLen = 1035;
+		vrLoc = 0;
+	};
+	15E3CB2411CB93F4002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
+		name = "Calendar.m: 67";
+		rLen = 9;
+		rLoc = 2396;
+		rType = 0;
+		vrLen = 1639;
+		vrLoc = 855;
+	};
+	15E3CB2511CB93F4002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 81";
+		rLen = 0;
+		rLoc = 2699;
+		rType = 0;
+		vrLen = 1331;
+		vrLoc = 1688;
+	};
+	15E3CB2711CB9455002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 80";
+		rLen = 0;
+		rLoc = 2688;
+		rType = 0;
+		vrLen = 1331;
+		vrLoc = 1688;
+	};
+	15E3CB2811CB9455002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 382";
+		rLen = 0;
+		rLoc = 12927;
+		rType = 0;
+		vrLen = 1390;
+		vrLoc = 12100;
+	};
+	15E3CB2911CB9455002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 80";
+		rLen = 0;
+		rLoc = 2688;
+		rType = 0;
+		vrLen = 1331;
+		vrLoc = 1688;
+	};
+	15E3CB2A11CB9455002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 348";
+		rLen = 0;
+		rLoc = 10609;
+		rType = 0;
+		vrLen = 2025;
+		vrLoc = 9844;
+	};
+	15E3CB4111CB9CB2002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 325";
+		rLen = 117;
+		rLoc = 10063;
+		rType = 0;
+		vrLen = 1911;
+		vrLoc = 9675;
+	};
+	15E3CB4211CB9CB2002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: expected ':' before '(' token";
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		rLen = 1;
+		rLoc = 16;
+		rType = 1;
+	};
+	15E3CB4311CB9CB2002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 325";
+		rLen = 117;
+		rLoc = 10063;
+		rType = 0;
+		vrLen = 1911;
+		vrLoc = 9675;
+	};
+	15E3CB4411CB9CB2002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 17";
+		rLen = 0;
+		rLoc = 428;
+		rType = 0;
+		vrLen = 898;
+		vrLoc = 0;
+	};
+	15E3CB4611CB9CC9002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 384";
+		rLen = 0;
+		rLoc = 12998;
+		rType = 0;
+		vrLen = 1480;
+		vrLoc = 11571;
+	};
+	15E3CB4711CB9CC9002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 61";
+		rLen = 0;
+		rLoc = 1869;
+		rType = 0;
+		vrLen = 1249;
+		vrLoc = 1688;
+	};
+	15E3CB4811CB9CC9002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 17";
+		rLen = 0;
+		rLoc = 495;
+		rType = 0;
+		vrLen = 898;
+		vrLoc = 0;
+	};
+	15E3CB4911CB9CC9002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 348";
+		rLen = 0;
+		rLoc = 10609;
+		rType = 0;
+		vrLen = 2025;
+		vrLoc = 9844;
+	};
+	15E3CB4A11CB9CC9002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 23";
+		rLen = 7;
+		rLoc = 781;
+		rType = 0;
+		vrLen = 865;
+		vrLoc = 0;
+	};
+	15E3CB4B11CB9CC9002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 31";
+		rLen = 7;
+		rLoc = 772;
+		rType = 0;
+		vrLen = 1644;
+		vrLoc = 261;
+	};
+	15E3CB4C11CB9CC9002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 23";
+		rLen = 7;
+		rLoc = 781;
+		rType = 0;
+		vrLen = 865;
+		vrLoc = 0;
+	};
+	15E3CB4D11CB9CC9002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 61";
+		rLen = 141;
+		rLoc = 1794;
+		rType = 0;
+		vrLen = 1211;
+		vrLoc = 1730;
+	};
+	15E3CB4E11CB9CC9002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 17";
+		rLen = 0;
+		rLoc = 495;
+		rType = 0;
+		vrLen = 897;
+		vrLoc = 0;
+	};
+	15E3CB4F11CB9CC9002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 384";
+		rLen = 0;
+		rLoc = 12998;
+		rType = 0;
+		vrLen = 1480;
+		vrLoc = 11571;
+	};
+	15E3CB5011CB9CC9002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 17";
+		rLen = 0;
+		rLoc = 495;
+		rType = 0;
+		vrLen = 897;
+		vrLoc = 0;
+	};
+	15E3CB5111CB9CC9002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 61";
+		rLen = 0;
+		rLoc = 1869;
+		rType = 0;
+		vrLen = 1249;
+		vrLoc = 1688;
+	};
+	15E3CB5211CB9CC9002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 17";
+		rLen = 0;
+		rLoc = 495;
+		rType = 0;
+		vrLen = 898;
+		vrLoc = 0;
+	};
+	15E3CB5811CBAA86002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 17";
+		rLen = 0;
+		rLoc = 495;
+		rType = 0;
+		vrLen = 898;
+		vrLoc = 0;
+	};
+	15E3CB5911CBAA86002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
+		name = "Calendar.h: 10";
+		rLen = 25;
+		rLoc = 178;
+		rType = 0;
+		vrLen = 1035;
+		vrLoc = 0;
+	};
+	15E3CB5A11CBAA86002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
+		name = "Calendar.m: 67";
+		rLen = 9;
+		rLoc = 2396;
+		rType = 0;
+		vrLen = 1677;
+		vrLoc = 817;
+	};
+	15E3CB5B11CBAA86002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 328";
+		rLen = 0;
+		rLoc = 10331;
+		rType = 0;
+		vrLen = 2139;
+		vrLoc = 9509;
+	};
+	15E3CB5C11CBAA86002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 17";
+		rLen = 0;
+		rLoc = 495;
+		rType = 0;
+		vrLen = 898;
+		vrLoc = 0;
+	};
+	15E3CB5D11CBAA86002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
+		name = "Calendar.h: 10";
+		rLen = 25;
+		rLoc = 178;
+		rType = 0;
+		vrLen = 1035;
+		vrLoc = 0;
+	};
+	15E3CB5E11CBAA86002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 328";
+		rLen = 0;
+		rLoc = 10331;
+		rType = 0;
+		vrLen = 2139;
+		vrLoc = 9509;
+	};
+	15E3CB5F11CBAA86002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
+		name = "Calendar.h: 10";
+		rLen = 25;
+		rLoc = 178;
+		rType = 0;
+		vrLen = 1035;
+		vrLoc = 0;
+	};
+	15E3CB6011CBAA86002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
+		name = "Calendar.m: 67";
+		rLen = 9;
+		rLoc = 2396;
+		rType = 0;
+		vrLen = 1677;
+		vrLoc = 817;
+	};
+	15E3CB6111CBAA86002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 323";
+		rLen = 0;
+		rLoc = 9993;
+		rType = 0;
+		vrLen = 2289;
+		vrLoc = 9517;
+	};
+	15E3CB6311CBAC19002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 61";
+		rLen = 0;
+		rLoc = 1869;
+		rType = 0;
+		vrLen = 1297;
+		vrLoc = 1640;
+	};
+	15E3CB6411CBAC19002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
+		name = "Calendar.m: 73";
+		rLen = 106;
+		rLoc = 2488;
+		rType = 0;
+		vrLen = 1394;
+		vrLoc = 1689;
+	};
+	15E3CB6511CBAC19002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
+		name = "Calendar.h: 21";
+		rLen = 0;
+		rLoc = 584;
+		rType = 0;
+		vrLen = 1147;
+		vrLoc = 0;
+	};
+	15E3CB6611CBAC19002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 334";
+		rLen = 0;
+		rLoc = 10331;
+		rType = 0;
+		vrLen = 2300;
+		vrLoc = 9517;
+	};
+	15E3CB6711CBAC19002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 334";
+		rLen = 0;
+		rLoc = 10331;
+		rType = 0;
+		vrLen = 2203;
+		vrLoc = 9675;
+	};
+	15E3CB6811CBAC19002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 61";
+		rLen = 0;
+		rLoc = 1869;
+		rType = 0;
+		vrLen = 1297;
+		vrLoc = 1640;
+	};
+	15E3CB6911CBAC19002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
+		name = "Calendar.h: 10";
+		rLen = 25;
+		rLoc = 178;
+		rType = 0;
+		vrLen = 1035;
+		vrLoc = 0;
+	};
+	15E3CB6A11CBAC19002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4B11CA3CD700EB9314 /* Calendar.m */;
+		name = "Calendar.m: 73";
+		rLen = 106;
+		rLoc = 2488;
+		rType = 0;
+		vrLen = 1394;
+		vrLoc = 1689;
+	};
+	15E3CB6B11CBAC19002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
+		name = "Calendar.h: 23";
+		rLen = 0;
+		rLoc = 586;
+		rType = 0;
+		vrLen = 1146;
+		vrLoc = 0;
+	};
+	15E3CB6C11CBAC19002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 334";
+		rLen = 0;
+		rLoc = 10331;
+		rType = 0;
+		vrLen = 2301;
+		vrLoc = 9516;
+	};
+	15E3CB6D11CBAC19002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4A11CA3CD700EB9314 /* Calendar.h */;
+		name = "Calendar.h: 21";
+		rLen = 0;
+		rLoc = 584;
+		rType = 0;
+		vrLen = 1147;
+		vrLoc = 0;
+	};
+	15E3CB6E11CBAC19002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 334";
+		rLen = 0;
+		rLoc = 10331;
+		rType = 0;
+		vrLen = 2084;
+		vrLoc = 9515;
+	};
+	15E3CB7111CBAD22002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 329";
+		rLen = 0;
+		rLoc = 10304;
+		rType = 0;
+		vrLen = 2124;
+		vrLoc = 9515;
+	};
+	15E3CB7311CBAD9C002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 329";
+		rLen = 0;
+		rLoc = 10304;
+		rType = 0;
+		vrLen = 2257;
+		vrLoc = 9515;
+	};
+	15E3CB7811CBB8B8002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 17";
+		rLen = 0;
+		rLoc = 428;
+		rType = 0;
+		vrLen = 898;
+		vrLoc = 0;
+	};
+	15E3CB8111CBB9B6002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 326";
+		rLen = 0;
+		rLoc = 10179;
+		rType = 0;
+		vrLen = 2162;
+		vrLoc = 9515;
+	};
+	15E3CB8711CBB9C8002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 17";
+		rLen = 0;
+		rLoc = 428;
+		rType = 0;
+		vrLen = 898;
+		vrLoc = 0;
+	};
+	15E3CB8911CBBA84002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 401";
+		rLen = 0;
+		rLoc = 13170;
+		rType = 0;
+		vrLen = 1380;
+		vrLoc = 12021;
+	};
+	15E3CB8E11CBBB3C002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 397";
+		rLen = 0;
+		rLoc = 12828;
+		rType = 0;
+		vrLen = 1535;
+		vrLoc = 12055;
+	};
+	15E3CB9011CBBB55002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 397";
+		rLen = 0;
+		rLoc = 12828;
+		rType = 0;
+		vrLen = 1585;
+		vrLoc = 12055;
+	};
+	15E3CB9211CBBB72002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 397";
+		rLen = 0;
+		rLoc = 12828;
+		rType = 0;
+		vrLen = 1620;
+		vrLoc = 12055;
+	};
+	15E3CB9711CBBCCD002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 341";
+		rLen = 0;
+		rLoc = 10603;
+		rType = 0;
+		vrLen = 2005;
+		vrLoc = 9844;
+	};
+	15E3CB9811CBBCCD002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 341";
+		rLen = 0;
+		rLoc = 10603;
+		rType = 0;
+		vrLen = 1548;
+		vrLoc = 11896;
+	};
+	15E3CB9B11CBBEF0002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 348";
+		rLen = 0;
+		rLoc = 10934;
+		rType = 0;
+		vrLen = 1942;
+		vrLoc = 10470;
+	};
+	15E3CB9D11CBBF15002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 347";
+		rLen = 0;
+		rLoc = 10919;
+		rType = 0;
+		vrLen = 1945;
+		vrLoc = 10470;
+	};
+	15E3CB9E11CBBF3E002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 401";
+		rLen = 0;
+		rLoc = 13175;
+		rType = 0;
+		vrLen = 1730;
+		vrLoc = 11880;
+	};
+	15E3CBA111CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B374EC11C7E0C700EB9314 /* GDataServiceGoogleCalendar.m */;
+		name = "GDataServiceGoogleCalendar.m: 63";
+		rLen = 16;
+		rLoc = 2037;
+		rType = 0;
+		vrLen = 1357;
+		vrLoc = 597;
+	};
+	15E3CBA211CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B374EB11C7E0C700EB9314 /* GDataServiceGoogleCalendar.h */;
+		name = "GDataServiceGoogleCalendar.h: 61";
+		rLen = 18;
+		rLoc = 2165;
+		rType = 0;
+		vrLen = 2476;
+		vrLoc = 1705;
+	};
+	15E3CBA311CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B373D611C7E0C600EB9314 /* GDataServiceBase.m */;
+		name = "GDataServiceBase.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1695;
+		vrLoc = 0;
+	};
+	15E3CBA411CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B373D511C7E0C600EB9314 /* GDataServiceBase.h */;
+		name = "GDataServiceBase.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1393;
+		vrLoc = 5289;
+	};
+	15E3CBA511CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B373D811C7E0C600EB9314 /* GDataServiceGoogle.m */;
+		name = "GDataServiceGoogle.m: 475";
+		rLen = 10;
+		rLoc = 17772;
+		rType = 0;
+		vrLen = 2119;
+		vrLoc = 15080;
+	};
+	15E3CBA611CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B373D711C7E0C600EB9314 /* GDataServiceGoogle.h */;
+		name = "GDataServiceGoogle.h: 85";
+		rLen = 0;
+		rLoc = 2385;
+		rType = 0;
+		vrLen = 2092;
+		vrLoc = 2931;
+	};
+	15E3CBA711CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 61";
+		rLen = 0;
+		rLoc = 1869;
+		rType = 0;
+		vrLen = 1602;
+		vrLoc = 187;
+	};
+	15E3CBA811CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603110B2A9CD006EC0AB /* MonthCalendar.h */;
+		name = "MonthCalendar.h: 35";
+		rLen = 0;
+		rLoc = 809;
+		rType = 0;
+		vrLen = 933;
+		vrLoc = 165;
+	};
+	15E3CBA911CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 71";
+		rLen = 76;
+		rLoc = 2062;
+		rType = 0;
+		vrLen = 1066;
+		vrLoc = 8793;
+	};
+	15E3CBAA11CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 71";
+		rLen = 76;
+		rLoc = 2062;
+		rType = 0;
+		vrLen = 1066;
+		vrLoc = 8793;
+	};
+	15E3CBAB11CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603110B2A9CD006EC0AB /* MonthCalendar.h */;
+		name = "MonthCalendar.h: 35";
+		rLen = 0;
+		rLoc = 809;
+		rType = 0;
+		vrLen = 933;
+		vrLoc = 165;
+	};
+	15E3CBAC11CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B374EB11C7E0C700EB9314 /* GDataServiceGoogleCalendar.h */;
+		name = "GDataServiceGoogleCalendar.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2414;
+		vrLoc = 1886;
+	};
+	15E3CBAD11CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B374EC11C7E0C700EB9314 /* GDataServiceGoogleCalendar.m */;
+		name = "GDataServiceGoogleCalendar.m: 63";
+		rLen = 16;
+		rLoc = 2037;
+		rType = 0;
+		vrLen = 1357;
+		vrLoc = 597;
+	};
+	15E3CBAE11CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B374EB11C7E0C700EB9314 /* GDataServiceGoogleCalendar.h */;
+		name = "GDataServiceGoogleCalendar.h: 61";
+		rLen = 18;
+		rLoc = 2165;
+		rType = 0;
+		vrLen = 2476;
+		vrLoc = 1705;
+	};
+	15E3CBAF11CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B373D711C7E0C600EB9314 /* GDataServiceGoogle.h */;
+		name = "GDataServiceGoogle.h: 122";
+		rLen = 16;
+		rLoc = 3124;
+		rType = 0;
+		vrLen = 1603;
+		vrLoc = 2666;
+	};
+	15E3CBB011CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B373D811C7E0C600EB9314 /* GDataServiceGoogle.m */;
+		name = "GDataServiceGoogle.m: 822";
+		rLen = 31;
+		rLoc = 30773;
+		rType = 0;
+		vrLen = 2026;
+		vrLoc = 29835;
+	};
+	15E3CBB111CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B373D711C7E0C600EB9314 /* GDataServiceGoogle.h */;
+		name = "GDataServiceGoogle.h: 85";
+		rLen = 0;
+		rLoc = 2385;
+		rType = 0;
+		vrLen = 980;
+		vrLoc = 1772;
+	};
+	15E3CBB211CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B373D511C7E0C600EB9314 /* GDataServiceBase.h */;
+		name = "GDataServiceBase.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1336;
+		vrLoc = 0;
+	};
+	15E3CBB311CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B373D611C7E0C600EB9314 /* GDataServiceBase.m */;
+		name = "GDataServiceBase.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1695;
+		vrLoc = 0;
+	};
+	15E3CBB411CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B373D711C7E0C600EB9314 /* GDataServiceGoogle.h */;
+		name = "GDataServiceGoogle.h: 85";
+		rLen = 0;
+		rLoc = 2385;
+		rType = 0;
+		vrLen = 2092;
+		vrLoc = 2931;
+	};
+	15E3CBB511CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B373D811C7E0C600EB9314 /* GDataServiceGoogle.m */;
+		name = "GDataServiceGoogle.m: 822";
+		rLen = 31;
+		rLoc = 30773;
+		rType = 0;
+		vrLen = 2026;
+		vrLoc = 29835;
+	};
+	15E3CBB611CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B373D511C7E0C600EB9314 /* GDataServiceBase.h */;
+		name = "GDataServiceBase.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1393;
+		vrLoc = 5289;
+	};
+	15E3CBB711CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B373D711C7E0C600EB9314 /* GDataServiceGoogle.h */;
+		name = "GDataServiceGoogle.h: 85";
+		rLen = 0;
+		rLoc = 2385;
+		rType = 0;
+		vrLen = 2092;
+		vrLoc = 2931;
+	};
+	15E3CBB811CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B373D811C7E0C600EB9314 /* GDataServiceGoogle.m */;
+		name = "GDataServiceGoogle.m: 475";
+		rLen = 10;
+		rLoc = 17772;
+		rType = 0;
+		vrLen = 2119;
+		vrLoc = 15080;
+	};
+	15E3CBB911CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B373D711C7E0C600EB9314 /* GDataServiceGoogle.h */;
+		name = "GDataServiceGoogle.h: 85";
+		rLen = 0;
+		rLoc = 2385;
+		rType = 0;
+		vrLen = 2092;
+		vrLoc = 2931;
+	};
+	15E3CBBA11CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4911CA3CD700EB9314 /* Event.m */;
+		name = "Event.m: 61";
+		rLen = 0;
+		rLoc = 1869;
+		rType = 0;
+		vrLen = 1602;
+		vrLoc = 187;
+	};
+	15E3CBBB11CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603110B2A9CD006EC0AB /* MonthCalendar.h */;
+		name = "MonthCalendar.h: 35";
+		rLen = 0;
+		rLoc = 809;
+		rType = 0;
+		vrLen = 933;
+		vrLoc = 165;
+	};
+	15E3CBBC11CBC444002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 288";
+		rLen = 0;
+		rLoc = 9254;
+		rType = 0;
+		vrLen = 1080;
+		vrLoc = 8728;
+	};
+	15E3CBBE11CBC568002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37C6911C94F8F00EB9314 /* MBProgressHUD.h */;
+		name = "MBProgressHUD.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1582;
+		vrLoc = 2203;
+	};
+	15E3CBBF11CBC568002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37C6A11C94F8F00EB9314 /* MBProgressHUD.m */;
+		name = "MBProgressHUD.m: 388";
+		rLen = 0;
+		rLoc = 12020;
+		rType = 0;
+		vrLen = 1447;
+		vrLoc = 11540;
+	};
+	15E3CBC011CBC568002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 288";
+		rLen = 0;
+		rLoc = 9254;
+		rType = 0;
+		vrLen = 1348;
+		vrLoc = 8852;
+	};
+	15E3CBC111CBC568002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 288";
+		rLen = 0;
+		rLoc = 9254;
+		rType = 0;
+		vrLen = 1289;
+		vrLoc = 8907;
+	};
+	15E3CBC211CBC568002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37C6911C94F8F00EB9314 /* MBProgressHUD.h */;
+		name = "MBProgressHUD.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1582;
+		vrLoc = 2203;
+	};
+	15E3CBC311CBC568002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37C6A11C94F8F00EB9314 /* MBProgressHUD.m */;
+		name = "MBProgressHUD.m: 388";
+		rLen = 0;
+		rLoc = 12020;
+		rType = 0;
+		vrLen = 1447;
+		vrLoc = 11540;
+	};
+	15E3CBC411CBC568002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 302";
+		rLen = 0;
+		rLoc = 9621;
+		rType = 0;
+		vrLen = 1263;
+		vrLoc = 8852;
+	};
+	15E3CBC511CBC593002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 302";
+		rLen = 0;
+		rLoc = 9621;
+		rType = 0;
+		vrLen = 1365;
+		vrLoc = 8852;
+	};
+	15E3CBC611CBC5E3002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 17";
+		rLen = 0;
+		rLoc = 428;
+		rType = 0;
+		vrLen = 898;
+		vrLoc = 0;
+	};
+	15E3CBC711CBC5E3002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "warning: 'NSThread' may not respond to '+detachNewThreadSelector:toTarget:withObject:waitUntilDone:'";
+		fRef = 15B37C6A11C94F8F00EB9314 /* MBProgressHUD.m */;
+		rLen = 1;
+		rLoc = 388;
+		rType = 1;
+	};
+	15E3CBC811CBC5E3002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37D4811CA3CD700EB9314 /* Event.h */;
+		name = "Event.h: 17";
+		rLen = 0;
+		rLoc = 428;
+		rType = 0;
+		vrLen = 898;
+		vrLoc = 0;
+	};
+	15E3CBC911CBC5E3002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15B37C6A11C94F8F00EB9314 /* MBProgressHUD.m */;
+		name = "MBProgressHUD.m: 389";
+		rLen = 8;
+		rLoc = 11932;
+		rType = 0;
+		vrLen = 992;
+		vrLoc = 11540;
+	};
+	15E3CBCA11CBC65D002A9883 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */;
+		name = "MonthCalendar.m: 299";
+		rLen = 89;
+		rLoc = 9366;
+		rType = 0;
+		vrLen = 1453;
+		vrLoc = 8852;
+	};
 	15F021C611C6A9CD001F1730 /* PlistBookmark */ = {
 		isa = PlistBookmark;
 		fRef = 8D1107310486CEB800E47090 /* GoogleCal-Info.plist */;
@@ -4685,7 +7717,7 @@
 						isCollapsed = yes;
 						sizes = (
 							"{{0, 0}, {1102, 220}}",
-							"{{0, 225}, {1102, 243}}",
+							"{{0, 225}, {1102, 220}}",
 						);
 					};
 					tableSplitGeometry = {
@@ -4798,7 +7830,7 @@
 					);
 				};
 				"xdesign model browser state key - shown/hidden" = 1;
-				"xdesign model diagram view visible rect key" = "{{-195, 0}, {1087, 228}}";
+				"xdesign model diagram view visible rect key" = "{{-195, 0}, {1087, 205}}";
 			};
 			sepNavWindowFrame = "{{194, 297}, {1102, 581}}";
 		};
@@ -5279,6 +8311,192 @@
 			15E3CAB111CB8A7F002A9883 /* XDModelBookmark */ = 15E3CAB111CB8A7F002A9883 /* XDModelBookmark */;
 			15E3CAB211CB8ABD002A9883 /* PBXTextBookmark */ = 15E3CAB211CB8ABD002A9883 /* PBXTextBookmark */;
 			15E3CAB311CB8ABD002A9883 /* XDModelBookmark */ = 15E3CAB311CB8ABD002A9883 /* XDModelBookmark */;
+			15E3CAB511CB8B3E002A9883 /* PBXTextBookmark */ = 15E3CAB511CB8B3E002A9883 /* PBXTextBookmark */;
+			15E3CAB611CB8B3E002A9883 /* PBXTextBookmark */ = 15E3CAB611CB8B3E002A9883 /* PBXTextBookmark */;
+			15E3CAB711CB8B3E002A9883 /* PBXTextBookmark */ = 15E3CAB711CB8B3E002A9883 /* PBXTextBookmark */;
+			15E3CAB811CB8B3E002A9883 /* PBXTextBookmark */ = 15E3CAB811CB8B3E002A9883 /* PBXTextBookmark */;
+			15E3CAB911CB8B3E002A9883 /* PBXTextBookmark */ = 15E3CAB911CB8B3E002A9883 /* PBXTextBookmark */;
+			15E3CABA11CB8B3E002A9883 /* PBXTextBookmark */ = 15E3CABA11CB8B3E002A9883 /* PBXTextBookmark */;
+			15E3CABB11CB8B3E002A9883 /* PBXTextBookmark */ = 15E3CABB11CB8B3E002A9883 /* PBXTextBookmark */;
+			15E3CABC11CB8B3E002A9883 /* PBXTextBookmark */ = 15E3CABC11CB8B3E002A9883 /* PBXTextBookmark */;
+			15E3CABD11CB8B3E002A9883 /* PBXTextBookmark */ = 15E3CABD11CB8B3E002A9883 /* PBXTextBookmark */;
+			15E3CABE11CB8B3E002A9883 /* PBXTextBookmark */ = 15E3CABE11CB8B3E002A9883 /* PBXTextBookmark */;
+			15E3CABF11CB8B3E002A9883 /* PBXTextBookmark */ = 15E3CABF11CB8B3E002A9883 /* PBXTextBookmark */;
+			15E3CAC011CB8B3E002A9883 /* PBXTextBookmark */ = 15E3CAC011CB8B3E002A9883 /* PBXTextBookmark */;
+			15E3CAC111CB8B3E002A9883 /* PBXTextBookmark */ = 15E3CAC111CB8B3E002A9883 /* PBXTextBookmark */;
+			15E3CAC211CB8B3E002A9883 /* PBXTextBookmark */ = 15E3CAC211CB8B3E002A9883 /* PBXTextBookmark */;
+			15E3CAC311CB8B3E002A9883 /* PBXTextBookmark */ = 15E3CAC311CB8B3E002A9883 /* PBXTextBookmark */;
+			15E3CAC411CB8B3E002A9883 /* PBXTextBookmark */ = 15E3CAC411CB8B3E002A9883 /* PBXTextBookmark */;
+			15E3CAC511CB8B3E002A9883 /* PBXTextBookmark */ = 15E3CAC511CB8B3E002A9883 /* PBXTextBookmark */;
+			15E3CAC611CB8B3E002A9883 /* XDModelBookmark */ = 15E3CAC611CB8B3E002A9883 /* XDModelBookmark */;
+			15E3CACB11CB8CEB002A9883 /* PBXTextBookmark */ = 15E3CACB11CB8CEB002A9883 /* PBXTextBookmark */;
+			15E3CACC11CB8CEB002A9883 /* PBXTextBookmark */ = 15E3CACC11CB8CEB002A9883 /* PBXTextBookmark */;
+			15E3CACD11CB8CEB002A9883 /* PBXTextBookmark */ = 15E3CACD11CB8CEB002A9883 /* PBXTextBookmark */;
+			15E3CACE11CB8CEB002A9883 /* PBXTextBookmark */ = 15E3CACE11CB8CEB002A9883 /* PBXTextBookmark */;
+			15E3CACF11CB8CEB002A9883 /* PBXTextBookmark */ = 15E3CACF11CB8CEB002A9883 /* PBXTextBookmark */;
+			15E3CAD011CB8CEB002A9883 /* PBXTextBookmark */ = 15E3CAD011CB8CEB002A9883 /* PBXTextBookmark */;
+			15E3CAD111CB8CEB002A9883 /* PBXTextBookmark */ = 15E3CAD111CB8CEB002A9883 /* PBXTextBookmark */;
+			15E3CAD211CB8CEB002A9883 /* PBXTextBookmark */ = 15E3CAD211CB8CEB002A9883 /* PBXTextBookmark */;
+			15E3CAD311CB8CEB002A9883 /* PBXTextBookmark */ = 15E3CAD311CB8CEB002A9883 /* PBXTextBookmark */;
+			15E3CAD411CB8CEB002A9883 /* XDModelBookmark */ = 15E3CAD411CB8CEB002A9883 /* XDModelBookmark */;
+			15E3CAD711CB8D30002A9883 /* PBXTextBookmark */ = 15E3CAD711CB8D30002A9883 /* PBXTextBookmark */;
+			15E3CAD811CB8D30002A9883 /* PBXTextBookmark */ = 15E3CAD811CB8D30002A9883 /* PBXTextBookmark */;
+			15E3CAD911CB8D30002A9883 /* PBXTextBookmark */ = 15E3CAD911CB8D30002A9883 /* PBXTextBookmark */;
+			15E3CADA11CB8D30002A9883 /* PBXTextBookmark */ = 15E3CADA11CB8D30002A9883 /* PBXTextBookmark */;
+			15E3CADB11CB8D30002A9883 /* PBXTextBookmark */ = 15E3CADB11CB8D30002A9883 /* PBXTextBookmark */;
+			15E3CADC11CB8D30002A9883 /* PBXTextBookmark */ = 15E3CADC11CB8D30002A9883 /* PBXTextBookmark */;
+			15E3CADD11CB8D30002A9883 /* PBXTextBookmark */ = 15E3CADD11CB8D30002A9883 /* PBXTextBookmark */;
+			15E3CADE11CB8D30002A9883 /* PBXTextBookmark */ = 15E3CADE11CB8D30002A9883 /* PBXTextBookmark */;
+			15E3CADF11CB8D30002A9883 /* XDModelBookmark */ = 15E3CADF11CB8D30002A9883 /* XDModelBookmark */;
+			15E3CAE111CB8D89002A9883 /* PBXTextBookmark */ = 15E3CAE111CB8D89002A9883 /* PBXTextBookmark */;
+			15E3CAE211CB8D89002A9883 /* PBXTextBookmark */ = 15E3CAE211CB8D89002A9883 /* PBXTextBookmark */;
+			15E3CAE311CB8D89002A9883 /* PBXTextBookmark */ = 15E3CAE311CB8D89002A9883 /* PBXTextBookmark */;
+			15E3CAE411CB8D89002A9883 /* PBXTextBookmark */ = 15E3CAE411CB8D89002A9883 /* PBXTextBookmark */;
+			15E3CAE511CB8D89002A9883 /* PBXTextBookmark */ = 15E3CAE511CB8D89002A9883 /* PBXTextBookmark */;
+			15E3CAE611CB8D89002A9883 /* PBXTextBookmark */ = 15E3CAE611CB8D89002A9883 /* PBXTextBookmark */;
+			15E3CAE711CB8D89002A9883 /* XDModelBookmark */ = 15E3CAE711CB8D89002A9883 /* XDModelBookmark */;
+			15E3CAED11CB9141002A9883 /* PBXTextBookmark */ = 15E3CAED11CB9141002A9883 /* PBXTextBookmark */;
+			15E3CAEE11CB9141002A9883 /* PBXTextBookmark */ = 15E3CAEE11CB9141002A9883 /* PBXTextBookmark */;
+			15E3CAEF11CB9141002A9883 /* PBXTextBookmark */ = 15E3CAEF11CB9141002A9883 /* PBXTextBookmark */;
+			15E3CAF011CB9141002A9883 /* PBXTextBookmark */ = 15E3CAF011CB9141002A9883 /* PBXTextBookmark */;
+			15E3CAF111CB9141002A9883 /* PBXTextBookmark */ = 15E3CAF111CB9141002A9883 /* PBXTextBookmark */;
+			15E3CAF211CB9141002A9883 /* PBXTextBookmark */ = 15E3CAF211CB9141002A9883 /* PBXTextBookmark */;
+			15E3CAF311CB9141002A9883 /* PBXTextBookmark */ = 15E3CAF311CB9141002A9883 /* PBXTextBookmark */;
+			15E3CAF411CB9141002A9883 /* PBXTextBookmark */ = 15E3CAF411CB9141002A9883 /* PBXTextBookmark */;
+			15E3CAF511CB9141002A9883 /* XDModelBookmark */ = 15E3CAF511CB9141002A9883 /* XDModelBookmark */;
+			15E3CAF811CB91FC002A9883 /* PBXTextBookmark */ = 15E3CAF811CB91FC002A9883 /* PBXTextBookmark */;
+			15E3CAF911CB91FC002A9883 /* PBXTextBookmark */ = 15E3CAF911CB91FC002A9883 /* PBXTextBookmark */;
+			15E3CAFA11CB91FC002A9883 /* PBXTextBookmark */ = 15E3CAFA11CB91FC002A9883 /* PBXTextBookmark */;
+			15E3CAFB11CB91FC002A9883 /* PBXTextBookmark */ = 15E3CAFB11CB91FC002A9883 /* PBXTextBookmark */;
+			15E3CAFC11CB91FC002A9883 /* PBXTextBookmark */ = 15E3CAFC11CB91FC002A9883 /* PBXTextBookmark */;
+			15E3CAFD11CB91FC002A9883 /* PBXTextBookmark */ = 15E3CAFD11CB91FC002A9883 /* PBXTextBookmark */;
+			15E3CAFE11CB91FC002A9883 /* PBXTextBookmark */ = 15E3CAFE11CB91FC002A9883 /* PBXTextBookmark */;
+			15E3CAFF11CB91FC002A9883 /* XDModelBookmark */ = 15E3CAFF11CB91FC002A9883 /* XDModelBookmark */;
+			15E3CB0311CB927F002A9883 /* PBXTextBookmark */ = 15E3CB0311CB927F002A9883 /* PBXTextBookmark */;
+			15E3CB0411CB927F002A9883 /* XDModelBookmark */ = 15E3CB0411CB927F002A9883 /* XDModelBookmark */;
+			15E3CB0811CB92E9002A9883 /* PBXTextBookmark */ = 15E3CB0811CB92E9002A9883 /* PBXTextBookmark */;
+			15E3CB0911CB92E9002A9883 /* PBXTextBookmark */ = 15E3CB0911CB92E9002A9883 /* PBXTextBookmark */;
+			15E3CB0A11CB92E9002A9883 /* PBXTextBookmark */ = 15E3CB0A11CB92E9002A9883 /* PBXTextBookmark */;
+			15E3CB0B11CB92E9002A9883 /* PBXTextBookmark */ = 15E3CB0B11CB92E9002A9883 /* PBXTextBookmark */;
+			15E3CB0C11CB92E9002A9883 /* PBXTextBookmark */ = 15E3CB0C11CB92E9002A9883 /* PBXTextBookmark */;
+			15E3CB0D11CB92E9002A9883 /* PBXTextBookmark */ = 15E3CB0D11CB92E9002A9883 /* PBXTextBookmark */;
+			15E3CB1011CB933F002A9883 /* PBXTextBookmark */ = 15E3CB1011CB933F002A9883 /* PBXTextBookmark */;
+			15E3CB1111CB933F002A9883 /* PBXTextBookmark */ = 15E3CB1111CB933F002A9883 /* PBXTextBookmark */;
+			15E3CB1211CB933F002A9883 /* PBXTextBookmark */ = 15E3CB1211CB933F002A9883 /* PBXTextBookmark */;
+			15E3CB1311CB933F002A9883 /* PBXTextBookmark */ = 15E3CB1311CB933F002A9883 /* PBXTextBookmark */;
+			15E3CB1411CB933F002A9883 /* PBXTextBookmark */ = 15E3CB1411CB933F002A9883 /* PBXTextBookmark */;
+			15E3CB1511CB933F002A9883 /* PBXTextBookmark */ = 15E3CB1511CB933F002A9883 /* PBXTextBookmark */;
+			15E3CB1611CB933F002A9883 /* PBXTextBookmark */ = 15E3CB1611CB933F002A9883 /* PBXTextBookmark */;
+			15E3CB1911CB9388002A9883 /* PBXTextBookmark */ = 15E3CB1911CB9388002A9883 /* PBXTextBookmark */;
+			15E3CB1A11CB9388002A9883 /* PBXTextBookmark */ = 15E3CB1A11CB9388002A9883 /* PBXTextBookmark */;
+			15E3CB1B11CB9388002A9883 /* PBXTextBookmark */ = 15E3CB1B11CB9388002A9883 /* PBXTextBookmark */;
+			15E3CB1C11CB9388002A9883 /* PBXTextBookmark */ = 15E3CB1C11CB9388002A9883 /* PBXTextBookmark */;
+			15E3CB1E11CB93F4002A9883 /* PBXTextBookmark */ = 15E3CB1E11CB93F4002A9883 /* PBXTextBookmark */;
+			15E3CB1F11CB93F4002A9883 /* PBXTextBookmark */ = 15E3CB1F11CB93F4002A9883 /* PBXTextBookmark */;
+			15E3CB2011CB93F4002A9883 /* PBXTextBookmark */ = 15E3CB2011CB93F4002A9883 /* PBXTextBookmark */;
+			15E3CB2111CB93F4002A9883 /* PBXTextBookmark */ = 15E3CB2111CB93F4002A9883 /* PBXTextBookmark */;
+			15E3CB2211CB93F4002A9883 /* PBXTextBookmark */ = 15E3CB2211CB93F4002A9883 /* PBXTextBookmark */;
+			15E3CB2311CB93F4002A9883 /* PBXTextBookmark */ = 15E3CB2311CB93F4002A9883 /* PBXTextBookmark */;
+			15E3CB2411CB93F4002A9883 /* PBXTextBookmark */ = 15E3CB2411CB93F4002A9883 /* PBXTextBookmark */;
+			15E3CB2511CB93F4002A9883 /* PBXTextBookmark */ = 15E3CB2511CB93F4002A9883 /* PBXTextBookmark */;
+			15E3CB2711CB9455002A9883 /* PBXTextBookmark */ = 15E3CB2711CB9455002A9883 /* PBXTextBookmark */;
+			15E3CB2811CB9455002A9883 /* PBXTextBookmark */ = 15E3CB2811CB9455002A9883 /* PBXTextBookmark */;
+			15E3CB2911CB9455002A9883 /* PBXTextBookmark */ = 15E3CB2911CB9455002A9883 /* PBXTextBookmark */;
+			15E3CB2A11CB9455002A9883 /* PBXTextBookmark */ = 15E3CB2A11CB9455002A9883 /* PBXTextBookmark */;
+			15E3CB4111CB9CB2002A9883 /* PBXTextBookmark */ = 15E3CB4111CB9CB2002A9883 /* PBXTextBookmark */;
+			15E3CB4211CB9CB2002A9883 /* PBXTextBookmark */ = 15E3CB4211CB9CB2002A9883 /* PBXTextBookmark */;
+			15E3CB4311CB9CB2002A9883 /* PBXTextBookmark */ = 15E3CB4311CB9CB2002A9883 /* PBXTextBookmark */;
+			15E3CB4411CB9CB2002A9883 /* PBXTextBookmark */ = 15E3CB4411CB9CB2002A9883 /* PBXTextBookmark */;
+			15E3CB4611CB9CC9002A9883 /* PBXTextBookmark */ = 15E3CB4611CB9CC9002A9883 /* PBXTextBookmark */;
+			15E3CB4711CB9CC9002A9883 /* PBXTextBookmark */ = 15E3CB4711CB9CC9002A9883 /* PBXTextBookmark */;
+			15E3CB4811CB9CC9002A9883 /* PBXTextBookmark */ = 15E3CB4811CB9CC9002A9883 /* PBXTextBookmark */;
+			15E3CB4911CB9CC9002A9883 /* PBXTextBookmark */ = 15E3CB4911CB9CC9002A9883 /* PBXTextBookmark */;
+			15E3CB4A11CB9CC9002A9883 /* PBXTextBookmark */ = 15E3CB4A11CB9CC9002A9883 /* PBXTextBookmark */;
+			15E3CB4B11CB9CC9002A9883 /* PBXTextBookmark */ = 15E3CB4B11CB9CC9002A9883 /* PBXTextBookmark */;
+			15E3CB4C11CB9CC9002A9883 /* PBXTextBookmark */ = 15E3CB4C11CB9CC9002A9883 /* PBXTextBookmark */;
+			15E3CB4D11CB9CC9002A9883 /* PBXTextBookmark */ = 15E3CB4D11CB9CC9002A9883 /* PBXTextBookmark */;
+			15E3CB4E11CB9CC9002A9883 /* PBXTextBookmark */ = 15E3CB4E11CB9CC9002A9883 /* PBXTextBookmark */;
+			15E3CB4F11CB9CC9002A9883 /* PBXTextBookmark */ = 15E3CB4F11CB9CC9002A9883 /* PBXTextBookmark */;
+			15E3CB5011CB9CC9002A9883 /* PBXTextBookmark */ = 15E3CB5011CB9CC9002A9883 /* PBXTextBookmark */;
+			15E3CB5111CB9CC9002A9883 /* PBXTextBookmark */ = 15E3CB5111CB9CC9002A9883 /* PBXTextBookmark */;
+			15E3CB5211CB9CC9002A9883 /* PBXTextBookmark */ = 15E3CB5211CB9CC9002A9883 /* PBXTextBookmark */;
+			15E3CB5811CBAA86002A9883 /* PBXTextBookmark */ = 15E3CB5811CBAA86002A9883 /* PBXTextBookmark */;
+			15E3CB5911CBAA86002A9883 /* PBXTextBookmark */ = 15E3CB5911CBAA86002A9883 /* PBXTextBookmark */;
+			15E3CB5A11CBAA86002A9883 /* PBXTextBookmark */ = 15E3CB5A11CBAA86002A9883 /* PBXTextBookmark */;
+			15E3CB5B11CBAA86002A9883 /* PBXTextBookmark */ = 15E3CB5B11CBAA86002A9883 /* PBXTextBookmark */;
+			15E3CB5C11CBAA86002A9883 /* PBXTextBookmark */ = 15E3CB5C11CBAA86002A9883 /* PBXTextBookmark */;
+			15E3CB5D11CBAA86002A9883 /* PBXTextBookmark */ = 15E3CB5D11CBAA86002A9883 /* PBXTextBookmark */;
+			15E3CB5E11CBAA86002A9883 /* PBXTextBookmark */ = 15E3CB5E11CBAA86002A9883 /* PBXTextBookmark */;
+			15E3CB5F11CBAA86002A9883 /* PBXTextBookmark */ = 15E3CB5F11CBAA86002A9883 /* PBXTextBookmark */;
+			15E3CB6011CBAA86002A9883 /* PBXTextBookmark */ = 15E3CB6011CBAA86002A9883 /* PBXTextBookmark */;
+			15E3CB6111CBAA86002A9883 /* PBXTextBookmark */ = 15E3CB6111CBAA86002A9883 /* PBXTextBookmark */;
+			15E3CB6311CBAC19002A9883 /* PBXTextBookmark */ = 15E3CB6311CBAC19002A9883 /* PBXTextBookmark */;
+			15E3CB6411CBAC19002A9883 /* PBXTextBookmark */ = 15E3CB6411CBAC19002A9883 /* PBXTextBookmark */;
+			15E3CB6511CBAC19002A9883 /* PBXTextBookmark */ = 15E3CB6511CBAC19002A9883 /* PBXTextBookmark */;
+			15E3CB6611CBAC19002A9883 /* PBXTextBookmark */ = 15E3CB6611CBAC19002A9883 /* PBXTextBookmark */;
+			15E3CB6711CBAC19002A9883 /* PBXTextBookmark */ = 15E3CB6711CBAC19002A9883 /* PBXTextBookmark */;
+			15E3CB6811CBAC19002A9883 /* PBXTextBookmark */ = 15E3CB6811CBAC19002A9883 /* PBXTextBookmark */;
+			15E3CB6911CBAC19002A9883 /* PBXTextBookmark */ = 15E3CB6911CBAC19002A9883 /* PBXTextBookmark */;
+			15E3CB6A11CBAC19002A9883 /* PBXTextBookmark */ = 15E3CB6A11CBAC19002A9883 /* PBXTextBookmark */;
+			15E3CB6B11CBAC19002A9883 /* PBXTextBookmark */ = 15E3CB6B11CBAC19002A9883 /* PBXTextBookmark */;
+			15E3CB6C11CBAC19002A9883 /* PBXTextBookmark */ = 15E3CB6C11CBAC19002A9883 /* PBXTextBookmark */;
+			15E3CB6D11CBAC19002A9883 /* PBXTextBookmark */ = 15E3CB6D11CBAC19002A9883 /* PBXTextBookmark */;
+			15E3CB6E11CBAC19002A9883 /* PBXTextBookmark */ = 15E3CB6E11CBAC19002A9883 /* PBXTextBookmark */;
+			15E3CB7111CBAD22002A9883 /* PBXTextBookmark */ = 15E3CB7111CBAD22002A9883 /* PBXTextBookmark */;
+			15E3CB7311CBAD9C002A9883 /* PBXTextBookmark */ = 15E3CB7311CBAD9C002A9883 /* PBXTextBookmark */;
+			15E3CB7811CBB8B8002A9883 /* PBXTextBookmark */ = 15E3CB7811CBB8B8002A9883 /* PBXTextBookmark */;
+			15E3CB8111CBB9B6002A9883 /* PBXTextBookmark */ = 15E3CB8111CBB9B6002A9883 /* PBXTextBookmark */;
+			15E3CB8711CBB9C8002A9883 /* PBXTextBookmark */ = 15E3CB8711CBB9C8002A9883 /* PBXTextBookmark */;
+			15E3CB8911CBBA84002A9883 /* PBXTextBookmark */ = 15E3CB8911CBBA84002A9883 /* PBXTextBookmark */;
+			15E3CB8E11CBBB3C002A9883 /* PBXTextBookmark */ = 15E3CB8E11CBBB3C002A9883 /* PBXTextBookmark */;
+			15E3CB9011CBBB55002A9883 /* PBXTextBookmark */ = 15E3CB9011CBBB55002A9883 /* PBXTextBookmark */;
+			15E3CB9211CBBB72002A9883 /* PBXTextBookmark */ = 15E3CB9211CBBB72002A9883 /* PBXTextBookmark */;
+			15E3CB9711CBBCCD002A9883 /* PBXTextBookmark */ = 15E3CB9711CBBCCD002A9883 /* PBXTextBookmark */;
+			15E3CB9811CBBCCD002A9883 /* PBXTextBookmark */ = 15E3CB9811CBBCCD002A9883 /* PBXTextBookmark */;
+			15E3CB9B11CBBEF0002A9883 /* PBXTextBookmark */ = 15E3CB9B11CBBEF0002A9883 /* PBXTextBookmark */;
+			15E3CB9D11CBBF15002A9883 /* PBXTextBookmark */ = 15E3CB9D11CBBF15002A9883 /* PBXTextBookmark */;
+			15E3CB9E11CBBF3E002A9883 /* PBXTextBookmark */ = 15E3CB9E11CBBF3E002A9883 /* PBXTextBookmark */;
+			15E3CBA111CBC444002A9883 /* PBXTextBookmark */ = 15E3CBA111CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBA211CBC444002A9883 /* PBXTextBookmark */ = 15E3CBA211CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBA311CBC444002A9883 /* PBXTextBookmark */ = 15E3CBA311CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBA411CBC444002A9883 /* PBXTextBookmark */ = 15E3CBA411CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBA511CBC444002A9883 /* PBXTextBookmark */ = 15E3CBA511CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBA611CBC444002A9883 /* PBXTextBookmark */ = 15E3CBA611CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBA711CBC444002A9883 /* PBXTextBookmark */ = 15E3CBA711CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBA811CBC444002A9883 /* PBXTextBookmark */ = 15E3CBA811CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBA911CBC444002A9883 /* PBXTextBookmark */ = 15E3CBA911CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBAA11CBC444002A9883 /* PBXTextBookmark */ = 15E3CBAA11CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBAB11CBC444002A9883 /* PBXTextBookmark */ = 15E3CBAB11CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBAC11CBC444002A9883 /* PBXTextBookmark */ = 15E3CBAC11CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBAD11CBC444002A9883 /* PBXTextBookmark */ = 15E3CBAD11CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBAE11CBC444002A9883 /* PBXTextBookmark */ = 15E3CBAE11CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBAF11CBC444002A9883 /* PBXTextBookmark */ = 15E3CBAF11CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBB011CBC444002A9883 /* PBXTextBookmark */ = 15E3CBB011CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBB111CBC444002A9883 /* PBXTextBookmark */ = 15E3CBB111CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBB211CBC444002A9883 /* PBXTextBookmark */ = 15E3CBB211CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBB311CBC444002A9883 /* PBXTextBookmark */ = 15E3CBB311CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBB411CBC444002A9883 /* PBXTextBookmark */ = 15E3CBB411CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBB511CBC444002A9883 /* PBXTextBookmark */ = 15E3CBB511CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBB611CBC444002A9883 /* PBXTextBookmark */ = 15E3CBB611CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBB711CBC444002A9883 /* PBXTextBookmark */ = 15E3CBB711CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBB811CBC444002A9883 /* PBXTextBookmark */ = 15E3CBB811CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBB911CBC444002A9883 /* PBXTextBookmark */ = 15E3CBB911CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBBA11CBC444002A9883 /* PBXTextBookmark */ = 15E3CBBA11CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBBB11CBC444002A9883 /* PBXTextBookmark */ = 15E3CBBB11CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBBC11CBC444002A9883 /* PBXTextBookmark */ = 15E3CBBC11CBC444002A9883 /* PBXTextBookmark */;
+			15E3CBBE11CBC568002A9883 /* PBXTextBookmark */ = 15E3CBBE11CBC568002A9883 /* PBXTextBookmark */;
+			15E3CBBF11CBC568002A9883 /* PBXTextBookmark */ = 15E3CBBF11CBC568002A9883 /* PBXTextBookmark */;
+			15E3CBC011CBC568002A9883 /* PBXTextBookmark */ = 15E3CBC011CBC568002A9883 /* PBXTextBookmark */;
+			15E3CBC111CBC568002A9883 /* PBXTextBookmark */ = 15E3CBC111CBC568002A9883 /* PBXTextBookmark */;
+			15E3CBC211CBC568002A9883 /* PBXTextBookmark */ = 15E3CBC211CBC568002A9883 /* PBXTextBookmark */;
+			15E3CBC311CBC568002A9883 /* PBXTextBookmark */ = 15E3CBC311CBC568002A9883 /* PBXTextBookmark */;
+			15E3CBC411CBC568002A9883 /* PBXTextBookmark */ = 15E3CBC411CBC568002A9883 /* PBXTextBookmark */;
+			15E3CBC511CBC593002A9883 /* PBXTextBookmark */ = 15E3CBC511CBC593002A9883 /* PBXTextBookmark */;
+			15E3CBC611CBC5E3002A9883 /* PBXTextBookmark */ = 15E3CBC611CBC5E3002A9883 /* PBXTextBookmark */;
+			15E3CBC711CBC5E3002A9883 /* PBXTextBookmark */ = 15E3CBC711CBC5E3002A9883 /* PBXTextBookmark */;
+			15E3CBC811CBC5E3002A9883 /* PBXTextBookmark */ = 15E3CBC811CBC5E3002A9883 /* PBXTextBookmark */;
+			15E3CBC911CBC5E3002A9883 /* PBXTextBookmark */ = 15E3CBC911CBC5E3002A9883 /* PBXTextBookmark */;
+			15E3CBCA11CBC65D002A9883 /* PBXTextBookmark */ = 15E3CBCA11CBC65D002A9883 /* PBXTextBookmark */;
 			15F021C611C6A9CD001F1730 = 15F021C611C6A9CD001F1730 /* PlistBookmark */;
 			15F021DE11C6A9CD001F1730 = 15F021DE11C6A9CD001F1730 /* PlistBookmark */;
 			15F021E011C6A9CD001F1730 = 15F021E011C6A9CD001F1730 /* PBXTextBookmark */;

@@ -7,13 +7,14 @@
 //
 
 #import <CoreData/CoreData.h>
-
+#import "GDataCalendar.h"
 @class Calendar;
 
 @interface Event :  NSManagedObject  
 {
 }
-+(NSArray *)getEventWithId:(NSString *)eventId andContext:(NSManagedObjectContext *) context;
++(Event *)getEventWithId:(NSString *)eventId andContext:(NSManagedObjectContext *) context;
++(Event *)createEventFromGCal:(GDataEntryCalendarEvent *)event forCalendar:(Calendar *)calendar withContext:(NSManagedObjectContext *)context;
 @property (nonatomic, retain) NSString * location;
 @property (nonatomic, retain) NSString * note;
 @property (nonatomic, retain) NSString * title;

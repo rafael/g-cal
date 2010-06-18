@@ -285,26 +285,23 @@
     HUD.detailsLabelText = @"Retreiving Data From Google";
     // Show the HUD while the provided method executes in a new thread
 	gCalService = appDelegate.gCalService;
+	[HUD showWhileExecuting:@selector(loadCalendarsAndEvents:) onTarget:self withObject:nil animated:YES];
 	
-	
-	[gCalService fetchCalendarFeedForUsername:appDelegate.username
-									 delegate:self
-							didFinishSelector:@selector( calendarsTicket:finishedWithFeed:error:)];
+
 	
 	
 	
   }
 
 -(void) loadCalendarsAndEvents:(GDataFeedCalendar *)feed{
-	if (feed){
-		
+	NSLog(@"llego aqui");
 
+//	performSelectorOnMainThread:(SEL)aSelector withObject:(id)arg waitUntilDone:(BOOL)wait
+	[gCalService fetchCalendarFeedForUsername:appDelegate.username
+									 delegate:self
+							didFinishSelector:@selector( calendarsTicket:finishedWithFeed:error:) ];
 	
-		
-		
-	}
-//	test = @"loadCalendarsAndEvents";
-	//[NSThread sleepForTimeInterval:2];
+	NSLog(@"Estoy aqui");
 
 	
 }
@@ -313,25 +310,38 @@
 
 
 - (void)calendarsTicket:(GDataServiceTicket *)ticket finishedWithFeed:(GDataFeedCalendar *)feed error:(NSError *)error{
-	//[NSThread sleepForTimeInterval:2];
-	//[HUD showWhileExecuting:@selector(loadCalendarsAndEvents:) onTarget:self withObject:feed animated:YES];
+	//
+	NSLog(@"llego aqui 2");
 	self.calendarsTicket = [NSMutableArray arrayWithCapacity:5];
 	if( !error ){
 		int count = [[feed entries] count];
 		[NSThread sleepForTimeInterval:2];
 		for( int i=0; i<count; i++ ){
-		
+		 
 			GDataEntryCalendar *calendar = [[feed entries] objectAtIndex:i];
 			Calendar *aCalendar = [Calendar getCalendarWithId:[calendar identifier] andContext:self.managedObjectContext];
-			if (  !aCalendar )
+		
+			if (  !aCalendar ){
 				aCalendar = [Calendar createCalendarFromGCal:calendar withContext:self.managedObjectContext];
 			
+			}
+			
+			else{
+				
+				NSComparisonResult	last_update_comparison = [aCalendar.updated compare:[[calendar updatedDate] date]];
+				if (last_update_comparison == NSOrderedAscending) {
+			
+					[aCalendar updateCalendarFromGCal:calendar withContext:self.managedObjectContext];
+				}	
+				
+			}
+					
 			NSURL *feedURL = [[calendar alternateLink] URL];
-			if( feedURL ){
+			if(   feedURL ){
 				NSMutableDictionary *calendarTicketPair = [NSMutableDictionary dictionaryWithCapacity:2];
 				GDataQueryCalendar* query = [GDataQueryCalendar calendarQueryWithFeedURL:feedURL];
-
-				NSDate *minDate = [NSDate date];  // From right now...
+				
+				NSDate *minDate	= [[NSDate date] addTimeInterval:-1*60*60*24*60];
 				NSDate *maxDate = [NSDate dateWithTimeIntervalSinceNow:60*60*24*90];  // ...to 90 days from now.
 				
 				[query setMinimumStartTime:[GDataDateTime dateTimeWithDate:minDate timeZone:[NSTimeZone systemTimeZone]]];
@@ -347,8 +357,9 @@
 				[calendarTicketPair setObject:aCalendar forKey:KEY_CALENDAR];
 				[self.calendarsTicket addObject:calendarTicketPair];
 			}
-			
 		}
+			
+		
 	}else
 		[self handleError:error];
 	
@@ -375,26 +386,17 @@
 		for( int i=0; i<count; i++ ){
 			
 			GDataEntryCalendarEvent *event = [[feed entries]  objectAtIndex:i];
-			NSLog(@"Soy un evento y me llamo %@", [[event title] stringValue]);
-			NSLog(@"este es my nota %@",[[event content] stringValue]);
-			GDataWhen *when = [[event objectsForExtensionClass:[GDataWhen class]] objectAtIndex:0];
-			if( when ){
-				NSDate *date = [[when startTime] date];
-				NSDate *endDAte = [[when endTime] date];
 			
-				NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-				
-				[dateFormatter setDateFormat:@"HH:mm"];
-				
-				NSLog(@"esta es la fecha de inicio %@",[dateFormatter stringFromDate:date]);
-				NSLog(@"esta es la fecha de fin %@",[dateFormatter stringFromDate:endDAte]);
-				[dateFormatter release];
+			Event *anEvent = [Event getEventWithId:[event iCalUID] andContext:self.managedObjectContext];
+			
+			if (  !anEvent ){
+				Calendar *calendarForEvent = [dictionary objectForKey:KEY_CALENDAR];
+				anEvent = [Event createEventFromGCal:event forCalendar:calendarForEvent withContext:self.managedObjectContext];
 			}
-			
-			// Note: An event might have multiple locations.  We're only displaying the first one.
-			GDataWhere *addr = [[event locations] objectAtIndex:0];
-			if( addr )
-				NSLog(@"donde %@", [addr stringValue]);
+			else if ( [anEvent.updated compare:[[event updatedDate] date]] == NSOrderedAscending ){
+				NSLog(@"Need to update event");
+				
+			}
 			
 		}
 		

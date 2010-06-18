@@ -385,6 +385,7 @@
 	
     // Launch execution in new thread
 	taskInProgress = YES;
+	
     [NSThread detachNewThreadSelector:@selector(launchExecution) toTarget:self withObject:nil];
 	
 	// Show HUD view

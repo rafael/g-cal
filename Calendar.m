@@ -35,7 +35,7 @@
 	NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
 																								managedObjectContext:context 
 																								  sectionNameKeyPath:nil
-																										   cacheName:@"Root"];
+																										   cacheName:@"RootCalendar"];
 	
 	aFetchedResultsController.delegate = self;
 	
@@ -47,12 +47,8 @@
 	[sortDescriptors release];
 	[aFetchedResultsController release];
 	if (error) return nil;
-	if(result != nil && [result count] == 1){
-		NSLog(@"ok estoy entendiendo como funciona esta meirda");
+	if(result != nil && [result count] == 1)
 		return (Calendar *)[result objectAtIndex:0];
-		
-	}
-	//	
 	return nil;
 	
 	
@@ -71,6 +67,26 @@
 			NSLog(@"Unresolved error saving a calenadar%@, %@", core_data_error, [core_data_error userInfo]);
 		}
 		return aCalendar;
+}
+
+
+-(BOOL)updateCalendarFromGCal:(GDataEntryCalendar *)calendar withContext:(NSManagedObjectContext *)context {
+	
+	
+	
+	self.name = [[calendar title] stringValue];
+	self.color = [[calendar color] stringValue];
+	self.calid = [calendar identifier];
+	self.updated = [[calendar updatedDate] date];
+	self.edit_permission = [NSNumber numberWithBool:[calendar canEdit]];
+	NSError *core_data_error = nil;
+	if (![context save:&core_data_error]) {
+		NSLog(@"Unresolved error saving a calenadar%@, %@", core_data_error, [core_data_error userInfo]);
+	}
+	
+	if (core_data_error) return NO;
+	else YES;
+	
 }
 
 

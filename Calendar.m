@@ -85,7 +85,7 @@
 	}
 	
 	if (core_data_error) return NO;
-	else YES;
+	else return YES;
 	
 }
 

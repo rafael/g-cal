@@ -14,7 +14,6 @@
 		1536BAE110F73F770090FEF2 /* AddEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1536BADF10F73F770090FEF2 /* AddEventViewController.xib */; };
 		1536BAE210F73F770090FEF2 /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1536BADE10F73F770090FEF2 /* AddEventViewController.m */; };
 		1536BAE310F73F770090FEF2 /* AddEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1536BADF10F73F770090FEF2 /* AddEventViewController.xib */; };
-		153D55E710C2D8230053C894 /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 153D55E610C2D8230053C894 /* TapkuLibrary.bundle */; };
 		1546871710B0C8E6008E69F1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1546871610B0C8E6008E69F1 /* QuartzCore.framework */; };
 		1546872510B0CF0C008E69F1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1546872410B0CF0C008E69F1 /* MapKit.framework */; };
 		1561694011B3B81000E8AA68 /* AddCalendarEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1561693F11B3B81000E8AA68 /* AddCalendarEventViewController.m */; };
@@ -25,7 +24,6 @@
 		1577539810DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1577539610DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.m */; };
 		1577539910DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1577539710DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib */; };
 		1595603310B2A9CD006EC0AB /* MonthCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */; };
-		15B36F9511C7DC2500EB9314 /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 153D55A310C2D7010053C894 /* libTapkuLibrary.a */; };
 		15B3766711C7E0C700EB9314 /* GDataFramework.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B373C811C7E0C600EB9314 /* GDataFramework.m */; };
 		15B3766811C7E0C700EB9314 /* GDataUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B373CA11C7E0C600EB9314 /* GDataUtilities.m */; };
 		15B3766911C7E0C700EB9314 /* GDataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B373CE11C7E0C600EB9314 /* GDataObject.m */; };
@@ -128,6 +126,10 @@
 		15B37C6B11C94F8F00EB9314 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B37C6A11C94F8F00EB9314 /* MBProgressHUD.m */; };
 		15B37D4C11CA3CD700EB9314 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B37D4911CA3CD700EB9314 /* Event.m */; };
 		15B3809311CB573300EB9314 /* Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B3809211CB573300EB9314 /* Calendar.m */; };
+		15E3CBF211CBC96B002A9883 /* DDInvocationGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3CBF111CBC96B002A9883 /* DDInvocationGrabber.m */; };
+		15E3CBF611CBC991002A9883 /* NSObject+DDExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3CBF411CBC991002A9883 /* NSObject+DDExtensions.m */; };
+		15E3CE8E11CD2E48002A9883 /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E3CE8B11CD2E46002A9883 /* libTapkuLibrary.a */; };
+		15E3CF5C11CD3151002A9883 /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 15E3CF5B11CD3151002A9883 /* TapkuLibrary.bundle */; };
 		15F021B011C6A562001F1730 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 15F021AF11C6A562001F1730 /* Icon.png */; };
 		15F021B911C6A927001F1730 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 15F021B811C6A927001F1730 /* Settings.bundle */; };
 		15FF3E6A1103330F004BBA6F /* AddNoteEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FF3E681103330F004BBA6F /* AddNoteEventViewController.m */; };
@@ -145,16 +147,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		153D55A210C2D7010053C894 /* PBXContainerItemProxy */ = {
+		15E3CE8A11CD2E46002A9883 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 153D559E10C2D7010053C894 /* TapkuLibrary.xcodeproj */;
+			containerPortal = 15E3CE8211CD2E46002A9883 /* TapkuLibrary.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D2AAC07E0554694100DB518D;
 			remoteInfo = TapkuLibrary;
 		};
-		153D55B010C2D7BA0053C894 /* PBXContainerItemProxy */ = {
+		15E3CE8C11CD2E46002A9883 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 153D559E10C2D7010053C894 /* TapkuLibrary.xcodeproj */;
+			containerPortal = 15E3CE8211CD2E46002A9883 /* TapkuLibrary.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3B6EDD521154791900E454DA;
+			remoteInfo = TapkuLibraryExtra;
+		};
+		15E3CE8F11CD2E52002A9883 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 15E3CE8211CD2E46002A9883 /* TapkuLibrary.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = TapkuLibrary;
@@ -172,8 +181,6 @@
 		1536BADD10F73F770090FEF2 /* AddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventViewController.h; sourceTree = "<group>"; };
 		1536BADE10F73F770090FEF2 /* AddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventViewController.m; sourceTree = "<group>"; };
 		1536BADF10F73F770090FEF2 /* AddEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddEventViewController.xib; sourceTree = "<group>"; };
-		153D559E10C2D7010053C894 /* TapkuLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TapkuLibrary.xcodeproj; path = ../rtapkulibrary/src/TapkuLibrary.xcodeproj; sourceTree = SOURCE_ROOT; };
-		153D55E610C2D8230053C894 /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TapkuLibrary.bundle; path = ../rtapkulibrary/src/TapkuLibrary.bundle; sourceTree = SOURCE_ROOT; };
 		1546871610B0C8E6008E69F1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = ../../../../System/Library/Frameworks/QuartzCore.framework; sourceTree = SOURCE_ROOT; };
 		1546872410B0CF0C008E69F1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1561693E11B3B81000E8AA68 /* AddCalendarEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddCalendarEventViewController.h; path = ../AddCalendarEventViewController.h; sourceTree = "<group>"; };
@@ -398,6 +405,12 @@
 		15B37D4911CA3CD700EB9314 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = ../Event.m; sourceTree = "<group>"; };
 		15B3809111CB573300EB9314 /* Calendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Calendar.h; path = ../Calendar.h; sourceTree = "<group>"; };
 		15B3809211CB573300EB9314 /* Calendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Calendar.m; path = ../Calendar.m; sourceTree = "<group>"; };
+		15E3CBF011CBC96B002A9883 /* DDInvocationGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDInvocationGrabber.h; path = "../../Downloads/DDFoundation-1.0b3/lib/DDInvocationGrabber.h"; sourceTree = SOURCE_ROOT; };
+		15E3CBF111CBC96B002A9883 /* DDInvocationGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDInvocationGrabber.m; path = "../../Downloads/DDFoundation-1.0b3/lib/DDInvocationGrabber.m"; sourceTree = SOURCE_ROOT; };
+		15E3CBF411CBC991002A9883 /* NSObject+DDExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+DDExtensions.m"; path = "../../Downloads/DDFoundation-1.0b3/lib/NSObject+DDExtensions.m"; sourceTree = SOURCE_ROOT; };
+		15E3CBF511CBC991002A9883 /* NSObject+DDExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+DDExtensions.h"; path = "../../Downloads/DDFoundation-1.0b3/lib/NSObject+DDExtensions.h"; sourceTree = SOURCE_ROOT; };
+		15E3CE8211CD2E46002A9883 /* TapkuLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TapkuLibrary.xcodeproj; path = ../tapkulibrary/src/TapkuLibrary.xcodeproj; sourceTree = SOURCE_ROOT; };
+		15E3CF5B11CD3151002A9883 /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TapkuLibrary.bundle; path = ../tapkulibrary/src/TapkuLibrary.bundle; sourceTree = SOURCE_ROOT; };
 		15F021AF11C6A562001F1730 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		15F021B811C6A927001F1730 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		15FF3E671103330F004BBA6F /* AddNoteEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNoteEventViewController.h; sourceTree = "<group>"; };
@@ -435,8 +448,8 @@
 				28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */,
 				1546871710B0C8E6008E69F1 /* QuartzCore.framework in Frameworks */,
 				1546872510B0CF0C008E69F1 /* MapKit.framework in Frameworks */,
-				15B36F9511C7DC2500EB9314 /* libTapkuLibrary.a in Frameworks */,
 				15B377E211C7E53E00EB9314 /* Security.framework in Frameworks */,
+				15E3CE8E11CD2E48002A9883 /* libTapkuLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,14 +476,6 @@
 			children = (
 			);
 			name = Tests;
-			sourceTree = "<group>";
-		};
-		153D559F10C2D7010053C894 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				153D55A310C2D7010053C894 /* libTapkuLibrary.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		1595602E10B2A955006EC0AB /* ViewControllers */ = {
@@ -801,6 +806,15 @@
 			name = Calendar;
 			sourceTree = "<group>";
 		};
+		15E3CE8311CD2E46002A9883 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				15E3CE8B11CD2E46002A9883 /* libTapkuLibrary.a */,
+				15E3CE8D11CD2E46002A9883 /* libTapkuLibraryExtra.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -813,8 +827,9 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				15E3CF5B11CD3151002A9883 /* TapkuLibrary.bundle */,
+				15E3CE8211CD2E46002A9883 /* TapkuLibrary.xcodeproj */,
 				15F021AF11C6A562001F1730 /* Icon.png */,
-				153D559E10C2D7010053C894 /* TapkuLibrary.xcodeproj */,
 				1522512210E2A05A0088802F /* Tests */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				1595602E10B2A955006EC0AB /* ViewControllers */,
@@ -831,6 +846,10 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				15E3CBF011CBC96B002A9883 /* DDInvocationGrabber.h */,
+				15E3CBF111CBC96B002A9883 /* DDInvocationGrabber.m */,
+				15E3CBF411CBC991002A9883 /* NSObject+DDExtensions.m */,
+				15E3CBF511CBC991002A9883 /* NSObject+DDExtensions.h */,
 				15B37C6911C94F8F00EB9314 /* MBProgressHUD.h */,
 				15B37C6A11C94F8F00EB9314 /* MBProgressHUD.m */,
 				15B373C311C7E0C600EB9314 /* GData Sources */,
@@ -850,7 +869,6 @@
 				1536BADF10F73F770090FEF2 /* AddEventViewController.xib */,
 				1577539710DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib */,
 				151D0A8010D11A1800C89C83 /* EventViewController.xib */,
-				153D55E610C2D8230053C894 /* TapkuLibrary.bundle */,
 				28C3AD890F43EF2300507BA6 /* GoogleCal.xcdatamodel */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* GoogleCal-Info.plist */,
@@ -904,7 +922,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				153D55B110C2D7BA0053C894 /* PBXTargetDependency */,
+				15E3CE9011CD2E52002A9883 /* PBXTargetDependency */,
 			);
 			name = GoogleCal;
 			productName = GoogleCal;
@@ -923,8 +941,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 153D559F10C2D7010053C894 /* Products */;
-					ProjectRef = 153D559E10C2D7010053C894 /* TapkuLibrary.xcodeproj */;
+					ProductGroup = 15E3CE8311CD2E46002A9883 /* Products */;
+					ProjectRef = 15E3CE8211CD2E46002A9883 /* TapkuLibrary.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -936,11 +954,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		153D55A310C2D7010053C894 /* libTapkuLibrary.a */ = {
+		15E3CE8B11CD2E46002A9883 /* libTapkuLibrary.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libTapkuLibrary.a;
-			remoteRef = 153D55A210C2D7010053C894 /* PBXContainerItemProxy */;
+			remoteRef = 15E3CE8A11CD2E46002A9883 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		15E3CE8D11CD2E46002A9883 /* libTapkuLibraryExtra.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libTapkuLibraryExtra.a;
+			remoteRef = 15E3CE8C11CD2E46002A9883 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -960,7 +985,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
-				153D55E710C2D8230053C894 /* TapkuLibrary.bundle in Resources */,
 				151D0A8210D11A1800C89C83 /* EventViewController.xib in Resources */,
 				1577539910DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib in Resources */,
 				1536BAE110F73F770090FEF2 /* AddEventViewController.xib in Resources */,
@@ -972,6 +996,7 @@
 				15B376A811C7E0C700EB9314 /* GDataOAuthViewTouch.xib in Resources */,
 				15B376AA11C7E0C700EB9314 /* GDataOAuthWindow.xib in Resources */,
 				15B3786111C80A2500EB9314 /* CalendarViewController.xib in Resources */,
+				15E3CF5C11CD3151002A9883 /* TapkuLibrary.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1117,16 +1142,18 @@
 				15B37C6B11C94F8F00EB9314 /* MBProgressHUD.m in Sources */,
 				15B37D4C11CA3CD700EB9314 /* Event.m in Sources */,
 				15B3809311CB573300EB9314 /* Calendar.m in Sources */,
+				15E3CBF211CBC96B002A9883 /* DDInvocationGrabber.m in Sources */,
+				15E3CBF611CBC991002A9883 /* NSObject+DDExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		153D55B110C2D7BA0053C894 /* PBXTargetDependency */ = {
+		15E3CE9011CD2E52002A9883 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = TapkuLibrary;
-			targetProxy = 153D55B010C2D7BA0053C894 /* PBXContainerItemProxy */;
+			targetProxy = 15E3CE8F11CD2E52002A9883 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1240,7 +1267,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/Users/rafaelchacon/Sandboxes/rtapkulibrary/**",
+					"/Users/rafaelchacon/Sandboxes/tapkulibrary/**",
 					"/usr/include/libxml2/**",
 				);
 				OTHER_CFLAGS = "-DDEBUG=1";
@@ -1263,7 +1290,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/Users/rafaelchacon/Sandboxes/rtapkulibrary/**",
+					"/Users/rafaelchacon/Sandboxes/tapkulibrary/**",
 					"/usr/include/libxml2/**",
 				);
 				OTHER_CFLAGS = "-DDEBUG=1";

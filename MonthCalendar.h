@@ -9,6 +9,7 @@
 
 #import "TapkuLibrary.h"
 #import "MBProgressHUD.h"
+#import "NSObject+DDExtensions.h"
 #import "AddEventViewController.h"
 #import "GDataCalendar.h"
 
@@ -34,7 +35,12 @@
 		GoogleCalAppDelegate *appDelegate;
 		GDataServiceGoogleCalendar *gCalService;
 		BOOL allCalendarsValue;
+		BOOL ticketDone;
+		BOOL entryTicketDone;
+			
 		NSMutableArray *calendarsTicket;
+		NSCondition  *waitForCalendarTickectLock;
+		NSCondition  *waitForEventTickectLock;
 	
 		
 	
@@ -62,6 +68,7 @@
 
 -(void) loadCalendarsAndEvents:(id)object;
 
+-(void)fetchEventEntries:(NSArray *) arrayOfElements;
 
 -(void) initializeData;
 

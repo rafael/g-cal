@@ -115,10 +115,10 @@
 	[tableView reloadData];
 }
 
-- (void) calendarMonthView:(TKCalendarMonthView*)mv monthWillAppear:(NSDate*)month{
-	[super calendarMonthView:mv monthWillAppear:month];
-	
-}
+//- (void) calendarMonthView:(TKCalendarMonthView*)mv monthWillAppear:(NSDate*)month{
+//	[super calendarMonthView:mv monthWillAppear:month];
+//	
+//}
 
 
 
@@ -169,7 +169,6 @@
 
 - (void)hudWasHidden {
     // Remove HUD from screen when the HUD was hidded
-
     [HUD removeFromSuperview];
     [HUD release];
 }
@@ -286,22 +285,38 @@
     // Show the HUD while the provided method executes in a new thread
 	gCalService = appDelegate.gCalService;
 	[HUD showWhileExecuting:@selector(loadCalendarsAndEvents:) onTarget:self withObject:nil animated:YES];
-	
+}
 
-	
-	
-	
-  }
+
 
 -(void) loadCalendarsAndEvents:(GDataFeedCalendar *)feed{
-	NSLog(@"llego aqui");
-
-//	performSelectorOnMainThread:(SEL)aSelector withObject:(id)arg waitUntilDone:(BOOL)wait
-	[gCalService fetchCalendarFeedForUsername:appDelegate.username
-									 delegate:self
-							didFinishSelector:@selector( calendarsTicket:finishedWithFeed:error:) ];
 	
-	NSLog(@"Estoy aqui");
+//
+//	[self performSelectorOnMainThread:@selector(allDone:) 
+//						   withObject:nil waitUntilDone:YES];
+	
+
+	[[gCalService dd_invokeOnMainThread]  fetchCalendarFeedForUsername:appDelegate.username
+	 delegate:self
+	 didFinishSelector:@selector( calendarsTicket:finishedWithFeed:error:)];
+	
+//	
+//	[gCalService fetchCalendarFeedForUsername:appDelegate.username
+//										 delegate:self
+//								didFinishSelector:@selector( calendarsTicket:finishedWithFeed:error:) ];
+	
+	
+	// Produce new data 
+	NSLog(@"Antes del lock");
+	
+	[waitForCalendarTickectLock lock]; 
+	while(!ticketDone) { 
+		[waitForCalendarTickectLock wait]; 
+	} 
+	[waitForCalendarTickectLock unlock]; 
+	
+	NSLog(@"Did it wait");
+
 
 	
 }
@@ -338,24 +353,11 @@
 					
 			NSURL *feedURL = [[calendar alternateLink] URL];
 			if(   feedURL ){
-				NSMutableDictionary *calendarTicketPair = [NSMutableDictionary dictionaryWithCapacity:2];
-				GDataQueryCalendar* query = [GDataQueryCalendar calendarQueryWithFeedURL:feedURL];
 				
-				NSDate *minDate	= [[NSDate date] addTimeInterval:-1*60*60*24*60];
-				NSDate *maxDate = [NSDate dateWithTimeIntervalSinceNow:60*60*24*90];  // ...to 90 days from now.
+				[NSThread detachNewThreadSelector:@selector(fetchEventEntries:) toTarget:self withObject:[NSArray arrayWithObjects:feedURL,aCalendar,nil]];
+
+				//[self fetchEventEntries:]; 
 				
-				[query setMinimumStartTime:[GDataDateTime dateTimeWithDate:minDate timeZone:[NSTimeZone systemTimeZone]]];
-				[query setMaximumStartTime:[GDataDateTime dateTimeWithDate:maxDate timeZone:[NSTimeZone systemTimeZone]]];
-				[query setOrderBy:@"starttime"];  //http://code.google.com/apis/calendar/docs/2.0/reference.html#Parameters
-				[query setIsAscendingOrder:YES];
-				[query setShouldExpandRecurrentEvents:YES];			
-				GDataServiceTicket *ticket = [gCalService fetchFeedWithQuery:query
-																			  delegate:self
-																	 didFinishSelector:@selector( eventsTicket:finishedWithEntries:error: )];
-				
-				[calendarTicketPair setObject:ticket forKey:KEY_TICKET];
-				[calendarTicketPair setObject:aCalendar forKey:KEY_CALENDAR];
-				[self.calendarsTicket addObject:calendarTicketPair];
 			}
 		}
 			
@@ -363,7 +365,15 @@
 	}else
 		[self handleError:error];
 	
+	
+	[waitForCalendarTickectLock lock]; 
+	// Produce new data 
+	ticketDone = YES; 
+	[waitForCalendarTickectLock signal]; 
+	[waitForCalendarTickectLock unlock]; 
 
+	
+	
 }
 
 
@@ -411,6 +421,12 @@
 		}
 	}else
 		[self handleError:error];
+	
+	[waitForEventTickectLock lock]; 
+	// Produce new data 
+	entryTicketDone = YES; 
+	[waitForEventTickectLock signal]; 
+	[waitForEventTickectLock unlock]; 
 }
 
 
@@ -434,6 +450,47 @@
 										  otherButtonTitles:nil];
 	[alert show];
 	[alert release];
+}
+
+-(void)fetchEventEntries:(NSArray *) arrayOfElements{
+	 NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	NSURL *feedURL =(NSURL *) [arrayOfElements objectAtIndex:0];
+	Calendar *aCalendar = (Calendar *)[arrayOfElements objectAtIndex:1];
+	
+	NSMutableDictionary *calendarTicketPair = [NSMutableDictionary dictionaryWithCapacity:2];
+	GDataQueryCalendar* query = [GDataQueryCalendar calendarQueryWithFeedURL:feedURL];
+	
+	NSDate *minDate	= [[NSDate date] addTimeInterval:-1*60*60*24*60];
+	NSDate *maxDate = [NSDate dateWithTimeIntervalSinceNow:60*60*24*90];  // ...to 90 days from now.
+	
+	[query setMinimumStartTime:[GDataDateTime dateTimeWithDate:minDate timeZone:[NSTimeZone systemTimeZone]]];
+	[query setMaximumStartTime:[GDataDateTime dateTimeWithDate:maxDate timeZone:[NSTimeZone systemTimeZone]]];
+	[query setOrderBy:@"starttime"];  //http://code.google.com/apis/calendar/docs/2.0/reference.html#Parameters
+	[query setIsAscendingOrder:YES];
+	[query setShouldExpandRecurrentEvents:YES];	
+	
+	GDataServiceTicket *ticket = [[gCalService dd_invokeOnMainThreadAndWaitUntilDone:YES]  fetchFeedWithQuery:query
+																									 delegate:self
+																							didFinishSelector:@selector( eventsTicket:finishedWithEntries:error: )];
+	//				GDataServiceTicket *ticket = [gCalService fetchFeedWithQuery:query
+	//																			  delegate:self
+	//																	 didFinishSelector:@selector( eventsTicket:finishedWithEntries:error: )];
+	
+	[calendarTicketPair setObject:ticket forKey:KEY_TICKET];
+	[calendarTicketPair setObject:aCalendar forKey:KEY_CALENDAR];
+	[self.calendarsTicket addObject:calendarTicketPair];
+
+	[waitForEventTickectLock lock]; 
+	while(!entryTicketDone) { 
+		[waitForEventTickectLock wait]; 
+		entryTicketDone = NO;
+	} 
+	[waitForEventTickectLock unlock]; 
+
+	
+	[pool release];
+	
+	
 }
 
 - (BOOL)isSameDay:(NSDate *)dateOne withDate:(NSDate *)dateTwo{
@@ -573,12 +630,17 @@ NSLog(@"tyee3");
 	self.eventsForGivenDate = nil;
 	self.selectedCalendar = nil;
 	self.calendarsTicket = nil;
+	waitForCalendarTickectLock = nil;
+	waitForEventTickectLock = nil;
 
 }
 
 - (void) viewDidLoad{
 	[super viewDidLoad];
-	
+	waitForCalendarTickectLock = [NSCondition new];
+	waitForEventTickectLock = [NSCondition new];
+	ticketDone = NO;
+	entryTicketDone = NO;
 	
 	
 	
@@ -604,6 +666,8 @@ NSLog(@"tyee3");
 	[eventsForGivenDate release];
 	[selectedCalendar release];
 	[calendarsTicket release];
+	[waitForCalendarTickectLock release];
+	[waitForEventTickectLock release];
 	[super dealloc];
 	
 }

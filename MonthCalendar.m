@@ -87,39 +87,84 @@
 
 #pragma mark -
 #pragma mark Calenadar Methods
+//
+//- (BOOL) calendarMonthView:(TKCalendarMonthView*)monthView markForDay:(NSDate*)date{
+////	
+//	NSArray *eventObjects = [self.fetchedResultsController fetchedObjects];
+//	for (Event *event in eventObjects) {
+//		BOOL isTheSameDay = [self isSameDay:date withDate:event.startDate];
+//		if (isTheSameDay)
+//			return YES;
+//		
+//	}
+//	return NO;
+//}
 
-- (BOOL) calendarMonthView:(TKCalendarMonthView*)monthView markForDay:(NSDate*)date{
-//	
-	NSArray *eventObjects = [self.fetchedResultsController fetchedObjects];
-	for (Event *event in eventObjects) {
-		BOOL isTheSameDay = [self isSameDay:date withDate:event.startDate];
-		if (isTheSameDay)
-			return YES;
-		
-	}
-	return NO;
-}
 
 
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	return 1;
-}
 
-- (void) calendarMonthView:(TKCalendarMonthView*)monthView dateWasSelected:(NSDate*)date{
-	
-	
+
+- (void) calendarMonthView:(TKCalendarMonthView*)monthView didSelectDate:(NSDate*)date{
 	self.selectedDate = date;
-
+	
 	[self setDayElements];
 	[tableView reloadData];
 }
 
-//- (void) calendarMonthView:(TKCalendarMonthView*)mv monthWillAppear:(NSDate*)month{
-//	[super calendarMonthView:mv monthWillAppear:month];
-//	
-//}
 
+
+
+- (NSArray*) calendarMonthView:(TKCalendarMonthView*)monthView marksFromDate:(NSDate*)startDate toDate:(NSDate*)lastDate{
+	
+//	[marksArray release];
+	NSMutableArray *marksArray = [NSMutableArray arrayWithCapacity:31];
+	NSDate *date = startDate;
+	NSArray *eventObjects = [self.fetchedResultsController fetchedObjects];
+	TKDateInformation info;
+	
+	NSMutableDictionary *objectsForMark = [NSMutableDictionary dictionaryWithCapacity:20];
+	for (Event *event in eventObjects) 
+			[objectsForMark setValue:[NSNumber numberWithInt:1] forKey:[event.startDate dateDescription]];
+	
+	
+	NSLog(@"%@", [objectsForMark allKeys]);
+
+	while(YES){
+		
+		NSLog(@"esto es lo que pido %@ ", [date dateDescription]);
+		if ( [objectsForMark valueForKey:[date dateDescription]] != nil) 
+			[marksArray addObject:[NSNumber numberWithBool:YES]];
+		else
+			[marksArray addObject:[NSNumber numberWithBool:NO]];
+		
+		info = [date dateInformation];
+		info.day++;
+		date = [NSDate dateFromDateInformation:info];
+		if([date compare:lastDate]==NSOrderedDescending) break;
+	}
+	
+	
+	
+//	[self generateRandomDataForStartDate:startDate endDate:lastDate];
+	return marksArray;
+	
+}
+
+- (void) calendarMonthView:(TKCalendarMonthView*)mv monthDidChange:(NSDate*)d{
+	[super calendarMonthView:mv monthDidChange:d];
+	[self.tableView reloadData];
+	//NSLog(@"Month Did Change: %@ %@",d,[monthView dateSelected]);
+}
+
+
+
+#pragma mark -
+#pragma mark Table View dataSource Methods
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+	return 1;
+}
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -496,8 +541,8 @@
 - (BOOL)isSameDay:(NSDate *)dateOne withDate:(NSDate *)dateTwo{
     NSUInteger desiredComponents = NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit;
     NSDateComponents *myCalendarDate = [[NSCalendar currentCalendar] components:desiredComponents fromDate:dateOne];
-    NSDateComponents *today = [[NSCalendar currentCalendar] components:desiredComponents fromDate:dateTwo];
-    return [myCalendarDate isEqual:today];
+    NSDateComponents *myComparisonDate = [[NSCalendar currentCalendar] components:desiredComponents fromDate:dateTwo];
+    return [myCalendarDate isEqual:myComparisonDate];
 }
 
 
@@ -651,8 +696,9 @@ NSLog(@"tyee3");
 	UIBarButtonItem *addButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addEvent:)];
     self.navigationItem.rightBarButtonItem = addButtonItem;
     [addButtonItem release];
+	[self.monthView selectDate:[NSDate date]];
 	[self setDayElements];
-	
+		
 	[self addToolBar];
 	
 	

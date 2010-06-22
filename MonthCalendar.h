@@ -43,9 +43,12 @@
 			
 		NSMutableArray *calendarsTicket;
 		NSMutableArray *addEventsQueue;
-		NSCondition  *waitForCalendarTickectLock;
+		NSMutableDictionary *eventsTickets;
 	
+		NSCondition  *waitForCalendarTickectLock;
+		NSCondition  *waitForEventTicketsLock;
 		NSLock *waitForManagedObjectContext;
+	
 	
 	//	BOOL entryTicketDone;
 	//	NSCondition  *waitForEventTickectLock;
@@ -88,6 +91,7 @@
 
 -(void) initializeData;
 
+@property (nonatomic, retain) NSMutableDictionary *eventsTickets;
 @property (nonatomic, retain) NSMutableArray *calendarsTicket;
 @property (nonatomic, retain) NSMutableArray *addEventsQueue;
 

@@ -288,7 +288,7 @@
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 85}, {425, 764}}</string>
+							<string>{{0, 0}, {425, 764}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -337,7 +337,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>1566C01A11D0E25800EB12B8</string>
+										<string>1566C04711D0FD4B00EB12B8</string>
 										<key>history</key>
 										<array>
 											<string>154686BE10B0C87D008E69F1</string>
@@ -462,11 +462,11 @@
 											<string>1566BE6C11D0C53000EB12B8</string>
 											<string>1566BE6E11D0C53000EB12B8</string>
 											<string>1566BE9311D0C8BC00EB12B8</string>
-											<string>1566BE9411D0C8BC00EB12B8</string>
 											<string>1566BF9A11D0DA9600EB12B8</string>
 											<string>1566BFD411D0DD2400EB12B8</string>
-											<string>1566C01211D0E1FF00EB12B8</string>
-											<string>1566C01311D0E1FF00EB12B8</string>
+											<string>1566C01E11D0FAF800EB12B8</string>
+											<string>1566C02D11D0FCD600EB12B8</string>
+											<string>1566C02E11D0FCD600EB12B8</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -600,6 +600,19 @@
 											<string>1566BFD511D0DD2400EB12B8</string>
 											<string>1566C01411D0E1FF00EB12B8</string>
 											<string>1566C01511D0E1FF00EB12B8</string>
+											<string>1566C02111D0FAF800EB12B8</string>
+											<string>1566C02211D0FAF800EB12B8</string>
+											<string>1566C02311D0FAF800EB12B8</string>
+											<string>1566C02411D0FAF800EB12B8</string>
+											<string>1566C02511D0FAF800EB12B8</string>
+											<string>1566C02611D0FAF800EB12B8</string>
+											<string>1566C02711D0FAF800EB12B8</string>
+											<string>1566C02811D0FAF800EB12B8</string>
+											<string>1566C02911D0FAF800EB12B8</string>
+											<string>1566C02F11D0FCD600EB12B8</string>
+											<string>1566C03011D0FCD600EB12B8</string>
+											<string>1566C03111D0FCD600EB12B8</string>
+											<string>1566C03211D0FCD600EB12B8</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -795,9 +808,9 @@
 	<array>
 		<string>1566BFB211D0DAD500EB12B8</string>
 		<string>1566BFB311D0DAD500EB12B8</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>154685F810B0B23A008E69F1</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/rafaelchacon/Sandboxes/GoogleCal/GoogleCal.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -1180,7 +1193,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

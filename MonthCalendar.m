@@ -22,6 +22,7 @@
 @synthesize selectedCalendar;
 @synthesize calendarsTicket;
 @synthesize addEventsQueue;
+@synthesize eventsTickets;
 
 
 -(void)addEvent:(id)sender{
@@ -99,20 +100,6 @@
 
 #pragma mark -
 #pragma mark Calenadar Methods
-//
-//- (BOOL) calendarMonthView:(TKCalendarMonthView*)monthView markForDay:(NSDate*)date{
-////	
-//	NSArray *eventObjects = [self.fetchedResultsController fetchedObjects];
-//	for (Event *event in eventObjects) {
-//		BOOL isTheSameDay = [self isSameDay:date withDate:event.startDate];
-//		if (isTheSameDay)
-//			return YES;
-//		
-//	}
-//	return NO;
-//}
-
-
 
 
 
@@ -122,7 +109,7 @@
 	
 	[self setDayElements];
 	[self.tableView reloadData];
-	NSLog(@"RELOADED CUANDO CAMBIE FECHA");
+	
 }
 
 
@@ -311,13 +298,23 @@
 	 delegate:self
 	 didFinishSelector:@selector( calendarsTicket:finishedWithFeed:error:)];
 
-	//NSLog(@"Antes del lock");
-	
+
+	// This is to wait for retrieving google calendar
 	[waitForCalendarTickectLock lock]; 
 	while(!ticketDone) { 
 		[waitForCalendarTickectLock wait]; 
 	} 
 	[waitForCalendarTickectLock unlock]; 
+	// this is to wait for google event entries to be procesed
+
+	[waitForEventTicketsLock lock]; 
+	while([calendarsTicket count] != 0) { 
+		[waitForEventTicketsLock wait]; 
+	} 
+	[waitForEventTicketsLock unlock]; 
+	
+		
+	
 
 	
 
@@ -449,8 +446,10 @@
 			[dictionary setObject:newTicket forKey:KEY_TICKET];
 		}
 		else{
-			
+			[waitForEventTicketsLock lock]; 
 			[self.calendarsTicket removeObject:dictionary];	
+			[waitForEventTicketsLock signal]; 
+			[waitForEventTicketsLock unlock]; 
 			
 		}
 	}else
@@ -727,6 +726,13 @@ NSLog(@"tyee3");
 	
 }
 
+-(NSMutableDictionary *)eventsTickets{
+		if (eventsTickets ==nil)
+			eventsTickets = [[NSMutableDictionary alloc] initWithCapacity:5];
+	return eventsTickets;
+	
+}
+
 -(NSMutableArray *)calendarsTicket {
 
 	if (calendarsTicket ==nil) {
@@ -772,7 +778,8 @@ NSLog(@"tyee3");
 	self.calendarsTicket = nil;
 	waitForCalendarTickectLock = nil;
 	waitForManagedObjectContext = nil;
-	//waitForEventTickectLock = nil;
+	waitForEventTicketsLock = nil;
+	eventsTickets = nil;
 
 }
 
@@ -780,7 +787,7 @@ NSLog(@"tyee3");
 	[super viewDidLoad];
 	waitForCalendarTickectLock = [NSCondition new];
 	waitForManagedObjectContext = [NSLock new];
-	//waitForEventTickectLock = [NSCondition new];
+	waitForEventTicketsLock = [NSCondition new];
 	ticketDone = NO;
 	//entryTicketDone = NO;
 	
@@ -827,7 +834,8 @@ NSLog(@"tyee3");
 	[calendarsTicket release];
 	[waitForCalendarTickectLock release];
 	[waitForManagedObjectContext release];
-	//[waitForEventTickectLock release];
+	[waitForEventTicketsLock release];
+	[eventsTickets release];
 	[super dealloc];
 	
 }

@@ -274,8 +274,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>17</integer>
-									<integer>5</integer>
+									<integer>20</integer>
+									<integer>18</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -317,7 +317,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>GoogleCalAppDelegate.m</string>
+								<string>MonthCalendar.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -325,11 +325,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>GoogleCalAppDelegate.m</string>
+										<string>MonthCalendar.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>15CCC73811D13ABA00974A9F</string>
+										<string>15CCC77611D1426F00974A9F</string>
 										<key>history</key>
 										<array>
 											<string>154686BE10B0C87D008E69F1</string>
@@ -454,11 +454,12 @@
 											<string>1566C01E11D0FAF800EB12B8</string>
 											<string>15CCC6DD11D1125F00974A9F</string>
 											<string>15CCC6F211D11B3600974A9F</string>
-											<string>15CCC70C11D137E400974A9F</string>
 											<string>15CCC70D11D137E400974A9F</string>
-											<string>15CCC72411D13A2500974A9F</string>
 											<string>15CCC72511D13A2500974A9F</string>
-											<string>15CCC72611D13A2500974A9F</string>
+											<string>15CCC73911D13CF000974A9F</string>
+											<string>15CCC75111D13F0700974A9F</string>
+											<string>15CCC75211D13F0700974A9F</string>
+											<string>15CCC76A11D1416200974A9F</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -632,6 +633,10 @@
 											<string>15CCC72B11D13A2500974A9F</string>
 											<string>15CCC72C11D13A2500974A9F</string>
 											<string>15CCC72D11D13A2500974A9F</string>
+											<string>15CCC73B11D13CF000974A9F</string>
+											<string>15CCC74A11D13E2200974A9F</string>
+											<string>15CCC75411D13F0700974A9F</string>
+											<string>15CCC75511D13F0700974A9F</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -856,7 +861,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>GoogleCalAppDelegate.m</string>
+								<string>MonthCalendar.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>

@@ -74,12 +74,10 @@
 		if (!allCalendarsValue)
 			self.selectedCalendar = event.calendar;
 		
-	
-		
 		[self insertCalendarEvent:event toCalendar:event.calendar];
-		NSLog(@"termino el insert");
+
 		[self reloadCalendar];
-		NSLog(@"el peo es en  el reload");
+	
 	
 	}
 	
@@ -566,21 +564,29 @@
 										   forFeedURL:[NSURL URLWithString:calendar.link]
 											 delegate:self
 											 didFinishSelector:@selector( insertTicket:finishedWithEntry:error: )];
-	
+
+	if ([addEventTicket authToken])
 	[appDelegate.addEventsQueue setObject:event forKey:[addEventTicket authToken]];
+	else{
+		srand([[NSDate date] timeIntervalSince1970]);
+		int random_key = rand();
+		[appDelegate.addEventsQueue setObject:event forKey:[NSNumber numberWithInt:random_key]];
+		
+	}
 
 	
 }
 
 - (void)insertTicket:(GDataServiceTicket *)ticket finishedWithEntry:(GDataEntryCalendarEvent *)entry error:(NSError *)error{
+	
+	NSLog(@"%@",[ticket authToken]);
 	Event *eventAdded = (Event *)[appDelegate.addEventsQueue objectForKey:[ticket authToken]];
 
-	if (!eventAdded) return; //this should never happen
 	
-	if( !error ){
-		NSLog(@"no hay error succees en google ");
-			
-			
+	
+	
+	if( !error ){		
+			if (!eventAdded) return; //this should never happen
 			eventAdded.eventid = [entry iCalUID];
 			eventAdded.updated = [[entry updatedDate] date];
 			NSError *error = nil;
@@ -596,20 +602,30 @@
 		
 	}
 	else{
-		[self handleError:error];
-
-		//NSLog(@" objects count before %d",[[self.fetchedResultsController  fetchedObjects] count]);
-		//[self.managedObjectContext deleteObject:eventAdded];
-	//	
-//		NSError *error = nil;
-//		[waitForManagedObjectContext lock];
-//		if (![self.managedObjectContext save:&error]) {
-//			
-//			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-//			
-//		}	
-//		[waitForManagedObjectContext unlock];
-		//NSLog(@" objects count after %d",[[self.fetchedResultsController  fetchedObjects] count]);
+		NSString *title, *msg;
+		if( [error code]==kGDataBadAuthentication ){
+			title = @"Authentication Failed";
+			msg = @"Invalid username/password\n\nPlease go to the iPhone's settings to change your Google account credentials. This event won't be synchronize";
+		}else if ( [error code] == NSURLErrorNotConnectedToInternet ) {
+			
+			
+			title = @"No internet access.";
+			msg = @"The application couldn't connect to internet. Please check your internet access.";
+			
+		}else{
+			// some other error authenticating or retrieving the GData object or a 304 status
+			// indicating the data has not been modified since it was previously fetched
+			title = @"An unexpected error has ocurred.  This event won't synchronize";
+			msg = [error localizedDescription];
+		}
+		
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+														message:msg
+													   delegate:nil
+											  cancelButtonTitle:@"Ok"
+											  otherButtonTitles:nil];
+		[alert show];
+		[alert release];
 				
 	}
 
@@ -626,10 +642,16 @@
 	if( [error code]==kGDataBadAuthentication ){
 		title = @"Authentication Failed";
 		msg = @"Invalid username/password\n\nPlease go to the iPhone's settings to change your Google account credentials.";
+	}else if ( [error code] == NSURLErrorNotConnectedToInternet ) {
+		
+		
+		title = @"No internet access.";
+		msg = @"The application couldn't connect to internet. Please check your internet access.";
+		
 	}else{
 		// some other error authenticating or retrieving the GData object or a 304 status
 		// indicating the data has not been modified since it was previously fetched
-		title = @"Unknown Error";
+		title = @"An unexpected error has ocurred.";
 		msg = [error localizedDescription];
 	}
 	

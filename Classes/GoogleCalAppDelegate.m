@@ -21,14 +21,8 @@
 @synthesize username;
 @synthesize addEventsQueue;
 
-
-
 #pragma mark -
 #pragma mark Application lifecycle
-
-
-
-
 
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
@@ -82,9 +76,6 @@
 				NSLog(@"estoy borrando unos bastardos");
 		
 		}
-	
-			
-			
 			
 	}
 }

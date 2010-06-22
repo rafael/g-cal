@@ -64,7 +64,7 @@
 	CGRect rect = baseRect;
 	
 	// Position each label with a modified version of the base rect.
-	rect.origin.x += 15;
+	rect.origin.x += 17;
 
 	
 	// First column...
@@ -72,13 +72,13 @@
 	rect.origin.x -= 15;
 	rect.origin.y -= 7;
 
-	rect.origin.y += 5;
+	rect.origin.y += 6;
 	time.frame = rect;
 	rect.origin.y += 10;
 	// Second column...
 	rect.size.width = baseRect.size.width - 60;
 	rect.origin.x += 60;
-	rect.origin.y -= 15;
+	rect.origin.y -= 16;
 	name.frame = rect;
 	rect.origin.y += 14;
 	addr.frame = rect;

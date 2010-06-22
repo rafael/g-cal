@@ -21,6 +21,7 @@
 @synthesize eventsForGivenDate;
 @synthesize selectedCalendar;
 @synthesize calendarsTicket;
+@synthesize addEventsQueue;
 
 
 -(void)addEvent:(id)sender{
@@ -70,6 +71,16 @@
 		}
 		if (!allCalendarsValue)
 			self.selectedCalendar = event.calendar;
+		
+		GDataEntryCalendarEvent *newEntry = [GDataEntryCalendarEvent calendarEvent];
+		[newEntry setTitleWithString:event.title];
+		[newEntry addLocation:[GDataWhere whereWithString:event.location]];
+		GDataDateTime *startDate = [GDataDateTime dateTimeWithDate:event.startDate timeZone:[NSTimeZone systemTimeZone]];
+		GDataDateTime *endDate = [GDataDateTime dateTimeWithDate:event.endDate timeZone:[NSTimeZone systemTimeZone]];
+		[newEntry addTime:[GDataWhen whenWithStartTime:startDate endTime:endDate]];
+		[newEntry setContentWithString:event.note];
+		
+		[self insertCalendarEvent:newEntry toCalendar:event.calendar];
 		
 		[self reloadCalendar];
 		
@@ -181,19 +192,15 @@
 	 
 
 
-	//[cell setNeedsDisplay];
-//	[circle_view setNeedsDisplay];
-	
-	
-	// Configure the cell.
 	Event *anEvent = (Event *)[self.eventsForGivenDate objectAtIndex:row];
 
 	UIColor *colorForCell = [UIColor colorWithHexString:anEvent.calendar.color];
-	
-	Circle *circle_view = [[Circle alloc] initWithFrame:CGRectMake(10, 15, 15, 15) andColor:colorForCell];
-	[cell addSubview:circle_view];
-	[circle_view release];
-	
+
+	if (colorForCell !=nil){
+		Circle *circle_view = [[Circle alloc] initWithFrame:CGRectMake(10, 15, 15, 15) andColor:colorForCell];
+		[cell addSubview:circle_view];
+		[circle_view release];
+	}
 	if (anEvent.startDate){
 		NSDate *date = anEvent.startDate;
 		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -238,11 +245,24 @@
 
 - (void)hudWasHidden {
     // Remove HUD from screen when the HUD was hidded
-	
+	[self reloadCalendar];
 	
     [HUD removeFromSuperview];
     [HUD release];
 }
+
+-(void) initializeData{
+	
+	HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    HUD.delegate = self;
+    HUD.labelText = @"Loading";
+    HUD.detailsLabelText = @"Retreiving Data From Google";
+    // Show the HUD while the provided method executes in a new thread
+	gCalService = appDelegate.gCalService;
+	[HUD showWhileExecuting:@selector(loadCalendarsAndEvents:) onTarget:self withObject:nil animated:YES];
+}
+
 
 
 #pragma mark -
@@ -280,36 +300,10 @@
 }    
 
 
+
+
 #pragma mark -
-#pragma mark Utility functions
-
--(void)allCalendars:(BOOL)value{
-	allCalendarsValue = value;
-	
-}
-
--(void)reloadCalendar{
-	[self setDayElements];
-	[self.monthView reload];
-	[self.tableView reloadData];
-	if (self.selectedDate)
-		[self.monthView selectDate:self.selectedDate];
-		
-}
-
--(void) initializeData{
-	
-	HUD = [[MBProgressHUD alloc] initWithView:self.view];
-    [self.view addSubview:HUD];
-    HUD.delegate = self;
-    HUD.labelText = @"Loading";
-    HUD.detailsLabelText = @"Retreiving Data From Google";
-    // Show the HUD while the provided method executes in a new thread
-	gCalService = appDelegate.gCalService;
-	[HUD showWhileExecuting:@selector(loadCalendarsAndEvents:) onTarget:self withObject:nil animated:YES];
-}
-
-
+#pragma mark Google functions
 
 -(void) loadCalendarsAndEvents:(GDataFeedCalendar *)feed{
 
@@ -325,7 +319,7 @@
 	} 
 	[waitForCalendarTickectLock unlock]; 
 
-	[self reloadCalendar];
+	
 
 	
 }
@@ -335,7 +329,6 @@
 
 - (void)calendarsTicket:(GDataServiceTicket *)ticket finishedWithFeed:(GDataFeedCalendar *)feed error:(NSError *)error{
 
-	self.calendarsTicket = [NSMutableArray arrayWithCapacity:5];
 	if( !error ){
 		int count = [[feed entries] count];
 		[NSThread sleepForTimeInterval:2];
@@ -395,9 +388,11 @@
 			GDataServiceTicket *nextTicket = [nextDictionary objectForKey:KEY_TICKET];
 			if( nextTicket==ticket ){		// We've found the calendar these events are meant for...
 				dictionary = nextDictionary;
+			//
 				break;
 			}
 		}
+		
 	
 		if( !dictionary )
 			return;		// This should never happen.  It means we couldn't find the ticket it relates to.
@@ -453,6 +448,11 @@
 																  didFinishSelector:@selector( eventsTicket:finishedWithEntries:error: )];   // Right back here...
 			[dictionary setObject:newTicket forKey:KEY_TICKET];
 		}
+		else{
+			
+			[self.calendarsTicket removeObject:dictionary];	
+			
+		}
 	}else
 		[self handleError:error];
 //	
@@ -486,9 +486,8 @@
 			}
 		}
 		
-			[self setDayElements];
-			[tableView reloadData];
-			[self.monthView reload];
+			[self reloadCalendar];
+		
 		[waitForManagedObjectContext unlock];
 			
 			NSURL *nextURL = [[feed nextLink] URL];
@@ -508,26 +507,6 @@
 
 
 
-- (void)handleError:(NSError *)error{
-	NSString *title, *msg;
-	if( [error code]==kGDataBadAuthentication ){
-		title = @"Authentication Failed";
-		msg = @"Invalid username/password\n\nPlease go to the iPhone's settings to change your Google account credentials.";
-	}else{
-		// some other error authenticating or retrieving the GData object or a 304 status
-		// indicating the data has not been modified since it was previously fetched
-		title = @"Unknown Error";
-		msg = [error localizedDescription];
-	}
-	
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
-													message:msg
-												   delegate:nil
-										  cancelButtonTitle:@"Ok"
-										  otherButtonTitles:nil];
-	[alert show];
-	[alert release];
-}
 
 -(void)fetchEventEntries:(NSArray *) arrayOfElements{
 	 NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
@@ -574,6 +553,65 @@
 	
 	[pool release];
 	
+	
+}
+
+
+- (void)insertCalendarEvent:(GDataEntryCalendarEvent *)event toCalendar:(Calendar *)calendar{
+	
+//	GDataServiceTicket *addEventTicket= [gCalService fetchEntryByInsertingEntry:event
+//										   forFeedURL:[NSURL URLWithString:calendar.link]
+//											 delegate:self
+//											 didFinishSelector:@selector( insertTicket:finishedWithEntry:error: )];
+	
+}
+
+- (void)insertTicket:(GDataServiceTicket *)ticket finishedWithEntry:(GDataEntryCalendarEvent *)entry error:(NSError *)error{
+	if( !error )
+		NSLog(@"no hay error succees en google ");
+	else
+		[self handleError:error];
+}
+
+#pragma mark -
+#pragma mark Utility functions
+
+- (void)handleError:(NSError *)error{
+	NSString *title, *msg;
+	if( [error code]==kGDataBadAuthentication ){
+		title = @"Authentication Failed";
+		msg = @"Invalid username/password\n\nPlease go to the iPhone's settings to change your Google account credentials.";
+	}else{
+		// some other error authenticating or retrieving the GData object or a 304 status
+		// indicating the data has not been modified since it was previously fetched
+		title = @"Unknown Error";
+		msg = [error localizedDescription];
+	}
+	
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+													message:msg
+												   delegate:nil
+										  cancelButtonTitle:@"Ok"
+										  otherButtonTitles:nil];
+	[alert show];
+	[alert release];
+}
+
+
+
+
+-(void)allCalendars:(BOOL)value{
+	allCalendarsValue = value;
+	
+}
+
+-(void)reloadCalendar{
+	
+	[self setDayElements];
+	[self.monthView reload];
+	[self.tableView reloadData];
+	if (self.selectedDate)
+		[self.monthView selectDate:self.selectedDate];
 	
 }
 
@@ -689,6 +727,17 @@ NSLog(@"tyee3");
 	
 }
 
+-(NSMutableArray *)calendarsTicket {
+
+	if (calendarsTicket ==nil) {
+		calendarsTicket =  [[NSMutableArray alloc] initWithCapacity:5];
+			
+	}
+	return calendarsTicket;
+
+	
+}
+
 #pragma mark -
 #pragma mark UIViewController functions
 
@@ -751,8 +800,7 @@ NSLog(@"tyee3");
 		//abort();
 	}	
 	
-//	
-//	[self setDayElements];
+
 	
 	//select todays date at the begining
 	[self.monthView selectDate:[NSDate date]];

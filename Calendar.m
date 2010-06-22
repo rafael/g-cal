@@ -16,6 +16,7 @@
 @dynamic updated;
 @dynamic name;
 @dynamic calid;
+@dynamic link;
 @dynamic color;
 @dynamic has_many_events;
 
@@ -59,6 +60,7 @@
 		aCalendar = [NSEntityDescription insertNewObjectForEntityForName:@"Calendar" inManagedObjectContext:context];
 		aCalendar.name = [[calendar title] stringValue];
 		aCalendar.color = [[calendar color] stringValue];
+		aCalendar.link = [[[calendar alternateLink] URL] relativeString];
 		aCalendar.calid = [calendar identifier];
 		aCalendar.updated = [[calendar updatedDate] date];
 		aCalendar.edit_permission = [NSNumber numberWithBool:[calendar canEdit]];
@@ -77,6 +79,7 @@
 	self.name = [[calendar title] stringValue];
 	self.color = [[calendar color] stringValue];
 	self.calid = [calendar identifier];
+	self.link = [[[calendar alternateLink] URL] relativeString];
 	self.updated = [[calendar updatedDate] date];
 	self.edit_permission = [NSNumber numberWithBool:[calendar canEdit]];
 	NSError *core_data_error = nil;

@@ -21,6 +21,9 @@
 		1561C8DA110CB02E00176F1A /* AddDateEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1561C8D8110CB02E00176F1A /* AddDateEventViewController.xib */; };
 		1564C70811C0EC9A00A80045 /* SelectCalendarForEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1564C70611C0EC9A00A80045 /* SelectCalendarForEventViewController.m */; };
 		1564C70911C0EC9A00A80045 /* SelectCalendarForEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1564C70711C0EC9A00A80045 /* SelectCalendarForEventViewController.xib */; };
+		1566B76511CD63EC00EB12B8 /* EventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1566B76411CD63EC00EB12B8 /* EventCell.m */; };
+		1566B83711CE1DA400EB12B8 /* Circle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1566B83611CE1DA400EB12B8 /* Circle.m */; };
+		1566B93011CE36AA00EB12B8 /* UIColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1566B92F11CE36AA00EB12B8 /* UIColor+Extensions.m */; };
 		1577539810DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1577539610DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.m */; };
 		1577539910DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1577539710DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib */; };
 		1595603310B2A9CD006EC0AB /* MonthCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1595603210B2A9CD006EC0AB /* MonthCalendar.m */; };
@@ -191,6 +194,12 @@
 		1564C70511C0EC9A00A80045 /* SelectCalendarForEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCalendarForEventViewController.h; sourceTree = "<group>"; };
 		1564C70611C0EC9A00A80045 /* SelectCalendarForEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCalendarForEventViewController.m; sourceTree = "<group>"; };
 		1564C70711C0EC9A00A80045 /* SelectCalendarForEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectCalendarForEventViewController.xib; sourceTree = "<group>"; };
+		1566B76311CD63EC00EB12B8 /* EventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCell.h; sourceTree = "<group>"; };
+		1566B76411CD63EC00EB12B8 /* EventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCell.m; sourceTree = "<group>"; };
+		1566B83511CE1DA400EB12B8 /* Circle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Circle.h; sourceTree = "<group>"; };
+		1566B83611CE1DA400EB12B8 /* Circle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Circle.m; sourceTree = "<group>"; };
+		1566B92E11CE36AA00EB12B8 /* UIColor+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extensions.h"; sourceTree = "<group>"; };
+		1566B92F11CE36AA00EB12B8 /* UIColor+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extensions.m"; sourceTree = "<group>"; };
 		1577539510DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTitlePlaceEventViewController.h; sourceTree = "<group>"; };
 		1577539610DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTitlePlaceEventViewController.m; sourceTree = "<group>"; };
 		1577539710DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTitlePlaceEventViewController.xib; sourceTree = "<group>"; };
@@ -459,8 +468,12 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1566B83511CE1DA400EB12B8 /* Circle.h */,
+				1566B83611CE1DA400EB12B8 /* Circle.m */,
 				15B37D4811CA3CD700EB9314 /* Event.h */,
 				15B37D4911CA3CD700EB9314 /* Event.m */,
+				1566B76311CD63EC00EB12B8 /* EventCell.h */,
+				1566B76411CD63EC00EB12B8 /* EventCell.m */,
 				15B3809111CB573300EB9314 /* Calendar.h */,
 				15B3809211CB573300EB9314 /* Calendar.m */,
 				1561693F11B3B81000E8AA68 /* AddCalendarEventViewController.m */,
@@ -846,6 +859,8 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				1566B92E11CE36AA00EB12B8 /* UIColor+Extensions.h */,
+				1566B92F11CE36AA00EB12B8 /* UIColor+Extensions.m */,
 				15E3CBF011CBC96B002A9883 /* DDInvocationGrabber.h */,
 				15E3CBF111CBC96B002A9883 /* DDInvocationGrabber.m */,
 				15E3CBF411CBC991002A9883 /* NSObject+DDExtensions.m */,
@@ -1144,6 +1159,9 @@
 				15B3809311CB573300EB9314 /* Calendar.m in Sources */,
 				15E3CBF211CBC96B002A9883 /* DDInvocationGrabber.m in Sources */,
 				15E3CBF611CBC991002A9883 /* NSObject+DDExtensions.m in Sources */,
+				1566B76511CD63EC00EB12B8 /* EventCell.m in Sources */,
+				1566B83711CE1DA400EB12B8 /* Circle.m in Sources */,
+				1566B93011CE36AA00EB12B8 /* UIColor+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

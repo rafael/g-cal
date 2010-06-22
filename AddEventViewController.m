@@ -65,10 +65,10 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 
 -(void)cancel{
 	
-	[event.managedObjectContext deleteObject:event];
+	[self.managedObjectContext deleteObject:event];
 	
 	NSError *error = nil;
-	if (![event.managedObjectContext save:&error]) {
+	if (![self.managedObjectContext save:&error]) {
 
 		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 

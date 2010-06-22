@@ -23,6 +23,7 @@
 @property (nonatomic, retain) NSNumber * edit_permission;
 @property (nonatomic, retain) NSDate * updated;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * link;
 @property (nonatomic, retain) NSString * calid;
 @property (nonatomic, retain) NSString * color;
 @property (nonatomic, retain) NSSet* has_many_events;

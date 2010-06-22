@@ -12,6 +12,8 @@
 #import "NSObject+DDExtensions.h"
 #import "AddEventViewController.h"
 #import "GDataCalendar.h"
+#import "EventCell.h"
+
 
 #define KEY_CALENDAR @"calendar"
 #define KEY_TICKET @"ticket"
@@ -36,11 +38,16 @@
 		GDataServiceGoogleCalendar *gCalService;
 		BOOL allCalendarsValue;
 		BOOL ticketDone;
-		BOOL entryTicketDone;
+	
+
 			
 		NSMutableArray *calendarsTicket;
 		NSCondition  *waitForCalendarTickectLock;
-		NSCondition  *waitForEventTickectLock;
+	
+		NSLock *waitForManagedObjectContext;
+	
+	//	BOOL entryTicketDone;
+	//	NSCondition  *waitForEventTickectLock;
 	
 		
 	
@@ -53,6 +60,8 @@
 
 
 -(void)allCalendars:(BOOL)value;
+
+-(void)reloadCalendar;
 
 -(void)addEvent:(id)sender;
 
@@ -67,6 +76,8 @@
 -(void)handleError:(NSError *)error;
 
 -(void)calendarsTicket:(GDataServiceTicket *)ticket finishedWithFeed:(GDataFeedCalendar *)feed error:(NSError *)error;
+
+- (void)eventsTicket:(GDataServiceTicket *)ticket finishedWithDeletedEntries:(GDataFeedCalendarEvent *)feed error:(NSError *)error;
 
 -(void) loadCalendarsAndEvents:(id)object;
 

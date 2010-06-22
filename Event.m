@@ -71,7 +71,7 @@
 		anEvent.startDate =  [[when startTime] date];
 		anEvent.endDate = [[when endTime] date];
 	}
-	NSLog(@"hasta aqui vamos fino");
+
 	anEvent.eventid = [event iCalUID];
 	anEvent.updated = [[event updatedDate] date];
 	anEvent.note = [[event content] stringValue];
@@ -87,10 +87,49 @@
 	NSError *core_data_error = nil;
 	if (![context save:&core_data_error]) {
 		NSLog(@"Unresolved error saving a event %@, %@", core_data_error, [core_data_error userInfo]);
+		return nil;
 	}
 	return anEvent;
 	
-	return nil;
+}
+
+
+-(BOOL)updateEventFromGCal:(GDataEntryCalendarEvent *)event forCalendar:(Calendar *)calendar withContext:(NSManagedObjectContext *)context{
+		
+	
+	
+	GDataWhen *when = [[event objectsForExtensionClass:[GDataWhen class]] objectAtIndex:0];
+	// Note: An event might have multiple locations.  We're only displaying the first one.
+	GDataWhere *addr = [[event locations] objectAtIndex:0];
+	
+	self.title = [[event title] stringValue];
+	
+	if( when ){
+		self.startDate =  [[when startTime] date];
+		self.endDate = [[when endTime] date];
+	}
+	
+	self.eventid = [event iCalUID];
+	self.updated = [[event updatedDate] date];
+	self.note = [[event content] stringValue];
+	if( addr )
+		self.location =  [addr stringValue];
+	self.calendar = calendar;
+	
+	//anEvent.calendar =
+	
+	
+	
+	
+	NSError *core_data_error = nil;
+	if (![context save:&core_data_error]) {
+		NSLog(@"Unresolved error saving a event %@, %@", core_data_error, [core_data_error userInfo]);
+	
+	}
+	if (core_data_error) return NO;
+
+	return YES;
+	
 }
 
 

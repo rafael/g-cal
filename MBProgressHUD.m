@@ -500,7 +500,7 @@
 @implementation MBRoundProgressView
 
 - (id)initWithDefaultSize {
-    return [super initWithFrame:CGRectMake(0.0f, 0.0f, 37.0f, 37.0f)];
+    return [super initWithFrame:CGRectMake(0.0f, 0.0f, 150.0f, 150.0f)];
 }
 
 - (void)drawRect:(CGRect)rect {

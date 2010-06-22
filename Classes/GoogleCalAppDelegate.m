@@ -11,7 +11,7 @@
 #import "DayViewController.h"
 #import "EventViewController.h"
 #import "CalendarViewController.h"
-
+#import "Event.h"
 
 @implementation GoogleCalAppDelegate
 
@@ -19,6 +19,8 @@
 @synthesize mainMonthCal;
 @synthesize gCalService;
 @synthesize username;
+@synthesize addEventsQueue;
+
 
 
 #pragma mark -
@@ -70,8 +72,23 @@
 			[managedObjectContext rollback];
 		
         } 
-    }
+		
+		NSArray *eventsArray =  [self.addEventsQueue allValues];
+		
+		for (Event *event  in eventsArray) {
+				[self.managedObjectContext deleteObject:event];
+				NSError *error = nil;			
+				[self.managedObjectContext save:&error];
+				NSLog(@"estoy borrando unos bastardos");
+		
+		}
+	
+			
+			
+			
+	}
 }
+
 
 
 #pragma mark -
@@ -196,11 +213,20 @@
     [managedObjectModel release];
     [persistentStoreCoordinator release];
     [mainMonthCal release]; 
-
+	[addEventsQueue release];
 	[window release];
 	
 	[super dealloc];
 }
+
+-(NSMutableDictionary *)addEventsQueue{
+	if (addEventsQueue ==nil)
+		addEventsQueue = [[NSMutableDictionary alloc] initWithCapacity:5];
+	return addEventsQueue;
+	
+}
+
+
 
 
 @end

@@ -24,12 +24,14 @@
 	MonthCalendar *mainMonthCal;
 	GDataServiceGoogleCalendar *gCalService;
 	NSString *username;
+	NSMutableDictionary *addEventsQueue;
 
 
 
 	
 
 }
+@property (nonatomic, retain) NSMutableDictionary *addEventsQueue;
 @property (nonatomic,retain) NSString *username;
 @property (nonatomic,retain) GDataServiceGoogleCalendar *gCalService;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;

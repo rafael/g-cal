@@ -21,8 +21,7 @@
 @synthesize eventsForGivenDate;
 @synthesize selectedCalendar;
 @synthesize calendarsTicket;
-@synthesize addEventsQueue;
-@synthesize eventsTickets;
+//@synthesize eventsTickets;
 
 
 -(void)addEvent:(id)sender{
@@ -65,26 +64,22 @@
 - (void)addEventViewController:(AddEventViewController *)addEventViewController didAddEvent:(Event *)event{
 	if (event != nil){
 		NSError *error = nil;
-		if (![event.managedObjectContext save:&error]) {
+		[waitForManagedObjectContext lock];
+		if (![self.managedObjectContext save:&error]) {
 
 			NSLog(@"Unresolved error saving the event%@, %@", error, [error userInfo]);
 		
 		}
+		[waitForManagedObjectContext unlock];
 		if (!allCalendarsValue)
 			self.selectedCalendar = event.calendar;
 		
-		GDataEntryCalendarEvent *newEntry = [GDataEntryCalendarEvent calendarEvent];
-		[newEntry setTitleWithString:event.title];
-		[newEntry addLocation:[GDataWhere whereWithString:event.location]];
-		GDataDateTime *startDate = [GDataDateTime dateTimeWithDate:event.startDate timeZone:[NSTimeZone systemTimeZone]];
-		GDataDateTime *endDate = [GDataDateTime dateTimeWithDate:event.endDate timeZone:[NSTimeZone systemTimeZone]];
-		[newEntry addTime:[GDataWhen whenWithStartTime:startDate endTime:endDate]];
-		[newEntry setContentWithString:event.note];
+	
 		
-		[self insertCalendarEvent:newEntry toCalendar:event.calendar];
-		
+		[self insertCalendarEvent:event toCalendar:event.calendar];
+		NSLog(@"termino el insert");
 		[self reloadCalendar];
-		
+		NSLog(@"el peo es en  el reload");
 	
 	}
 	
@@ -436,10 +431,10 @@
 		
 		[waitForManagedObjectContext unlock];
 		
-		[self reloadCalendar];
+		
 		NSURL *nextURL = [[feed nextLink] URL];
 		if( nextURL ){    // There are more events in the calendar...  Fetch again.
-			NSLog(@"entre en refetch");
+		
 			GDataServiceTicket *newTicket = [gCalService fetchFeedWithURL:nextURL
 																		   delegate:self
 																  didFinishSelector:@selector( eventsTicket:finishedWithEntries:error: )];   // Right back here...
@@ -469,7 +464,7 @@
 	
 	
 		int count = [[feed entries] count];	
-		NSLog(@"Deleted count %d", count);
+
 		[waitForManagedObjectContext lock];
 		for( int i=0; i<count; i++ ){
 		
@@ -556,20 +551,71 @@
 }
 
 
-- (void)insertCalendarEvent:(GDataEntryCalendarEvent *)event toCalendar:(Calendar *)calendar{
+- (void)insertCalendarEvent:(Event *)event toCalendar:(Calendar *)calendar{
 	
-//	GDataServiceTicket *addEventTicket= [gCalService fetchEntryByInsertingEntry:event
-//										   forFeedURL:[NSURL URLWithString:calendar.link]
-//											 delegate:self
-//											 didFinishSelector:@selector( insertTicket:finishedWithEntry:error: )];
+	GDataEntryCalendarEvent *newEntry = [GDataEntryCalendarEvent calendarEvent];
+	[newEntry setTitleWithString:event.title];
+	[newEntry addLocation:[GDataWhere whereWithString:event.location]];
+	GDataDateTime *startDate = [GDataDateTime dateTimeWithDate:event.startDate timeZone:[NSTimeZone systemTimeZone]];
+	GDataDateTime *endDate = [GDataDateTime dateTimeWithDate:event.endDate timeZone:[NSTimeZone systemTimeZone]];
+	[newEntry addTime:[GDataWhen whenWithStartTime:startDate endTime:endDate]];
+	[newEntry setContentWithString:event.note];
+	
+	
+	GDataServiceTicket *addEventTicket= [gCalService fetchEntryByInsertingEntry:newEntry
+										   forFeedURL:[NSURL URLWithString:calendar.link]
+											 delegate:self
+											 didFinishSelector:@selector( insertTicket:finishedWithEntry:error: )];
+	
+	[appDelegate.addEventsQueue setObject:event forKey:[addEventTicket authToken]];
+
 	
 }
 
 - (void)insertTicket:(GDataServiceTicket *)ticket finishedWithEntry:(GDataEntryCalendarEvent *)entry error:(NSError *)error{
-	if( !error )
+	Event *eventAdded = (Event *)[appDelegate.addEventsQueue objectForKey:[ticket authToken]];
+
+	if (!eventAdded) return; //this should never happen
+	
+	if( !error ){
 		NSLog(@"no hay error succees en google ");
-	else
+			
+			
+			eventAdded.eventid = [entry iCalUID];
+			eventAdded.updated = [[entry updatedDate] date];
+			NSError *error = nil;
+			[waitForManagedObjectContext lock];
+			if (![self.managedObjectContext save:&error]) {
+				
+				NSLog(@"Unresolved error saving the event when coming  back from google%@, %@", error, [error userInfo]);
+			
+			}
+			[waitForManagedObjectContext unlock];
+			[appDelegate.addEventsQueue removeObjectForKey:[ticket authToken]];
+			
+		
+	}
+	else{
 		[self handleError:error];
+
+		//NSLog(@" objects count before %d",[[self.fetchedResultsController  fetchedObjects] count]);
+		//[self.managedObjectContext deleteObject:eventAdded];
+	//	
+//		NSError *error = nil;
+//		[waitForManagedObjectContext lock];
+//		if (![self.managedObjectContext save:&error]) {
+//			
+//			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+//			
+//		}	
+//		[waitForManagedObjectContext unlock];
+		//NSLog(@" objects count after %d",[[self.fetchedResultsController  fetchedObjects] count]);
+				
+	}
+
+	
+
+	
 }
 
 #pragma mark -
@@ -726,12 +772,7 @@ NSLog(@"tyee3");
 	
 }
 
--(NSMutableDictionary *)eventsTickets{
-		if (eventsTickets ==nil)
-			eventsTickets = [[NSMutableDictionary alloc] initWithCapacity:5];
-	return eventsTickets;
-	
-}
+
 
 -(NSMutableArray *)calendarsTicket {
 
@@ -779,7 +820,8 @@ NSLog(@"tyee3");
 	waitForCalendarTickectLock = nil;
 	waitForManagedObjectContext = nil;
 	waitForEventTicketsLock = nil;
-	eventsTickets = nil;
+	
+	//eventsTickets = nil;
 
 }
 
@@ -810,7 +852,8 @@ NSLog(@"tyee3");
 
 	
 	//select todays date at the begining
-	[self.monthView selectDate:[NSDate date]];
+	self.selectedDate = [NSDate date];
+//	[self.monthView selectDate:[NSDate date]];
 	[self initializeData];
 
 	
@@ -835,7 +878,8 @@ NSLog(@"tyee3");
 	[waitForCalendarTickectLock release];
 	[waitForManagedObjectContext release];
 	[waitForEventTicketsLock release];
-	[eventsTickets release];
+	
+	//[eventsTickets release];
 	[super dealloc];
 	
 }

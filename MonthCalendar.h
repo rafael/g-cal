@@ -41,9 +41,9 @@
 	
 
 			
+		//NSMutableArray *calendarsTicket;
+	
 		NSMutableArray *calendarsTicket;
-		NSMutableArray *addEventsQueue;
-		NSMutableDictionary *eventsTickets;
 	
 		NSCondition  *waitForCalendarTickectLock;
 		NSCondition  *waitForEventTicketsLock;
@@ -83,7 +83,7 @@
 
 - (void)eventsTicket:(GDataServiceTicket *)ticket finishedWithDeletedEntries:(GDataFeedCalendarEvent *)feed error:(NSError *)error;
 
-- (void)insertCalendarEvent:(GDataEntryCalendarEvent *)event toCalendar:(Calendar *)calendar;
+- (void)insertCalendarEvent:(Event *)event toCalendar:(Calendar *)calendar;
 
 -(void) loadCalendarsAndEvents:(id)object;
 
@@ -91,9 +91,9 @@
 
 -(void) initializeData;
 
-@property (nonatomic, retain) NSMutableDictionary *eventsTickets;
+
 @property (nonatomic, retain) NSMutableArray *calendarsTicket;
-@property (nonatomic, retain) NSMutableArray *addEventsQueue;
+//@property (nonatomic, retain) NSMutableArray *addEventsQueue;
 
 @property (nonatomic, retain) Calendar *selectedCalendar;
 @property (nonatomic, retain) NSArray *eventsForGivenDate;

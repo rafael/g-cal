@@ -7,6 +7,7 @@
 //
 
 #import "SelectCalendarForEventViewController.h"
+#import "Calendar.h"
 
 
 
@@ -87,6 +88,7 @@
 	}	
 
 	Calendar *aCalendar = (Calendar *)[fetchedResultsController objectAtIndexPath:indexPath];
+	NSLog(@"calendar permision %@", aCalendar.edit_permission);
 	if (self.event.calendar != nil && self.event.calendar.calid == aCalendar.calid){
 		cell.accessoryType = UITableViewCellAccessoryCheckmark;
 		self.lastIndexPath = indexPath;

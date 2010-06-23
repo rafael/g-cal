@@ -129,6 +129,7 @@
 		15B37C6B11C94F8F00EB9314 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B37C6A11C94F8F00EB9314 /* MBProgressHUD.m */; };
 		15B37D4C11CA3CD700EB9314 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B37D4911CA3CD700EB9314 /* Event.m */; };
 		15B3809311CB573300EB9314 /* Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B3809211CB573300EB9314 /* Calendar.m */; };
+		15CCCA7711D21AC900974A9F /* redButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 15CCCA7611D21AC900974A9F /* redButton.png */; };
 		15E3CBF211CBC96B002A9883 /* DDInvocationGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3CBF111CBC96B002A9883 /* DDInvocationGrabber.m */; };
 		15E3CBF611CBC991002A9883 /* NSObject+DDExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3CBF411CBC991002A9883 /* NSObject+DDExtensions.m */; };
 		15E3CE8E11CD2E48002A9883 /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E3CE8B11CD2E46002A9883 /* libTapkuLibrary.a */; };
@@ -414,6 +415,7 @@
 		15B37D4911CA3CD700EB9314 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = ../Event.m; sourceTree = "<group>"; };
 		15B3809111CB573300EB9314 /* Calendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Calendar.h; path = ../Calendar.h; sourceTree = "<group>"; };
 		15B3809211CB573300EB9314 /* Calendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Calendar.m; path = ../Calendar.m; sourceTree = "<group>"; };
+		15CCCA7611D21AC900974A9F /* redButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redButton.png; sourceTree = "<group>"; };
 		15E3CBF011CBC96B002A9883 /* DDInvocationGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDInvocationGrabber.h; path = "../../Downloads/DDFoundation-1.0b3/lib/DDInvocationGrabber.h"; sourceTree = SOURCE_ROOT; };
 		15E3CBF111CBC96B002A9883 /* DDInvocationGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDInvocationGrabber.m; path = "../../Downloads/DDFoundation-1.0b3/lib/DDInvocationGrabber.m"; sourceTree = SOURCE_ROOT; };
 		15E3CBF411CBC991002A9883 /* NSObject+DDExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+DDExtensions.m"; path = "../../Downloads/DDFoundation-1.0b3/lib/NSObject+DDExtensions.m"; sourceTree = SOURCE_ROOT; };
@@ -819,6 +821,13 @@
 			name = Calendar;
 			sourceTree = "<group>";
 		};
+		15CCCA5811D215E700974A9F /* images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		15E3CE8311CD2E46002A9883 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -840,6 +849,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				15CCCA5811D215E700974A9F /* images */,
 				15E3CF5B11CD3151002A9883 /* TapkuLibrary.bundle */,
 				15E3CE8211CD2E46002A9883 /* TapkuLibrary.xcodeproj */,
 				15F021AF11C6A562001F1730 /* Icon.png */,
@@ -877,6 +887,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				15CCCA7611D21AC900974A9F /* redButton.png */,
 				1564C70711C0EC9A00A80045 /* SelectCalendarForEventViewController.xib */,
 				1561C8D8110CB02E00176F1A /* AddDateEventViewController.xib */,
 				15B3785F11C80A2500EB9314 /* CalendarViewController.xib */,
@@ -1012,6 +1023,7 @@
 				15B376AA11C7E0C700EB9314 /* GDataOAuthWindow.xib in Resources */,
 				15B3786111C80A2500EB9314 /* CalendarViewController.xib in Resources */,
 				15E3CF5C11CD3151002A9883 /* TapkuLibrary.bundle in Resources */,
+				15CCCA7711D21AC900974A9F /* redButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

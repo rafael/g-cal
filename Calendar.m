@@ -63,7 +63,14 @@
 		aCalendar.link = [[[calendar alternateLink] URL] relativeString];
 		aCalendar.calid = [calendar identifier];
 		aCalendar.updated = [[calendar updatedDate] date];
-		aCalendar.edit_permission = [NSNumber numberWithBool:[calendar canEdit]];
+		//NSLog(@"permiso de edicion a la creacion %d, %@", [calendar canEdit], );
+		NSNumber *permission;	
+		NSString *accessLevel = [[calendar accessLevel] stringValue];
+		if ( [accessLevel isEqualToString:@"owner"] || [accessLevel isEqualToString:@"editor"])
+			permission= [NSNumber numberWithInt:1];
+		else
+			permission= [NSNumber numberWithInt:0];
+		aCalendar.edit_permission = permission;
 		NSError *core_data_error = nil;
 		if (![context save:&core_data_error]) {
 			NSLog(@"Unresolved error saving a calenadar%@, %@", core_data_error, [core_data_error userInfo]);
@@ -81,7 +88,15 @@
 	self.calid = [calendar identifier];
 	self.link = [[[calendar alternateLink] URL] relativeString];
 	self.updated = [[calendar updatedDate] date];
-	self.edit_permission = [NSNumber numberWithBool:[calendar canEdit]];
+		
+	NSNumber *permission;	
+	NSString *accessLevel = [[calendar accessLevel] stringValue];
+	if ( [accessLevel isEqualToString:@"owner"] || [accessLevel isEqualToString:@"editor"])
+		permission= [NSNumber numberWithInt:1];
+	else
+		permission= [NSNumber numberWithInt:0];
+	self.edit_permission = permission;
+	
 	NSError *core_data_error = nil;
 	if (![context save:&core_data_error]) {
 		NSLog(@"Unresolved error saving a calenadar%@, %@", core_data_error, [core_data_error userInfo]);
@@ -89,6 +104,16 @@
 	
 	if (core_data_error) return NO;
 	else return YES;
+	
+}
+-(NSString *)ownSectionSeparator{
+	NSLog(@"entre para %@, y voy a retornar %d", self.name ,[self.edit_permission boolValue]  );
+	if ( [self.edit_permission boolValue])
+		return @"1";
+	else
+		return @"2";
+			
+	
 	
 }
 

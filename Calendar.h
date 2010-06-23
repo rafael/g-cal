@@ -40,6 +40,7 @@
 - (void)removeHas_many_eventsObject:(Event *)value;
 - (void)addHas_many_events:(NSSet *)value;
 - (void)removeHas_many_events:(NSSet *)value;
+-(NSString *)ownSectionSeparator;
 
 @end
 

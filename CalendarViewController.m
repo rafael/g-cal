@@ -32,12 +32,16 @@
         [fetchRequest setEntity:entity];
         
 		
-        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+       // NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+		NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"edit_permission" ascending:NO];
         NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
         
         [fetchRequest setSortDescriptors:sortDescriptors];
 		
-        NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:@"EventRoot"];
+        NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
+																									managedObjectContext:managedObjectContext 
+																									sectionNameKeyPath:@"ownSectionSeparator" 
+																									cacheName:@"CalendarRoot"];
         aFetchedResultsController.delegate = self;
         self.fetchedResultsController = aFetchedResultsController;
 		
@@ -108,7 +112,12 @@
 			
 		case 1:
 			
-			return @"Your Calendars";
+			return @"My Calendars";
+			
+			break;
+		case 2:
+			
+			return @"Other Calendars";
 			
 			break;
 			
@@ -162,7 +171,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     NSInteger count = [[fetchedResultsController sections] count];
-    
+    NSLog(@"numero de elementon secciones %d", count);
 	if (count == 0) {
 		count = 1;
 	}
@@ -177,11 +186,12 @@
 
 //		
 //	
-	if (section == 1){
+	if (section >=  1){
 		section = section -1 ;
 	
 		if ([[fetchedResultsController sections] count] > 0) {
 			id <NSFetchedResultsSectionInfo> sectionInfo = [[fetchedResultsController sections] objectAtIndex:section];
+			NSLog(@" numero de elementos para la seccion %@, %d nada",[sectionInfo name] ,  [sectionInfo numberOfObjects]);
 			numberOfRows = [sectionInfo numberOfObjects];
 			
 		}

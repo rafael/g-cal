@@ -27,12 +27,13 @@
 		NSDateFormatter *dateFormater;
 		NSFetchedResultsController *fetchedResultsController;
 		NSManagedObjectContext *managedObjectContext;
+		BOOL editingMode;
 		
 
 }
 
 
-
+@property BOOL editingMode;
 @property (nonatomic, retain) NSMutableArray *menuList;
 @property (nonatomic, retain) IBOutlet UITableView *addElementsTableView;
 @property(nonatomic, retain) Event *event;
@@ -52,6 +53,13 @@
 -(UITableViewCell *)cellForNormalHeight:(UITableViewCell *)cell indexAt:(NSIndexPath *) indexPath;
 - (void) startDateFormater;
 - (void) endDateFormater;
+- (void)eventDeleteConfirmation;
++ (UIButton *)buttonWithTitle:	(NSString *)title
+					   target:(id)target
+					 selector:(SEL)selector
+						frame:(CGRect)frame
+						image:(UIImage *)image
+				darkTextColor:(BOOL)darkTextColor;
 
 
 -(void) initializeMenuList;

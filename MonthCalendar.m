@@ -43,14 +43,14 @@
 		
 	NSDate *endDate = [[NSDate alloc] initWithTimeInterval:one_hour sinceDate:addEventController.event.startDate]; 
 	addEventController.event.endDate =endDate;
+	addEventController.editingMode = NO;
 	[endDate release];
 
 	
 	
 	
 	UINavigationController *addNavController =  [[UINavigationController alloc] initWithRootViewController:addEventController];
-	
-//	addNavController.navigationBarHidden = YES;
+
 	[self presentModalViewController:addNavController animated:YES];
 	
 	[addNavController release];
@@ -208,9 +208,11 @@
 
 
 -(void)tableView:(UITableView *)tv didSelectRowAtIndexPath:(NSIndexPath *) indexPath {
-	self.title = @"June";
+
+	self.title = [self.selectedDate month];
 	EventViewController *eventController = [[EventViewController alloc] initWithNibName:@"EventViewController" bundle:nil];
-	Event *event = (Event *)[fetchedResultsController objectAtIndexPath:indexPath];
+	eventController.managedObjectContext = self.managedObjectContext;
+	Event *event = (Event *)[self.eventsForGivenDate objectAtIndex:[indexPath row]];
 	eventController.event = event;
 	
 	[self.navigationController pushViewController:eventController animated:YES];
@@ -262,7 +264,9 @@
         
         [fetchRequest setSortDescriptors:sortDescriptors];
 		
-        NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:@"EventRoot"];
+        NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
+																									managedObjectContext:managedObjectContext 
+																									sectionNameKeyPath:nil cacheName:@"EventRoot"];
         aFetchedResultsController.delegate = self;
         self.fetchedResultsController = aFetchedResultsController;
 		
@@ -286,6 +290,18 @@
 #pragma mark Google functions
 
 -(void) loadCalendarsAndEvents:(GDataFeedCalendar *)feed{
+	
+	//NSURL *url = [GDataServiceGoogleCalendar  calendarFeedURLForUsername:appDelegate.username];
+//
+//	
+//	GDataQueryCalendar* query = [GDataQueryCalendar calendarQueryWithFeedURL:url];
+//	[query setShouldShowDeleted:YES];
+//	NSLog(@"este es mi query %@", query);
+//	[[gCalService dd_invokeOnMainThread] fetchFeedWithQuery:query
+//														delegate:self
+//											   didFinishSelector:@selector( calendarsTicket:finishedWithFeed:error: )];
+//	
+	
 
 	[[gCalService dd_invokeOnMainThread]  fetchCalendarFeedForUsername:appDelegate.username
 	 delegate:self
@@ -321,10 +337,11 @@
 
 	if( !error ){
 		int count = [[feed entries] count];
-		[NSThread sleepForTimeInterval:2];
+	
 		for( int i=0; i<count; i++ ){
 		 
 			GDataEntryCalendar *calendar = [[feed entries] objectAtIndex:i];
+			NSLog(@"Calendar title %@ y esto es el isDeleted %d", [calendar title], [calendar isDeleted] );
 			[waitForManagedObjectContext lock];
 			Calendar *aCalendar = [Calendar getCalendarWithId:[calendar identifier] andContext:self.managedObjectContext];
 		
@@ -399,14 +416,13 @@
 			Calendar *calendarForEvent = [dictionary objectForKey:KEY_CALENDAR];
 			if (  !anEvent &&  !eventDeleted){
 				
-			//	NSLog(@"este es el status %@",[[event eventStatus] stringValue] );
+		
 				anEvent = [Event createEventFromGCal:event forCalendar:calendarForEvent withContext:self.managedObjectContext];
-			//	NSLog(@"cree: title: %@, id: %@", anEvent.title, anEvent.eventid);
+		
 			}
 			
 			else if (anEvent && eventDeleted) {
-			//	NSLog(@"este es el status %@",[[event eventStatus] stringValue] );
-//				NSLog(@"borre: title: %@, id: %@", anEvent.title, anEvent.eventid);
+
 				
 				[self.managedObjectContext deleteObject:anEvent];
 				
@@ -447,12 +463,6 @@
 		}
 	}else
 		[self handleError:error];
-//	
-//	[waitForEventTickectLock lock]; 
-//	// Produce new data 
-//	entryTicketDone = YES; 
-//	[waitForEventTickectLock signal]; 
-//	[waitForEventTickectLock unlock]; 
 }
 
 
@@ -814,10 +824,63 @@ NSLog(@"tyee3");
 {
 	// this UIViewController is about to re-appear, make sure we remove the current selection in our table view
 	NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];
-
 	[self.tableView deselectRowAtIndexPath:tableSelection animated:YES];
+	NSLog(@"siempre entro a view did appear");
 	self.title = @"All Calendars";
+	if (self.selectedCalendar != nil) {
+	
+		NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+		NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:managedObjectContext];
+        [fetchRequest setEntity:entity];
+		
+		NSPredicate *predicate = [NSPredicate predicateWithFormat: @"calendar == %@", selectedCalendar];
+		[fetchRequest setPredicate:predicate];
+        
+		
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"startDate" ascending:YES];
+        NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+        
+        [fetchRequest setSortDescriptors:sortDescriptors];
+		
+        NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:@"EventRoot"];
+        aFetchedResultsController.delegate = self;
+        self.fetchedResultsController = aFetchedResultsController;
+		
+		NSError *error = nil;
+		if (![self.fetchedResultsController performFetch:&error]) {
+			/*
+			 Replace this implementation with code to handle the error appropriately.
+			 
+			 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+			 */
+			NSLog(@"Unresolved error fetching events MonthCalendar.m %@, %@", error, [error userInfo]);
+			//abort();
+		}	
+		
+        [aFetchedResultsController release];
+        [fetchRequest release];
+        [sortDescriptor release];
+        [sortDescriptors release];
+		
+		
+	}
+	else {
+		self.fetchedResultsController = nil;
+		NSError *error = nil;
+		if (![self.fetchedResultsController performFetch:&error]) {
+			/*
+			 Replace this implementation with code to handle the error appropriately.
+			 
+			 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+			 */
+			NSLog(@"Unresolved error fetching events MonthCalendar.m %@, %@", error, [error userInfo]);
+			//abort();
+		}	
+		
+		
+	}
 
+	[self reloadCalendar];
 
 }
 

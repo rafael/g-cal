@@ -7,16 +7,36 @@
 //
 
 #import "EventViewController.h"
+#import "Calendar.h"
 
 @implementation EventViewController
+@synthesize managedObjectContext;
 
 
 
 
 
 -(void)edit{
-	//self.event.note = self.noteTextView.text;
-	[self.navigationController popViewControllerAnimated:YES];
+	
+	AddEventViewController *addEventController = [[AddEventViewController alloc] initWithNibName:@"AddEventViewController" bundle:nil];
+	addEventController.delegate = self;
+	NSLog(@"event %@",self.event);
+	Event *editEvent = self.event;	
+	addEventController.event = editEvent;
+	addEventController.managedObjectContext = self.managedObjectContext;
+	addEventController.editingMode = YES;	
+	UINavigationController *addNavController =  [[UINavigationController alloc] initWithRootViewController:addEventController];
+	[self presentModalViewController:addNavController animated:YES];
+	[addNavController release];
+	[addEventController release];
+	
+}
+
+- (void)addEventViewController:(AddEventViewController *)addEventViewController didAddEvent:(Event *)event{
+	
+	[self dismissModalViewControllerAnimated:YES];
+	
+	
 }
 
 #pragma mark -
@@ -59,13 +79,13 @@
 
 -(void)viewDidLoad{
 	self.title = @"Event";
+	Calendar *event_calendar = self.event.calendar;
 	
-   
-    UIBarButtonItem *editButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleDone target:self action:@selector(edit)];
-    self.navigationItem.rightBarButtonItem = editButtonItem;
-    [editButtonItem release];
-	
-	
+	if (event_calendar && [event_calendar.edit_permission boolValue]){
+		UIBarButtonItem *editButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleDone target:self action:@selector(edit)];
+		self.navigationItem.rightBarButtonItem = editButtonItem;
+		[editButtonItem release];
+	}
     [super viewDidLoad];	
 	
 }

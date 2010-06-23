@@ -46,6 +46,7 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 @synthesize addElementsTableView;
 @synthesize dateFormater;
 @synthesize managedObjectContext, fetchedResultsController;
+@synthesize editingMode;
 
 //
 //- (void)addNoteEventViewController:(AddNoteEventViewController *)addNoteEventViewController didAddNoteEvent:(Event *)ievent{
@@ -64,16 +65,18 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 }
 
 -(void)cancel{
-	
-	[self.managedObjectContext deleteObject:event];
-	
-	NSError *error = nil;
-	if (![self.managedObjectContext save:&error]) {
+	if (self.editingMode == NO){
+		
+		[self.managedObjectContext deleteObject:event];
+		
+		NSError *error = nil;
+		if (![self.managedObjectContext save:&error]) {
 
-		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 
-	}	
-	
+		}	
+	}
+		
 	[self.delegate addEventViewController:self didAddEvent:nil];
 }
 
@@ -83,15 +86,17 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
-	NSString *className = [[menuList objectAtIndex: indexPath.section] objectForKey:kViewControllerKey];
-	Class viewControllerClass = NSClassFromString(className);
-	AddCalendarEventViewController *targetViewController = [[viewControllerClass alloc] initWithNibName:className bundle:nil];	
-	targetViewController.event = self.event;
-	if ( [className isEqualToString:@"SelectCalendarForEventViewController"]) {
-		((SelectCalendarForEventViewController *)targetViewController).fetchedResultsController = self.fetchedResultsController;
+	if ( [indexPath section] < [menuList count ]){
+		NSString *className = [[menuList objectAtIndex: indexPath.section] objectForKey:kViewControllerKey];
+		Class viewControllerClass = NSClassFromString(className);
+		AddCalendarEventViewController *targetViewController = [[viewControllerClass alloc] initWithNibName:className bundle:nil];	
+		targetViewController.event = self.event;
+		if ( [className isEqualToString:@"SelectCalendarForEventViewController"]) {
+			((SelectCalendarForEventViewController *)targetViewController).fetchedResultsController = self.fetchedResultsController;
+		}
+		[self.navigationController pushViewController:targetViewController animated:YES];
+		[targetViewController release];
 	}
-	[self.navigationController pushViewController:targetViewController animated:YES];
-	[targetViewController release];
 	
 }
 
@@ -105,31 +110,78 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-	return [menuList count];
+	if (!self.editingMode)
+		return [menuList count];
+	else 
+		return [menuList count]+1;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
-	NSString *normalHeightSize = [[menuList objectAtIndex:indexPath.section] objectForKey:kNormalRowsizeKey];
-
-	if (normalHeightSize == @"NO") {
-		
-		cell = [self cellForNoNormalHeight:cell indexAt:indexPath];
-	}
 	
+
+	if (  [indexPath section] < [menuList count ] ){
+		NSString *normalHeightSize = [[menuList objectAtIndex:indexPath.section] objectForKey:kNormalRowsizeKey];
+		if (normalHeightSize == @"NO") {
+			
+			cell = [self cellForNoNormalHeight:cell indexAt:indexPath];
+		}
+		
+		else {
+			
+			cell = [self cellForNormalHeight:cell indexAt:indexPath];
+		}
+		
+	}
 	else {
 		
-		cell = [self cellForNormalHeight:cell indexAt:indexPath];
+		if (cell == nil)
+		{
+			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellIdentifier] autorelease];
+		}
+		
+		//
+//		cell.textLabel.textColor   = [UIColor redColor];
+//		
+//		cell.textLabel.text =  @"Delete Event";
+		
+		UIImage *buttonBackground = [UIImage imageNamed:@"redButton.png"];
+		if (buttonBackground )
+			NSLog(@"la imagen no es nil");
+		else
+			NSLog(@"si lo es ");
+		//UIImage *buttonBackgroundPressed = [UIImage imageNamed:@"blueButton.png"];
+		
+		CGRect frame = CGRectMake(0, -1, 300, 44);
+		
+		UIButton *button = [AddEventViewController buttonWithTitle:@"Delete Event"
+													 target:self
+												   selector:@selector(eventDeleteConfirmation)
+													  frame:frame
+													  image:buttonBackground
+											   //imagePressed:buttonBackgroundPressed
+											  darkTextColor:NO];
+		[cell.contentView addSubview:button];
+		//[button addTarget:self action:@selector(eventDeleteConfirmation) forControlEvents:UIControlEventTouchUpInside];
+		
+		
+		
+		
 	}
+	
 	return cell;
 	
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+	CGFloat		result;
+	if ( [indexPath section] < [menuList count ])
+		result =  [[[menuList objectAtIndex:indexPath.section] objectForKey:kRowSizeKey] floatValue];
+	else
+		result = [@"40.0f" floatValue];
 	
-	CGFloat		result =  [[[menuList objectAtIndex:indexPath.section] objectForKey:kRowSizeKey] floatValue];
 	return result;
 }
 
@@ -143,6 +195,9 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
 		NSEntityDescription *entity = [NSEntityDescription entityForName:@"Calendar" inManagedObjectContext:managedObjectContext];
         [fetchRequest setEntity:entity];
+		
+		NSPredicate *predicate = [NSPredicate predicateWithFormat: @"edit_permission == %@", [NSNumber numberWithInt:1]];
+		[fetchRequest setPredicate:predicate];
         
 		
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
@@ -170,6 +225,55 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 #pragma mark utility functions
 
 
++ (UIButton *)buttonWithTitle:	(NSString *)title
+					   target:(id)target
+					 selector:(SEL)selector
+						frame:(CGRect)frame
+						image:(UIImage *)image
+				darkTextColor:(BOOL)darkTextColor
+{	
+	UIButton *button = [[UIButton alloc] initWithFrame:frame];
+	// or you can do this:
+	//		UIButton *button = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+	//		button.frame = frame;
+	
+	button.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+	button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+	
+	[button setTitle:title forState:UIControlStateNormal];	
+	if (darkTextColor)
+	{
+		[button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+	}
+	else
+	{
+		[button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+	}
+	
+	UIImage *newImage = [image stretchableImageWithLeftCapWidth:12.0 topCapHeight:0.0];
+	[button setBackgroundImage:newImage forState:UIControlStateNormal];
+	
+	//UIImage *newPressedImage = [imagePressed stretchableImageWithLeftCapWidth:12.0 topCapHeight:0.0];
+	//[button setBackgroundImage:newPressedImage forState:UIControlStateHighlighted];
+	
+	[button addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
+	
+    // in case the parent view draws with a custom color or gradient, use a transparent color
+	button.backgroundColor = [UIColor clearColor];
+	
+	return button;
+}
+
+- (void)eventDeleteConfirmation
+{
+	// open a alert with an OK and cancel button
+	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Are you sure?"
+															 delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"OK" otherButtonTitles:nil];
+	actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
+	[actionSheet showInView:self.view]; // show from our table view (pops up in the middle of the table)
+	[actionSheet release];
+	
+}
 
 
 

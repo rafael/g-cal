@@ -7,17 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddCalendarEventViewController.h"
 #import "AddEventViewController.h"
 
-@interface EventViewController :  AddCalendarEventViewController <UITableViewDataSource> {
-	
+
+@interface EventViewController :  AddCalendarEventViewController <AddEventDelegate,UITableViewDataSource> {
+	@private
+		NSManagedObjectContext *managedObjectContext;
 
 
 }
 
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 
 
 -(void)edit;
+- (void)addEventViewController:(AddEventViewController *)addEventViewController didAddEvent:(Event *)event;
 
 @end

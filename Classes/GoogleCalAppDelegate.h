@@ -13,7 +13,7 @@
 
 
 @interface GoogleCalAppDelegate : NSObject <UIApplicationDelegate> {
-	NSMutableDictionary *data;
+	
     NSManagedObjectModel *managedObjectModel;
     NSManagedObjectContext *managedObjectContext;	    
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
@@ -31,6 +31,7 @@
 	
 
 }
+
 @property (nonatomic, retain) NSMutableDictionary *addEventsQueue;
 @property (nonatomic,retain) NSString *username;
 @property (nonatomic,retain) GDataServiceGoogleCalendar *gCalService;

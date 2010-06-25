@@ -68,16 +68,16 @@
 
 	
 	// First column...
-	rect.size.width = 50;
-	rect.origin.x -= 15;
+	rect.size.width = 60;
+	//rect.origin.x -= 5;
 	rect.origin.y -= 7;
 
 	rect.origin.y += 6;
 	time.frame = rect;
 	rect.origin.y += 10;
 	// Second column...
-	rect.size.width = baseRect.size.width - 60;
-	rect.origin.x += 60;
+	rect.size.width = 200;
+	rect.origin.x += 65;
 	rect.origin.y -= 16;
 	name.frame = rect;
 	rect.origin.y += 14;

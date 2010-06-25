@@ -10,6 +10,7 @@
 #import "AddTitlePlaceEventViewController.h"
 #import "AddNoteEventViewController.h"
 #import "AddDateEventViewController.h"
+#import "MBProgressHUD.h"
 
 
 @protocol AddEventDelegate;
@@ -17,7 +18,12 @@
 
 
 
-@interface AddEventViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,NSFetchedResultsControllerDelegate> {
+@interface AddEventViewController : UIViewController<UIActionSheetDelegate, 
+													 UITableViewDataSource,
+													 UITableViewDelegate,
+													 UITextFieldDelegate,
+													 MBProgressHUDDelegate,
+												     NSFetchedResultsControllerDelegate> {
 	
 	NSMutableArray *menuList;
  	IBOutlet UITableView *addElementsTableView;
@@ -28,10 +34,13 @@
 		NSFetchedResultsController *fetchedResultsController;
 		NSManagedObjectContext *managedObjectContext;
 		BOOL editingMode;
-		
-
+		NSCondition  *waitForDeleteEventLock;
+		MBProgressHUD *HUD;						
+		BOOL deleteDone; 
+		BOOL eventDeleted;
+														 
+											
 }
-
 
 @property BOOL editingMode;
 @property (nonatomic, retain) NSMutableArray *menuList;
@@ -63,6 +72,7 @@
 
 
 -(void) initializeMenuList;
+-(void) deleteEvent:(id)object;
 
 @end
 
@@ -70,4 +80,6 @@
 
 @required
 - (void)addEventViewController:(AddEventViewController *)addEventViewController didAddEvent:(Event *)event;
+@optional
+- (void)addEventViewController:(AddEventViewController *)addEventViewController didDeleteEvent:(Event *)event;
 @end

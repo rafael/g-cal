@@ -95,6 +95,7 @@
 @property (nonatomic, retain) NSMutableArray *calendarsTicket;
 //@property (nonatomic, retain) NSMutableArray *addEventsQueue;
 
+@property (nonatomic, assign) GoogleCalAppDelegate *appDelegate;
 @property (nonatomic, retain) Calendar *selectedCalendar;
 @property (nonatomic, retain) NSArray *eventsForGivenDate;
 @property (nonatomic, retain) NSDate *selectedDate;

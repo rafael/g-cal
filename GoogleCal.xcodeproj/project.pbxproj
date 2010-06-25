@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1516A67F11D27DF800A0DBDF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1516A67E11D27DF800A0DBDF /* Default.png */; };
 		151D0A8110D11A1800C89C83 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 151D0A7F10D11A1800C89C83 /* EventViewController.m */; };
 		151D0A8210D11A1800C89C83 /* EventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 151D0A8010D11A1800C89C83 /* EventViewController.xib */; };
 		151D0AD710D1206800C89C83 /* DayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 151D0AD510D1206800C89C83 /* DayViewController.m */; };
@@ -175,6 +176,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1516A67E11D27DF800A0DBDF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../../Desktop/Default.png; sourceTree = SOURCE_ROOT; };
 		151D0A7E10D11A1800C89C83 /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventViewController.h; path = Classes/EventViewController.h; sourceTree = "<group>"; };
 		151D0A7F10D11A1800C89C83 /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventViewController.m; path = Classes/EventViewController.m; sourceTree = "<group>"; };
 		151D0A8010D11A1800C89C83 /* EventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = EventViewController.xib; path = Classes/EventViewController.xib; sourceTree = "<group>"; };
@@ -430,7 +432,7 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* GoogleCalAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleCalAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* GoogleCalAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleCalAppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* GoogleCal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleCal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* gCal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gCal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
@@ -840,7 +842,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* GoogleCal.app */,
+				1D6058910D05DD3D006BFB54 /* gCal.app */,
 				1522510610E29FEA0088802F /* UnitTests.octest */,
 			);
 			name = Products;
@@ -853,6 +855,7 @@
 				15E3CF5B11CD3151002A9883 /* TapkuLibrary.bundle */,
 				15E3CE8211CD2E46002A9883 /* TapkuLibrary.xcodeproj */,
 				15F021AF11C6A562001F1730 /* Icon.png */,
+				1516A67E11D27DF800A0DBDF /* Default.png */,
 				1522512210E2A05A0088802F /* Tests */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				1595602E10B2A955006EC0AB /* ViewControllers */,
@@ -937,9 +940,9 @@
 			productReference = 1522510610E29FEA0088802F /* UnitTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
-		1D6058900D05DD3D006BFB54 /* GoogleCal */ = {
+		1D6058900D05DD3D006BFB54 /* g-Cal */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "GoogleCal" */;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "g-Cal" */;
 			buildPhases = (
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
@@ -950,9 +953,9 @@
 			dependencies = (
 				15E3CE9011CD2E52002A9883 /* PBXTargetDependency */,
 			);
-			name = GoogleCal;
+			name = "g-Cal";
 			productName = GoogleCal;
-			productReference = 1D6058910D05DD3D006BFB54 /* GoogleCal.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* gCal.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -973,7 +976,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* GoogleCal */,
+				1D6058900D05DD3D006BFB54 /* g-Cal */,
 				1522510510E29FEA0088802F /* UnitTests */,
 			);
 		};
@@ -1024,6 +1027,7 @@
 				15B3786111C80A2500EB9314 /* CalendarViewController.xib in Resources */,
 				15E3CF5C11CD3151002A9883 /* TapkuLibrary.bundle in Resources */,
 				15CCCA7711D21AC900974A9F /* redButton.png in Resources */,
+				1516A67F11D27DF800A0DBDF /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1263,7 +1267,7 @@
 					"\"$(SRCROOT)/../tapkulibrary/src/build/Debug-iphonesimulator\"",
 					"\"$(SRCROOT)/../tapkulibrary/src/build/Debug-iphoneos\"",
 				);
-				PRODUCT_NAME = GoogleCal;
+				PRODUCT_NAME = gCal;
 			};
 			name = Debug;
 		};
@@ -1284,7 +1288,7 @@
 					"\"$(SRCROOT)/../tapkulibrary/src/build/Debug-iphonesimulator\"",
 					"\"$(SRCROOT)/../tapkulibrary/src/build/Debug-iphoneos\"",
 				);
-				PRODUCT_NAME = GoogleCal;
+				PRODUCT_NAME = gCal;
 			};
 			name = Release;
 		};
@@ -1346,7 +1350,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "GoogleCal" */ = {
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "g-Cal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,

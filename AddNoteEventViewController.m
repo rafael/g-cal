@@ -102,7 +102,7 @@
 #pragma mark -
 #pragma mark UIViewController functions
 - (void)viewDidLoad {
-	self.title = @"Note";
+	self.title = @"Description";
 	self.navigationItem.prompt = @"Set the details for this event";
 	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
     self.navigationItem.leftBarButtonItem = cancelButtonItem;

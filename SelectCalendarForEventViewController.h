@@ -11,11 +11,17 @@
 
 
 @interface SelectCalendarForEventViewController : AddCalendarEventViewController  <UITableViewDataSource, UITableViewDelegate> {
+	IBOutlet UITableView *selectCalendartableView;
+	
 	@private
 		NSFetchedResultsController *fetchedResultsController;
 		NSIndexPath     *lastIndexPath;
+		BOOL			 editingMode;
+		
 	
 }
+@property BOOL editingMode;
+@property(nonatomic,retain) IBOutlet UITableView *selectCalendartableView;
 @property(nonatomic,retain) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) NSIndexPath *lastIndexPath;
 -(void)done;

@@ -21,6 +21,7 @@
 @synthesize eventsForGivenDate;
 @synthesize selectedCalendar;
 @synthesize calendarsTicket;
+@synthesize appDelegate;
 //@synthesize eventsTickets;
 
 
@@ -59,9 +60,11 @@
 
 }
 
-
+# pragma mark -
+# pragma mark AddEventViewController delegate methods
 
 - (void)addEventViewController:(AddEventViewController *)addEventViewController didAddEvent:(Event *)event{
+	NSLog(@"ests es event %d", event);
 	if (event != nil){
 		NSError *error = nil;
 		[waitForManagedObjectContext lock];
@@ -80,10 +83,13 @@
 	
 	
 	}
+	NSLog(@"aqui");
 	
 	[self dismissModalViewControllerAnimated:YES];
 	
 }
+
+
 
 
 
@@ -184,15 +190,20 @@
 	if (anEvent.startDate){
 		NSDate *date = anEvent.startDate;
 		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-		
-		[dateFormatter setDateFormat:@"HH:mm"];
+		[dateFormatter setPMSymbol:@"p.m."];
+		[dateFormatter setAMSymbol:@"a.m."];
+		[dateFormatter setDateStyle:NSDateFormatterNoStyle];
+		[dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+		//[dateFormatter setDateFormat:@"HH:mm"];
 		cell.time.text = [dateFormatter stringFromDate:date];
 		[dateFormatter release];
 	}
 	cell.name.text = anEvent.title;
-
+	
 	if( anEvent.location )
 		cell.addr.text = anEvent.location;
+	else
+		cell.addr.text = @"";
 	
 
     return cell;
@@ -241,7 +252,7 @@
     HUD.labelText = @"Loading";
     HUD.detailsLabelText = @"Retreiving Data From Google";
     // Show the HUD while the provided method executes in a new thread
-	gCalService = appDelegate.gCalService;
+	gCalService = self.appDelegate.gCalService;
 	[HUD showWhileExecuting:@selector(loadCalendarsAndEvents:) onTarget:self withObject:nil animated:YES];
 }
 
@@ -303,7 +314,7 @@
 //	
 	
 
-	[[gCalService dd_invokeOnMainThread]  fetchCalendarFeedForUsername:appDelegate.username
+	[[gCalService dd_invokeOnMainThread]  fetchCalendarFeedForUsername:self.appDelegate.username
 	 delegate:self
 	 didFinishSelector:@selector( calendarsTicket:finishedWithFeed:error:)];
 
@@ -341,12 +352,19 @@
 		for( int i=0; i<count; i++ ){
 		 
 			GDataEntryCalendar *calendar = [[feed entries] objectAtIndex:i];
-			NSLog(@"Calendar title %@ y esto es el isDeleted %d", [calendar title], [calendar isDeleted] );
-			[waitForManagedObjectContext lock];
+			
+		//	NSLog(@"Fecha de updated %@ y edited: %@", [[calendar updatedDate] date], [calendar editedDate] );
+			
 			Calendar *aCalendar = [Calendar getCalendarWithId:[calendar identifier] andContext:self.managedObjectContext];
 		
 			if (  !aCalendar ){
+				[waitForManagedObjectContext lock];
 				aCalendar = [Calendar createCalendarFromGCal:calendar withContext:self.managedObjectContext];
+				[waitForManagedObjectContext unlock];
+				NSURL *feedURL = [[calendar alternateLink] URL];
+					if(   feedURL ){
+						[self fetchEventEntries:[NSArray arrayWithObjects:feedURL,aCalendar,nil]];
+					}
 			
 			}
 			
@@ -354,19 +372,27 @@
 				
 				NSComparisonResult	last_update_comparison = [aCalendar.updated compare:[[calendar updatedDate] date]];
 				if (last_update_comparison == NSOrderedAscending) {
-			
+					[waitForManagedObjectContext lock];
 					[aCalendar updateCalendarFromGCal:calendar withContext:self.managedObjectContext];
+					[waitForManagedObjectContext unlock];
+					NSURL *feedURL = [[calendar alternateLink] URL];
+					if(   feedURL ){
+						[self fetchEventEntries:[NSArray arrayWithObjects:feedURL,aCalendar,nil]];
+					}
+					
 				}	
+		
 				
 			}
-			[waitForManagedObjectContext unlock];
-					
-			NSURL *feedURL = [[calendar alternateLink] URL];
-			if(   feedURL ){
-				[self fetchEventEntries:[NSArray arrayWithObjects:feedURL,aCalendar,nil]];
 
+//			NSURL *feedURL = [[calendar alternateLink] URL];
+//			if(   feedURL ){
+//				[self fetchEventEntries:[NSArray arrayWithObjects:feedURL,aCalendar,nil]];
+//			}
+	
 			
-			}
+			
+					
 		}
 			
 		
@@ -410,10 +436,14 @@
 		for( int i=0; i<count; i++ ){
 
 			GDataEntryCalendarEvent *event = [[feed entries]  objectAtIndex:i];
+			//NSLog(@"event entry %@", [event title], [event eventStatus]);
+			
 			BOOL eventDeleted = [[[event eventStatus] stringValue] isEqualToString:kGDataEventStatusCanceled ];
-			Event *anEvent = [Event getEventWithId:[event iCalUID] andContext:self.managedObjectContext];
-	
 			Calendar *calendarForEvent = [dictionary objectForKey:KEY_CALENDAR];
+			Event *anEvent = [Event getEventWithId:[event iCalUID] forCalendar:calendarForEvent andContext:self.managedObjectContext];
+	
+			
+			NSLog(@"event entry \n titulo: %@ \n status: %@ \n nombre:%@\n", [[event title] stringValue], [event identifier], calendarForEvent.name);
 			if (  !anEvent &&  !eventDeleted){
 				
 		
@@ -421,9 +451,10 @@
 		
 			}
 			
+			
 			else if (anEvent && eventDeleted) {
 
-				
+				NSLog(@"que e da la comparacion %@", [event identifier]);
 				[self.managedObjectContext deleteObject:anEvent];
 				
 				NSError *error = nil;
@@ -433,10 +464,9 @@
 				
 			}
 			
-	
-			
 			else if ( anEvent && [anEvent.updated compare:[[event updatedDate] date]] == NSOrderedAscending ){
-				//NSLog(@"Need to update event");
+				NSLog(@"Need to update event");
+				
 				[anEvent updateEventFromGCal:event forCalendar:calendarForEvent withContext:self.managedObjectContext];
 				
 			}
@@ -467,42 +497,42 @@
 
 
 - (void)eventsTicket:(GDataServiceTicket *)ticket finishedWithDeletedEntries:(GDataFeedCalendarEvent *)feed error:(NSError *)error{
-	if( !error ){
-
-	
-	
-		int count = [[feed entries] count];	
-
-		[waitForManagedObjectContext lock];
-		for( int i=0; i<count; i++ ){
-		
-			GDataEntryCalendarEvent *event = [[feed entries]  objectAtIndex:i];
-			Event *anEvent = [Event getEventWithId:[event iCalUID] andContext:self.managedObjectContext];
-
-			if (  anEvent ){
-				[self.managedObjectContext deleteObject:anEvent];
-				NSLog(@"borre a alguien ");
-				NSError *error = nil;
-				if (![self.managedObjectContext save:&error]) 
-					NSLog(@"Unresolved error deleting an envent%@, %@", error, [error userInfo]);
-			}
-		}
-		
-			[self reloadCalendar];
-		
-		[waitForManagedObjectContext unlock];
-			
-			NSURL *nextURL = [[feed nextLink] URL];
-			if( nextURL ){    // There are more events in the calendar...  Fetch again.
-				NSLog(@"entre en refetch");
-				[gCalService fetchFeedWithURL:nextURL
-									 delegate:self
-									 didFinishSelector:@selector( eventsTicket:finishedWithDeletedEntries:error: )];   // Right back here...
-
-			}
-		
-	}else
-		[self handleError:error];
+//	if( !error ){
+//
+//	
+//	
+//		int count = [[feed entries] count];	
+//
+//		[waitForManagedObjectContext lock];
+//		for( int i=0; i<count; i++ ){
+//		
+//			GDataEntryCalendarEvent *event = [[feed entries]  objectAtIndex:i];
+//			Event *anEvent = [Event getEventWithId:[event iCalUID]  andContext:self.managedObjectContext];
+//
+//			if (  anEvent ){
+//				[self.managedObjectContext deleteObject:anEvent];
+//				//NSLog(@"borre a alguien ");
+//				NSError *error = nil;
+//				if (![self.managedObjectContext save:&error]) 
+//					NSLog(@"Unresolved error deleting an envent%@, %@", error, [error userInfo]);
+//			}
+//		}
+//		
+//			[self reloadCalendar];
+//		
+//		[waitForManagedObjectContext unlock];
+//			
+//			NSURL *nextURL = [[feed nextLink] URL];
+//			if( nextURL ){    // There are more events in the calendar...  Fetch again.
+//			//	NSLog(@"entre en refetch");
+//				[gCalService fetchFeedWithURL:nextURL
+//									 delegate:self
+//									 didFinishSelector:@selector( eventsTicket:finishedWithDeletedEntries:error: )];   // Right back here...
+//
+//			}
+//		
+//	}else
+//		[self handleError:error];
 	
 }
 
@@ -576,11 +606,11 @@
 											 didFinishSelector:@selector( insertTicket:finishedWithEntry:error: )];
 
 	if ([addEventTicket authToken])
-	[appDelegate.addEventsQueue setObject:event forKey:[addEventTicket authToken]];
+	[self.appDelegate.addEventsQueue setObject:event forKey:[addEventTicket authToken]];
 	else{
 		srand([[NSDate date] timeIntervalSince1970]);
 		int random_key = rand();
-		[appDelegate.addEventsQueue setObject:event forKey:[NSNumber numberWithInt:random_key]];
+		[self.appDelegate.addEventsQueue setObject:event forKey:[NSNumber numberWithInt:random_key]];
 		
 	}
 
@@ -589,8 +619,8 @@
 
 - (void)insertTicket:(GDataServiceTicket *)ticket finishedWithEntry:(GDataEntryCalendarEvent *)entry error:(NSError *)error{
 	
-	NSLog(@"%@",[ticket authToken]);
-	Event *eventAdded = (Event *)[appDelegate.addEventsQueue objectForKey:[ticket authToken]];
+//NSLog(@"%@",[ticket authToken]);
+	Event *eventAdded = (Event *)[self.appDelegate.addEventsQueue objectForKey:[ticket authToken]];
 
 	
 	
@@ -599,6 +629,8 @@
 			if (!eventAdded) return; //this should never happen
 			eventAdded.eventid = [entry iCalUID];
 			eventAdded.updated = [[entry updatedDate] date];
+			eventAdded.editLink = [[entry editLink] href];
+			eventAdded.etag = [entry ETag];
 			NSError *error = nil;
 			[waitForManagedObjectContext lock];
 			if (![self.managedObjectContext save:&error]) {
@@ -607,7 +639,7 @@
 			
 			}
 			[waitForManagedObjectContext unlock];
-			[appDelegate.addEventsQueue removeObjectForKey:[ticket authToken]];
+			[self.appDelegate.addEventsQueue removeObjectForKey:[ticket authToken]];
 			
 		
 	}
@@ -708,13 +740,25 @@
 	//ok the next line is very important...
 	// If I don't select the day before reloading the calendar
 	// there is a little bug when changing the date from other motnh
-
-	[self.monthView selectDate:[NSDate date]];
-	[self reloadCalendar];
+	if ([[[self.monthView dateSelected] month] isEqualToString:[self.selectedDate month]]) {
+		[self.monthView selectDate:self.selectedDate];
+		
+		[self setDayElements];
+		[self.tableView reloadData];
+		if (self.selectedDate)
+			[self.monthView selectDate:self.selectedDate];
+	}
+	else {
+		
+		[self.monthView selectDate:self.selectedDate];
+		[self reloadCalendar];
+		
+		
+	}
 
 }
-- (void) list:(id)sender{
-NSLog(@"tyee2");
+- (void) sync:(id)sender{
+	[self initializeData];
 }
 - (void) month:(id)sender{
 NSLog(@"tyee3");	
@@ -739,38 +783,36 @@ NSLog(@"tyee3");
 																				 action:@selector(today:)];
 
 	
-	UIBarButtonItem *systemItem2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
-																				 target:self
-																				 action:@selector(list:)];
+
 	
 	UIBarButtonItem *systemItem3 = [[UIBarButtonItem alloc]
 									initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
-									target:self action:@selector(list:)];
-	
-	UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"List", @"Day",
-																					  @"Month", nil]];
-	segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
-	[segmentedControl addTarget:self action:@selector(month:)
-			forControlEvents:UIControlEventValueChanged];
-	
-	
-	UIBarButtonItem *segmentButton = [[UIBarButtonItem alloc]
-									  initWithCustomView:segmentedControl];
+									target:self action:@selector(sync:)];
+//	
+//	UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"List", @"Day",
+//																					  @"Month", nil]];
+//	segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+//	[segmentedControl addTarget:self action:@selector(month:)
+//			forControlEvents:UIControlEventValueChanged];
+//	
+//	
+//	UIBarButtonItem *segmentButton = [[UIBarButtonItem alloc]
+//									  initWithCustomView:segmentedControl];
 	//Use this to put space in between your toolbox buttons
 	UIBarButtonItem *flexItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
 																			  target:nil
 																			  action:nil];
 	
 	//Add buttons to the array
-	NSArray *items = [NSArray arrayWithObjects: systemItem1, flexItem,segmentButton ,flexItem,systemItem3, flexItem, nil];
+	//NSArray *items = [NSArray arrayWithObjects: systemItem1, flexItem,segmentButton ,flexItem,systemItem3, flexItem, nil];
+	NSArray *items = [NSArray arrayWithObjects: systemItem1, flexItem,systemItem3, nil];
 	
 	//release buttons
 	[systemItem1 release];
-	[systemItem2 release];
 	[systemItem3 release];
 	[flexItem release];
-	[segmentButton release];
-	[segmentedControl release];
+//	[segmentButton release];
+//	[segmentedControl release];
 	
 	//add array of buttons to toolbar
 	[toolbar setItems:items animated:NO];
@@ -804,6 +846,14 @@ NSLog(@"tyee3");
 	
 }
 
+-(GoogleCalAppDelegate *)appDelegate {
+	
+	if (appDelegate == nil) {
+		appDelegate = [[UIApplication sharedApplication] delegate];		
+	}
+	return appDelegate;
+	
+}
 
 
 -(NSMutableArray *)calendarsTicket {
@@ -825,7 +875,7 @@ NSLog(@"tyee3");
 	// this UIViewController is about to re-appear, make sure we remove the current selection in our table view
 	NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];
 	[self.tableView deselectRowAtIndexPath:tableSelection animated:YES];
-	NSLog(@"siempre entro a view did appear");
+//NSLog(@"siempre entro a view did appear");
 	self.title = @"All Calendars";
 	if (self.selectedCalendar != nil) {
 	
@@ -902,9 +952,7 @@ NSLog(@"tyee3");
 	self.eventsForGivenDate = nil;
 	self.selectedCalendar = nil;
 	self.calendarsTicket = nil;
-	waitForCalendarTickectLock = nil;
-	waitForManagedObjectContext = nil;
-	waitForEventTicketsLock = nil;
+
 	
 	//eventsTickets = nil;
 
@@ -916,12 +964,8 @@ NSLog(@"tyee3");
 	waitForManagedObjectContext = [NSLock new];
 	waitForEventTicketsLock = [NSCondition new];
 	ticketDone = NO;
-	//entryTicketDone = NO;
 	
 	
-	
-	
-	appDelegate = [[UIApplication sharedApplication] delegate];
 	
 	NSError *error = nil;
 	if (![self.fetchedResultsController performFetch:&error]) {
@@ -938,7 +982,6 @@ NSLog(@"tyee3");
 	
 	//select todays date at the begining
 	self.selectedDate = [NSDate date];
-//	[self.monthView selectDate:[NSDate date]];
 	[self initializeData];
 
 	

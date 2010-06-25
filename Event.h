@@ -13,10 +13,10 @@
 @interface Event :  NSManagedObject  
 {
 }
-+(Event *)getEventWithId:(NSString *)eventId andContext:(NSManagedObjectContext *) context;
++(Event *)getEventWithId:(NSString *)eventId forCalendar:(Calendar *)calendar andContext:(NSManagedObjectContext *) context;
 +(Event *)createEventFromGCal:(GDataEntryCalendarEvent *)event forCalendar:(Calendar *)calendar withContext:(NSManagedObjectContext *)context;
 -(BOOL)updateEventFromGCal:(GDataEntryCalendarEvent *)event forCalendar:(Calendar *)calendar withContext:(NSManagedObjectContext *)context;
-
+-(GDataEntryCalendarEvent *)eventGDataEntry;
 @property (nonatomic, retain) NSString * location;
 @property (nonatomic, retain) NSString * note;
 @property (nonatomic, retain) NSString * title;
@@ -25,6 +25,9 @@
 @property (nonatomic, retain) NSString * eventid;
 @property (nonatomic, retain) Calendar * calendar;
 @property (nonatomic, retain) NSDate * updated;
+@property (nonatomic, retain) NSString *editLink;
+@property (nonatomic, retain) NSString *etag;
+@property (nonatomic, retain) NSString *identifier;
 
 @end
 

@@ -121,7 +121,7 @@
 		placeTextField.borderStyle = UITextBorderStyleNone;
 		placeTextField.textColor = [UIColor blackColor];
 		placeTextField.font = [UIFont systemFontOfSize:18.0];
-		placeTextField.placeholder = @"Place";
+		placeTextField.placeholder = @"Where";
 		placeTextField.backgroundColor = [UIColor whiteColor];
 		placeTextField.autocorrectionType = UITextAutocorrectionTypeNo;	// no auto correction support
 		placeTextField.keyboardType = UIKeyboardTypeDefault;	// use the default type input method (entire keyboard)
@@ -143,7 +143,7 @@
 		titleTextField.borderStyle = UITextBorderStyleNone;
 		titleTextField.textColor = [UIColor blackColor];
 		titleTextField.font = [UIFont systemFontOfSize:18.0];
-		titleTextField.placeholder = @"Title";
+		titleTextField.placeholder = @"What";
 		titleTextField.backgroundColor = [UIColor whiteColor];
 		titleTextField.autocorrectionType = UITextAutocorrectionTypeNo;	
 		titleTextField.keyboardType = UIKeyboardTypeDefault;	
@@ -192,7 +192,7 @@
 - (void)viewDidLoad {
     
 	
-	self.title = @"Title & Place";
+	self.title = @"What & Where";
 	self.navigationItem.prompt = @"Set the details for this event";
 	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
     self.navigationItem.leftBarButtonItem = cancelButtonItem;

@@ -38,7 +38,7 @@
 	[window addSubview:navController.view];
 	[aMonthCal release]; 
 	[calendarController release];
-
+	
 	
 
 
@@ -156,7 +156,7 @@
 	
 	if (gCalService == nil) {
 		gCalService = [[GDataServiceGoogleCalendar alloc] init];
-		 [gCalService setUserAgent:@"A_and_R_development-GoogleCalc-1.0"];
+		 [gCalService setUserAgent:@"oubinite-GoogleCalc-1.0"];
 		[gCalService setShouldCacheDatedData:YES];
 		[gCalService setServiceShouldFollowNextLinks:YES];
 	}
@@ -198,6 +198,14 @@
 #pragma mark -
 #pragma mark Memory management
 
+-(NSMutableDictionary *)addEventsQueue{
+	if (addEventsQueue ==nil)
+		addEventsQueue = [[NSMutableDictionary alloc] initWithCapacity:5];
+	return addEventsQueue;
+	
+}
+
+
 - (void)dealloc {
 	
     [managedObjectContext release];
@@ -210,12 +218,6 @@
 	[super dealloc];
 }
 
--(NSMutableDictionary *)addEventsQueue{
-	if (addEventsQueue ==nil)
-		addEventsQueue = [[NSMutableDictionary alloc] initWithCapacity:5];
-	return addEventsQueue;
-	
-}
 
 
 

@@ -20,15 +20,18 @@
 @dynamic eventid;
 @dynamic calendar;
 @dynamic updated;
+@dynamic editLink;
+@dynamic etag;
+@dynamic identifier;
 
 
-+(Event *)getEventWithId:(NSString *)eventId andContext:(NSManagedObjectContext *) context{
++(Event *)getEventWithId:(NSString *)eventId forCalendar:(Calendar *)calendar andContext:(NSManagedObjectContext *) context{
 
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:context];
 	[request setEntity:entity];
 	// retrive the objects with a given value for a certain property
-	NSPredicate *predicate = [NSPredicate predicateWithFormat: @"eventid == %@", eventId];
+	NSPredicate *predicate = [NSPredicate predicateWithFormat: @"eventid == %@ AND calendar == %@", eventId, calendar];
 	[request setPredicate:predicate];
 	
 	// Edit the sort key as appropriate.
@@ -71,6 +74,8 @@
 		anEvent.startDate =  [[when startTime] date];
 		anEvent.endDate = [[when endTime] date];
 	}
+	
+	anEvent.editLink = [[event editLink] href]; 
 
 	anEvent.eventid = [event iCalUID];
 	anEvent.updated = [[event updatedDate] date];
@@ -78,8 +83,9 @@
 	if( addr )
 		anEvent.location =  [addr stringValue];
 	anEvent.calendar = calendar;
+	anEvent.etag =  [event ETag];
 	
-	//anEvent.calendar =
+	anEvent.identifier = [event identifier];
 
 
 	
@@ -112,9 +118,12 @@
 	self.eventid = [event iCalUID];
 	self.updated = [[event updatedDate] date];
 	self.note = [[event content] stringValue];
+	self.editLink = [[event editLink] href]; 
+	self.etag = [event ETag]; 
 	if( addr )
 		self.location =  [addr stringValue];
 	self.calendar = calendar;
+	self.identifier = [event identifier];
 	
 	//anEvent.calendar =
 	
@@ -131,6 +140,33 @@
 	return YES;
 	
 }
+
+-(GDataEntryCalendarEvent *)eventGDataEntry{	
+	
+	
+	GDataEntryCalendarEvent *newEntry = [GDataEntryCalendarEvent calendarEvent];
+	[newEntry setTitleWithString:self.title];
+	[newEntry addLocation:[GDataWhere whereWithString:self.location]];
+	if (self.startDate) {
+		GDataDateTime *startDate = [GDataDateTime dateTimeWithDate:self.startDate timeZone:[NSTimeZone systemTimeZone]];
+		GDataDateTime *endDate = [GDataDateTime dateTimeWithDate:self.endDate timeZone:[NSTimeZone systemTimeZone]];
+		[newEntry addTime:[GDataWhen whenWithStartTime:startDate endTime:endDate]];
+	}
+
+		
+	
+	
+	
+	
+	[newEntry setContentWithString:self.note];
+	[newEntry setICalUID:self.eventid];
+	[newEntry setETag:self.etag];
+	
+	return newEntry;
+	
+}
+
+
 
 
 @end

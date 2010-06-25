@@ -7,16 +7,20 @@
 //
 
 #import "SelectCalendarForEventViewController.h"
+#import "Circle.h"
+#import "UIColor+Extensions.h"
 #import "Calendar.h"
 
 
 
 @implementation SelectCalendarForEventViewController
 
-@synthesize fetchedResultsController,lastIndexPath;
+@synthesize fetchedResultsController,lastIndexPath,selectCalendartableView;
+@synthesize editingMode;
 
 -(void)done{
-	//self.event.note = self.noteTextView.text;
+	Calendar *acalendar = (Calendar *)[self.fetchedResultsController objectAtIndexPath:lastIndexPath];
+	self.event.calendar = acalendar;
 	[self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -34,8 +38,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 	
-	Calendar *acalendar = (Calendar *)[self.fetchedResultsController objectAtIndexPath:indexPath];
-	self.event.calendar = acalendar;
+
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
 	int newRow = [indexPath row];
@@ -88,13 +91,23 @@
 	}	
 
 	Calendar *aCalendar = (Calendar *)[fetchedResultsController objectAtIndexPath:indexPath];
-	NSLog(@"calendar permision %@", aCalendar.edit_permission);
 	if (self.event.calendar != nil && self.event.calendar.calid == aCalendar.calid){
 		cell.accessoryType = UITableViewCellAccessoryCheckmark;
 		self.lastIndexPath = indexPath;
 		}
-	cell.textLabel.text = aCalendar.name;
 	
+	
+	UIColor *colorForCell = [UIColor colorWithHexString:aCalendar.color];
+	
+	Circle *circle_view = [[Circle alloc] initWithFrame:CGRectMake(20, 20, 15, 15) andColor:colorForCell];
+	[cell addSubview:circle_view];
+	[circle_view release];
+	UILabel *calendar_title = [[UILabel alloc] initWithFrame:CGRectMake(40, 10, 200, 30)];
+	calendar_title.font =  [UIFont boldSystemFontOfSize:16];
+	calendar_title.text = aCalendar.name;
+	[cell addSubview:calendar_title];
+	[calendar_title release];
+		
 	return cell;
 }
 
@@ -176,12 +189,18 @@
 	// e.g. self.myOutlet = nil;
 	self.fetchedResultsController = nil;
 	self.lastIndexPath = nil;
+	self.selectCalendartableView = nil;
 }
+
+//- (void)viewWillAppear:(BOOL)animated{
+//	[self.selectCalendartableView reloadData];	
+//}
 
 
 - (void)dealloc {
 	[fetchedResultsController release];
 	[lastIndexPath release];
+	[selectCalendartableView release];
     [super dealloc];
 }
 

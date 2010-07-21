@@ -128,6 +128,17 @@
 		rLen = 0;
 		rLoc = 9223372036854775807;
 	};
+	1526F1E211F7039400526D8A /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* GoogleCal-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/rafaelchacon/Sandboxes/g-cal/GoogleCal-Info.plist";
+		rLen = 0;
+		rLoc = 9223372036854775807;
+	};
 	1536BADD10F73F770090FEF2 /* AddEventViewController.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {970, 1344}}";
@@ -2530,6 +2541,7 @@
 			1526F18811F700BE00526D8A /* PBXTextBookmark */ = 1526F18811F700BE00526D8A /* PBXTextBookmark */;
 			1526F18911F700BE00526D8A /* PlistBookmark */ = 1526F18911F700BE00526D8A /* PlistBookmark */;
 			1526F18C11F700EB00526D8A /* PlistBookmark */ = 1526F18C11F700EB00526D8A /* PlistBookmark */;
+			1526F1E211F7039400526D8A /* PlistBookmark */ = 1526F1E211F7039400526D8A /* PlistBookmark */;
 			153D561F10C2D8850053C894 = 153D561F10C2D8850053C894 /* PBXBookmark */;
 			153D562110C2D8850053C894 = 153D562110C2D8850053C894 /* PBXBookmark */;
 			153D562310C2D8850053C894 = 153D562310C2D8850053C894 /* PBXBookmark */;

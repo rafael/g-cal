@@ -1,10 +1,20 @@
-//
-//  AddDateEventViewController.m
-//  GoogleCal
-//
-//  Created by Rafael Chacon on 24/01/10.
-//  Copyright 2010 Universidad Simon Bolivar. All rights reserved.
-//
+/*
+ 
+ Copyright (c) 2010 Rafael Chacon
+ g-Cal is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ g-Cal is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with g-Cal.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 
 #import "AddDateEventViewController.h"
 
@@ -22,9 +32,18 @@
 
 
 -(void)done{
-	self.event.startDate = self.startDate;
-	self.event.endDate = self.endDate;
-	[self.navigationController popViewControllerAnimated:YES];
+	if ( [self.endDate compare:self.startDate ] ==  NSOrderedAscending) {
+		
+		UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Check start and end date" message:@"The end date selected is before start date. Please check your date." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] autorelease];
+	
+		[alert show];
+		
+	}
+	else{
+		self.event.startDate = self.startDate;
+		self.event.endDate = self.endDate;
+		[self.navigationController popViewControllerAnimated:YES];
+	}
 
 }
 
@@ -37,8 +56,13 @@
 - (void) dateChanged:(UIDatePicker *)sender{
 	
 	if (rowSelected == 0){		
-		
+		NSTimeInterval interval = [self.endDate timeIntervalSinceDate: self.startDate];
 		self.startDate = [dateSelect date];
+		NSDate *newEndDate = [[NSDate alloc] initWithTimeInterval:interval sinceDate:self.startDate]; 
+		self.endDate =newEndDate;
+	
+		[newEndDate release];
+		
 		[self startHourBehavior];
 		
 	}
@@ -159,7 +183,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-	return 3;
+	//normally is 3 this is for this version all Day behavior is nil
+	return 2;
 }
 
 #pragma mark -
@@ -341,6 +366,7 @@
 }
 
 
+
 - (void)viewDidLoad {
 
 	dateFormater = [[NSDateFormatter alloc] init];
@@ -349,7 +375,7 @@
 	[dateFormater setDateStyle:NSDateFormatterShortStyle];
 	[dateFormater setTimeStyle:NSDateFormatterShortStyle];
 	self.startDate = self.event.startDate;
-	[dateSelect setDate:startDate animated:NO];
+
 	self.endDate = self.event.endDate;
 	dtableView.scrollEnabled= NO;
 	
@@ -365,13 +391,14 @@
 	
 	
 	
+	
     [super viewDidLoad];
 }
 
 - (void)viewWillAppear:(BOOL)flag {
     [super viewWillAppear:flag];
 	[dtableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:0];
-	[self.dateSelect setDate:[NSDate date] animated:YES];
+	[self.dateSelect setDate:self.startDate animated:NO];
     
 	
 }

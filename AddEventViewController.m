@@ -1,15 +1,25 @@
-//
-//  AddEventViewController.m
-//  GoogleCal
-//
-//  Created by Rafael Chacon on 08/01/10.
-//  Copyright 2010 Universidad Simon Bolivar. All rights reserved.
-//
+/*
+ 
+ Copyright (c) 2010 Rafael Chacon
+ g-Cal is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ g-Cal is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with g-Cal.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 
 #import "AddEventViewController.h"
 #import "SelectCalendarForEventViewController.h"
 #import "Event.h"
+#import "Calendar.h"
 #import "GoogleCalAppDelegate.h"
 #import "MonthCalendar.h"
 
@@ -17,7 +27,7 @@
 #define kTextFieldHeight 31
 
 #define kTextFieldWidthForHour	180
-#define kTextFieldHeightForHour 26
+#define kTextFieldHeightForHour 20
 
 
 #define allTrim( object ) [object stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet] ]
@@ -28,14 +38,6 @@ static NSString *kViewControllerKey = @"viewController";
 static NSString *kRowSizeKey =@"rowSizeKey";
 static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 
-//static inline BOOL IsEmpty(NST thing) {
-//	NSLog(@"esto es todo: %i,%i ",thing == nil,[(NSData *)thing length] );
-//	return thing == nil
-//	|| ([thing respondsToSelector:@selector(length)]
-//		&& [(NSData *)thing length] == 0)
-//	|| ([thing respondsToSelector:@selector(count)]
-//		&& [(NSArray *)thing count] == 0);
-//}
 
 @implementation AddEventViewController
 
@@ -48,12 +50,7 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 @synthesize managedObjectContext, fetchedResultsController;
 @synthesize editingMode;
 
-//
-//- (void)addNoteEventViewController:(AddNoteEventViewController *)addNoteEventViewController didAddNoteEvent:(Event *)ievent{
-//	
-//	[self.navigationController popViewControllerAnimated:YES];
-//	
-//}
+
 
 
 -(void)save{
@@ -62,7 +59,7 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 		event.title = @"New Event";
 	if ( !event.calendar ) {
 		
-		NSLog(@"aqui voy my frined");
+	
 		[self.managedObjectContext deleteObject:event];
 		
 		NSError *error = nil;
@@ -80,9 +77,11 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 		[alert show];
 		[alert release];
 		
-		if (self.delegate != NULL && [self.delegate respondsToSelector:@selector(addEventViewController:didAddEvent:)])
+		if (self.delegate != NULL && [self.delegate respondsToSelector:@selector(addEventViewController:didAddEvent:)]){
+			
 			[self.delegate addEventViewController:self didAddEvent:nil];
 		
+		}
 		return;
 		
 	}
@@ -126,7 +125,8 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 			HUD.labelText = @"Deleting...";
 			//HUD.detailsLabelText = @"The event is being deleted from Google";
 			// Show the HUD while the provided method executes in a new thread
-			
+			self.navigationItem.rightBarButtonItem.enabled = NO;	
+			self.navigationItem.leftBarButtonItem.enabled = NO;
 			[HUD showWhileExecuting:@selector(deleteEvent:) onTarget:self withObject:nil animated:YES];
 
 
@@ -138,7 +138,7 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 -(void) deleteEvent:(id)object{
 	if (!self.event.editLink ) {
 		
-		NSLog(@"This should never happened, something went wrong");
+		NSLog(@"This should never happened, something went wrong deleting");
 		return;
 	}
 	
@@ -150,6 +150,7 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 		
 		GDataServiceGoogleCalendar *service = appDelegate.gCalService;
 		deleteDone = NO;
+
 		[[service dd_invokeOnMainThread] deleteResourceURL:editURL
 							  ETag:self.event.etag
 						  delegate:self
@@ -160,6 +161,7 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 			
 		}
 		[waitForDeleteEventLock unlock];
+
 		
 	}	
 	
@@ -170,13 +172,15 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 - (void)deleteTicket:(GDataServiceTicket *)ticket
         deletedEntry:(GDataFeedCalendarEvent *)nilObject
                error:(NSError *)error {
+	
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	if (error != nil) {
 		eventDeleted = NO;
 			NSString *title, *msg;
 			if( [error code]==kGDataBadAuthentication ){
 				title = @"Authentication Failed";
 				msg = @"Invalid username/password\n\nPlease go to the iPhone's settings to change your Google account credentials. The event wasn't deleted.";
-			}else if ( [error code] == NSURLErrorNotConnectedToInternet ) {
+			}else if ( [error code] == NSURLErrorNotConnectedToInternet || [error code] == -1018 ) {
 				
 				
 				title = @"No internet access.";
@@ -205,12 +209,14 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 		
 	}
 	
+	[pool release];
 	[waitForDeleteEventLock lock];
 	deleteDone = YES;
 		[waitForDeleteEventLock  signal];
 		
 	
 	[waitForDeleteEventLock unlock];
+
 }
 
 #pragma mark -
@@ -220,10 +226,11 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 - (void)hudWasHidden {
     // Remove HUD from screen when the HUD was hidded
 	
-	
+	self.navigationItem.rightBarButtonItem.enabled = YES;	
+	self.navigationItem.leftBarButtonItem.enabled = YES;
     [HUD removeFromSuperview];
     [HUD release];
-	if (eventDeleted )
+	if (eventDeleted ) //just for now maybe is better this way
 		if (self.delegate != NULL && [self.delegate respondsToSelector:@selector(addEventViewController:didDeleteEvent:)]) 
 			[self.delegate addEventViewController:self didDeleteEvent:self.event];
 		
@@ -379,7 +386,7 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 						image:(UIImage *)image
 				darkTextColor:(BOOL)darkTextColor
 {	
-	UIButton *button = [[UIButton alloc] initWithFrame:frame];
+	UIButton *button = [[[UIButton alloc] initWithFrame:frame] autorelease];
 	// or you can do this:
 	//		UIButton *button = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
 	//		button.frame = frame;
@@ -442,13 +449,13 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 		if (self.event.title != nil && [self.event.title length] != 0)
 			lblTemp1.text = self.event.title;
 		else
-			lblTemp1.text = @"What";
+			lblTemp1.text = @"What?";
 		
 		
 		if (self.event.location != nil && [self.event.location length] != 0)
 			lblTemp2.text = self.event.location;
 		else
-			lblTemp2.text = @"Where";
+			lblTemp2.text = @"Where?";
 
 				
 	}
@@ -516,6 +523,20 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 	}
 	
 	cell.textLabel.text = [[menuList objectAtIndex:indexPath.section] objectForKey:kTitleKey];
+
+	if (indexPath.section == 2) {
+		CGRect frame = CGRectMake(170, 13, 100, 20);
+		UILabel *calendarNameLabel = [[UILabel alloc] initWithFrame:frame] ;
+		//	label.highlightedTextColor = [UIColor whiteColor];
+		calendarNameLabel.textColor =  [UIColor colorWithRed:0.243 green:0.306 blue:0.435 alpha:1.0];
+		calendarNameLabel.highlightedTextColor = [UIColor whiteColor];
+		calendarNameLabel.textAlignment = UITextAlignmentRight;
+		calendarNameLabel.font = [UIFont systemFontOfSize:16.0];
+		calendarNameLabel.text = self.event.calendar.name;
+		[cell addSubview:calendarNameLabel];
+		[calendarNameLabel release];
+	
+	}
 	
 	return cell;
 	
@@ -554,7 +575,7 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 
 - (UILabel *)newStartHourLabel:(NSString *)string{
 	
-	CGRect frame = CGRectMake(90, 2, kTextFieldWidthForHour, kTextFieldHeightForHour);
+	CGRect frame = CGRectMake(90, 6, kTextFieldWidthForHour, kTextFieldHeightForHour);
 	UILabel *newHourLabel = [[UILabel alloc] initWithFrame:frame] ;
 	//	label.highlightedTextColor = [UIColor whiteColor];
 	newHourLabel.textColor =  [UIColor colorWithRed:0.243 green:0.306 blue:0.435 alpha:1.0];
@@ -569,7 +590,7 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 
 - (UILabel *)newEndHourLabel:(NSString *)string{
 	
-	CGRect frame = CGRectMake(90, 22, kTextFieldWidthForHour, kTextFieldHeightForHour);
+	CGRect frame = CGRectMake(90, 24, kTextFieldWidthForHour, kTextFieldHeightForHour);
 	UILabel *newHourLabel = [[UILabel alloc] initWithFrame:frame] ;
 	//	label.highlightedTextColor = [UIColor whiteColor];
 	newHourLabel.textColor =  [UIColor colorWithRed:0.243 green:0.306 blue:0.435 alpha:1.0];
@@ -710,8 +731,10 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 	waitForDeleteEventLock = [NSCondition new];
 	
 	
-	
-	self.title = @"Add Event";
+	if (!editingMode)
+		self.title = @"Add Event";
+	else
+		self.title = @"Edit Event";
 	self.navigationItem.prompt = @"Set the details for this event";
 	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
     self.navigationItem.leftBarButtonItem = cancelButtonItem;
@@ -724,33 +747,30 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 	
 	NSError *error = nil;
 	if (![[self fetchedResultsController] performFetch:&error]) {
-		/*
-		 Replace this implementation with code to handle the error appropriately.
-		 
-		 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-		 */
+	
 		NSLog(@"Unresolved error fetching calendars %@, %@", error, [error userInfo]);
-		abort();
+
 	}
 	
 	Calendar *aDefaultCalendar = self.event.calendar;
+
 	if ( [fetchedResultsController.fetchedObjects count] > 0){
 		if (!self.event.calendar){
-		aDefaultCalendar = (Calendar *)[fetchedResultsController.fetchedObjects objectAtIndex:0];
-		event.calendar = aDefaultCalendar;
+			aDefaultCalendar = (Calendar *)[fetchedResultsController.fetchedObjects objectAtIndex:0];
+			event.calendar = aDefaultCalendar;
 		}
 	}
 	else   {
-		UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"No Calendars Found" message:@"We were not able to find any calendars for your google account. It's not possbile to create events" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] autorelease];
-		// optional - add more buttons:
-		[alert addButtonWithTitle:@"Ok"];
+		UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"No Calendars Found" 
+														 message:@"We were not able to find any calendars for your google account. It's not possbile to create events" 
+														delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] autorelease];
 		[alert show];
 		
 	}
 
-		//	
-    [super viewDidLoad];
 	[self initializeMenuList];
+    [super viewDidLoad];
+
 	
 }
 

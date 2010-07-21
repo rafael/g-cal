@@ -48,6 +48,20 @@
 			<key>AutocorrectionType</key>
 			<string>No</string>
 		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Sync on load</string>
+			<key>Key</key>
+			<string>sync_on_load_pref</string>
+			<key>DefaultValue</key>
+			<true/>
+			<key>TrueValue</key>
+			<true/>
+			<key>FalseValue</key>
+			<false/>
+		</dict>
 	</array>
 </dict>
 </plist>

@@ -1,11 +1,20 @@
-//
-//  
-//  
-//
-//  Created by Devin Ross on 10/31/09.
-//  Copyright 2009 Devin Ross. All rights reserved.
-//
-// Modified by rafael Chacon
+/*
+ 
+ Copyright (c) 2010 Rafael Chacon
+ g-Cal is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ g-Cal is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with g-Cal.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 
 #import "TapkuLibrary.h"
 #import "MBProgressHUD.h"
@@ -16,6 +25,7 @@
 
 
 #define KEY_CALENDAR @"calendar"
+#define KEY_EVENT @"event"
 #define KEY_TICKET @"ticket"
 
 
@@ -37,7 +47,8 @@
 		GoogleCalAppDelegate *appDelegate;
 		GDataServiceGoogleCalendar *gCalService;
 		BOOL allCalendarsValue;
-		BOOL ticketDone;
+		BOOL ticketDone; 
+		BOOL insertDone;
 	
 
 			
@@ -46,6 +57,7 @@
 		NSMutableArray *calendarsTicket;
 	
 		NSCondition  *waitForCalendarTickectLock;
+		NSCondition  *waitForInsertLock;
 		NSCondition  *waitForEventTicketsLock;
 		NSLock *waitForManagedObjectContext;
 	
@@ -81,7 +93,7 @@
 
 -(void)calendarsTicket:(GDataServiceTicket *)ticket finishedWithFeed:(GDataFeedCalendar *)feed error:(NSError *)error;
 
-- (void)eventsTicket:(GDataServiceTicket *)ticket finishedWithDeletedEntries:(GDataFeedCalendarEvent *)feed error:(NSError *)error;
+//- (void)eventsTicket:(GDataServiceTicket *)ticket finishedWithDeletedEntries:(GDataFeedCalendarEvent *)feed error:(NSError *)error;
 
 - (void)insertCalendarEvent:(Event *)event toCalendar:(Calendar *)calendar;
 
@@ -89,7 +101,8 @@
 
 -(void)fetchEventEntries:(NSArray *) arrayOfElements;
 
--(void) initializeData;
+-(void) syncWithGoogle;
+-(Event *)getInitializedEvent;
 
 
 @property (nonatomic, retain) NSMutableArray *calendarsTicket;

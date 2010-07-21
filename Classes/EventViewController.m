@@ -1,9 +1,20 @@
-//
-//  EventViewController.m
-//  GoogleCal
-//
-//  Created by Rafael Chacon on 10/12/09.
-// 
+/*
+ 
+ Copyright (c) 2010 Rafael Chacon
+ g-Cal is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ g-Cal is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with g-Cal.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 //
 
 #import "EventViewController.h"
@@ -40,13 +51,13 @@
 		
 		NSURL *editURL = [NSURL URLWithString:event.editLink ];
 		GDataEntryCalendarEvent *entryToUpdate = [event eventGDataEntry];
-		
+		[self.eventDetailTableView reloadData];
 		[service fetchEntryByUpdatingEntry:entryToUpdate
 								   forEntryURL:editURL
 									  delegate:self
 							 didFinishSelector:@selector(updateTicket:updatedEntry:error:)];
 	}
-	
+	[self.eventDetailTableView reloadData];
 	[self dismissModalViewControllerAnimated:YES];
 	
 	
@@ -85,7 +96,7 @@
 		if( [error code]==kGDataBadAuthentication ){
 			title = @"Authentication Failed";
 			msg = @"Invalid username/password\n\nPlease go to the iPhone's settings to change your Google account credentials. The event wasn't updated.";
-		}else if ( [error code] == NSURLErrorNotConnectedToInternet ) {
+		}else if ( [error code] == NSURLErrorNotConnectedToInternet || [error code] == -1018) {
 			
 			
 			title = @"No internet access.";
@@ -139,18 +150,22 @@
 	static NSString *kCell_ID = @"eventCell"; 
 	CGSize theSize;
 	NSString *str;
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCell_ID];
+	UITableViewCell *cell = nil ; //[tableView dequeueReusableCellWithIdentifier:kCell_ID];
 
 
 	if (cell == nil) {
 		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:kCell_ID] autorelease];
+		cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
 	}
 	CGRect frame = CGRectMake(20, 5, 250.0f, 20.0f);
 //	NSString *str = [NSString stringWithFormat:@"What: %@",
 //					 self.event.title];
 	//frame.size.height = 40.0f;
 	
-
+//	UIView* subview;
+//	while ((subview = [[cell subviews] lastObject]) != nil && subview != [cell contentView])
+//		[subview removeFromSuperview];
 	theSize= [self stringSize:self.event.title withFont:[UIFont boldSystemFontOfSize:18.0f] andWidth:250.0f];
 		
 	
@@ -184,8 +199,7 @@
 		frame.size.height = 20;
 	}
 	
-	//when
-	//frame.origin.y += 25; 
+
 
 	eventDetails = [[UILabel alloc] initWithFrame:frame];
 	NSDate *startDate = self.event.startDate;
@@ -195,15 +209,15 @@
 	[dateFormatter setAMSymbol:@"a.m."];
 	[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
 	[dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-	//[dateFormatter setDateFormat:@"HH:mm"];
+
 	NSString *startDateString = [dateFormatter stringFromDate:startDate];
 	NSString *endDateString = [dateFormatter stringFromDate:endDate];
-	//str = [NSString stringWithFormat:@"When:",startDateString, endDateString];
+	[dateFormatter release];
+
 	eventDetails.text = @"When:";
 	[cell addSubview:eventDetails];
 	[eventDetails release];
-	
-	//frame.origin.y += 20; 
+
 	frame.origin.x += 55;
 	frame.size.width -= 55.0f;
 	eventDetails = [[UILabel alloc] initWithFrame:frame];
@@ -280,7 +294,8 @@
 
 
 - (void)viewWillAppear:(BOOL)flag{
-
+	
+	
 	
 	
 }
@@ -303,6 +318,7 @@
 		self.navigationItem.rightBarButtonItem = editButtonItem;
 		[editButtonItem release];
 	}
+	
     [super viewDidLoad];	
 	
 }

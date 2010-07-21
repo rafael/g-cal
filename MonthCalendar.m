@@ -1,11 +1,20 @@
-//
-//  DemoCalendarMonth.m
-//  TapkuLibraryDemo
-//
-//  Created by Devin Ross on 10/31/09.
-//  Copyright 2009 Devin Ross. All rights reserved.
-//
-// Modified by rafael chacon
+/*
+ 
+ Copyright (c) 2010 Rafael Chacon
+ g-Cal is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ g-Cal is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with g-Cal.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 #import "MonthCalendar.h"
 #import "GoogleCalAppDelegate.h"
 #import "Event.h"
@@ -30,41 +39,27 @@
 //		
 	AddEventViewController *addEventController = [[AddEventViewController alloc] initWithNibName:@"AddEventViewController" bundle:nil];
 	addEventController.delegate = self;
-	Event *newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
+	Event *newEvent = [self getInitializedEvent];
 	
 	
 	addEventController.event = newEvent;
 	addEventController.managedObjectContext = self.managedObjectContext;
-	addEventController.event.calendar = self.selectedCalendar;
-	NSTimeInterval one_hour = 3600; 
-	if (self.selectedDate != nil)
-		addEventController.event.startDate = self.selectedDate;
-	else
-		addEventController.event.startDate = [NSDate date];
-		
-	NSDate *endDate = [[NSDate alloc] initWithTimeInterval:one_hour sinceDate:addEventController.event.startDate]; 
-	addEventController.event.endDate =endDate;
 	addEventController.editingMode = NO;
-	[endDate release];
-
-	
-	
-	
 	UINavigationController *addNavController =  [[UINavigationController alloc] initWithRootViewController:addEventController];
-
 	[self presentModalViewController:addNavController animated:YES];
-	
 	[addNavController release];
 	[addEventController release];
 
 
 }
 
+
+
 # pragma mark -
 # pragma mark AddEventViewController delegate methods
 
 - (void)addEventViewController:(AddEventViewController *)addEventViewController didAddEvent:(Event *)event{
-	NSLog(@"ests es event %d", event);
+	
 	if (event != nil){
 		NSError *error = nil;
 		[waitForManagedObjectContext lock];
@@ -77,22 +72,42 @@
 		if (!allCalendarsValue)
 			self.selectedCalendar = event.calendar;
 		
-		[self insertCalendarEvent:event toCalendar:event.calendar];
-
-		[self reloadCalendar];
+		HUD = [[MBProgressHUD alloc] initWithView:self.view];
+		[self.view addSubview:HUD];
+		HUD.delegate = self;
+		HUD.labelText = @"Adding Event...";
+		//HUD.detailsLabelText = @"The event is being deleted from Google";
+		// Show the HUD while the provided method executes in a new thread
+		self.navigationItem.rightBarButtonItem.enabled = NO;	
+		self.navigationItem.hidesBackButton = YES;
+		[HUD showWhileExecuting:@selector(insertEvent:) onTarget:self withObject:event animated:YES];
+		
+		//[self insertCalendarEvent:event toCalendar:event.calendar];
+//
+//		[self reloadCalendar];
 	
 	
 	}
-	NSLog(@"aqui");
+	
 	
 	[self dismissModalViewControllerAnimated:YES];
 	
 }
 
+-(void)insertEvent:(Event *)event {
+	
+	insertDone = NO;
+	[[self dd_invokeOnMainThread]insertCalendarEvent:event toCalendar:event.calendar];
+	[waitForInsertLock lock];
+	while (!insertDone) {
+	
+		[waitForInsertLock wait];
 
+	}
+	[waitForInsertLock unlock];
+	
 
-
-
+}
 
 
 
@@ -107,7 +122,7 @@
 	self.selectedDate = date;
 	
 	[self setDayElements];
-	[self.tableView reloadData];
+	[self.tkmonthTableView reloadData];
 	
 }
 
@@ -146,7 +161,7 @@
 	[super calendarMonthView:mv monthDidChange:date];
 	self.selectedDate = date;	
 	[self setDayElements];
-	[self.tableView reloadData];
+	[self.tkmonthTableView reloadData];
 	[self.monthView selectDate:date];
 
 }
@@ -166,11 +181,11 @@
     return numberOfRowsForGivenDate;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   
     static NSString *keventCellIdentifier = @"eventCell";
 	NSUInteger row = [indexPath row];	
-	EventCell *cell = (EventCell *)[tv dequeueReusableCellWithIdentifier:keventCellIdentifier];
+	EventCell *cell = (EventCell *)[tableView dequeueReusableCellWithIdentifier:keventCellIdentifier];
 	if( !cell ){
 		cell = [[[EventCell alloc] initWithFrame:CGRectZero reuseIdentifier:keventCellIdentifier] autorelease];
 		cell.accessoryType = UITableViewCellAccessoryNone;
@@ -212,7 +227,7 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     // Configure the cell
-	Event *event = (Event *)[fetchedResultsController objectAtIndexPath:indexPath];
+	Event *event = (Event *)[self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = event.title;
 }
 
@@ -239,20 +254,25 @@
 - (void)hudWasHidden {
     // Remove HUD from screen when the HUD was hidded
 	[self reloadCalendar];
-	
+	self.navigationItem.rightBarButtonItem.enabled = YES;	
+	self.navigationItem.hidesBackButton = NO;
     [HUD removeFromSuperview];
     [HUD release];
 }
 
--(void) initializeData{
+-(void) syncWithGoogle{
 	
 	HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
     HUD.delegate = self;
     HUD.labelText = @"Loading";
-    HUD.detailsLabelText = @"Retreiving Data From Google";
+    HUD.detailsLabelText = @"Retrieving Data From Google";
     // Show the HUD while the provided method executes in a new thread
 	gCalService = self.appDelegate.gCalService;
+	ticketDone = NO;
+	self.navigationItem.rightBarButtonItem.enabled = NO;	
+	self.navigationItem.hidesBackButton = YES;
+
 	[HUD showWhileExecuting:@selector(loadCalendarsAndEvents:) onTarget:self withObject:nil animated:YES];
 }
 
@@ -268,8 +288,6 @@
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
 		NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:managedObjectContext];
         [fetchRequest setEntity:entity];
-        
-		
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"startDate" ascending:YES];
         NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
         
@@ -280,9 +298,6 @@
 																									sectionNameKeyPath:nil cacheName:@"EventRoot"];
         aFetchedResultsController.delegate = self;
         self.fetchedResultsController = aFetchedResultsController;
-		
-
-		
 		
         [aFetchedResultsController release];
         [fetchRequest release];
@@ -301,18 +316,6 @@
 #pragma mark Google functions
 
 -(void) loadCalendarsAndEvents:(GDataFeedCalendar *)feed{
-	
-	//NSURL *url = [GDataServiceGoogleCalendar  calendarFeedURLForUsername:appDelegate.username];
-//
-//	
-//	GDataQueryCalendar* query = [GDataQueryCalendar calendarQueryWithFeedURL:url];
-//	[query setShouldShowDeleted:YES];
-//	NSLog(@"este es mi query %@", query);
-//	[[gCalService dd_invokeOnMainThread] fetchFeedWithQuery:query
-//														delegate:self
-//											   didFinishSelector:@selector( calendarsTicket:finishedWithFeed:error: )];
-//	
-	
 
 	[[gCalService dd_invokeOnMainThread]  fetchCalendarFeedForUsername:self.appDelegate.username
 	 delegate:self
@@ -332,13 +335,7 @@
 		[waitForEventTicketsLock wait]; 
 	} 
 	[waitForEventTicketsLock unlock]; 
-	
-		
-	
 
-	
-
-	
 }
 
 
@@ -443,18 +440,17 @@
 			Event *anEvent = [Event getEventWithId:[event iCalUID] forCalendar:calendarForEvent andContext:self.managedObjectContext];
 	
 			
-			NSLog(@"event entry \n titulo: %@ \n status: %@ \n nombre:%@\n", [[event title] stringValue], [event identifier], calendarForEvent.name);
+		
 			if (  !anEvent &&  !eventDeleted){
 				
 		
-				anEvent = [Event createEventFromGCal:event forCalendar:calendarForEvent withContext:self.managedObjectContext];
+				[Event createEventFromGCal:event forCalendar:calendarForEvent withContext:self.managedObjectContext];
 		
 			}
 			
 			
 			else if (anEvent && eventDeleted) {
 
-				NSLog(@"que e da la comparacion %@", [event identifier]);
 				[self.managedObjectContext deleteObject:anEvent];
 				
 				NSError *error = nil;
@@ -465,7 +461,7 @@
 			}
 			
 			else if ( anEvent && [anEvent.updated compare:[[event updatedDate] date]] == NSOrderedAscending ){
-				NSLog(@"Need to update event");
+				
 				
 				[anEvent updateEventFromGCal:event forCalendar:calendarForEvent withContext:self.managedObjectContext];
 				
@@ -496,59 +492,18 @@
 }
 
 
-- (void)eventsTicket:(GDataServiceTicket *)ticket finishedWithDeletedEntries:(GDataFeedCalendarEvent *)feed error:(NSError *)error{
-//	if( !error ){
-//
-//	
-//	
-//		int count = [[feed entries] count];	
-//
-//		[waitForManagedObjectContext lock];
-//		for( int i=0; i<count; i++ ){
-//		
-//			GDataEntryCalendarEvent *event = [[feed entries]  objectAtIndex:i];
-//			Event *anEvent = [Event getEventWithId:[event iCalUID]  andContext:self.managedObjectContext];
-//
-//			if (  anEvent ){
-//				[self.managedObjectContext deleteObject:anEvent];
-//				//NSLog(@"borre a alguien ");
-//				NSError *error = nil;
-//				if (![self.managedObjectContext save:&error]) 
-//					NSLog(@"Unresolved error deleting an envent%@, %@", error, [error userInfo]);
-//			}
-//		}
-//		
-//			[self reloadCalendar];
-//		
-//		[waitForManagedObjectContext unlock];
-//			
-//			NSURL *nextURL = [[feed nextLink] URL];
-//			if( nextURL ){    // There are more events in the calendar...  Fetch again.
-//			//	NSLog(@"entre en refetch");
-//				[gCalService fetchFeedWithURL:nextURL
-//									 delegate:self
-//									 didFinishSelector:@selector( eventsTicket:finishedWithDeletedEntries:error: )];   // Right back here...
-//
-//			}
-//		
-//	}else
-//		[self handleError:error];
-	
-}
-
-
 
 
 
 -(void)fetchEventEntries:(NSArray *) arrayOfElements{
-	 NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	// NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	NSURL *feedURL =(NSURL *) [arrayOfElements objectAtIndex:0];
 	Calendar *aCalendar = (Calendar *)[arrayOfElements objectAtIndex:1];
 	
 	NSMutableDictionary *calendarTicketPair = [NSMutableDictionary dictionaryWithCapacity:2];
 	GDataQueryCalendar* query = [GDataQueryCalendar calendarQueryWithFeedURL:feedURL];
-	
-	NSDate *minDate	= [[NSDate date] addTimeInterval:-1*60*60*24*60];
+	//NSDate *begin_date = self.selectedDate;
+	NSDate *minDate	= [self.selectedDate dateByAddingTimeInterval:-1*60*60*24*60];
 	NSDate *maxDate = [NSDate dateWithTimeIntervalSinceNow:60*60*24*90];  // ...to 90 days from now.
 	
 	[query setMinimumStartTime:[GDataDateTime dateTimeWithDate:minDate timeZone:[NSTimeZone systemTimeZone]]];
@@ -557,34 +512,21 @@
 	[query setIsAscendingOrder:YES];
 	[query setShouldExpandRecurrentEvents:YES];	
 	[query setShouldShowDeleted:YES];
+ 
 
-	
-//	GDataServiceTicket *ticket = [[gCalService dd_invokeOnMainThreadAndWaitUntilDone:YES]  fetchFeedWithQuery:query
-//																									 delegate:self
-//																							didFinishSelector:@selector( eventsTicket:finishedWithEntries:error: )];
-				GDataServiceTicket *ticket = [gCalService fetchFeedWithQuery:query
-																			  delegate:self
-																	 didFinishSelector:@selector( eventsTicket:finishedWithEntries:error: )];
-	
+
+	GDataServiceTicket *ticket = [gCalService fetchFeedWithQuery:query
+											  delegate:self
+											   didFinishSelector:@selector( eventsTicket:finishedWithEntries:error: )];
+
 	[calendarTicketPair setObject:ticket forKey:KEY_TICKET];
 	[calendarTicketPair setObject:aCalendar forKey:KEY_CALENDAR];
 	[self.calendarsTicket addObject:calendarTicketPair];
 	
-//
-//	[query setShouldShowOnlyDeleted:YES];
-//	[gCalService fetchFeedWithQuery:query
-//							delegate:self
-//				   didFinishSelector:@selector( eventsTicket:finishedWithDeletedEntries:error: )];
-//	[waitForEventTickectLock lock]; 
-//	while(!entryTicketDone) { 
-//		[waitForEventTickectLock wait]; 
-//		entryTicketDone = NO;
-//	} 
-//	[waitForEventTickectLock unlock]; 
 
-	
-	[pool release];
-	
+//	
+//	[pool release];
+//	
 	
 }
 
@@ -600,32 +542,44 @@
 	[newEntry setContentWithString:event.note];
 	
 	
+	gCalService = self.appDelegate.gCalService;
 	GDataServiceTicket *addEventTicket= [gCalService fetchEntryByInsertingEntry:newEntry
 										   forFeedURL:[NSURL URLWithString:calendar.link]
 											 delegate:self
 											 didFinishSelector:@selector( insertTicket:finishedWithEntry:error: )];
-
-	if ([addEventTicket authToken])
-	[self.appDelegate.addEventsQueue setObject:event forKey:[addEventTicket authToken]];
-	else{
-		srand([[NSDate date] timeIntervalSince1970]);
-		int random_key = rand();
-		[self.appDelegate.addEventsQueue setObject:event forKey:[NSNumber numberWithInt:random_key]];
-		
-	}
-
+	
+	
+	
+	NSMutableDictionary *eventTicketPair = [NSMutableDictionary dictionaryWithCapacity:2];
+	[eventTicketPair setObject:addEventTicket forKey:KEY_TICKET];
+	[eventTicketPair setObject:event forKey:KEY_EVENT];
+	[self.appDelegate.addEventsQueue addObject:eventTicketPair];
 	
 }
 
 - (void)insertTicket:(GDataServiceTicket *)ticket finishedWithEntry:(GDataEntryCalendarEvent *)entry error:(NSError *)error{
 	
-//NSLog(@"%@",[ticket authToken]);
-	Event *eventAdded = (Event *)[self.appDelegate.addEventsQueue objectForKey:[ticket authToken]];
+	NSMutableDictionary *dictionary;
+	int index_to_delete;
+	for( int section=0; section<[self.appDelegate.addEventsQueue count]; section++ ){
+		NSMutableDictionary *nextDictionary = [self.appDelegate.addEventsQueue objectAtIndex:section];
+		GDataServiceTicket *nextTicket = [nextDictionary objectForKey:KEY_TICKET];
+		if( nextTicket==ticket ){		// We've found the calendar these events are meant for...
+			dictionary = nextDictionary;
+			index_to_delete = section;
+			//
+			break;
+		}
+	}
 
+	if( !dictionary )
+		return;		// This should never happen.  It means we couldn't find the ticket it relates to.
 	
 	
+	Event *eventAdded = (Event *)[dictionary objectForKey:KEY_EVENT];
 	
 	if( !error ){		
+		
 			if (!eventAdded) return; //this should never happen
 			eventAdded.eventid = [entry iCalUID];
 			eventAdded.updated = [[entry updatedDate] date];
@@ -639,7 +593,7 @@
 			
 			}
 			[waitForManagedObjectContext unlock];
-			[self.appDelegate.addEventsQueue removeObjectForKey:[ticket authToken]];
+			
 			
 		
 	}
@@ -648,7 +602,7 @@
 		if( [error code]==kGDataBadAuthentication ){
 			title = @"Authentication Failed";
 			msg = @"Invalid username/password\n\nPlease go to the iPhone's settings to change your Google account credentials. This event won't be synchronize";
-		}else if ( [error code] == NSURLErrorNotConnectedToInternet ) {
+		}else if ( [error code] == NSURLErrorNotConnectedToInternet  || [error code] == -1018) {
 			
 			
 			title = @"No internet access.";
@@ -661,6 +615,12 @@
 			msg = [error localizedDescription];
 		}
 		
+		NSMutableDictionary *dic = [self.appDelegate.addEventsQueue objectAtIndex:index_to_delete];
+		Event *event = [dic objectForKey:KEY_EVENT];
+		[self.managedObjectContext deleteObject:event];
+		NSError *error = nil;			
+		[self.managedObjectContext save:&error];
+		
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
 														message:msg
 													   delegate:nil
@@ -668,10 +628,18 @@
 											  otherButtonTitles:nil];
 		[alert show];
 		[alert release];
+		
 				
 	}
-
 	
+	[self.appDelegate.addEventsQueue removeObjectAtIndex:index_to_delete];
+	
+	[waitForInsertLock lock];
+
+	insertDone = YES;
+	[waitForInsertLock signal];
+	[waitForInsertLock unlock];
+
 
 	
 }
@@ -679,12 +647,33 @@
 #pragma mark -
 #pragma mark Utility functions
 
+-(Event *)getInitializedEvent {
+	
+	Event *newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
+
+	if ([self.selectedCalendar.edit_permission boolValue])
+		newEvent.calendar = self.selectedCalendar;
+	NSTimeInterval one_hour = 3600; 
+	NSDate *today = [NSDate date];
+	TKDateInformation selectedDateInfo = [self.selectedDate dateInformation];
+	TKDateInformation todayInfo = [today dateInformation];
+	selectedDateInfo.hour = todayInfo.hour+1;
+	selectedDateInfo.minute = 0;
+	newEvent.startDate = [NSDate dateFromDateInformation:selectedDateInfo];
+	NSDate *endDate = [[NSDate alloc] initWithTimeInterval:one_hour sinceDate:newEvent.startDate]; 
+	newEvent.endDate =endDate;
+	[endDate release];
+	return newEvent;
+	
+}
+
 - (void)handleError:(NSError *)error{
 	NSString *title, *msg;
+
 	if( [error code]==kGDataBadAuthentication ){
 		title = @"Authentication Failed";
 		msg = @"Invalid username/password\n\nPlease go to the iPhone's settings to change your Google account credentials.";
-	}else if ( [error code] == NSURLErrorNotConnectedToInternet ) {
+	}else if ( [error code] == NSURLErrorNotConnectedToInternet || [error code] == -1018 ) {
 		
 		
 		title = @"No internet access.";
@@ -715,10 +704,9 @@
 }
 
 -(void)reloadCalendar{
-	
 	[self setDayElements];
 	[self.monthView reload];
-	[self.tableView reloadData];
+	[self.tkmonthTableView reloadData];
 	if (self.selectedDate)
 		[self.monthView selectDate:self.selectedDate];
 	
@@ -744,7 +732,7 @@
 		[self.monthView selectDate:self.selectedDate];
 		
 		[self setDayElements];
-		[self.tableView reloadData];
+		[self.tkmonthTableView reloadData];
 		if (self.selectedDate)
 			[self.monthView selectDate:self.selectedDate];
 	}
@@ -758,7 +746,7 @@
 
 }
 - (void) sync:(id)sender{
-	[self initializeData];
+	[self syncWithGoogle];
 }
 - (void) month:(id)sender{
 NSLog(@"tyee3");	
@@ -778,7 +766,7 @@ NSLog(@"tyee3");
 	toolbar.frame = CGRectMake(0, 370, 320, 50);
 	
 	//Add buttons
-	UIBarButtonItem *systemItem1 = [[UIBarButtonItem alloc]  initWithTitle:@"Today" style:UIBarButtonItemStyleBordered
+	UIBarButtonItem *systemItem1 = [[UIBarButtonItem alloc]  initWithTitle:@"Now" style:UIBarButtonItemStyleBordered
 																				 target:self
 																				 action:@selector(today:)];
 
@@ -805,7 +793,7 @@ NSLog(@"tyee3");
 	
 	//Add buttons to the array
 	//NSArray *items = [NSArray arrayWithObjects: systemItem1, flexItem,segmentButton ,flexItem,systemItem3, flexItem, nil];
-	NSArray *items = [NSArray arrayWithObjects: systemItem1, flexItem,systemItem3, nil];
+	NSArray *items = [NSArray arrayWithObjects: systemItem3, flexItem,systemItem1, nil];
 	
 	//release buttons
 	[systemItem1 release];
@@ -873,8 +861,9 @@ NSLog(@"tyee3");
 - (void)viewWillAppear:(BOOL)animated
 {
 	// this UIViewController is about to re-appear, make sure we remove the current selection in our table view
-	NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];
-	[self.tableView deselectRowAtIndexPath:tableSelection animated:YES];
+//	
+	NSIndexPath *tableSelection = [self.tkmonthTableView indexPathForSelectedRow];
+	[self.tkmonthTableView deselectRowAtIndexPath:tableSelection animated:YES];
 //NSLog(@"siempre entro a view did appear");
 	self.title = @"All Calendars";
 	if (self.selectedCalendar != nil) {
@@ -918,13 +907,8 @@ NSLog(@"tyee3");
 		self.fetchedResultsController = nil;
 		NSError *error = nil;
 		if (![self.fetchedResultsController performFetch:&error]) {
-			/*
-			 Replace this implementation with code to handle the error appropriately.
-			 
-			 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-			 */
+
 			NSLog(@"Unresolved error fetching events MonthCalendar.m %@, %@", error, [error userInfo]);
-			//abort();
 		}	
 		
 		
@@ -952,6 +936,7 @@ NSLog(@"tyee3");
 	self.eventsForGivenDate = nil;
 	self.selectedCalendar = nil;
 	self.calendarsTicket = nil;
+	
 
 	
 	//eventsTickets = nil;
@@ -963,7 +948,7 @@ NSLog(@"tyee3");
 	waitForCalendarTickectLock = [NSCondition new];
 	waitForManagedObjectContext = [NSLock new];
 	waitForEventTicketsLock = [NSCondition new];
-	ticketDone = NO;
+	waitForInsertLock = [NSCondition new];
 	
 	
 	
@@ -982,11 +967,14 @@ NSLog(@"tyee3");
 	
 	//select todays date at the begining
 	self.selectedDate = [NSDate date];
-	[self initializeData];
-
-	
 	UIBarButtonItem *addButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addEvent:)];
     self.navigationItem.rightBarButtonItem = addButtonItem;
+	//NSLog(@" esto es el valor %d",[[NSUserDefaults standardUserDefaults] boolForKey:@"sync_on_load_pref"]  );
+	if ( [[NSUserDefaults standardUserDefaults] boolForKey:@"sync_on_load_pref"])
+	[self syncWithGoogle];
+
+	
+
     [addButtonItem release];
 	
 		
@@ -1006,7 +994,7 @@ NSLog(@"tyee3");
 	[waitForCalendarTickectLock release];
 	[waitForManagedObjectContext release];
 	[waitForEventTicketsLock release];
-	
+	[waitForInsertLock release];
 	//[eventsTickets release];
 	[super dealloc];
 	

@@ -1,10 +1,20 @@
-//
-//  CalendarViewController.m
-//  GoogleCal
-//
-//  Created by Rafael Chacon on 15/06/10.
-//  Copyright 2010 Universidad Simon Bolivar. All rights reserved.
-//
+/*
+ 
+ Copyright (c) 2010 Rafael Chacon
+ g-Cal is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ g-Cal is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with g-Cal.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 
 #import "CalendarViewController.h"
 #import "Calendar.h"
@@ -28,7 +38,8 @@
     if (fetchedResultsController == nil) {
 		
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-		NSEntityDescription *entity = [NSEntityDescription entityForName:@"Calendar" inManagedObjectContext:managedObjectContext];
+		
+		NSEntityDescription *entity = [NSEntityDescription entityForName:@"Calendar" inManagedObjectContext:self.managedObjectContext];
         [fetchRequest setEntity:entity];
         
 		
@@ -47,13 +58,9 @@
 		
 		NSError *error = nil;
 		if (![[self fetchedResultsController] performFetch:&error]) {
-			/*
-			 Replace this implementation with code to handle the error appropriately.
-			 
-			 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-			 */
+	
 			NSLog(@"Unresolved error fetching events MonthCalendar.m %@, %@", error, [error userInfo]);
-			//abort();
+		
 		}	
 		
 		
@@ -65,7 +72,16 @@
     }
 	
 	return fetchedResultsController;
-}    
+}  
+-(NSManagedObjectContext *)managedObjectContext {
+	
+	if (managedObjectContext == nil ) {
+		GoogleCalAppDelegate *appDel = [[UIApplication sharedApplication] delegate];
+		managedObjectContext = [appDel.managedObjectContext retain];
+		
+	}
+	return managedObjectContext;
+}
 
 
 #pragma mark -
@@ -171,7 +187,7 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    NSInteger count = [[fetchedResultsController sections] count];
+    NSInteger count = [[self.fetchedResultsController sections] count];
     
 
 	count++;
@@ -187,9 +203,9 @@
 	if (section >=  1){
 		section = section -1 ;
 	
-		if ([[fetchedResultsController sections] count] > 0) {
-			id <NSFetchedResultsSectionInfo> sectionInfo = [[fetchedResultsController sections] objectAtIndex:section];
-			NSLog(@" numero de elementos para la seccion %@, %d nada",[sectionInfo name] ,  [sectionInfo numberOfObjects]);
+		if ([[self.fetchedResultsController sections] count] > 0) {
+			id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+		
 			numberOfRows = [sectionInfo numberOfObjects];
 			
 		}
@@ -220,14 +236,10 @@
 	
 	
 	NSError *error = nil;
-	if (![[self fetchedResultsController] performFetch:&error]) {
-		/*
-		 Replace this implementation with code to handle the error appropriately.
-		 
-		 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-		 */
+	if (![self.fetchedResultsController performFetch:&error]) {
+	
 		NSLog(@"Unresolved error fetching calendars %@, %@", error, [error userInfo]);
-		abort();
+		
 	}
 	
     [super viewDidLoad];

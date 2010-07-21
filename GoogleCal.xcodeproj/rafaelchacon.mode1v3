@@ -272,7 +272,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>1</integer>
+									<integer>8</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -307,12 +307,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>GoogleCal-Info.plist</string>
+								<string>AddEventViewController.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -320,11 +322,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>GoogleCal-Info.plist</string>
+										<string>AddEventViewController.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>1526F1E211F7039400526D8A</string>
+										<string>1526F1E611F708AD00526D8A</string>
 										<key>history</key>
 										<array>
 											<string>154686BE10B0C87D008E69F1</string>
@@ -430,7 +432,6 @@
 											<string>15DB5E8811EA0646004A315E</string>
 											<string>15DB5E8A11EA0646004A315E</string>
 											<string>1554A82711EA0C7C00C93966</string>
-											<string>1554A84E11EA10DC00C93966</string>
 											<string>1554A84F11EA10DC00C93966</string>
 											<string>1554A85011EA10DC00C93966</string>
 											<string>1554A86811EA189800C93966</string>
@@ -453,7 +454,8 @@
 											<string>156DAB4B11ED9CFD006A75ED</string>
 											<string>1526ED1D11F6FE1600526D8A</string>
 											<string>1526F18811F700BE00526D8A</string>
-											<string>15E7F8BA11ECC9F500E4FCA6</string>
+											<string>1526F1E411F708AD00526D8A</string>
+											<string>1526F1E511F708AD00526D8A</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>

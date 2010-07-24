@@ -75,7 +75,9 @@
 		HUD = [[MBProgressHUD alloc] initWithView:self.view];
 		[self.view addSubview:HUD];
 		HUD.delegate = self;
-		HUD.labelText = @"Adding Event...";
+
+		HUD.labelText =  NSLocalizedString(@"addingEventKey",@"Adding Event...");
+
 		//HUD.detailsLabelText = @"The event is being deleted from Google";
 		// Show the HUD while the provided method executes in a new thread
 		self.navigationItem.rightBarButtonItem.enabled = NO;	
@@ -265,8 +267,10 @@
 	HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
     HUD.delegate = self;
-    HUD.labelText = @"Loading";
-    HUD.detailsLabelText = @"Retrieving Data From Google";
+
+    HUD.labelText =  NSLocalizedString(@"loadingKey",@"Loading"); 
+    HUD.detailsLabelText =  NSLocalizedString(@"retrieveDataKey",@"Retrieving Data From Google");
+
     // Show the HUD while the provided method executes in a new thread
 	gCalService = self.appDelegate.gCalService;
 	ticketDone = NO;
@@ -349,9 +353,6 @@
 		for( int i=0; i<count; i++ ){
 		 
 			GDataEntryCalendar *calendar = [[feed entries] objectAtIndex:i];
-			
-		//	NSLog(@"Fecha de updated %@ y edited: %@", [[calendar updatedDate] date], [calendar editedDate] );
-			
 			Calendar *aCalendar = [Calendar getCalendarWithId:[calendar identifier] andContext:self.managedObjectContext];
 		
 			if (  !aCalendar ){
@@ -433,8 +434,6 @@
 		for( int i=0; i<count; i++ ){
 
 			GDataEntryCalendarEvent *event = [[feed entries]  objectAtIndex:i];
-			//NSLog(@"event entry %@", [event title], [event eventStatus]);
-			
 			BOOL eventDeleted = [[[event eventStatus] stringValue] isEqualToString:kGDataEventStatusCanceled ];
 			Calendar *calendarForEvent = [dictionary objectForKey:KEY_CALENDAR];
 			Event *anEvent = [Event getEventWithId:[event iCalUID] forCalendar:calendarForEvent andContext:self.managedObjectContext];
@@ -496,13 +495,12 @@
 
 
 -(void)fetchEventEntries:(NSArray *) arrayOfElements{
-	// NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
 	NSURL *feedURL =(NSURL *) [arrayOfElements objectAtIndex:0];
 	Calendar *aCalendar = (Calendar *)[arrayOfElements objectAtIndex:1];
 	
 	NSMutableDictionary *calendarTicketPair = [NSMutableDictionary dictionaryWithCapacity:2];
 	GDataQueryCalendar* query = [GDataQueryCalendar calendarQueryWithFeedURL:feedURL];
-	//NSDate *begin_date = self.selectedDate;
 	NSDate *minDate	= [self.selectedDate dateByAddingTimeInterval:-1*60*60*24*60];
 	NSDate *maxDate = [NSDate dateWithTimeIntervalSinceNow:60*60*24*90];  // ...to 90 days from now.
 	
@@ -524,9 +522,6 @@
 	[self.calendarsTicket addObject:calendarTicketPair];
 	
 
-//	
-//	[pool release];
-//	
 	
 }
 
@@ -593,44 +588,15 @@
 			
 			}
 			[waitForManagedObjectContext unlock];
-			
-			
+
 		
 	}
+	
 	else{
-		NSString *title, *msg;
-		if( [error code]==kGDataBadAuthentication ){
-			title = @"Authentication Failed";
-			msg = @"Invalid username/password\n\nPlease go to the iPhone's settings to change your Google account credentials. This event won't be synchronize";
-		}else if ( [error code] == NSURLErrorNotConnectedToInternet  || [error code] == -1018) {
-			
-			
-			title = @"No internet access.";
-			msg = @"The application couldn't connect to internet. Please check your internet access.";
-			
-		}else{
-			// some other error authenticating or retrieving the GData object or a 304 status
-			// indicating the data has not been modified since it was previously fetched
-			title = @"An unexpected error has ocurred.  This event won't synchronize";
-			msg = [error localizedDescription];
-		}
-		
-		NSMutableDictionary *dic = [self.appDelegate.addEventsQueue objectAtIndex:index_to_delete];
-		Event *event = [dic objectForKey:KEY_EVENT];
-		[self.managedObjectContext deleteObject:event];
-		NSError *error = nil;			
-		[self.managedObjectContext save:&error];
-		
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
-														message:msg
-													   delegate:nil
-											  cancelButtonTitle:@"Ok"
-											  otherButtonTitles:nil];
-		[alert show];
-		[alert release];
-		
-				
+		[self handleError:error];
+
 	}
+
 	
 	[self.appDelegate.addEventsQueue removeObjectAtIndex:index_to_delete];
 	
@@ -671,18 +637,19 @@
 	NSString *title, *msg;
 
 	if( [error code]==kGDataBadAuthentication ){
-		title = @"Authentication Failed";
-		msg = @"Invalid username/password\n\nPlease go to the iPhone's settings to change your Google account credentials.";
+
+		title = NSLocalizedString(@"authenticationFailedKey",@"Authentication Failed");
+		msg = NSLocalizedString(@"authenticationFailedMsgKey",@"Authentication Failed Msg");
 	}else if ( [error code] == NSURLErrorNotConnectedToInternet || [error code] == -1018 ) {
 		
 		
-		title = @"No internet access.";
-		msg = @"The application couldn't connect to internet. Please check your internet access.";
+		title = NSLocalizedString(@"noInternetKey",@"No internet access.");
+		msg = NSLocalizedString(@"noInternetMsgKey",@"The application couldn't connect to internet. Please check your internet access.");
 		
 	}else{
 		// some other error authenticating or retrieving the GData object or a 304 status
 		// indicating the data has not been modified since it was previously fetched
-		title = @"An unexpected error has ocurred.";
+		title = NSLocalizedString(@"unexpectedErrorKey", @"An unexpected error has ocurred.");
 		msg = [error localizedDescription];
 	}
 	
@@ -704,8 +671,16 @@
 }
 
 -(void)reloadCalendar{
+
+
+	
+	NSError *error;
+	if (![self.fetchedResultsController performFetch:&error]) {
+		NSLog(@"Unresolved error fetching events MonthCalendar.m %@, %@", error, [error userInfo]);
+	}	
 	[self setDayElements];
 	[self.monthView reload];
+
 	[self.tkmonthTableView reloadData];
 	if (self.selectedDate)
 		[self.monthView selectDate:self.selectedDate];
@@ -749,7 +724,7 @@
 	[self syncWithGoogle];
 }
 - (void) month:(id)sender{
-NSLog(@"tyee3");	
+
 }
 
 
@@ -764,9 +739,9 @@ NSLog(@"tyee3");
 	toolbar.barStyle = UIBarStyleDefault;
 	[toolbar sizeToFit];
 	toolbar.frame = CGRectMake(0, 370, 320, 50);
-	
-	//Add buttons
-	UIBarButtonItem *systemItem1 = [[UIBarButtonItem alloc]  initWithTitle:@"Now" style:UIBarButtonItemStyleBordered
+
+	UIBarButtonItem *systemItem1 = [[UIBarButtonItem alloc]  initWithTitle:NSLocalizedString(@"nowKey", @"Now") style:UIBarButtonItemStyleBordered
+
 																				 target:self
 																				 action:@selector(today:)];
 
@@ -860,12 +835,13 @@ NSLog(@"tyee3");
 
 - (void)viewWillAppear:(BOOL)animated
 {
-	// this UIViewController is about to re-appear, make sure we remove the current selection in our table view
-//	
+
+
+	
 	NSIndexPath *tableSelection = [self.tkmonthTableView indexPathForSelectedRow];
 	[self.tkmonthTableView deselectRowAtIndexPath:tableSelection animated:YES];
-//NSLog(@"siempre entro a view did appear");
-	self.title = @"All Calendars";
+	//self.title = NSLocalizedString(@"allCalendarsKey", @"All Calendars");
+
 	if (self.selectedCalendar != nil) {
 	
 		NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -887,13 +863,9 @@ NSLog(@"tyee3");
 		
 		NSError *error = nil;
 		if (![self.fetchedResultsController performFetch:&error]) {
-			/*
-			 Replace this implementation with code to handle the error appropriately.
-			 
-			 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-			 */
+	
 			NSLog(@"Unresolved error fetching events MonthCalendar.m %@, %@", error, [error userInfo]);
-			//abort();
+
 		}	
 		
         [aFetchedResultsController release];
@@ -923,8 +895,9 @@ NSLog(@"tyee3");
 	if (self.selectedCalendar)
 		self.title = self.selectedCalendar.name;
 	else
-		self.title = @"All Calendars";
-	self.navigationController.navigationBar.backItem.title = @"Calendars";
+		self.title = NSLocalizedString(@"allCalendarsKey", @"All Calendars");
+	
+	self.navigationController.navigationBar.backItem.title =  NSLocalizedString(@"calendarsKey", @"Calendars"); 
 
 	
 }
@@ -954,13 +927,9 @@ NSLog(@"tyee3");
 	
 	NSError *error = nil;
 	if (![self.fetchedResultsController performFetch:&error]) {
-		/*
-		 Replace this implementation with code to handle the error appropriately.
-		 
-		 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-		 */
+
 		NSLog(@"Unresolved error fetching events MonthCalendar.m %@, %@", error, [error userInfo]);
-		//abort();
+
 	}	
 	
 
@@ -969,11 +938,9 @@ NSLog(@"tyee3");
 	self.selectedDate = [NSDate date];
 	UIBarButtonItem *addButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addEvent:)];
     self.navigationItem.rightBarButtonItem = addButtonItem;
-	//NSLog(@" esto es el valor %d",[[NSUserDefaults standardUserDefaults] boolForKey:@"sync_on_load_pref"]  );
-	if ( [[NSUserDefaults standardUserDefaults] boolForKey:@"sync_on_load_pref"])
-	[self syncWithGoogle];
 
-	
+	if ( [[NSUserDefaults standardUserDefaults] boolForKey:@"sync_on_load_pref"])
+		[self syncWithGoogle];
 
     [addButtonItem release];
 	

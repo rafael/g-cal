@@ -36,27 +36,6 @@
 }
 
 
-
-//#pragma mark -
-//#pragma mark UITextViewDelegate
-//- (void)textViewDidEndEditing:(UITextView *)textView
-//{
-//	
-//	NSLog(@"entre aqui donde creo que entreo");
-////	if(textField.tag ==1){
-////		[placeTextField becomeFirstResponder];
-////		
-////	}
-////	else{
-////		[self done];
-////		
-////	}
-//	//return YES; // We do not want UITextField to insert line-breaks.
-//	
-//}
-
-
-
 #pragma mark -
 #pragma mark Table View dataSource Methods
 
@@ -112,13 +91,13 @@
 #pragma mark -
 #pragma mark UIViewController functions
 - (void)viewDidLoad {
-	self.title = @"Description";
-	self.navigationItem.prompt = @"Set the details for this event";
-	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
+	self.title = NSLocalizedString(@"descriptionKey", @"Description");
+	self.navigationItem.prompt = NSLocalizedString(@"detailsKey", @"Set the details for this event.");
+	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"cancelKey", @"Cancel") style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
     self.navigationItem.leftBarButtonItem = cancelButtonItem;
     [cancelButtonItem release];
     
-    UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(done)];
+    UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"doneKey", @"Done") style:UIBarButtonItemStyleDone target:self action:@selector(done)];
     self.navigationItem.rightBarButtonItem = saveButtonItem;
     [saveButtonItem release];
 	[self noteTextView]; //to become first responder

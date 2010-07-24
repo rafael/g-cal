@@ -1,0 +1,73 @@
+/*
+ 
+ Copyright (c) 2010 Rafael Chacon
+ g-Cal is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ g-Cal is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with g-Cal.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"nowKey" = "Maintenant";
+"allCalendarsKey" = "Calendriers (tous)";
+"calendarsKey" = "Calendriers";
+"unexpectedErrorKey" = "An unexpected error has ocurred.";
+"noInternetKey" = "Connexion impossible.";
+"noInternetMsgKey" = "L'application ne peux pas acceder à internet. Merci de vérifier votre connexion.";
+"authenticationFailedKey" = "Erreur d'authentification";
+"authenticationFailedMsgKey" = "Nom d'utilisateur  ou mot de passe incorrect \n\n Veuillez allez dans les réglages du g-Cal dans les réglages de l'iPhone pour changer vos informations d'identification de compte Google.";
+"loadingKey" = "Chargement...";
+"retrieveDataKey" = "Synchronisation avec Google";
+"addingEventKey" = "Ajout de l'événement...";
+"myCalendarsKey" = "Mes agendas";
+"otherCalendarsKey" = "Autres agendas";
+
+
+"calendarKey" = "Calendrier";
+"newEventKey" = "Nouvel événement";
+"noCalendarErrorKey" = "Aucun  Calendrier Error";
+"noCalendarMsgErrorKey" = "Vous ne pouvez pas enregistrer un événement sans calendrier. S'il vous plaît synchroniser g-Cal avec votre compte Google. Si vous n'avez pas un calendrier dans google, vous devez en créer un afin de pouvoir utiliser l'application.";
+"deletingKey" = "Suppression...";
+"deleteEventKey" = "Supprimer l'événement";
+"areYouSureKey" = "Vous êtes sûr?";
+"cancelKey" = "Annuler";
+"whatKey" = "Titre";
+"whereKey" = "Lieu";
+"startsKey" = "Commence";
+"endsKey" = "Se termine";
+"addEventKey" = "Événement";
+"editEventKey" = "Modifier";
+"detailsKey" = "Détails de cet événement.";
+"doneKey" = "OK";
+"noCalendarsKey" = "Aucun calendrier";
+"noCalendarMsgKey" =  "Aucun calendrier a été trouvé. S'il vous plaît synchroniser g-Cal avec votre compte Google. Si vous n'avez pas un calendrier dans google, vous devez en créer un afin de pouvoir utiliser l'application.";
+"descriptionKey" = "Description";
+
+
+"whatAndWhereKey" = "Titre et Lieu";
+"whereNoMarkKey" = "Lieu";
+"whenKey" = "Quand:";
+"description:Key" = "Description:";
+"eventKey" = "Événement";
+"editKey" = "Modifier";
+
+"checkDateKey" =  "Verifier les dates de début et fin";
+"checkDateMsgKey" = "La date de fin est ultérieure à la date de début. Merci de vérifier les dates.";
+"wholeDayKey" = "Jour entier";
+"startsAndEndsKey" = "Début et fin";
+
+//this for tapku 
+"Sun" =  "Dim";
+"Mon" = "Lun";
+"Tue" = "Mar";
+"Wed" = "Mer";
+"Thu" = "Jeu";
+"Fri" = "Ven";
+"Sat" = "Sam";

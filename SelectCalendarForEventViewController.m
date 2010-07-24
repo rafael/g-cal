@@ -88,7 +88,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
 	
-	return @"Your Calendars";
+	return NSLocalizedString(@"myCalendarsKey", @"My Calendars");
 }
 
 
@@ -101,7 +101,6 @@
 	if( cell == nil) {
 		
 		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kcalendarCell_ID] autorelease];	
-		NSLog(@"este es el valor %d",self.editingMode);
 		if (self.editingMode)
 			cell.selectionStyle = UITableViewCellSelectionStyleNone;
 		
@@ -171,13 +170,13 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	
-	self.title = @"Calendar";
-	self.navigationItem.prompt = @"Set the details for this event";
-	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
+	self.title = NSLocalizedString(@"calendarKey", @"Calendar");
+	self.navigationItem.prompt = NSLocalizedString(@"detailsKey", @"Set the details for this event");
+	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"cancelKey", @"Cancel") style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
     self.navigationItem.leftBarButtonItem = cancelButtonItem;
     [cancelButtonItem release];
     
-    UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(done)];
+    UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"doneKey", @"Done") style:UIBarButtonItemStyleDone target:self action:@selector(done)];
     self.navigationItem.rightBarButtonItem = saveButtonItem;
     [saveButtonItem release];
 	

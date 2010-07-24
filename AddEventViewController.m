@@ -26,7 +26,8 @@
 #define kTextFieldWidth	277
 #define kTextFieldHeight 31
 
-#define kTextFieldWidthForHour	180
+
+#define kTextFieldWidthForHour	170
 #define kTextFieldHeightForHour 20
 
 
@@ -56,7 +57,7 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 -(void)save{
 	
 	if (event.title == nil)
-		event.title = @"New Event";
+		event.title = NSLocalizedString(@"newEventKey", @"New Event");
 	if ( !event.calendar ) {
 		
 	
@@ -69,8 +70,8 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 			
 		}	
 //		
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Calendar error"
-														message:@"You can't save an event without a Calendar. Please synchronize gCal with your google account. If you don't any calendar in google, you need to create one in order to use the application. "
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"noCalendarErrorKey", @"No Calendar error")
+														message:NSLocalizedString(@"noCalendarMsgErrorKey", @"noCalendarMsgErrorKey")
 													   delegate:nil
 											  cancelButtonTitle:@"Ok"
 											  otherButtonTitles:nil];
@@ -122,9 +123,9 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 			HUD = [[MBProgressHUD alloc] initWithView:self.view];
 			[self.view addSubview:HUD];
 			HUD.delegate = self;
-			HUD.labelText = @"Deleting...";
-			//HUD.detailsLabelText = @"The event is being deleted from Google";
-			// Show the HUD while the provided method executes in a new thread
+
+			HUD.labelText = NSLocalizedString(@"deletingKey", @"Deleting...");
+
 			self.navigationItem.rightBarButtonItem.enabled = NO;	
 			self.navigationItem.leftBarButtonItem.enabled = NO;
 			[HUD showWhileExecuting:@selector(deleteEvent:) onTarget:self withObject:nil animated:YES];
@@ -178,20 +179,23 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 		eventDeleted = NO;
 			NSString *title, *msg;
 			if( [error code]==kGDataBadAuthentication ){
-				title = @"Authentication Failed";
-				msg = @"Invalid username/password\n\nPlease go to the iPhone's settings to change your Google account credentials. The event wasn't deleted.";
+
+				title = NSLocalizedString(@"authenticationFailedKey",@"Authentication Failed");
+				msg = NSLocalizedString(@"authenticationFailedMsgKey",@"Authentication Failed Msg");
+
 			}else if ( [error code] == NSURLErrorNotConnectedToInternet || [error code] == -1018 ) {
 				
 				
-				title = @"No internet access.";
-				msg = @"The application couldn't connect to internet. Please check your internet access. The event wasn't deleted.";
+				title = NSLocalizedString(@"noInternetKey",@"No internet access.");
+				msg = NSLocalizedString(@"noInternetMsgKey",@"The application couldn't connect to internet. Please check your internet access.");
 				
 			}else{
 				// some other error authenticating or retrieving the GData object or a 304 status
 				// indicating the data has not been modified since it was previously fetched
-				title = @"An unexpected error has ocurred.";
+				title = NSLocalizedString(@"unexpectedErrorKey", @"An unexpected error has ocurred.");
 				msg = [error localizedDescription];
 			}
+		
 			
 			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
 															message:msg
@@ -299,17 +303,12 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellIdentifier] autorelease];
 		}
 		
-		//
-//		cell.textLabel.textColor   = [UIColor redColor];
-//		
-//		cell.textLabel.text =  @"Delete Event";
-		
+
 		UIImage *buttonBackground = [UIImage imageNamed:@"redButton.png"];
-		//UIImage *buttonBackgroundPressed = [UIImage imageNamed:@"blueButton.png"];
 		
 		CGRect frame = CGRectMake(0, -1, 300, 44);
 		
-		UIButton *button = [AddEventViewController buttonWithTitle:@"Delete Event"
+		UIButton *button = [AddEventViewController buttonWithTitle:NSLocalizedString(@"deleteEventKey", @"Delete Event")
 													 target:self
 												   selector:@selector(eventDeleteConfirmation)
 													  frame:frame
@@ -421,8 +420,8 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 - (void)eventDeleteConfirmation
 {
 	// open a alert with an OK and cancel button
-	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Are you sure?"
-															 delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"OK" otherButtonTitles:nil];
+	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"areYouSureKey",@"Are you sure?")
+															 delegate:self cancelButtonTitle:NSLocalizedString(@"cancelKey",@"Cancel") destructiveButtonTitle:@"Ok" otherButtonTitles:nil];
 	actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
 	actionSheet.delegate = self;
 	[actionSheet showInView:self.view]; // show from our table view (pops up in the middle of the table)
@@ -449,13 +448,17 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 		if (self.event.title != nil && [self.event.title length] != 0)
 			lblTemp1.text = self.event.title;
 		else
-			lblTemp1.text = @"What?";
+
+			lblTemp1.text = NSLocalizedString(@"whatKey", @"What?");
+
 		
 		
 		if (self.event.location != nil && [self.event.location length] != 0)
 			lblTemp2.text = self.event.location;
 		else
-			lblTemp2.text = @"Where?";
+
+			lblTemp2.text = NSLocalizedString(@"whereKey", @"Where?");
+
 
 				
 	}
@@ -468,8 +471,8 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 		lblTemp1.font = [UIFont boldSystemFontOfSize:16];
 		lblTemp2.textColor = [UIColor blackColor];
 		lblTemp2.font = [UIFont boldSystemFontOfSize:16];
-		lblTemp1.text = @"Starts";
-		lblTemp2.text = @"Ends";	
+		lblTemp1.text =  NSLocalizedString(@"startsKey", @"Starts");
+		lblTemp2.text = NSLocalizedString(@"endsKey", @"Ends");
 		
 		[self startDateFormater];
 		NSString *startDateString =[dateFormater stringFromDate:self.event.startDate]; 
@@ -548,8 +551,8 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 - (UITableViewCell *) getCellContentView:(NSString *)cellIdentifier {
 	
 	CGRect CellFrame = CGRectMake(0, 0, 300, 60);
-	CGRect Label1Frame = CGRectMake(10, 5, 240, 20);
-	CGRect Label2Frame = CGRectMake(10, 25, 240, 20);
+	CGRect Label1Frame = CGRectMake(10, 5, 260, 20);
+	CGRect Label2Frame = CGRectMake(10, 25, 260, 20);
 	UILabel *lblTemp;
 	
 	UITableViewCell *cell = [[[UITableViewCell alloc] initWithFrame:CellFrame reuseIdentifier:cellIdentifier] autorelease];
@@ -575,7 +578,9 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 
 - (UILabel *)newStartHourLabel:(NSString *)string{
 	
-	CGRect frame = CGRectMake(90, 6, kTextFieldWidthForHour, kTextFieldHeightForHour);
+
+	CGRect frame = CGRectMake(100, 6, kTextFieldWidthForHour, kTextFieldHeightForHour);
+
 	UILabel *newHourLabel = [[UILabel alloc] initWithFrame:frame] ;
 	//	label.highlightedTextColor = [UIColor whiteColor];
 	newHourLabel.textColor =  [UIColor colorWithRed:0.243 green:0.306 blue:0.435 alpha:1.0];
@@ -590,7 +595,9 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 
 - (UILabel *)newEndHourLabel:(NSString *)string{
 	
-	CGRect frame = CGRectMake(90, 24, kTextFieldWidthForHour, kTextFieldHeightForHour);
+
+	CGRect frame = CGRectMake(100, 24, kTextFieldWidthForHour, kTextFieldHeightForHour);
+
 	UILabel *newHourLabel = [[UILabel alloc] initWithFrame:frame] ;
 	//	label.highlightedTextColor = [UIColor whiteColor];
 	newHourLabel.textColor =  [UIColor colorWithRed:0.243 green:0.306 blue:0.435 alpha:1.0];
@@ -628,7 +635,7 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 							  nil]];
 
 	[menuList addObject:[NSDictionary dictionaryWithObjectsAndKeys:
-						 @"Calendar", kTitleKey,
+						 NSLocalizedString(@"calendarKey", @"Calendar"), kTitleKey,
 						 @"SelectCalendarForEventViewController", kViewControllerKey,
 						 @"44.0f", kRowSizeKey,
 						 @"YES",kNormalRowsizeKey,
@@ -636,7 +643,7 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 
 	
 	[menuList addObject:[NSDictionary dictionaryWithObjectsAndKeys:
-							  @"Description", kTitleKey,
+							  NSLocalizedString(@"descriptionKey",@"Description"), kTitleKey,
 							  @"AddNoteEventViewController", kViewControllerKey,
 							  @"44.0f", kRowSizeKey,
 							  @"YES",kNormalRowsizeKey,
@@ -732,15 +739,19 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 	
 	
 	if (!editingMode)
-		self.title = @"Add Event";
+
+		self.title = NSLocalizedString(@"addEventKey", @"Add Event");
 	else
-		self.title = @"Edit Event";
-	self.navigationItem.prompt = @"Set the details for this event";
-	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
+		self.title = NSLocalizedString(@"editEventKey", @"Edit Event");
+	self.navigationItem.prompt = NSLocalizedString(@"detailsKey", @"Set the details for this event");
+	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"cancelKey", @"Cancel") 
+																		 style:UIBarButtonItemStyleBordered 
+																		 target:self action:@selector(cancel)];
+
     self.navigationItem.leftBarButtonItem = cancelButtonItem;
     [cancelButtonItem release];
     
-    UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(save)];
+    UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"doneKey", @"Done") style:UIBarButtonItemStyleDone target:self action:@selector(save)];
     self.navigationItem.rightBarButtonItem = saveButtonItem;
     [saveButtonItem release];
 	
@@ -761,8 +772,9 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 		}
 	}
 	else   {
-		UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"No Calendars Found" 
-														 message:@"We were not able to find any calendars for your google account. It's not possbile to create events" 
+
+		UIAlertView *alert = [[[UIAlertView alloc] initWithTitle: NSLocalizedString(@"noCalendarsKey", @"No Calendars Found")
+														 message:NSLocalizedString(@"noCalendarMsgKey", @"noCalendarMsgKey") 
 														delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] autorelease];
 		[alert show];
 		

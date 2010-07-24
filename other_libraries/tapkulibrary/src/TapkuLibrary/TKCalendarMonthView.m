@@ -147,10 +147,12 @@
 	// Calendar starting on Monday instead of Sunday (Australia, Europe agains US american calendar)
 	NSArray *days;
 	CFCalendarRef currentCalendar = CFCalendarCopyCurrent();
-	if (CFCalendarGetFirstWeekday(currentCalendar) == 2) 
-		days = [NSArray arrayWithObjects:@"Mon",@"Tue",@"Wed",@"Thu",@"Fri",@"Sat",@"Sun",nil];
-	else 
+	
+	//NSLog(@"%i", CFCalendarGetFirstWeekday(currentCalendar));
+//	if (CFCalendarGetFirstWeekday(currentCalendar) == 1) 
 		days = [NSArray arrayWithObjects:@"Sun",@"Mon",@"Tue",@"Wed",@"Thu",@"Fri",@"Sat",nil];
+//	else 
+//		days = [NSArray arrayWithObjects:@"Mon",@"Tue",@"Wed",@"Thu",@"Fri",@"Sat",@"Sun",nil];
 	CFRelease(currentCalendar); 
 	UIFont *f = [UIFont boldSystemFontOfSize:10];
 	

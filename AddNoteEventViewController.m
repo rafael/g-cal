@@ -1,10 +1,20 @@
-//
-//  AddNoteEventViewController.m
-//  GoogleCal
-//
-//  Created by Rafael Chacon on 17/01/10.
-//  Copyright 2010 Universidad Simon Bolivar. All rights reserved.
-//
+/*
+ 
+ Copyright (c) 2010 Rafael Chacon
+ g-Cal is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ g-Cal is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with g-Cal.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 
 #import "AddNoteEventViewController.h"
 
@@ -24,27 +34,6 @@
 	    [self.navigationController popViewControllerAnimated:YES];
 
 }
-
-
-
-//#pragma mark -
-//#pragma mark UITextViewDelegate
-//- (void)textViewDidEndEditing:(UITextView *)textView
-//{
-//	
-//	NSLog(@"entre aqui donde creo que entreo");
-////	if(textField.tag ==1){
-////		[placeTextField becomeFirstResponder];
-////		
-////	}
-////	else{
-////		[self done];
-////		
-////	}
-//	//return YES; // We do not want UITextField to insert line-breaks.
-//	
-//}
-
 
 
 #pragma mark -
@@ -102,13 +91,13 @@
 #pragma mark -
 #pragma mark UIViewController functions
 - (void)viewDidLoad {
-	self.title = @"Description";
-	self.navigationItem.prompt = @"Set the details for this event";
-	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
+	self.title = NSLocalizedString(@"descriptionKey", @"Description");
+	self.navigationItem.prompt = NSLocalizedString(@"detailsKey", @"Set the details for this event.");
+	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"cancelKey", @"Cancel") style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
     self.navigationItem.leftBarButtonItem = cancelButtonItem;
     [cancelButtonItem release];
     
-    UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(done)];
+    UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"doneKey", @"Done") style:UIBarButtonItemStyleDone target:self action:@selector(done)];
     self.navigationItem.rightBarButtonItem = saveButtonItem;
     [saveButtonItem release];
 	[self noteTextView]; //to become first responder

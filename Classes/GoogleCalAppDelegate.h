@@ -1,9 +1,20 @@
-//
-//  GoogleCalAppDelegate.h
-//  GoogleCal
-//
-//  Created by Rafael Chacon on 15/11/09.
-//  Copyright Universidad Simon Bolivar 2009. All rights reserved.
+/*
+ 
+ Copyright (c) 2010 Rafael Chacon
+ g-Cal is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ g-Cal is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with g-Cal.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 //
 
 @class MonthCalendar;
@@ -24,15 +35,15 @@
 	MonthCalendar *mainMonthCal;
 	GDataServiceGoogleCalendar *gCalService;
 	NSString *username;
-	NSMutableDictionary *addEventsQueue;
 
 
+	NSMutableArray *addEventsQueue;
 
 	
 
 }
 
-@property (nonatomic, retain) NSMutableDictionary *addEventsQueue;
+@property (nonatomic, retain) NSMutableArray *addEventsQueue;
 @property (nonatomic,retain) NSString *username;
 @property (nonatomic,retain) GDataServiceGoogleCalendar *gCalService;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
@@ -42,11 +53,6 @@
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
 @property (nonatomic, retain) MonthCalendar *mainMonthCal; 
-
-//@property (nonatomic, retain)  DayViewController *dayview; 
-
-
-
 
 
 

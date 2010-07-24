@@ -1,10 +1,20 @@
-//
-//  AddDateEventViewController.m
-//  GoogleCal
-//
-//  Created by Rafael Chacon on 24/01/10.
-//  Copyright 2010 Universidad Simon Bolivar. All rights reserved.
-//
+/*
+ 
+ Copyright (c) 2010 Rafael Chacon
+ g-Cal is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ g-Cal is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with g-Cal.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 
 #import "AddDateEventViewController.h"
 
@@ -22,9 +32,20 @@
 
 
 -(void)done{
-	self.event.startDate = self.startDate;
-	self.event.endDate = self.endDate;
-	[self.navigationController popViewControllerAnimated:YES];
+	if ( [self.endDate compare:self.startDate ] ==  NSOrderedAscending) {
+		
+		UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"checkDateKey", @"Check start and end date") 
+														 message:NSLocalizedString(@"checkDateMsgKey", @"The end date selected is before start date. Please check your date.") 
+														 delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] autorelease];
+	
+		[alert show];
+		
+	}
+	else{
+		self.event.startDate = self.startDate;
+		self.event.endDate = self.endDate;
+		[self.navigationController popViewControllerAnimated:YES];
+	}
 
 }
 
@@ -37,8 +58,13 @@
 - (void) dateChanged:(UIDatePicker *)sender{
 	
 	if (rowSelected == 0){		
-		
+		NSTimeInterval interval = [self.endDate timeIntervalSinceDate: self.startDate];
 		self.startDate = [dateSelect date];
+		NSDate *newEndDate = [[NSDate alloc] initWithTimeInterval:interval sinceDate:self.startDate]; 
+		self.endDate =newEndDate;
+	
+		[newEndDate release];
+		
 		[self startHourBehavior];
 		
 	}
@@ -123,7 +149,7 @@
 		
 		[dtableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:0];
 		NSString *startDateString =[dateFormater stringFromDate:startDate]; 
-		cell.textLabel.text = [NSString stringWithFormat:@"Starts"]; 
+		cell.textLabel.text = NSLocalizedString(@"startsKey", @"Starts"); 
 		UILabel *hLabel = [self initStartHourLabelWithHourString:startDateString];
 		[cell.contentView addSubview:hLabel];
 		
@@ -135,11 +161,11 @@
 		if( cell == nil) {
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kendDateCell_ID] autorelease];
 		}
-		[dateFormater setDateStyle:NSDateFormatterNoStyle];
+		[self endHourBehavior];
 		NSString *endDateString = [dateFormater stringFromDate:endDate];
 		
 		
-		cell.textLabel.text = [NSString stringWithFormat:@"Ends"]; 
+		cell.textLabel.text = NSLocalizedString(@"endsKey", @"Ends"); 
 		UILabel *hLabel = [self initEndHourLabelWithHourString:endDateString];
 		[cell.contentView addSubview:hLabel];
 		
@@ -159,7 +185,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-	return 3;
+	//normally is 3 this is for this version all Day behavior is nil
+	return 2;
 }
 
 #pragma mark -
@@ -215,7 +242,7 @@
 	//Initialize Label with tag 1.
 	lblTemp = [[UILabel alloc] initWithFrame:Label1Frame];
 	lblTemp.font = [UIFont boldSystemFontOfSize:16];
-	lblTemp.text = @"Whole day";
+	lblTemp.text = NSLocalizedString(@"wholeDayKey", @"Whole day");
 	lblTemp.textColor = [UIColor blackColor];
 	[cell.contentView addSubview:lblTemp];
 	[lblTemp release];
@@ -341,6 +368,7 @@
 }
 
 
+
 - (void)viewDidLoad {
 
 	dateFormater = [[NSDateFormatter alloc] init];
@@ -349,19 +377,20 @@
 	[dateFormater setDateStyle:NSDateFormatterShortStyle];
 	[dateFormater setTimeStyle:NSDateFormatterShortStyle];
 	self.startDate = self.event.startDate;
-	[dateSelect setDate:startDate animated:NO];
+
 	self.endDate = self.event.endDate;
 	dtableView.scrollEnabled= NO;
 	
-	self.title = @"Dates";
-	self.navigationItem.prompt = @"Set the details for this event";
+	self.title = NSLocalizedString(@"startsAndEndsKey", @"Starts & Ends");
+	self.navigationItem.prompt = NSLocalizedString(@"detailsKey", @"Set the details for this event");
 	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
     self.navigationItem.leftBarButtonItem = cancelButtonItem;
     [cancelButtonItem release];
     
-    UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(done)];
+    UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"doneKey", @"Done") style:UIBarButtonItemStyleDone target:self action:@selector(done)];
     self.navigationItem.rightBarButtonItem = saveButtonItem;
     [saveButtonItem release];
+	
 	
 	
 	
@@ -371,7 +400,7 @@
 - (void)viewWillAppear:(BOOL)flag {
     [super viewWillAppear:flag];
 	[dtableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:0];
-	[self.dateSelect setDate:[NSDate date] animated:YES];
+	[self.dateSelect setDate:self.startDate animated:NO];
     
 	
 }

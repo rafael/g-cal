@@ -1,10 +1,20 @@
-//
-//  SelectCalendarForEventViewController.m
-//  GoogleCal
-//
-//  Created by Rafael Chacon on 10/06/10.
-//  Copyright 2010 Universidad Simon Bolivar. All rights reserved.
-//
+/*
+ 
+ Copyright (c) 2010 Rafael Chacon
+ g-Cal is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ g-Cal is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with g-Cal.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 
 #import "SelectCalendarForEventViewController.h"
 #import "Circle.h"
@@ -19,8 +29,10 @@
 @synthesize editingMode;
 
 -(void)done{
+	if (lastIndexPath){
 	Calendar *acalendar = (Calendar *)[self.fetchedResultsController objectAtIndexPath:lastIndexPath];
 	self.event.calendar = acalendar;
+	}
 	[self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -36,31 +48,33 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-
+	if (!self.editingMode){
+		
 	
 
-	[tableView deselectRowAtIndexPath:indexPath animated:YES];
-	
-	int newRow = [indexPath row];
-    int oldRow = [lastIndexPath row];
-	
-	
-	if (self.lastIndexPath!= nil && newRow != oldRow )
-	{
-		UITableViewCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
-		newCell.accessoryType = UITableViewCellAccessoryCheckmark;
+		[tableView deselectRowAtIndexPath:indexPath animated:YES];
 		
-		UITableViewCell *oldCell = [tableView cellForRowAtIndexPath: lastIndexPath]; 
-		oldCell.accessoryType = UITableViewCellAccessoryNone;
-		
-		lastIndexPath = indexPath;  
-	}
-	else{
-		UITableViewCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
-		newCell.accessoryType = UITableViewCellAccessoryCheckmark;
-		self.lastIndexPath = indexPath;
+		int newRow = [indexPath row];
+		int oldRow = [lastIndexPath row];
 		
 		
+		if (self.lastIndexPath!= nil && newRow != oldRow )
+		{
+			UITableViewCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
+			newCell.accessoryType = UITableViewCellAccessoryCheckmark;
+			
+			UITableViewCell *oldCell = [tableView cellForRowAtIndexPath: lastIndexPath]; 
+			oldCell.accessoryType = UITableViewCellAccessoryNone;
+			
+			lastIndexPath = indexPath;  
+		}
+		else{
+			UITableViewCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
+			newCell.accessoryType = UITableViewCellAccessoryCheckmark;
+			self.lastIndexPath = indexPath;
+			
+			
+		}
 	}
 	
     	
@@ -86,7 +100,10 @@
 	cell = [tableView dequeueReusableCellWithIdentifier:kcalendarCell_ID];	
 	if( cell == nil) {
 		
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kcalendarCell_ID] autorelease];			
+		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kcalendarCell_ID] autorelease];	
+		NSLog(@"este es el valor %d",self.editingMode);
+		if (self.editingMode)
+			cell.selectionStyle = UITableViewCellSelectionStyleNone;
 		
 	}	
 

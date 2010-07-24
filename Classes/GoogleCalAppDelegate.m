@@ -1,10 +1,19 @@
-//
-//  GoogleCalAppDelegate.m
-//  GoogleCal
-//
-//  Created by Rafael Chacon on 15/11/09.
-//  Copyright Universidad Simon Bolivar 2009. All rights reserved.
-//
+/*
+ 
+ Copyright (c) 2010 Rafael Chacon
+ g-Cal is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ g-Cal is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with g-Cal.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 #import "GoogleCalAppDelegate.h"
 #import "MonthCalendar.h"
@@ -33,24 +42,26 @@
 	self.mainMonthCal = aMonthCal;
 	[self.mainMonthCal allCalendars:YES];
 	CalendarViewController *calendarController = [[CalendarViewController alloc] initWithNibName:@"CalendarViewController" bundle:nil];
-	calendarController.managedObjectContext = self.managedObjectContext;
+	//calendarController.managedObjectContext = self.managedObjectContext;
 	navController.viewControllers= [NSArray arrayWithObjects:calendarController,aMonthCal,nil];
 	[window addSubview:navController.view];
 	[aMonthCal release]; 
 	[calendarController release];
 	
+	//detecting first run , set sync_on_load as yes for default
 	
-
-
+	NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+	if ([ud objectForKey:@"sync_on_load_pref"]== nil) {
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                          @"1", @"sync_on_load_pref",
+                          nil];
+    [ud registerDefaults:dict];
+	}
+	
+	[window makeKeyAndVisible];
 
 	
-//	DayViewController *aDayView = [[DayViewController alloc] init];
-//	[self setDayview:aDayView]; 
-//	[aDayView release]; 
-//	navController.viewControllers= [NSArray arrayWithObject:aDayView];
-//	[window addSubview:navController.view];
-//	
-//	[window makeKeyAndVisible];
+	
 }
 
 /**
@@ -67,15 +78,24 @@
 		
         } 
 		
-		NSArray *eventsArray =  [self.addEventsQueue allValues];
-		
-		for (Event *event  in eventsArray) {
-				[self.managedObjectContext deleteObject:event];
-				NSError *error = nil;			
-				[self.managedObjectContext save:&error];
-				NSLog(@"estoy borrando unos bastardos");
-		
+		for (NSMutableDictionary *dic in self.addEventsQueue) {
+			Event *event = [dic objectForKey:@"event"];
+			[self.managedObjectContext deleteObject:event];
+			NSError *error = nil;			
+			[self.managedObjectContext save:&error];
+						
+			
 		}
+		
+//		NSArray *eventsArray =  [self.addEventsQueue allValues];
+//		
+//		for (Event *event  in eventsArray) {
+//				[self.managedObjectContext deleteObject:event];
+//				NSError *error = nil;			
+//				[self.managedObjectContext save:&error];
+//		
+//		
+//		}
 			
 	}
 }
@@ -159,7 +179,7 @@
 		 [gCalService setUserAgent:@"oubinite-GoogleCalc-1.0"];
 		[gCalService setShouldCacheDatedData:YES];
 		[gCalService setServiceShouldFollowNextLinks:YES];
-	}
+	
 	
 	// update the username/password each time the service is requested
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -179,6 +199,9 @@
 
 	[gCalService setUserCredentialsWithUsername:username
 								   password:password];
+		
+		
+	}
 	
 	return gCalService;
 }
@@ -198,9 +221,9 @@
 #pragma mark -
 #pragma mark Memory management
 
--(NSMutableDictionary *)addEventsQueue{
+-(NSMutableArray *)addEventsQueue{
 	if (addEventsQueue ==nil)
-		addEventsQueue = [[NSMutableDictionary alloc] initWithCapacity:5];
+		addEventsQueue = [[NSMutableArray alloc] initWithCapacity:5];
 	return addEventsQueue;
 	
 }

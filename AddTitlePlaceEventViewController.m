@@ -1,10 +1,20 @@
-//
-//  AddEventViewController.m
-//  GoogleCal
-//
-//  Created by Rafael Chacon on 17/12/09.
-//  Copyright 2009 Universidad Simon Bolivar. All rights reserved.
-//
+/*
+ 
+ Copyright (c) 2010 Rafael Chacon
+ g-Cal is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ g-Cal is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with g-Cal.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 
 #import "AddTitlePlaceEventViewController.h"
 
@@ -121,7 +131,7 @@
 		placeTextField.borderStyle = UITextBorderStyleNone;
 		placeTextField.textColor = [UIColor blackColor];
 		placeTextField.font = [UIFont systemFontOfSize:18.0];
-		placeTextField.placeholder = @"Where";
+		placeTextField.placeholder = NSLocalizedString(@"whereKey", @"Where?");
 		placeTextField.backgroundColor = [UIColor whiteColor];
 		placeTextField.autocorrectionType = UITextAutocorrectionTypeNo;	// no auto correction support
 		placeTextField.keyboardType = UIKeyboardTypeDefault;	// use the default type input method (entire keyboard)
@@ -143,7 +153,7 @@
 		titleTextField.borderStyle = UITextBorderStyleNone;
 		titleTextField.textColor = [UIColor blackColor];
 		titleTextField.font = [UIFont systemFontOfSize:18.0];
-		titleTextField.placeholder = @"What";
+		titleTextField.placeholder = NSLocalizedString(@"whatKey", @"What?");
 		titleTextField.backgroundColor = [UIColor whiteColor];
 		titleTextField.autocorrectionType = UITextAutocorrectionTypeNo;	
 		titleTextField.keyboardType = UIKeyboardTypeDefault;	
@@ -192,13 +202,13 @@
 - (void)viewDidLoad {
     
 	
-	self.title = @"What & Where";
-	self.navigationItem.prompt = @"Set the details for this event";
-	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
+	self.title = NSLocalizedString(@"whatAndWhereKey", @"What & Where");
+	self.navigationItem.prompt = NSLocalizedString(@"detailsKey", @"Set the details for this event"); 
+	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"cancelKey", @"Done") style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
     self.navigationItem.leftBarButtonItem = cancelButtonItem;
     [cancelButtonItem release];
     
-    UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(done)];
+    UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"doneKey", @"Done") style:UIBarButtonItemStyleDone target:self action:@selector(done)];
     self.navigationItem.rightBarButtonItem = saveButtonItem;
     [saveButtonItem release];
 	

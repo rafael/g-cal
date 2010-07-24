@@ -131,7 +131,8 @@
 		placeTextField.borderStyle = UITextBorderStyleNone;
 		placeTextField.textColor = [UIColor blackColor];
 		placeTextField.font = [UIFont systemFontOfSize:18.0];
-		placeTextField.placeholder = @"Where?";
+
+		placeTextField.placeholder = NSLocalizedString(@"whereKey", @"Where?");
 		placeTextField.backgroundColor = [UIColor whiteColor];
 		placeTextField.autocorrectionType = UITextAutocorrectionTypeNo;	// no auto correction support
 		placeTextField.keyboardType = UIKeyboardTypeDefault;	// use the default type input method (entire keyboard)
@@ -153,7 +154,9 @@
 		titleTextField.borderStyle = UITextBorderStyleNone;
 		titleTextField.textColor = [UIColor blackColor];
 		titleTextField.font = [UIFont systemFontOfSize:18.0];
-		titleTextField.placeholder = @"What?";
+
+		titleTextField.placeholder = NSLocalizedString(@"whatKey", @"What?");
+
 		titleTextField.backgroundColor = [UIColor whiteColor];
 		titleTextField.autocorrectionType = UITextAutocorrectionTypeNo;	
 		titleTextField.keyboardType = UIKeyboardTypeDefault;	
@@ -202,13 +205,13 @@
 - (void)viewDidLoad {
     
 	
-	self.title = @"What & Where";
-	self.navigationItem.prompt = @"Set the details for this event";
-	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
+	self.title = NSLocalizedString(@"whatAndWhereKey", @"What & Where");
+	self.navigationItem.prompt = NSLocalizedString(@"detailsKey", @"Set the details for this event"); 
+	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"cancelKey", @"Done") style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
     self.navigationItem.leftBarButtonItem = cancelButtonItem;
     [cancelButtonItem release];
     
-    UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(done)];
+    UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"doneKey", @"Done") style:UIBarButtonItemStyleDone target:self action:@selector(done)];
     self.navigationItem.rightBarButtonItem = saveButtonItem;
     [saveButtonItem release];
 	

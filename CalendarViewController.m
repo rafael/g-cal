@@ -43,7 +43,6 @@
         [fetchRequest setEntity:entity];
         
 		
-       // NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
 		NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"edit_permission" ascending:NO];
         NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
         
@@ -128,12 +127,12 @@
 			
 		case 1:
 			
-			return @"My Calendars";
+			return NSLocalizedString(@"myCalendarsKey", @"My Calendars");
 			
 			break;
 		case 2:
 			
-			return @"Other Calendars";
+			return NSLocalizedString(@"otherCalendarsKey", @"Other Calendars");
 			
 			break;
 			
@@ -159,7 +158,7 @@
 	
 
 	if (section == 0) {
-		cell.textLabel.text = @"All Calendars";
+		cell.textLabel.text =  NSLocalizedString(@"allCalendarsKey", @"All Calendars");
 	}
 
 	
@@ -230,7 +229,7 @@
 
 
 - (void)viewDidLoad {
-	self.title = @"Calendars";
+	self.title = NSLocalizedString(@"calendarsKey", @"Calendars");
 	
 	appDelegate = [[UIApplication sharedApplication] delegate];
 	

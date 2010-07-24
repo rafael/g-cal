@@ -1,0 +1,72 @@
+/*
+ 
+ Copyright (c) 2010 Rafael Chacon
+ g-Cal is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ g-Cal is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with g-Cal.  If not, see <http://www.gnu.org/licenses/>.
+ */
+"nowKey" = "Ahora";
+"allCalendarsKey" = "Todos";
+"calendarsKey" = "Calendarios";
+"unexpectedErrorKey" = "An unexpected error has ocurred.";
+"noInternetKey" = "No hay acceso a internet";
+"noInternetMsgKey" = "La aplicación no pudo conectarse a internet. Por favor chequee su disponibilidad.";
+"authenticationFailedKey" = "Fallo de autenticación";
+"authenticationFailedMsgKey" = "Su combinación usuario/contraseña es invalida\n\nPor favor dirijase a las preferencias de g-Cal en la sección de ajustes del iPhone y asegurese que sus credenciales sean correctas.";
+"loadingKey" = "Cargando...";
+"retrieveDataKey" = "Obteniendo información de Google";
+"addingEventKey" = "Agregando el evento...";
+"myCalendarsKey" = "Mis calendarios";
+"otherCalendarsKey" = "Otros calendarios";
+
+
+
+"calendarKey" = "Calendario";
+"newEventKey" = "New Event";
+"noCalendarErrorKey" = "Ningún Calendario";
+"noCalendarMsgErrorKey" = "No puede salvar un evento sin calendario. Por favor sincronize g-Cal con su cuenta Google. Si no tiene ningún calendario en Google, ustede debe crear uno para poder usar la aplicación.";
+"deletingKey" = "Elimando...";
+"deleteEventKey" = "Eliminar evento";
+"areYouSureKey" = "¿Está seguro?";
+"cancelKey" = "Cancelar";
+"whatKey" = "Título";
+"whereKey" = "Lugar";
+"startsKey" = "Empieza";
+"endsKey" = "Termina";
+"addEventKey" = "Añadir Evento";
+"editEventKey" = "Editar Evento";
+"detailsKey" = "Configure los detalles de este evento.";
+"doneKey" = "OK";
+"noCalendarsKey" = "No se encontró ningún calendario";
+"noCalendarMsgKey" =  "No se pudó encontrar ningún calendario para su cuenta Google. No es posible crear eventos";
+"descriptionKey" = "Descripción";
+
+"whatAndWhereKey" = "Título y Lugar";
+"whereNoMarkKey" = "Lugar";
+"whenKey" = "Cuando:";
+"description:Key" = "Descripción:";
+"eventKey" = "Evento";
+"editKey" = "Editar";
+
+"checkDateKey" =  "Chequear fechas de inicio y fin";
+"checkDateMsgKey" = "La fecha de fin es previa a la inicial. Por favor chequee las fechas.";
+"wholeDayKey" = "Día entero";
+"startsAndEndsKey" = "Inicio y Fin";
+
+//this for tapku 
+"Sun" =  "Dom";
+"Mon" = "Lun";
+"Tue" = "Mar";
+"Wed" = "Mie";
+"Thu" = "Jue";
+"Fri" = "Vie";
+"Sat" = "Sab";

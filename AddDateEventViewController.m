@@ -34,7 +34,11 @@
 -(void)done{
 	if ( [self.endDate compare:self.startDate ] ==  NSOrderedAscending) {
 		
-		UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Check start and end date" message:@"The end date selected is before start date. Please check your date." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] autorelease];
+
+		UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"checkDateKey", @"Check start and end date") 
+														 message:NSLocalizedString(@"checkDateMsgKey", @"The end date selected is before start date. Please check your date.") 
+														 delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] autorelease];
+
 	
 		[alert show];
 		
@@ -147,7 +151,7 @@
 		
 		[dtableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:0];
 		NSString *startDateString =[dateFormater stringFromDate:startDate]; 
-		cell.textLabel.text = [NSString stringWithFormat:@"Starts"]; 
+		cell.textLabel.text = NSLocalizedString(@"startsKey", @"Starts"); 
 		UILabel *hLabel = [self initStartHourLabelWithHourString:startDateString];
 		[cell.contentView addSubview:hLabel];
 		
@@ -159,11 +163,11 @@
 		if( cell == nil) {
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kendDateCell_ID] autorelease];
 		}
-		[dateFormater setDateStyle:NSDateFormatterNoStyle];
+		[self endHourBehavior];
 		NSString *endDateString = [dateFormater stringFromDate:endDate];
 		
 		
-		cell.textLabel.text = [NSString stringWithFormat:@"Ends"]; 
+		cell.textLabel.text = NSLocalizedString(@"endsKey", @"Ends"); 
 		UILabel *hLabel = [self initEndHourLabelWithHourString:endDateString];
 		[cell.contentView addSubview:hLabel];
 		
@@ -240,7 +244,7 @@
 	//Initialize Label with tag 1.
 	lblTemp = [[UILabel alloc] initWithFrame:Label1Frame];
 	lblTemp.font = [UIFont boldSystemFontOfSize:16];
-	lblTemp.text = @"Whole day";
+	lblTemp.text = NSLocalizedString(@"wholeDayKey", @"Whole day");
 	lblTemp.textColor = [UIColor blackColor];
 	[cell.contentView addSubview:lblTemp];
 	[lblTemp release];
@@ -379,13 +383,13 @@
 	self.endDate = self.event.endDate;
 	dtableView.scrollEnabled= NO;
 	
-	self.title = @"Dates";
-	self.navigationItem.prompt = @"Set the details for this event";
+	self.title = NSLocalizedString(@"startsAndEndsKey", @"Starts & Ends");
+	self.navigationItem.prompt = NSLocalizedString(@"detailsKey", @"Set the details for this event");
 	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
     self.navigationItem.leftBarButtonItem = cancelButtonItem;
     [cancelButtonItem release];
     
-    UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(done)];
+    UIBarButtonItem *saveButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"doneKey", @"Done") style:UIBarButtonItemStyleDone target:self action:@selector(done)];
     self.navigationItem.rightBarButtonItem = saveButtonItem;
     [saveButtonItem release];
 	

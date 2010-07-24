@@ -1,0 +1,65 @@
+/*
+ 
+ Copyright (c) 2010 Rafael Chacon
+ g-Cal is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ g-Cal is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with g-Cal.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"nowKey" = "Now";
+"allCalendarsKey" = "All Calendars";
+"calendarsKey" = "Calendars";
+"calendarKey" = "Calendar";
+"unexpectedErrorKey" = "An unexpected error has ocurred.";
+"noInternetKey" = "No internet access.";
+"noInternetMsgKey" = "The application couldn't connect to internet. Please check your internet access.";
+"authenticationFailedKey" = "Authentication failed";
+"authenticationFailedMsgKey" = "Invalid username/password\n\nPlease go to the g-Cal settings in iPhone's settings to change your Google account credentials.";
+"loadingKey" = "Loading...";
+"retrieveDataKey" = "Retrieving data from Google";
+"addingEventKey" = "Adding Event...";
+"myCalendarsKey" = "My Calendars";
+"otherCalendarsKey" = "Other Calendars";
+
+"newEventKey" = "New Event";
+"noCalendarErrorKey" = "No Calendar error";
+"noCalendarMsgErrorKey" = "You can't save an event without a Calendar. Please synchronize g-Cal with your google account. If you don't any calendar in google, you need to create one in order to use the application. ";
+"deletingKey" = "Deleting...";
+"deleteEventKey" = "Delete Event";
+"areYouSureKey" = "Are you sure?";
+"cancelKey" = "Cancel";
+"whatKey" = "What?";
+"whereKey" = "Where?";
+"startsKey" = "Starts";
+"endsKey" = "Ends";
+"addEventKey" = "Add Event";
+"editEventKey" = "Edit Event";
+"detailsKey" = "Set the details for this event.";
+
+"doneKey" = "Done";
+"noCalendarsKey" = "No Calendars Found";
+"noCalendarMsgKey" =  "We were not able to find any calendars for your google account. It's not possbile to create events";
+"descriptionKey" = "Description";
+
+"whatAndWhereKey" = "What & Where";
+"whereNoMarkKey" = "Where";
+"whenKey" = "When:";
+"description:Key" = "Description:";
+"eventKey" = "Event";
+"editKey" = "Edit";
+
+"checkDateKey" =  "Check start and end date";
+"checkDateMsgKey" = "The end date selected is before start date. Please check your date.";
+"wholeDayKey" = "Whole day";
+"startsAndEndsKey" = "Starts & Ends";
+
+

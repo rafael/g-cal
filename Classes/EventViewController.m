@@ -91,29 +91,30 @@
         updatedEntry:(GDataFeedCalendarEvent *)entry
                error:(NSError *)error {
 
-	if (error != nil) {
-		NSString *title, *msg;
-		if( [error code]==kGDataBadAuthentication ){
-			title = @"Authentication Failed";
-			msg = @"Invalid username/password\n\nPlease go to the iPhone's settings to change your Google account credentials. The event wasn't updated.";
-		}else if ( [error code] == NSURLErrorNotConnectedToInternet || [error code] == -1018) {
-			
-			
-			title = @"No internet access.";
-			msg = @"The application couldn't connect to internet. Please check your internet access. The event wasn't updated.";
-			
-		}else{
-			// some other error authenticating or retrieving the GData object or a 304 status
-			// indicating the data has not been modified since it was previously fetched
-			title = @"An unexpected error has ocurred.";
-			msg = [error localizedDescription];
-		}
+	
+	NSString *title, *msg;
+	if ( error != nil){
+	if( [error code]==kGDataBadAuthentication ){
+		title = NSLocalizedString(@"authenticationFailedKey",@"Authentication Failed");
+		msg = NSLocalizedString(@"authenticationFailedMsgKey",@"Authentication Failed Msg");
+	}else if ( [error code] == NSURLErrorNotConnectedToInternet || [error code] == -1018 ) {
 		
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
-														message:msg
-													   delegate:nil
-											  cancelButtonTitle:@"Ok"
-											  otherButtonTitles:nil];
+		
+		title = NSLocalizedString(@"noInternetKey",@"No internet access.");
+		msg = NSLocalizedString(@"noInternetMsgKey",@"The application couldn't connect to internet. Please check your internet access.");
+		
+	}else{
+		// some other error authenticating or retrieving the GData object or a 304 status
+		// indicating the data has not been modified since it was previously fetched
+		title = NSLocalizedString(@"unexpectedErrorKey", @"An unexpected error has ocurred.");
+		msg = [error localizedDescription];
+	}
+	
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+													message:msg
+												   delegate:nil
+										  cancelButtonTitle:@"Ok"
+										  otherButtonTitles:nil];
 		[alert show];
 		[alert release];
 		
@@ -159,13 +160,7 @@
 
 	}
 	CGRect frame = CGRectMake(20, 5, 250.0f, 20.0f);
-//	NSString *str = [NSString stringWithFormat:@"What: %@",
-//					 self.event.title];
-	//frame.size.height = 40.0f;
-	
-//	UIView* subview;
-//	while ((subview = [[cell subviews] lastObject]) != nil && subview != [cell contentView])
-//		[subview removeFromSuperview];
+
 	theSize= [self stringSize:self.event.title withFont:[UIFont boldSystemFontOfSize:18.0f] andWidth:250.0f];
 		
 	
@@ -186,7 +181,7 @@
 	frame.size.height = 20;
 	
 	if (! (self.event.location == NULL  || [  self.event.location  isEqualToString:@""])){
-		str = [NSString stringWithFormat:@"Where: %@",
+		str = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"whereNoMarkKey", @"Where"),
 			   self.event.location];
 		frame.size.height = ([self stringSize:str withFont:[UIFont boldSystemFontOfSize:16.0f] andWidth:250.0f] ).height;
 		eventDetails = [[UILabel alloc] initWithFrame:frame];
@@ -214,11 +209,13 @@
 	NSString *endDateString = [dateFormatter stringFromDate:endDate];
 	[dateFormatter release];
 
-	eventDetails.text = @"When:";
+
+	eventDetails.text = NSLocalizedString(@"whenKey", @"When:");
 	[cell addSubview:eventDetails];
 	[eventDetails release];
 
-	frame.origin.x += 55;
+	frame.origin.x += 70;
+
 	frame.size.width -= 55.0f;
 	eventDetails = [[UILabel alloc] initWithFrame:frame];
 	eventDetails.text =startDateString;
@@ -233,11 +230,11 @@
 	
 	//description
 	frame.size.width += 55.0f;
-	frame.origin.x -= 55;
+	frame.origin.x -= 70;
 	if (! ( self.event.note == NULL  || [self.event.note isEqualToString:@""])){
 	frame.origin.y += 25; 
 	eventDetails = [[UILabel alloc] initWithFrame:frame];
-	eventDetails.text = @"Description:";
+	eventDetails.text = NSLocalizedString(@"description:Key", @"Description:");
 	
 	[cell addSubview:eventDetails];
 	[eventDetails release];
@@ -269,7 +266,8 @@
 	CGFloat title = ([self stringSize:self.event.title withFont:[UIFont boldSystemFontOfSize: 18] andWidth:250.0f ]).height ;
 	if (! (self.event.location == NULL || [self.event.location isEqualToString:@""])){
 		location = 20.0f;
-		NSString *str = [NSString stringWithFormat:@"Where: %@",self.event.location];
+		NSString *str = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"whereNoMarkKey", @"Where"),
+							   self.event.location];
 		location +=  ([self stringSize:str withFont:[UIFont systemFontOfSize: 16] andWidth:250.0f]).height;
 		}
 	
@@ -303,18 +301,16 @@
 - (void)viewDidAppear:(BOOL)animated{
 	
 
-	//add code to put the month
-	//self.navigationController.navigationBar.backItem.title = @"June";
 }
 
 
 
 -(void)viewDidLoad{
-	self.title = @"Event";
+	self.title = NSLocalizedString(@"eventKey", @"Event");
 	Calendar *event_calendar = self.event.calendar;
 	
 	if (event_calendar && [event_calendar.edit_permission boolValue]){
-		UIBarButtonItem *editButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleDone target:self action:@selector(edit)];
+		UIBarButtonItem *editButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"editKey", @"Edit") style:UIBarButtonItemStyleDone target:self action:@selector(edit)];
 		self.navigationItem.rightBarButtonItem = editButtonItem;
 		[editButtonItem release];
 	}

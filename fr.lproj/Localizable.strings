@@ -62,3 +62,12 @@
 "checkDateMsgKey" = "La date de fin est ultérieure à la date de début. Merci de vérifier les dates.";
 "wholeDayKey" = "Jour entier";
 "startsAndEndsKey" = "Début et fin";
+
+//this for tapku 
+"Sun" =  "Dim";
+"Mon" = "Lun";
+"Tue" = "Mar";
+"Wed" = "Mer";
+"Thu" = "Jeu";
+"Fri" = "Ven";
+"Sat" = "Sam";

@@ -61,3 +61,12 @@
 "checkDateMsgKey" = "La fecha de fin es previa a la inicial. Por favor chequee las fechas.";
 "wholeDayKey" = "Día entero";
 "startsAndEndsKey" = "Inicio y Fin";
+
+//this for tapku 
+"Sun" =  "Dom";
+"Mon" = "Lun";
+"Tue" = "Mar";
+"Wed" = "Mie";
+"Thu" = "Jue";
+"Fri" = "Vie";
+"Sat" = "Sab";

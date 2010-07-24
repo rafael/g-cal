@@ -664,7 +664,11 @@
 }
 
 -(void)reloadCalendar{
-	NSLog(@"esto se llamo");
+	
+	NSError *error;
+	if (![self.fetchedResultsController performFetch:&error]) {
+		NSLog(@"Unresolved error fetching events MonthCalendar.m %@, %@", error, [error userInfo]);
+	}	
 	[self setDayElements];
 	[self.monthView reload];
 	
@@ -792,7 +796,6 @@
 			[eventsForDay  addObject:event];
 	}
 	self.eventsForGivenDate = [NSArray arrayWithArray:eventsForDay];
-	NSLog(@"cuenta de los eventos del dia %i", [eventsForDay count] );
 	[eventsForDay release];
 	numberOfRowsForGivenDate = [self.eventsForGivenDate count];	
 	

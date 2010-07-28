@@ -229,8 +229,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -268,12 +266,15 @@
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>15CCCA5811D215E700974A9F</string>
 								<string>15E3CE8211CD2E46002A9883</string>
+								<string>1522512210E2A05A0088802F</string>
+								<string>080E96DDFE201D6D7F000001</string>
 								<string>1595602E10B2A955006EC0AB</string>
 								<string>29B97315FDCFA39411CA2CEA</string>
 								<string>15FBE13E11FB7E97005D8522</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
 								<string>15FBE52D11FB7F9A005D8522</string>
 								<string>15F021B811C6A927001F1730</string>
+								<string>15D4322512001F1E006C0014</string>
 								<string>1C37FBAC04509CD000000102</string>
 								<string>1C37FABC05509CD000000102</string>
 								<string>E2644B35053B69B200211256</string>
@@ -281,8 +282,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>14</integer>
-									<integer>10</integer>
+									<integer>3</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -317,12 +317,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>CalendarViewController.m</string>
+								<string>NSDate.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -330,16 +332,26 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>CalendarViewController.m</string>
+										<string>NSDate.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>15FBE59D11FB845A005D8522</string>
+										<string>15D4329B12003D86006C0014</string>
 										<key>history</key>
 										<array>
 											<string>15FBE59A11FB845A005D8522</string>
 											<string>15FBE59B11FB845A005D8522</string>
-											<string>15FBE59C11FB845A005D8522</string>
+											<string>15D4323812002370006C0014</string>
+											<string>15D4323912002370006C0014</string>
+											<string>15D4323A12002370006C0014</string>
+											<string>15D43258120029FE006C0014</string>
+											<string>15D4325A120029FE006C0014</string>
+											<string>15D4325B120029FE006C0014</string>
+											<string>15D4327012002DAA006C0014</string>
+											<string>15D43279120030D0006C0014</string>
+											<string>15D4329412003D62006C0014</string>
+											<string>15D4329812003D86006C0014</string>
+											<string>15D4329912003D86006C0014</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -351,14 +363,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1031, 668}}</string>
+								<string>{{0, 0}, {1031, 665}}</string>
 								<key>RubberWindowFrame</key>
 								<string>61 55 1379 823 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>668pt</string>
+							<string>665pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -371,14 +383,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 673}, {1031, 109}}</string>
+								<string>{{0, 670}, {1031, 112}}</string>
 								<key>RubberWindowFrame</key>
 								<string>61 55 1379 823 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>109pt</string>
+							<string>112pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -397,9 +409,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>15FBE59E11FB845A005D8522</string>
+				<string>15D4324212002370006C0014</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>15FBE59F11FB845A005D8522</string>
+				<string>15D4324312002370006C0014</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -535,7 +547,9 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>1CD10A99069EF8BA00B06720</string>
 		<string>154685F810B0B23A008E69F1</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/rafaelchacon/Sandboxes/g-cal/GoogleCal.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -555,12 +569,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string></string>
+								<string>MonthCalendar.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -569,7 +585,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1379, 256}}</string>
 								<key>RubberWindowFrame</key>
-								<string>337 -63 1379 822 0 0 1440 878 </string>
+								<string>61 56 1379 822 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -593,7 +609,7 @@
 								<key>Frame</key>
 								<string>{{0, 261}, {1379, 520}}</string>
 								<key>RubberWindowFrame</key>
-								<string>337 -63 1379 822 0 0 1440 878 </string>
+								<string>61 56 1379 822 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXBuildResultsModule</string>
@@ -616,14 +632,14 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>154685F810B0B23A008E69F1</string>
-				<string>15FBE5A011FB845A005D8522</string>
+				<string>15D4322F12002330006C0014</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.buildV3</string>
 			<key>WindowString</key>
-			<string>337 -63 1379 822 0 0 1440 878 </string>
+			<string>61 56 1379 822 0 0 1440 878 </string>
 			<key>WindowToolGUID</key>
 			<string>154685F810B0B23A008E69F1</string>
 			<key>WindowToolIsVisible</key>
@@ -736,13 +752,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>15FBE54811FB8027005D8522</string>
+				<string>15D4324412002370006C0014</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>15FBE54911FB8027005D8522</string>
-				<string>15FBE54A11FB8027005D8522</string>
-				<string>15FBE54B11FB8027005D8522</string>
-				<string>15FBE54C11FB8027005D8522</string>
-				<string>15FBE54D11FB8027005D8522</string>
+				<string>15D4324512002370006C0014</string>
+				<string>15D4324612002370006C0014</string>
+				<string>15D4324712002370006C0014</string>
+				<string>15D4324812002370006C0014</string>
+				<string>15D4324912002370006C0014</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -869,6 +885,8 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -904,7 +922,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>15FBE56F11FB8184005D8522</string>
+				<string>15D4324A12002370006C0014</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
@@ -914,7 +932,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

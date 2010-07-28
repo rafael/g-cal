@@ -62,4 +62,7 @@
 "wholeDayKey" = "Whole day";
 "startsAndEndsKey" = "Starts & Ends";
 
+"gCalNotConfiguredTitle" = "g-Cal is not configured";
+"gCalNotConfiguredMsg" = "It seem's that g-Cal hasn't been configured yet. Please go to g-Cal settings in your iPhone settings and set the information for you Google account. If you are using iOS 4, be sure that g-Cal is closed and is not running in the background before setting the account information.";
+
 

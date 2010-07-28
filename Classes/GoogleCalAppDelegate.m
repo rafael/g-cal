@@ -58,9 +58,35 @@
     [ud registerDefaults:dict];
 	}
 	
+//	NSString = initWithContentsOfFile:@"MyArray.plist";
+//	
+//	self.username = [defaults stringForKey:@"username_pref"];
+//	if (self.username != nil && ![self.username isEqualToString:current_user){
+//		
+//		
+//	}
+//								  
+//								  
+//								  [array writeToFile:@"MyArray.plist" atomically:YES];
+//		
+//	NSArray *array = [NSArray arrayWithObjects:@“Foo”, [NSNumber numberWithBool:YES],
+//					  [NSDate dateWithTimeIntervalSinceNow:60],
+//					  nil];
+//	
 	[window makeKeyAndVisible];
 
 	
+	
+}
+
+-(void)applicationWillEnterForeground:(UIApplication *)application{
+	[[NSUserDefaults standardUserDefaults] synchronize];
+	
+	if (gCalService != nil ) {
+		[gCalService release];
+		gCalService = nil;
+					
+		}
 	
 }
 
@@ -176,29 +202,43 @@
 	
 	if (gCalService == nil) {
 		gCalService = [[GDataServiceGoogleCalendar alloc] init];
-		 [gCalService setUserAgent:@"oubinite-GoogleCalc-1.0"];
+		[gCalService setUserAgent:@"oubinite-GoogleCalc-1.0.3"];
 		[gCalService setShouldCacheDatedData:YES];
 		[gCalService setServiceShouldFollowNextLinks:YES];
-	
-	
-	// update the username/password each time the service is requested
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	
-	
-	self.username = [defaults stringForKey:@"username_pref"];
-	if (!self.username)
-		self.username = @"user@gmail.com";
-	if( ![self.username rangeOfString:@"@"].length )		
-		self.username = [self.username stringByAppendingString:@"@gmail.com"];
-	
-	NSString *password =  [defaults stringForKey:@"password_pref"];
-	if( !password )
-		password = @"password";
-	
-
-
-	[gCalService setUserCredentialsWithUsername:username
-								   password:password];
+		
+		
+		// update the username/password each time the service is requested
+		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+		
+		
+		self.username = [defaults stringForKey:@"username_pref"];
+		if (!self.username)
+			self.username = @"username@gmail.com";
+		if( ![self.username rangeOfString:@"@"].length )		
+			self.username = [self.username stringByAppendingString:@"@gmail.com"];
+		
+		NSString *password =  [defaults stringForKey:@"password_pref"];
+		if( !password )
+			password = @"password";
+		if ([self.username isEqualToString:@"username@gmail.com"]) {
+			NSString *title = NSLocalizedString(@"gCalNotConfiguredTitle", @"g-Cal is not configured"); 
+			NSString *msg = NSLocalizedString(@"gCalNotConfiguredMsg", @"It seem's that g-Cal haven't been configured yet. Please go to g-Cal settings in your  iPhone settings and set the information for you account. If you are using iOS 4, be sure that g-Cal is close and is not running in the background, before setting the account information");
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+															message:msg
+														   delegate:nil
+												  cancelButtonTitle:@"Ok"
+												  otherButtonTitles:nil];
+			[alert show];
+			[alert release];
+			
+			
+			
+			
+		}
+		
+		
+		[gCalService setUserCredentialsWithUsername:username
+										   password:password];
 		
 		
 	}

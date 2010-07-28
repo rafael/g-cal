@@ -137,11 +137,27 @@
 	TKDateInformation info;
 	
 	NSMutableDictionary *objectsForMark = [NSMutableDictionary dictionaryWithCapacity:20];
-	for (Event *event in eventObjects) 
-			[objectsForMark setValue:[NSNumber numberWithInt:1] forKey:[event.startDate dateDescription]];
-
-	while(YES){
+	for (Event *event in eventObjects) {
+		[objectsForMark setValue:[NSNumber numberWithInt:1] forKey:[event.startDate dateDescription]];
+		
+		//the event last from more the oone day
+		if ([event.endDate timeIntervalSinceDate:event.startDate]  >= 86400 ) {
+			NSDate *markDaysBetweenDate = event.startDate;
+			TKDateInformation markDaysBetweenDateInf = [markDaysBetweenDate dateInformation];
+			TKDateInformation endDateInf = [event.endDate dateInformation];
+			while (markDaysBetweenDateInf.day <  endDateInf.day || markDaysBetweenDateInf.month < endDateInf.month ) {
+				markDaysBetweenDate = [markDaysBetweenDate dateByAddingTimeInterval:86400];
+				markDaysBetweenDateInf = [markDaysBetweenDate dateInformation];
+				[objectsForMark setValue:[NSNumber numberWithInt:1] forKey:[markDaysBetweenDate dateDescription]];
+				
+			}
+			
+		}
+		
+	}
 	
+	while(YES){
+		
 		if ( [objectsForMark valueForKey:[date dateDescription]] != nil) 
 			[marksArray addObject:[NSNumber numberWithBool:YES]];
 		else
@@ -265,14 +281,18 @@
 	HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
     HUD.delegate = self;
+	
     HUD.labelText =  NSLocalizedString(@"loadingKey",@"Loading"); 
     HUD.detailsLabelText =  NSLocalizedString(@"retrieveDataKey",@"Retrieving Data From Google");
+	
     // Show the HUD while the provided method executes in a new thread
 	gCalService = self.appDelegate.gCalService;
+	if ([[gCalService username] isEqualToString:@"username@gmail.com"]) 
+		return;
 	ticketDone = NO;
 	self.navigationItem.rightBarButtonItem.enabled = NO;	
 	self.navigationItem.hidesBackButton = YES;
-
+	
 	[HUD showWhileExecuting:@selector(loadCalendarsAndEvents:) onTarget:self withObject:nil animated:YES];
 }
 
@@ -794,10 +814,27 @@
 		BOOL isTheSameDay = [self isSameDay:event.startDate withDate:day];
 		if (isTheSameDay)
 			[eventsForDay  addObject:event];
+		//check for events that last for more the one day
+		if ([event.endDate timeIntervalSinceDate:event.startDate]  >= 86400 ) {
+			NSDate *markDaysBetweenDate = event.startDate;	
+			TKDateInformation markDaysBetweenDateInf = [markDaysBetweenDate dateInformation];
+			TKDateInformation endDateInf = [event.endDate dateInformation];
+			while (markDaysBetweenDateInf.day <  endDateInf.day || markDaysBetweenDateInf.month < endDateInf.month ) {
+				markDaysBetweenDate = [markDaysBetweenDate dateByAddingTimeInterval:86400];
+				markDaysBetweenDateInf = [markDaysBetweenDate dateInformation];
+				isTheSameDay = [self isSameDay:markDaysBetweenDate withDate:day];
+				if (isTheSameDay)
+					[eventsForDay  addObject:event];
+				
+			}
+			
+		}
+		
+		
 	}
 	self.eventsForGivenDate = [NSArray arrayWithArray:eventsForDay];
 	[eventsForDay release];
-	numberOfRowsForGivenDate = [self.eventsForGivenDate count];	
+	numberOfRowsForGivenDate = [self.eventsForGivenDate count];		
 	
 }
 

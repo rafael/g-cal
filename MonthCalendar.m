@@ -497,12 +497,12 @@
 	
 	NSMutableDictionary *calendarTicketPair = [NSMutableDictionary dictionaryWithCapacity:2];
 	GDataQueryCalendar* query = [GDataQueryCalendar calendarQueryWithFeedURL:feedURL];
-	NSDate *minDate	= [self.selectedDate dateByAddingTimeInterval:-1*60*60*24*60];
-	NSDate *maxDate = [NSDate dateWithTimeIntervalSinceNow:60*60*24*90];  // ...to 90 days from now.
+	NSDate *minDate	= [self.selectedDate dateByAddingTimeInterval:-1*60*60*24*60]; // .. 60 days from selected date
+	NSDate *maxDate = [self.selectedDate dateByAddingTimeInterval:60*60*24*90];  // ...to 90 days from selected date.
 	
 	[query setMinimumStartTime:[GDataDateTime dateTimeWithDate:minDate timeZone:[NSTimeZone systemTimeZone]]];
 	[query setMaximumStartTime:[GDataDateTime dateTimeWithDate:maxDate timeZone:[NSTimeZone systemTimeZone]]];
-	[query setOrderBy:@"starttime"];  //http://code.google.com/apis/calendar/docs/2.0/reference.html#Parameters
+	[query setOrderBy:@"starttime"]; 
 	[query setIsAscendingOrder:YES];
 	[query setShouldExpandRecurrentEvents:YES];	
 	[query setShouldShowDeleted:YES];

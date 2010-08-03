@@ -61,7 +61,7 @@
 	
 	if (rowSelected == 0){		
 		NSTimeInterval interval = [self.endDate timeIntervalSinceDate: self.startDate];
-		self.startDate = [dateSelect date];
+		self.startDate = [self.dateSelect date];
 		NSDate *newEndDate = [[NSDate alloc] initWithTimeInterval:interval sinceDate:self.startDate]; 
 		self.endDate =newEndDate;
 	
@@ -72,7 +72,7 @@
 	}
 	else{
 		
-		self.endDate = [dateSelect date];
+		self.endDate = [self.dateSelect date];
 		[self endHourBehavior];
 
 	}
@@ -90,7 +90,7 @@
 		NSString *startDateString = [dateFormater stringFromDate:startDate];
 		startHourLabel.text = startDateString;
 		endHourLabel.text = endDateString;
-		dateSelect.datePickerMode = UIDatePickerModeDate;
+		self.dateSelect.datePickerMode = UIDatePickerModeDate;
 	}
 	
 	else {
@@ -101,7 +101,7 @@
 		NSString *endDateString = [dateFormater stringFromDate:endDate];
 		startHourLabel.text = startDateString;
 		endHourLabel.text = endDateString;
-		dateSelect.datePickerMode = UIDatePickerModeDateAndTime;
+		self.dateSelect.datePickerMode = UIDatePickerModeDateAndTime;
 		
 	}
 	
@@ -117,13 +117,13 @@
 	//rowSelected = indexPath;
 	if (row == 0) {
 		rowSelected = 0;
-		[dateSelect setDate:startDate animated:YES];
+		[self.dateSelect setDate:startDate animated:YES];
 		[self startHourBehavior];
 
 	}
 	else{	
 		rowSelected = 1;
-		[dateSelect setDate:endDate animated:YES];
+		[self.dateSelect setDate:endDate animated:YES];
 		[self endHourBehavior];
 	}
 	

@@ -37,6 +37,8 @@
 	
     if (fetchedResultsController == nil) {
 		
+		
+		
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
 		
 		NSEntityDescription *entity = [NSEntityDescription entityForName:@"Calendar" inManagedObjectContext:self.managedObjectContext];
@@ -48,27 +50,31 @@
         
         [fetchRequest setSortDescriptors:sortDescriptors];
 		
-        NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
-																									managedObjectContext:managedObjectContext 
-																									sectionNameKeyPath:@"ownSectionSeparator" 
-																									cacheName:@"CalendarRoot"];
-        aFetchedResultsController.delegate = self;
-        self.fetchedResultsController = aFetchedResultsController;
+    
+      
+        fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
+																	   managedObjectContext:self.managedObjectContext 
+																		 sectionNameKeyPath:@"ownSectionSeparator" 
+																				  cacheName:@"CalendarRoot"];
 		
-		NSError *error = nil;
-		if (![[self fetchedResultsController] performFetch:&error]) {
-	
-			NSLog(@"Unresolved error fetching events MonthCalendar.m %@, %@", error, [error userInfo]);
+			  fetchedResultsController.delegate = self;
+//
+	//	NSError *error = nil;
+//		if (![fetchedResultsController performFetch:&error]) {
+//	
+//			NSLog(@"Unresolved error fetching events MonthCalendar.m %@, %@", error, [error userInfo]);
+//		
+//		}	
 		
-		}	
 		
-		
-        [aFetchedResultsController release];
+     //   [aFetchedResultsController release];
         [fetchRequest release];
         [sortDescriptor release];
         [sortDescriptors release];
 		
+		
     }
+
 	
 	return fetchedResultsController;
 }  
@@ -224,6 +230,17 @@
 	// this UIViewController is about to re-appear, make sure we remove the current selection in our table view
 	NSIndexPath *tableSelection = [self.calendarsTableView indexPathForSelectedRow];
 	[self.calendarsTableView deselectRowAtIndexPath:tableSelection animated:YES];
+
+	NSError *error = nil;
+	[NSFetchedResultsController deleteCacheWithName:@"CalendarRoot"];  
+	if (![self.fetchedResultsController performFetch:&error]) {
+		
+		NSLog(@"Unresolved error fetching calendars %@, %@", error, [error userInfo]);
+		
+	}
+	
+	[self.calendarsTableView reloadData];
+	
 }
 
 
@@ -233,14 +250,8 @@
 	
 	appDelegate = [[UIApplication sharedApplication] delegate];
 	
-	
-	NSError *error = nil;
-	if (![self.fetchedResultsController performFetch:&error]) {
-	
-		NSLog(@"Unresolved error fetching calendars %@, %@", error, [error userInfo]);
-		
-	}
-	
+
+
     [super viewDidLoad];
 }
 

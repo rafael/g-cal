@@ -132,7 +132,6 @@
 
 
 - (NSArray*) calendarMonthView:(TKCalendarMonthView*)monthView marksFromDate:(NSDate*)startDate toDate:(NSDate*)lastDate{
-	
 	NSMutableArray *marksArray = [NSMutableArray arrayWithCapacity:31];
 	NSDate *date = startDate;
 	NSArray *eventObjects = [self.fetchedResultsController fetchedObjects];
@@ -140,7 +139,7 @@
 	
 	NSMutableDictionary *objectsForMark = [NSMutableDictionary dictionaryWithCapacity:20];
 	for (Event *event in eventObjects) {
-			[objectsForMark setValue:[NSNumber numberWithInt:1] forKey:[event.startDate dateDescription]];
+		[objectsForMark setValue:[NSNumber numberWithInt:1] forKey:[event.startDate dateDescription]];
 		
 		//the event last from more the oone day
 		if ([event.endDate timeIntervalSinceDate:event.startDate]  >= 86400 ) {
@@ -151,15 +150,15 @@
 				markDaysBetweenDate = [markDaysBetweenDate dateByAddingTimeInterval:86400];
 				markDaysBetweenDateInf = [markDaysBetweenDate dateInformation];
 				[objectsForMark setValue:[NSNumber numberWithInt:1] forKey:[markDaysBetweenDate dateDescription]];
-			
+				
 			}
-		
+			
 		}
-
+		
 	}
-
-	while(YES){
 	
+	while(YES){
+		
 		if ( [objectsForMark valueForKey:[date dateDescription]] != nil) 
 			[marksArray addObject:[NSNumber numberWithBool:YES]];
 		else
@@ -171,8 +170,7 @@
 		if([date compare:lastDate]==NSOrderedDescending) break;
 	}
 	
-	return marksArray;
-	
+	return marksArray;	
 }
 
 - (void) calendarMonthView:(TKCalendarMonthView*)mv monthDidChange:(NSDate*)date{
@@ -284,8 +282,10 @@
     [self.view addSubview:HUD];
     HUD.delegate = self;
 
+
     HUD.labelText =  NSLocalizedString(@"loadingKey",@"Loading"); 
     HUD.detailsLabelText =  NSLocalizedString(@"retrieveDataKey",@"Retrieving Data From Google");
+
 
     // Show the HUD while the provided method executes in a new thread
 	gCalService = self.appDelegate.gCalService;
@@ -294,7 +294,7 @@
 	ticketDone = NO;
 	self.navigationItem.rightBarButtonItem.enabled = NO;	
 	self.navigationItem.hidesBackButton = YES;
-
+	
 	[HUD showWhileExecuting:@selector(loadCalendarsAndEvents:) onTarget:self withObject:nil animated:YES];
 }
 
@@ -431,7 +431,7 @@
 
 - (void)eventsTicket:(GDataServiceTicket *)ticket finishedWithEntries:(GDataFeedCalendarEvent *)feed error:(NSError *)error{
 	if( !error ){
-		NSMutableDictionary *dictionary;
+		NSMutableDictionary *dictionary = nil;
 		for( int section=0; section<[self.calendarsTicket count]; section++ ){
 			NSMutableDictionary *nextDictionary = [self.calendarsTicket objectAtIndex:section];
 			GDataServiceTicket *nextTicket = [nextDictionary objectForKey:KEY_TICKET];
@@ -519,15 +519,16 @@
 	
 	NSMutableDictionary *calendarTicketPair = [NSMutableDictionary dictionaryWithCapacity:2];
 	GDataQueryCalendar* query = [GDataQueryCalendar calendarQueryWithFeedURL:feedURL];
-	NSDate *minDate	= [self.selectedDate dateByAddingTimeInterval:-1*60*60*24*60];
-	NSDate *maxDate = [NSDate dateWithTimeIntervalSinceNow:60*60*24*90];  // ...to 90 days from now.
+	NSDate *minDate	= [self.selectedDate dateByAddingTimeInterval:-1*60*60*24*60]; // .. 60 days from selected date
+	NSDate *maxDate = [self.selectedDate dateByAddingTimeInterval:60*60*24*90];  // ...to 90 days from selected date.
 	
 	[query setMinimumStartTime:[GDataDateTime dateTimeWithDate:minDate timeZone:[NSTimeZone systemTimeZone]]];
 	[query setMaximumStartTime:[GDataDateTime dateTimeWithDate:maxDate timeZone:[NSTimeZone systemTimeZone]]];
-	[query setOrderBy:@"starttime"];  //http://code.google.com/apis/calendar/docs/2.0/reference.html#Parameters
+	[query setOrderBy:@"starttime"]; 
 	[query setIsAscendingOrder:YES];
 	[query setShouldExpandRecurrentEvents:YES];	
 	[query setShouldShowDeleted:YES];
+	[query setMaxResults:60];
  
 
 
@@ -572,7 +573,7 @@
 
 - (void)insertTicket:(GDataServiceTicket *)ticket finishedWithEntry:(GDataEntryCalendarEvent *)entry error:(NSError *)error{
 	
-	NSMutableDictionary *dictionary;
+	NSMutableDictionary *dictionary =nil;
 	int index_to_delete;
 	for( int section=0; section<[self.appDelegate.addEventsQueue count]; section++ ){
 		NSMutableDictionary *nextDictionary = [self.appDelegate.addEventsQueue objectAtIndex:section];
@@ -840,7 +841,7 @@
 	}
 	self.eventsForGivenDate = [NSArray arrayWithArray:eventsForDay];
 	[eventsForDay release];
-	numberOfRowsForGivenDate = [self.eventsForGivenDate count];	
+	numberOfRowsForGivenDate = [self.eventsForGivenDate count];		
 	
 }
 

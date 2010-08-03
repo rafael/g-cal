@@ -766,7 +766,9 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 	Calendar *aDefaultCalendar = self.event.calendar;
 
 	if ( [fetchedResultsController.fetchedObjects count] > 0){
+		
 		if (!self.event.calendar){
+			
 			aDefaultCalendar = (Calendar *)[fetchedResultsController.fetchedObjects objectAtIndex:0];
 			event.calendar = aDefaultCalendar;
 		}

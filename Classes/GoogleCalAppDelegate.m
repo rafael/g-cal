@@ -42,6 +42,7 @@
 	self.mainMonthCal = aMonthCal;
 	[self.mainMonthCal allCalendars:YES];
 	CalendarViewController *calendarController = [[CalendarViewController alloc] initWithNibName:@"CalendarViewController" bundle:nil];
+	calendarController.managedObjectContext = self.managedObjectContext;
 	//calendarController.managedObjectContext = self.managedObjectContext;
 	navController.viewControllers= [NSArray arrayWithObjects:calendarController,aMonthCal,nil];
 	[window addSubview:navController.view];
@@ -51,6 +52,7 @@
 	//detecting first run , set sync_on_load as yes for default
 	
 	NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+	
 	if ([ud objectForKey:@"sync_on_load_pref"]== nil) {
     NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
                           @"1", @"sync_on_load_pref",
@@ -58,9 +60,26 @@
     [ud registerDefaults:dict];
 	}
 	
+	[self checkIfUserChanged];
+		
+								  
+						
+//	
 	[window makeKeyAndVisible];
 
 	
+	
+}
+
+-(void)applicationWillEnterForeground:(UIApplication *)application{
+	[[NSUserDefaults standardUserDefaults] synchronize];
+	[self checkIfUserChanged];
+
+	if (gCalService != nil ) {
+		[gCalService release];
+		gCalService = nil;
+					
+		}
 	
 }
 
@@ -176,24 +195,26 @@
 	
 	if (gCalService == nil) {
 		gCalService = [[GDataServiceGoogleCalendar alloc] init];
-		 [gCalService setUserAgent:@"oubinite-GoogleCalc-1.0.3"];
+
+		[gCalService setUserAgent:@"oubinite-GoogleCalc-1.0.3"];
+
 		[gCalService setShouldCacheDatedData:YES];
 		[gCalService setServiceShouldFollowNextLinks:YES];
-	
-	
-	// update the username/password each time the service is requested
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	
-	
-	self.username = [defaults stringForKey:@"username_pref"];
-	if (!self.username)
-		self.username = @"username@gmail.com";
-	if( ![self.username rangeOfString:@"@"].length )		
-		self.username = [self.username stringByAppendingString:@"@gmail.com"];
-	
-	NSString *password =  [defaults stringForKey:@"password_pref"];
-	if( !password )
-		password = @"password";
+		
+		
+		// update the username/password each time the service is requested
+		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+		
+		
+		self.username = [defaults stringForKey:@"username_pref"];
+		if (!self.username)
+			self.username = @"username@gmail.com";
+		if( ![self.username rangeOfString:@"@"].length )		
+			self.username = [self.username stringByAppendingString:@"@gmail.com"];
+		
+		NSString *password =  [defaults stringForKey:@"password_pref"];
+		if( !password )
+			password = @"password";
 		if ([self.username isEqualToString:@"username@gmail.com"]) {
 			NSString *title = NSLocalizedString(@"gCalNotConfiguredTitle", @"g-Cal is not configured"); 
 			NSString *msg = NSLocalizedString(@"gCalNotConfiguredMsg", @"It seem's that g-Cal haven't been configured yet. Please go to g-Cal settings in your  iPhone settings and set the information for you account. If you are using iOS 4, be sure that g-Cal is close and is not running in the background, before setting the account information");
@@ -209,15 +230,59 @@
 			
 			
 		}
-
-
-	[gCalService setUserCredentialsWithUsername:username
-								   password:password];
+		
+		
+		[gCalService setUserCredentialsWithUsername:username
+										   password:password];
 		
 		
 	}
 	
 	return gCalService;
+}
+-(void) checkIfUserChanged {
+	
+	NSArray *current_user_array = [NSArray arrayWithContentsOfFile:@"current_user.plist"];
+
+	if  (current_user_array == nil ){		
+		if (!self.username)
+			self.username = @"username@gmail.com";
+		current_user_array = [NSArray arrayWithObjects:self.username, nil];
+		[current_user_array writeToFile:@"current_user.plist" atomically:YES];
+	}
+	else{
+		NSString *current_user = [current_user_array objectAtIndex:0];
+		if (self.username != nil && ![self.username isEqualToString:current_user]){
+		
+			[self deleteAllObjects:@"Calendar" ];
+			current_user_array = [NSArray arrayWithObjects:self.username, nil];
+			[current_user_array writeToFile:@"current_user.plist" atomically:YES];
+
+		
+		}
+		
+	}
+	
+}
+
+- (void) deleteAllObjects: (NSString *) entityDescription  {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityDescription inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+	
+    NSError *error;
+    NSArray *items = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    [fetchRequest release];
+	
+	
+    for (NSManagedObject *managedObject in items) {
+        [self.managedObjectContext deleteObject:managedObject];
+        NSLog(@"%@ object deleted",entityDescription);
+    }
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Error deleting %@ - error:%@",entityDescription,error);
+    }
+
 }
 
 

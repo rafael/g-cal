@@ -200,31 +200,74 @@
 	NSDate *startDate = self.event.startDate;
 	NSDate *endDate = self.event.endDate;
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-	[dateFormatter setPMSymbol:@"p.m."];
-	[dateFormatter setAMSymbol:@"a.m."];
-	[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-	[dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+	
+	if ([self.event.allDay boolValue] == YES){
+		
+		[dateFormatter setDateStyle:NSDateFormatterLongStyle];
+		[dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+		
+	}
+	else{
+		[dateFormatter setPMSymbol:@"p.m."];
+		[dateFormatter setAMSymbol:@"a.m."];
+		[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+		[dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+		
+	}
+
 
 	NSString *startDateString = [dateFormatter stringFromDate:startDate];
 	NSString *endDateString = [dateFormatter stringFromDate:endDate];
-	[dateFormatter release];
 
 	eventDetails.text = NSLocalizedString(@"whenKey", @"When:");
 	[cell addSubview:eventDetails];
 	[eventDetails release];
+	if ([self.event.allDay boolValue] == YES){
+		
+		frame.origin.x += 70;
+		frame.size.width -= 55.0f;
+		eventDetails = [[UILabel alloc] initWithFrame:frame];
+		eventDetails.text =startDateString;
+		[cell addSubview:eventDetails];
+		[eventDetails release];
+		
+		if ([self.event.endDate timeIntervalSinceDate:self.event.startDate]  > 86400 ) {
+			frame.origin.y += 20;
+			//the date comes is one extra day for being whole day
+			NSDate *realEndDate = [endDate dateByAddingTimeInterval:-1*86400];
+			NSLog(@"%@", realEndDate);
+			endDateString = [dateFormatter stringFromDate:realEndDate];
+			NSLog(@"%@", endDateString);
+			eventDetails = [[UILabel alloc] initWithFrame:frame];
+			eventDetails.text =endDateString;
+			[cell addSubview:eventDetails];
+			[eventDetails release];
+		}
+		
+		
+	}
+	else{
+		
+		
+		
+			
+		frame.origin.x += 70;
+		frame.size.width -= 55.0f;
+		eventDetails = [[UILabel alloc] initWithFrame:frame];
+		eventDetails.text =startDateString;
+		[cell addSubview:eventDetails];
+		[eventDetails release];
 
-	frame.origin.x += 70;
-	frame.size.width -= 55.0f;
-	eventDetails = [[UILabel alloc] initWithFrame:frame];
-	eventDetails.text =startDateString;
-	[cell addSubview:eventDetails];
-	[eventDetails release];
-	
-	frame.origin.y += 20;
-	eventDetails = [[UILabel alloc] initWithFrame:frame];
-	eventDetails.text =endDateString;
-	[cell addSubview:eventDetails];
-	[eventDetails release];
+		frame.origin.y += 20;
+		eventDetails = [[UILabel alloc] initWithFrame:frame];
+		eventDetails.text =endDateString;
+		[cell addSubview:eventDetails];
+		[eventDetails release];
+		
+	}
+	//is kind of ugly this
+	[dateFormatter release];
+
 	
 	//description
 	frame.size.width += 55.0f;

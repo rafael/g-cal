@@ -29,6 +29,7 @@
 @synthesize gCalService;
 @synthesize username;
 @synthesize addEventsQueue;
+@synthesize mainCalendar;
 
 #pragma mark -
 #pragma mark Application lifecycle
@@ -42,6 +43,7 @@
 	self.mainMonthCal = aMonthCal;
 	[self.mainMonthCal allCalendars:YES];
 	CalendarViewController *calendarController = [[CalendarViewController alloc] initWithNibName:@"CalendarViewController" bundle:nil];
+	self.mainCalendar = calendarController;
 	calendarController.managedObjectContext = self.managedObjectContext;
 	//calendarController.managedObjectContext = self.managedObjectContext;
 	navController.viewControllers= [NSArray arrayWithObjects:calendarController,aMonthCal,nil];
@@ -61,6 +63,7 @@
 	}
 	
 	[self checkIfUserChanged];
+	[self checkAccountConf];
 		
 								  
 						
@@ -74,7 +77,7 @@
 -(void)applicationWillEnterForeground:(UIApplication *)application{
 	[[NSUserDefaults standardUserDefaults] synchronize];
 	[self checkIfUserChanged];
-
+	[self checkAccountConf];
 	if (gCalService != nil ) {
 		[gCalService release];
 		gCalService = nil;
@@ -213,22 +216,7 @@
 		NSString *password =  [defaults stringForKey:@"password_pref"];
 		if( !password )
 			password = @"password";
-		if ([self.username isEqualToString:@"username@gmail.com"]) {
-			NSString *title = NSLocalizedString(@"gCalNotConfiguredTitle", @"g-Cal is not configured"); 
-			NSString *msg = NSLocalizedString(@"gCalNotConfiguredMsg", @"It seem's that g-Cal haven't been configured yet. Please go to g-Cal settings in your  iPhone settings and set the information for you account. If you are using iOS 4, be sure that g-Cal is close and is not running in the background, before setting the account information");
-			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
-															message:msg
-														   delegate:nil
-												  cancelButtonTitle:@"Ok"
-												  otherButtonTitles:nil];
-			[alert show];
-			[alert release];
-			
-			
-			
-			
-		}
-		
+
 		
 		[gCalService setUserCredentialsWithUsername:username
 										   password:password];
@@ -254,7 +242,10 @@
 		if (self.username != nil && ![self.username isEqualToString:current_user]){
 		
 			[self deleteAllObjects:@"Calendar" ];
-			
+			self.mainMonthCal.fetchedResultsController = nil;
+			[self.mainMonthCal reloadCalendar];
+			self.mainCalendar.fetchedResultsController = nil;
+			[self.mainCalendar.calendarsTableView reloadData];
 	
 			current_user_array = [NSArray arrayWithObjects:self.username, nil];
 			[current_user_array writeToFile:@"current_user.plist" atomically:YES];
@@ -262,6 +253,32 @@
 		}
 		
 	}
+	
+}
+
+-(void) checkAccountConf{
+	
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	NSString *default_username = [defaults stringForKey:@"username_pref"];
+	
+	
+	if (!default_username || [default_username isEqualToString:@"username@gmail.com"]) {
+		NSString *title = NSLocalizedString(@"gCalNotConfiguredTitle", @"g-Cal is not configured"); 
+		NSString *msg = NSLocalizedString(@"gCalNotConfiguredMsg", @"It seem's that g-Cal haven't been configured yet. Please go to g-Cal settings in your  iPhone settings and set the information for you account. If you are using iOS 4, be sure that g-Cal is close and is not running in the background, before setting the account information");
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+														message:msg
+													   delegate:nil
+											  cancelButtonTitle:@"Ok"
+											  otherButtonTitles:nil];
+		[alert show];
+		[alert release];
+		
+		
+		
+		
+	}
+	
+	
 	
 }
 
@@ -282,6 +299,11 @@
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Error deleting %@ - error:%@",entityDescription,error);
     }
+	//[NSFetchedResultsController deleteCacheWithName:@"CalendarRoot"]; 
+	[NSFetchedResultsController deleteCacheWithName:@"Root"]; 
+	[NSFetchedResultsController deleteCacheWithName:@"EventRoot"]; 
+	[NSFetchedResultsController deleteCacheWithName:@"RootEvent"]; 
+	
 
 }
 
@@ -314,6 +336,7 @@
     [managedObjectModel release];
     [persistentStoreCoordinator release];
     [mainMonthCal release]; 
+	[mainCalendar release];
 	[addEventsQueue release];
 	[window release];
 	

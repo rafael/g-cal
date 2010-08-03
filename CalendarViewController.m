@@ -55,7 +55,7 @@
         fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
 																	   managedObjectContext:self.managedObjectContext 
 																		 sectionNameKeyPath:@"ownSectionSeparator" 
-																				  cacheName:@"CalendarRoot"];
+																				  cacheName:nil];
 		
 			  fetchedResultsController.delegate = self;
 //
@@ -232,7 +232,7 @@
 	[self.calendarsTableView deselectRowAtIndexPath:tableSelection animated:YES];
 
 	NSError *error = nil;
-	[NSFetchedResultsController deleteCacheWithName:@"CalendarRoot"];  
+	 
 	if (![self.fetchedResultsController performFetch:&error]) {
 		
 		NSLog(@"Unresolved error fetching calendars %@, %@", error, [error userInfo]);

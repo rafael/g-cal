@@ -19,6 +19,7 @@
 
 @class MonthCalendar;
 @class DayViewController;
+@class CalendarViewController;
 
 #import "GDataCalendar.h"
 
@@ -33,6 +34,7 @@
 	
     UIWindow *window;
 	MonthCalendar *mainMonthCal;
+	CalendarViewController *mainCalendar;
 	GDataServiceGoogleCalendar *gCalService;
 	NSString *username;
 
@@ -53,6 +55,7 @@
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
 @property (nonatomic, retain) MonthCalendar *mainMonthCal; 
+@property (nonatomic, retain) CalendarViewController *mainCalendar; 
 
 
 
@@ -61,6 +64,7 @@
 -(void) checkIfUserChanged;
 
 - (void) deleteAllObjects: (NSString *) entityDescription;
+-(void) checkAccountConf;
 
 
 @end

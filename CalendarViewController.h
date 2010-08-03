@@ -20,12 +20,12 @@
 
 @class GoogleCalAppDelegate;
 @interface CalendarViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,NSFetchedResultsControllerDelegate> {
-	
+	IBOutlet UITableView *calendarsTableView;
 	@private
 		NSFetchedResultsController *fetchedResultsController;
 		NSManagedObjectContext *managedObjectContext;
 		GoogleCalAppDelegate *appDelegate;
-		IBOutlet UITableView *calendarsTableView;
+		
 
 }
 

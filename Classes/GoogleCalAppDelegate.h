@@ -58,6 +58,9 @@
 
 - (NSString *)applicationDocumentsDirectory;
 
+-(void) checkIfUserChanged;
+
+- (void) deleteAllObjects: (NSString *) entityDescription;
 
 
 @end

@@ -429,7 +429,7 @@
 
 - (void)eventsTicket:(GDataServiceTicket *)ticket finishedWithEntries:(GDataFeedCalendarEvent *)feed error:(NSError *)error{
 	if( !error ){
-		NSMutableDictionary *dictionary;
+		NSMutableDictionary *dictionary = nil;
 		for( int section=0; section<[self.calendarsTicket count]; section++ ){
 			NSMutableDictionary *nextDictionary = [self.calendarsTicket objectAtIndex:section];
 			GDataServiceTicket *nextTicket = [nextDictionary objectForKey:KEY_TICKET];
@@ -526,6 +526,7 @@
 	[query setIsAscendingOrder:YES];
 	[query setShouldExpandRecurrentEvents:YES];	
 	[query setShouldShowDeleted:YES];
+	[query setMaxResults:60];
  
 
 
@@ -569,7 +570,7 @@
 
 - (void)insertTicket:(GDataServiceTicket *)ticket finishedWithEntry:(GDataEntryCalendarEvent *)entry error:(NSError *)error{
 	
-	NSMutableDictionary *dictionary;
+	NSMutableDictionary *dictionary =nil;
 	int index_to_delete;
 	for( int section=0; section<[self.appDelegate.addEventsQueue count]; section++ ){
 		NSMutableDictionary *nextDictionary = [self.appDelegate.addEventsQueue objectAtIndex:section];

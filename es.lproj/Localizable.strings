@@ -74,6 +74,4 @@
 
 
 "gCalNotConfiguredTitle" = "g-Cal no ha sido configurado";
-"gCalNotConfiguredMsg" = "Pareciera que g-Cal aún no ha sido configurado. Por favor dirijase a las prefenrencias de g-Cal en las preferencias de su iPhone e introduzca la información de su cuenta Google. Si usted utiliza iOS 4, asegurese que la aplicación esté cerrada y no se encuentre en modo multitarea antes de introducir la información de su cuenta Google.";
-
-
+"gCalNotConfiguredMsg" = "Pareciera que g-Cal aún no ha sido configurado. Por favor dirijase a las prefenrencias de g-Cal en la sección de ajustes de su iPhone e introduzca la información de su cuenta Google.";

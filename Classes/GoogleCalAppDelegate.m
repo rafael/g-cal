@@ -42,6 +42,7 @@
 	self.mainMonthCal = aMonthCal;
 	[self.mainMonthCal allCalendars:YES];
 	CalendarViewController *calendarController = [[CalendarViewController alloc] initWithNibName:@"CalendarViewController" bundle:nil];
+	calendarController.managedObjectContext = self.managedObjectContext;
 	//calendarController.managedObjectContext = self.managedObjectContext;
 	navController.viewControllers= [NSArray arrayWithObjects:calendarController,aMonthCal,nil];
 	[window addSubview:navController.view];
@@ -51,6 +52,7 @@
 	//detecting first run , set sync_on_load as yes for default
 	
 	NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+	
 	if ([ud objectForKey:@"sync_on_load_pref"]== nil) {
     NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
                           @"1", @"sync_on_load_pref",
@@ -58,20 +60,10 @@
     [ud registerDefaults:dict];
 	}
 	
-//	NSString = initWithContentsOfFile:@"MyArray.plist";
-//	
-//	self.username = [defaults stringForKey:@"username_pref"];
-//	if (self.username != nil && ![self.username isEqualToString:current_user){
-//		
-//		
-//	}
-//								  
-//								  
-//								  [array writeToFile:@"MyArray.plist" atomically:YES];
-//		
-//	NSArray *array = [NSArray arrayWithObjects:@“Foo”, [NSNumber numberWithBool:YES],
-//					  [NSDate dateWithTimeIntervalSinceNow:60],
-//					  nil];
+	[self checkIfUserChanged];
+		
+								  
+						
 //	
 	[window makeKeyAndVisible];
 
@@ -81,7 +73,8 @@
 
 -(void)applicationWillEnterForeground:(UIApplication *)application{
 	[[NSUserDefaults standardUserDefaults] synchronize];
-	
+	[self checkIfUserChanged];
+
 	if (gCalService != nil ) {
 		[gCalService release];
 		gCalService = nil;
@@ -244,6 +237,52 @@
 	}
 	
 	return gCalService;
+}
+-(void) checkIfUserChanged {
+	
+	NSArray *current_user_array = [NSArray arrayWithContentsOfFile:@"current_user.plist"];
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	self.username = [defaults stringForKey:@"username_pref"];
+	if  (current_user_array == nil ){		
+		if (!self.username)
+			self.username = @"username@gmail.com";
+		current_user_array = [NSArray arrayWithObjects:self.username, nil];
+		[current_user_array writeToFile:@"current_user.plist" atomically:YES];
+	}
+	else{
+		NSString *current_user = [current_user_array objectAtIndex:0];
+		if (self.username != nil && ![self.username isEqualToString:current_user]){
+		
+			[self deleteAllObjects:@"Calendar" ];
+			
+	
+			current_user_array = [NSArray arrayWithObjects:self.username, nil];
+			[current_user_array writeToFile:@"current_user.plist" atomically:YES];
+		
+		}
+		
+	}
+	
+}
+
+- (void) deleteAllObjects: (NSString *) entityDescription  {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityDescription inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+	
+    NSError *error;
+    NSArray *items = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    [fetchRequest release];
+	
+	
+    for (NSManagedObject *managedObject in items) {
+        [self.managedObjectContext deleteObject:managedObject];
+        NSLog(@"%@ object deleted",entityDescription);
+    }
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Error deleting %@ - error:%@",entityDescription,error);
+    }
+
 }
 
 

@@ -229,8 +229,8 @@
 	if (anEvent.startDate && [anEvent.allDay boolValue] == NO) {
 		NSDate *date = anEvent.startDate;
 		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-		[dateFormatter setPMSymbol:@"p.m."];
-		[dateFormatter setAMSymbol:@"a.m."];
+		[dateFormatter setPMSymbol:NSLocalizedString(@"pmKey",@"PM")];
+		[dateFormatter setAMSymbol:NSLocalizedString(@"amKey",@"AM")];
 		[dateFormatter setDateStyle:NSDateFormatterNoStyle];
 		[dateFormatter setTimeStyle:NSDateFormatterShortStyle];
 		//[dateFormatter setDateFormat:@"HH:mm"];

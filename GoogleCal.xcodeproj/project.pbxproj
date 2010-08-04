@@ -33,6 +33,7 @@
 		15B37C6B11C94F8F00EB9314 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B37C6A11C94F8F00EB9314 /* MBProgressHUD.m */; };
 		15B37D4C11CA3CD700EB9314 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B37D4911CA3CD700EB9314 /* Event.m */; };
 		15B3809311CB573300EB9314 /* Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B3809211CB573300EB9314 /* Calendar.m */; };
+		15BE0CBD1209B38800917A0B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 15BE0CBC1209B38800917A0B /* Settings.bundle */; };
 		15CCCA7711D21AC900974A9F /* redButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 15CCCA7611D21AC900974A9F /* redButton.png */; };
 		15E3CBF211CBC96B002A9883 /* DDInvocationGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3CBF111CBC96B002A9883 /* DDInvocationGrabber.m */; };
 		15E3CBF611CBC991002A9883 /* NSObject+DDExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3CBF411CBC991002A9883 /* NSObject+DDExtensions.m */; };
@@ -137,7 +138,6 @@
 		15E7F71E11EBAA0E00E4FCA6 /* GDataServiceGoogleCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E7F51C11EBAA0D00E4FCA6 /* GDataServiceGoogleCalendar.m */; };
 		15E7F7D911EBAB1600E4FCA6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E7F7D811EBAB1600E4FCA6 /* SystemConfiguration.framework */; };
 		15F021B011C6A562001F1730 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 15F021AF11C6A562001F1730 /* Icon.png */; };
-		15F021B911C6A927001F1730 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 15F021B811C6A927001F1730 /* Settings.bundle */; };
 		15FBDF2311FB10FF005D8522 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15FBDF2111FB10FF005D8522 /* Localizable.strings */; };
 		15FBDF3511FB1449005D8522 /* MonthCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FBDF3411FB1449005D8522 /* MonthCalendar.m */; };
 		15FF3E6A1103330F004BBA6F /* AddNoteEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FF3E681103330F004BBA6F /* AddNoteEventViewController.m */; };
@@ -220,6 +220,8 @@
 		15B37D4911CA3CD700EB9314 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = ../Event.m; sourceTree = "<group>"; };
 		15B3809111CB573300EB9314 /* Calendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Calendar.h; path = ../Calendar.h; sourceTree = "<group>"; };
 		15B3809211CB573300EB9314 /* Calendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Calendar.m; path = ../Calendar.m; sourceTree = "<group>"; };
+		15BA729512099B920064F79B /* zh_CN */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = zh_CN; path = zh_CN.lproj/Localizable.strings; sourceTree = "<group>"; };
+		15BE0CBC1209B38800917A0B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		15CCCA7611D21AC900974A9F /* redButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redButton.png; sourceTree = "<group>"; };
 		15E3CBF011CBC96B002A9883 /* DDInvocationGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDInvocationGrabber.h; path = "../../Downloads/DDFoundation-1.0b3/lib/DDInvocationGrabber.h"; sourceTree = SOURCE_ROOT; };
 		15E3CBF111CBC96B002A9883 /* DDInvocationGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDInvocationGrabber.m; path = "../../Downloads/DDFoundation-1.0b3/lib/DDInvocationGrabber.m"; sourceTree = SOURCE_ROOT; };
@@ -430,7 +432,6 @@
 		15E7F51C11EBAA0D00E4FCA6 /* GDataServiceGoogleCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GDataServiceGoogleCalendar.m; path = "../gdata-objectivec-client-trunk/Source/Clients/Calendar/GDataServiceGoogleCalendar.m"; sourceTree = SOURCE_ROOT; };
 		15E7F7D811EBAB1600E4FCA6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		15F021AF11C6A562001F1730 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		15F021B811C6A927001F1730 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		15FBDF2211FB10FF005D8522 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		15FBDF2411FB1110005D8522 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		15FBDF2611FB111C005D8522 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -863,6 +864,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				15BE0CBC1209B38800917A0B /* Settings.bundle */,
 				15CCCA5811D215E700974A9F /* images */,
 				15E3CF5B11CD3151002A9883 /* TapkuLibrary.bundle */,
 				15E3CE8211CD2E46002A9883 /* TapkuLibrary.xcodeproj */,
@@ -876,7 +878,6 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				1522510710E29FEA0088802F /* UnitTests-Info.plist */,
-				15F021B811C6A927001F1730 /* Settings.bundle */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -988,6 +989,8 @@
 				en,
 				es,
 				fr,
+				zh_TW,
+				zh_CN,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
@@ -1044,7 +1047,6 @@
 				1561C8DA110CB02E00176F1A /* AddDateEventViewController.xib in Resources */,
 				1564C70911C0EC9A00A80045 /* SelectCalendarForEventViewController.xib in Resources */,
 				15F021B011C6A562001F1730 /* Icon.png in Resources */,
-				15F021B911C6A927001F1730 /* Settings.bundle in Resources */,
 				15B3786111C80A2500EB9314 /* CalendarViewController.xib in Resources */,
 				15E3CF5C11CD3151002A9883 /* TapkuLibrary.bundle in Resources */,
 				15CCCA7711D21AC900974A9F /* redButton.png in Resources */,
@@ -1052,6 +1054,7 @@
 				15E7F6D811EBAA0E00E4FCA6 /* GDataOAuthViewTouch.xib in Resources */,
 				15E7F6DA11EBAA0E00E4FCA6 /* GDataOAuthWindow.xib in Resources */,
 				15FBDF2311FB10FF005D8522 /* Localizable.strings in Resources */,
+				15BE0CBD1209B38800917A0B /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1223,6 +1226,7 @@
 				15FBDF2211FB10FF005D8522 /* en */,
 				15FBDF2411FB1110005D8522 /* es */,
 				15FBDF2611FB111C005D8522 /* fr */,
+				15BA729512099B920064F79B /* zh_CN */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

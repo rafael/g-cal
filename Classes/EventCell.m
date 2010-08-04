@@ -30,7 +30,7 @@
 		time = [[UILabel alloc] initWithFrame:CGRectZero];
 		time.font = [UIFont boldSystemFontOfSize:12];
 		time.textColor = [UIColor darkGrayColor];
-		time.textAlignment = UITextAlignmentRight;
+		time.textAlignment = UITextAlignmentLeft;
 		time.backgroundColor = [UIColor clearColor];
 		
 		name = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -87,7 +87,7 @@
 	rect.origin.y += 10;
 	// Second column...
 	rect.size.width = 200;
-	rect.origin.x += 65;
+	rect.origin.x += 55;
 	rect.origin.y -= 16;
 	name.frame = rect;
 	rect.origin.y += 14;

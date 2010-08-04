@@ -33,6 +33,7 @@
 @dynamic editLink;
 @dynamic etag;
 @dynamic identifier;
+@dynamic allDay;
 
 
 +(Event *)getEventWithId:(NSString *)eventId forCalendar:(Calendar *)calendar andContext:(NSManagedObjectContext *) context{
@@ -81,6 +82,10 @@
 	anEvent.title = [[event title] stringValue];
 	
 	if( when ){
+			if (![[when startTime] hasTime ]) 
+			anEvent.allDay =[NSNumber numberWithBool:YES];
+
+
 		anEvent.startDate =  [[when startTime] date];
 		anEvent.endDate = [[when endTime] date];
 	}
@@ -121,6 +126,12 @@
 	self.title = [[event title] stringValue];
 	
 	if( when ){
+		if (![[when startTime] hasTime ]) 
+			self.allDay =[NSNumber numberWithBool:YES];
+		else 
+			self.allDay =[NSNumber numberWithBool:NO];
+
+
 		self.startDate =  [[when startTime] date];
 		self.endDate = [[when endTime] date];
 	}

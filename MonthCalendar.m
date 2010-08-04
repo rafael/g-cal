@@ -140,7 +140,7 @@
 	NSMutableDictionary *objectsForMark = [NSMutableDictionary dictionaryWithCapacity:20];
 	for (Event *event in eventObjects) {
 		[objectsForMark setValue:[NSNumber numberWithInt:1] forKey:[event.startDate dateDescription]];
-		
+	
 		//the event last from more the oone day
 		if ([event.endDate timeIntervalSinceDate:event.startDate]  >= 86400 ) {
 			NSDate *markDaysBetweenDate = event.startDate;
@@ -149,7 +149,15 @@
 			while (markDaysBetweenDateInf.day <  endDateInf.day || markDaysBetweenDateInf.month < endDateInf.month ) {
 				markDaysBetweenDate = [markDaysBetweenDate dateByAddingTimeInterval:86400];
 				markDaysBetweenDateInf = [markDaysBetweenDate dateInformation];
-				[objectsForMark setValue:[NSNumber numberWithInt:1] forKey:[markDaysBetweenDate dateDescription]];
+				
+				if ([event.allDay boolValue] == NO )
+					[objectsForMark setValue:[NSNumber numberWithInt:1] forKey:[markDaysBetweenDate dateDescription]];
+				else{
+					// this is for all day event definition <gd:when startTime="2005-06-06" endTime="2005-06-07"/>
+					if ( markDaysBetweenDateInf.day !=  endDateInf.day)
+					[objectsForMark setValue:[NSNumber numberWithInt:1] forKey:[markDaysBetweenDate dateDescription]];
+					
+				}
 				
 			}
 			
@@ -218,7 +226,7 @@
 		[cell addSubview:circle_view];
 		[circle_view release];
 	}
-	if (anEvent.startDate){
+	if (anEvent.startDate && [anEvent.allDay boolValue] == NO) {
 		NSDate *date = anEvent.startDate;
 		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 		[dateFormatter setPMSymbol:@"p.m."];
@@ -229,6 +237,11 @@
 		cell.time.text = [dateFormatter stringFromDate:date];
 		[dateFormatter release];
 	}
+	else {
+		cell.time.text = NSLocalizedString(@"allDayKey", @"All day");
+		
+	}
+
 	cell.name.text = anEvent.title;
 	
 	if( anEvent.location )
@@ -830,8 +843,24 @@
 				markDaysBetweenDate = [markDaysBetweenDate dateByAddingTimeInterval:86400];
 				markDaysBetweenDateInf = [markDaysBetweenDate dateInformation];
 				isTheSameDay = [self isSameDay:markDaysBetweenDate withDate:day];
-				if (isTheSameDay)
-					[eventsForDay  addObject:event];
+				if (isTheSameDay){
+					if ([event.allDay boolValue] == NO )
+						[eventsForDay  addObject:event];
+					
+					else {
+						// this is for all day event definition <gd:when startTime="2005-06-06" endTime="2005-06-07"/>
+						if (markDaysBetweenDateInf.day != endDateInf.day) 
+							[eventsForDay  addObject:event];
+						
+					}
+				}
+						
+						
+					
+				
+				
+				
+
 				
 			}
 			
@@ -865,6 +894,8 @@
 
 	
 }
+
+
 
 #pragma mark -
 #pragma mark UIViewController functions

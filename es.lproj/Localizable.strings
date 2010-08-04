@@ -77,4 +77,4 @@
 
 "gCalNotConfiguredTitle" = "g-Cal no ha sido configurado";
 "gCalNotConfiguredMsg" = "Pareciera que g-Cal aún no ha sido configurado. Por favor dirijase a las prefenrencias de g-Cal en la sección de ajustes de su iPhone e introduzca la información de su cuenta Google.";
-
+"allDayKey" = "diá ent.";

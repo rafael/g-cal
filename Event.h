@@ -35,6 +35,7 @@
 @property (nonatomic, retain) NSString * eventid;
 @property (nonatomic, retain) Calendar * calendar;
 @property (nonatomic, retain) NSDate * updated;
+@property (nonatomic, retain) NSNumber * allDay;
 @property (nonatomic, retain) NSString *editLink;
 @property (nonatomic, retain) NSString *etag;
 @property (nonatomic, retain) NSString *identifier;

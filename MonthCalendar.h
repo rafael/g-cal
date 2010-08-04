@@ -104,6 +104,8 @@
 -(void) syncWithGoogle;
 -(Event *)getInitializedEvent;
 
+-(NSArray *)getCalendars ;
+
 
 @property (nonatomic, retain) NSMutableArray *calendarsTicket;
 //@property (nonatomic, retain) NSMutableArray *addEventsQueue;

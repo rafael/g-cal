@@ -18,7 +18,7 @@
 "nowKey" = "Maintenant";
 "allCalendarsKey" = "Calendriers (tous)";
 "calendarsKey" = "Calendriers";
-"unexpectedErrorKey" = "An unexpected error has ocurred.";
+"unexpectedErrorKey" = "Error Inconnu";
 "noInternetKey" = "Connexion impossible.";
 "noInternetMsgKey" = "L'application ne peux pas acceder à internet. Merci de vérifier votre connexion.";
 "authenticationFailedKey" = "Erreur d'authentification";

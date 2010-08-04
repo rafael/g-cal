@@ -19,7 +19,7 @@
 "allCalendarsKey" = "All Calendars";
 "calendarsKey" = "Calendars";
 "calendarKey" = "Calendar";
-"unexpectedErrorKey" = "An unexpected error has ocurred.";
+"unexpectedErrorKey" = "An unexpected error has ocurred";
 "noInternetKey" = "No internet access.";
 "noInternetMsgKey" = "The application couldn't connect to internet. Please check your internet access.";
 "authenticationFailedKey" = "Authentication failed";

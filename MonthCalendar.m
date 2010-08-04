@@ -378,10 +378,46 @@
 
 	if( !error ){
 		int count = [[feed entries] count];
+		NSArray *calendars = [self getCalendars];
 	
-		for( int i=0; i<count; i++ ){
+		if (  count != [calendars count]) {
+			for (Calendar  *aCal in calendars) {
+				BOOL intruder = YES;
+				for( int i=0; i<count; i++ ){
+					
+					GDataEntryCalendar *calendar = [[feed entries] objectAtIndex:i];
+					//NSLog(@"",)
+					if ( [aCal.calid  isEqualToString:[calendar identifier]]) {
+						
+						intruder = NO;
+						break;
+						
+						
+					}
+										
+				}
+				if (intruder == YES) {
+					[self.managedObjectContext deleteObject:aCal];
+										
+					NSError *error = nil;
+					if (![self.managedObjectContext save:&error]) {
+						
+						NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+						
+					}	
+				
+					
+				}
+				
+				
+				
+			}
+		}
+				for( int i=0; i<count; i++ ){
 		 
 			GDataEntryCalendar *calendar = [[feed entries] objectAtIndex:i];
+		
+			
 			Calendar *aCalendar = [Calendar getCalendarWithId:[calendar identifier] andContext:self.managedObjectContext];
 		
 			if (  !aCalendar ){
@@ -623,6 +659,15 @@
 	}
 	else{
 		[self handleError:error];
+		[self.managedObjectContext deleteObject:eventAdded];
+		
+		NSError *error = nil;
+		if (![self.managedObjectContext save:&error]) {
+			
+			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+			
+		}	
+	
 
 	}
 	
@@ -640,6 +685,38 @@
 
 #pragma mark -
 #pragma mark Utility functions
+
+-(NSArray *)getCalendars {
+	
+
+	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Calendar" inManagedObjectContext:managedObjectContext];
+	[fetchRequest setEntity:entity];
+	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"updated" ascending:YES];
+	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+	
+	[fetchRequest setSortDescriptors:sortDescriptors];
+	
+	NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
+																								managedObjectContext:managedObjectContext 
+																								  sectionNameKeyPath:nil cacheName:nil];
+	//aFetchedResultsController.delegate = self;
+	
+	NSError *error;
+	
+	if (![aFetchedResultsController performFetch:&error]) {
+		
+		return nil;
+		//NSLog(@"Unresolved error fetching events MonthCalendar.m %@, %@", error, [error userInfo]);
+	}	
+	NSArray *calendars= [NSArray arrayWithArray:[aFetchedResultsController fetchedObjects]];
+	[aFetchedResultsController release];
+	[fetchRequest release];
+	[sortDescriptor release];
+	[sortDescriptors release];
+	return calendars;
+	
+}
 
 -(Event *)getInitializedEvent {
 	
@@ -663,7 +740,7 @@
 
 - (void)handleError:(NSError *)error{
 	NSString *title, *msg;
-
+	NSLog(@"este es el error %@", error);
 	if( [error code]==kGDataBadAuthentication ){
 		title = NSLocalizedString(@"authenticationFailedKey",@"Authentication Failed");
 		msg = NSLocalizedString(@"authenticationFailedMsgKey",@"Authentication Failed Msg");

@@ -17,7 +17,7 @@
 "nowKey" = "Ahora";
 "allCalendarsKey" = "Todos";
 "calendarsKey" = "Calendarios";
-"unexpectedErrorKey" = "An unexpected error has ocurred.";
+"unexpectedErrorKey" = "Un error no esperado ha ocurrido";
 "noInternetKey" = "No hay acceso a internet";
 "noInternetMsgKey" = "La aplicación no pudo conectarse a internet. Por favor chequee su disponibilidad.";
 "authenticationFailedKey" = "Fallo de autenticación";

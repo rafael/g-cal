@@ -155,13 +155,18 @@
 	
 	static NSString *kcalendarCell_ID = @"calendarCell_ID";
 	cell = [tableView dequeueReusableCellWithIdentifier:kcalendarCell_ID];	
+	if (cell) {
+		
+		
+	
+	}
 	if( cell == nil) {
 		
 		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kcalendarCell_ID] autorelease];	
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		
 	}	
-	
+	cell.textLabel.text= @"";
 
 	if (section == 0) {
 		cell.textLabel.text =  NSLocalizedString(@"allCalendarsKey", @"All Calendars");
@@ -174,14 +179,29 @@
 		Calendar *aCalendar = (Calendar *)[self.fetchedResultsController objectAtIndexPath:fetchedIndex];
 		UIColor *colorForCell = [UIColor colorWithHexString:aCalendar.color];
 		
-		Circle *circle_view = [[Circle alloc] initWithFrame:CGRectMake(20, 20, 15, 15) andColor:colorForCell];
+	
+		Circle *circle_view= [[Circle alloc] initWithFrame:CGRectMake(20, 20, 15, 15) andColor:colorForCell];
 		[cell addSubview:circle_view];
 		[circle_view release];
-		UILabel *calendar_title = [[UILabel alloc] initWithFrame:CGRectMake(40, 10, 200, 30)];
-		calendar_title.font =  [UIFont boldSystemFontOfSize:16];
-		calendar_title.text = aCalendar.name;
-		[cell addSubview:calendar_title];
-		[calendar_title release];
+		
+		if (![[cell contentView] viewWithTag:1] ) {
+			UILabel *calendar_title = [[UILabel alloc] initWithFrame:CGRectMake(40, 10, 200, 30)];
+			calendar_title.font =  [UIFont boldSystemFontOfSize:16];
+			calendar_title.tag = 1;
+			calendar_title.text = aCalendar.name;
+			[cell.contentView addSubview:calendar_title];
+			[calendar_title release];
+		}
+		else{
+			
+			UILabel *calendar_title = (UILabel *)[cell.contentView viewWithTag:1];
+			calendar_title.text = aCalendar.name;
+			
+		}
+	
+		
+	
+	
 	
 	}
 

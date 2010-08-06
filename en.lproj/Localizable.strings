@@ -72,3 +72,8 @@
 "allDayKey" = "All day";
 "amKey" = "AM";
 "pmKey" = "PM";
+
+"likeAppKey"= "Like this App?";
+"likeAppMsgKey" = "Please rate it in the App Store!";
+"nothxsKey" = "No Thanks";
+"rateKey" = "Rate It!";

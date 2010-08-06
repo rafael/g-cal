@@ -208,8 +208,8 @@
 		
 	}
 	else{
-		[dateFormatter setPMSymbol:@"p.m."];
-		[dateFormatter setAMSymbol:@"a.m."];
+		[dateFormatter setPMSymbol:NSLocalizedString(@"pmKey",@"PM")];
+		[dateFormatter setAMSymbol:NSLocalizedString(@"amKey",@"AM")];
 		[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
 		[dateFormatter setTimeStyle:NSDateFormatterShortStyle];
 		

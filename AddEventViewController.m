@@ -731,8 +731,8 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
 - (void)viewDidLoad {
 	
 	dateFormater = [[NSDateFormatter alloc] init];
-	[dateFormater setPMSymbol:@"p.m."];
-	[dateFormater setAMSymbol:@"a.m."];
+	[dateFormater setPMSymbol:NSLocalizedString(@"pmKey",@"PM")];
+	[dateFormater setAMSymbol:NSLocalizedString(@"amKey",@"AM")];
 	[dateFormater setDateStyle:NSDateFormatterShortStyle];
 	[dateFormater setTimeStyle:NSDateFormatterShortStyle];
 	waitForDeleteEventLock = [NSCondition new];

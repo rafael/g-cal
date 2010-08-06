@@ -87,7 +87,7 @@
 	rect.origin.y += 10;
 	// Second column...
 	rect.size.width = 200;
-	rect.origin.x += 55;
+	rect.origin.x += 57;
 	rect.origin.y -= 16;
 	name.frame = rect;
 	rect.origin.y += 14;

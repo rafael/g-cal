@@ -70,4 +70,5 @@
 "gCalNotConfiguredMsg" = "It seem's that g-Cal hasn't been configured yet. Please go to g-Cal settings in your iPhone settings and set the information for you Google account.";
 
 "allDayKey" = "All day";
-
+"amKey" = "AM";
+"pmKey" = "PM";

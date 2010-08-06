@@ -33,7 +33,7 @@
 @class GoogleCalAppDelegate;
 
 
-@interface MonthCalendar : TKCalendarMonthTableViewController<AddEventDelegate,NSFetchedResultsControllerDelegate,MBProgressHUDDelegate> {
+@interface MonthCalendar : TKCalendarMonthTableViewController<UIAlertViewDelegate,AddEventDelegate,NSFetchedResultsControllerDelegate,MBProgressHUDDelegate> {
 	
 	
 	@private
@@ -73,7 +73,7 @@
 	
 }
 
-
+-(void) askForRate;
 
 -(void)allCalendars:(BOOL)value;
 

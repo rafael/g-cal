@@ -79,3 +79,8 @@
 
 "amKey" = "AM";
 "pmKey" = "PM";
+
+"likeAppKey"= "Vous aimez cette App?";
+"likeAppMsgKey" = "Si'l vous plaît, donnez votre avis dans l'App Store";
+"nothxsKey" = "Ignorer";
+"rateKey" = "Évaluer";

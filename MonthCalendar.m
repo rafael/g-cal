@@ -684,7 +684,45 @@
 }
 
 #pragma mark -
+#pragma mark alertView delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+
+	if (buttonIndex == 1) {
+			NSLog(@"Tete %i", buttonIndex);
+		
+		//@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=382003793";
+		
+		NSString *urlString = @"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=382003793&onlyLatestVersion=true&pageNumber=0&sortOrdering=1&type=Purple+Software";
+		NSString *escaped = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+		NSURL *url = [NSURL URLWithString:escaped];
+		NSLog(@"%@", url);
+		[[UIApplication sharedApplication] openURL:url];
+		
+	}
+}
+
+#pragma mark -
 #pragma mark Utility functions
+
+-(void) askForRate{
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	
+	if (! [defaults objectForKey:@"firstRun"]) {
+		[defaults setObject:[NSDate date] forKey:@"firstRun"];
+	}
+	NSInteger daysSinceInstall = [[NSDate date] timeIntervalSinceDate:[defaults objectForKey:@"firstRun"]] / 86400;
+	if ( daysSinceInstall > 10 && [defaults boolForKey:@"askedForRating"] == NO) {
+		[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"likeAppKey",  @"Like This App?") message:NSLocalizedString(@"likeAppMsgKey",@"Please rate it in the App Store!") delegate:self cancelButtonTitle:NSLocalizedString(@"nothxsKey",@"No Thanks") otherButtonTitles:NSLocalizedString(@"rateKey",@"Rate It!"), nil] show];
+		[defaults setBool:YES forKey:@"askedForRating"];
+	}
+	
+	[[NSUserDefaults standardUserDefaults] synchronize];	
+	
+	
+}
+
+
 
 -(NSArray *)getCalendars {
 	
@@ -1053,6 +1091,7 @@
 
 - (void) viewDidLoad{
 	[super viewDidLoad];
+	[self askForRate];
 	waitForCalendarTickectLock = [NSCondition new];
 	waitForManagedObjectContext = [NSLock new];
 	waitForEventTicketsLock = [NSCondition new];

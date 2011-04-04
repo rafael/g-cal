@@ -1,0 +1,68 @@
+/*
+ 
+ Copyright (c) 2010 Rafael Chacon
+ g-Cal is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ g-Cal is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with g-Cal.  If not, see <http://www.gnu.org/licenses/>.
+ */
+"nowKey" = "지금"; 
+"allCalendarsKey" = "모든 달력"; 
+"calendarsKey" = "달력들"; 
+"calendarKey" = "달력"; 
+"unexpectedErrorKey" = "예상치 못한 오류 발생";
+"noInternetKey" = "인터넷 접속 불가"; 
+"noInternetMsgKey" = "에플리케이션이 인터넷이 연결할 수 없습니다. 당신의
+인터넷 접속을 체크하세요"; 
+"authenticationFailedKey" = "인증 실패"; 
+"authenticationFailedMsgKey" = "유효하지 않은 사용자이름/비밀번호. 당신의 아이폰에 있는G-cal 세팅으로 가서
+당신의 구글 계좌 크레덴셜을 바꾸세요";
+
+"loadingKey" = "읽는 중..."; 
+"retrieveDataKey" = "구글로부터 데이터 검생중"; 
+"addingEventKey" = "A일정 추가중..."; 
+"myCalendarsKey" = "나의 달력"; 
+"otherCalendarsKey" = "다른 달력들"; 
+
+"newEventKey" = "현재 일정"; 
+"noCalendarErrorKey" = "달력 오류 없음"; 
+"noCalendarMsgErrorKey" = "당신은 달력 없이 일정을저장할 수 없습니다. 당신의 구글 계좌와 g-cal을 동기화 시키세요. 만약 구글에
+어떠한 달력도 없다면, 당신은 그 에플리케이션을 사용하기 위해 하나를 만들필요가 있습니다."; 
+"deletingKey" = "삭제중..."; 
+"deleteEventKey" = "일정 삭제"; 
+"areYouSureKey" = "확실한가요?"; 
+"cancelKey" = "취소"; 
+"whatKey" = "무엇?"; 
+"whereKey" = "어디?"; 
+"startsKey" = "시작"; 
+"endsKey" = "끝"; 
+
+"addEventKey" = "일정 추가"; 
+"editEventKey" = "일정 수정"; 
+"detailsKey" = "이 일정의 상세사항을 설정"; 
+"doneKey" = "완료"; 
+"noCalendarsKey" = "달력이 없음"; 
+"noCalendarMsgKey" = "당신의 구글계좌의 어떠한 달력도발견되지 않습니다. 일정을 만들기에 불가능합니다."; 
+"descriptionKey" = "설명"; 
+"whatAndWhereKey" = "무엇 & 어디";
+"whereNoMarkKey" = "어디"; 
+"whenKey" = "언제"; 
+"description:Key" = "설명"; 
+"eventKey" = "일정"; 
+"editKey" = "수정"; 
+"checkDateKey" = "시작과 종료일자를 체크하시오"; 
+"checkDateMsgKey" = "종료일자가 시작일자 전으로 설정되었습니다. 당신의 일정을
+체크하세요" 
+"wholeDayKey" = "전체 일" 
+"startsAndEndsKey" = "시작 & 종료"
+"gCalNotConfiguredTitle" = "g-cal이 설정되지않았습니다."
+"gCalNotConfiguredMsg" = "g-cal이 아직 설정되지 않았습니다. 당신의 아이폰 세팅의 g-
+cal세팅으로 가서 당신의 구글 계좌정보를 설정하세요."

@@ -190,6 +190,7 @@
 		1536BADD10F73F770090FEF2 /* AddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventViewController.h; sourceTree = "<group>"; };
 		1536BADE10F73F770090FEF2 /* AddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventViewController.m; sourceTree = "<group>"; };
 		1536BADF10F73F770090FEF2 /* AddEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddEventViewController.xib; sourceTree = "<group>"; };
+		1542283E1349E2E800609FB1 /* ko */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ko; path = "/Users/rafaelchacon/Sandboxes/g-cal-edge/ko.lproj/Localizable.strings"; sourceTree = "<absolute>"; };
 		1546871610B0C8E6008E69F1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = ../../../../System/Library/Frameworks/QuartzCore.framework; sourceTree = SOURCE_ROOT; };
 		1546872410B0CF0C008E69F1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1561693E11B3B81000E8AA68 /* AddCalendarEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddCalendarEventViewController.h; path = ../AddCalendarEventViewController.h; sourceTree = "<group>"; };
@@ -980,6 +981,7 @@
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "GoogleCal" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -1227,6 +1229,7 @@
 				15FBDF2411FB1110005D8522 /* es */,
 				15FBDF2611FB111C005D8522 /* fr */,
 				15BA729512099B920064F79B /* zh_CN */,
+				1542283E1349E2E800609FB1 /* ko */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

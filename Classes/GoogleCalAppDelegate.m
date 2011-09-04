@@ -17,7 +17,7 @@
 
 #import "GoogleCalAppDelegate.h"
 #import "MonthCalendar.h"
-#import "DayViewController.h"
+//#import "DayViewController.h"
 #import "EventViewController.h"
 #import "CalendarViewController.h"
 #import "Event.h"
@@ -201,7 +201,7 @@
 
 		[gCalService setUserAgent:@"oubinite-GoogleCalc-1.0.3"];
 
-		[gCalService setShouldCacheDatedData:YES];
+//		[gCalService setShouldCacheDatedData:YES];
 		[gCalService setServiceShouldFollowNextLinks:YES];
 		
 		

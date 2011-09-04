@@ -13,4 +13,5 @@ build/*
 *.mode2v3
 *.pbxuser
 *.perspectivev3
-
+GoogleCal.xcodeproj/project.xcworkspace/*
+GoogleCal.xcodeproj/xcuserdata/*

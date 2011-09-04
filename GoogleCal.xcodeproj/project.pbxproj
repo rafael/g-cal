@@ -26,6 +26,9 @@
 		1566B83711CE1DA400EB12B8 /* Circle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1566B83611CE1DA400EB12B8 /* Circle.m */; };
 		1577539810DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1577539610DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.m */; };
 		1577539910DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1577539710DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib */; };
+		15AB2B74141331E0000A4086 /* GData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15AB2B73141331E0000A4086 /* GData.framework */; };
+		15AB2B7714133262000A4086 /* DDInvocationGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 15AB2B7614133262000A4086 /* DDInvocationGrabber.m */; };
+		15AB2B7A14133278000A4086 /* NSObject+DDExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 15AB2B7914133278000A4086 /* NSObject+DDExtensions.m */; };
 		15B377E211C7E53E00EB9314 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B377E111C7E53E00EB9314 /* Security.framework */; };
 		15B3786011C80A2500EB9314 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B3785E11C80A2500EB9314 /* CalendarViewController.m */; };
 		15B3786111C80A2500EB9314 /* CalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B3785F11C80A2500EB9314 /* CalendarViewController.xib */; };
@@ -35,8 +38,6 @@
 		15BE0CBD1209B38800917A0B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 15BE0CBC1209B38800917A0B /* Settings.bundle */; };
 		15C39D85120C21C4002B12A6 /* UIColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C39D84120C21C4002B12A6 /* UIColor+Extensions.m */; };
 		15CCCA7711D21AC900974A9F /* redButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 15CCCA7611D21AC900974A9F /* redButton.png */; };
-		15E3CBF211CBC96B002A9883 /* DDInvocationGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3CBF111CBC96B002A9883 /* DDInvocationGrabber.m */; };
-		15E3CBF611CBC991002A9883 /* NSObject+DDExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E3CBF411CBC991002A9883 /* NSObject+DDExtensions.m */; };
 		15E7F7D911EBAB1600E4FCA6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E7F7D811EBAB1600E4FCA6 /* SystemConfiguration.framework */; };
 		15EDB4321413264000FEB825 /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 15EDB4311413264000FEB825 /* TapkuLibrary.bundle */; };
 		15EDB441141327BF00FEB825 /* g_cal_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 15EDB440141327BF00FEB825 /* g_cal_small.png */; };
@@ -113,6 +114,11 @@
 		1577539610DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTitlePlaceEventViewController.m; sourceTree = "<group>"; };
 		1577539710DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTitlePlaceEventViewController.xib; sourceTree = "<group>"; };
 		1595603110B2A9CD006EC0AB /* MonthCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthCalendar.h; sourceTree = "<group>"; };
+		15AB2B73141331E0000A4086 /* GData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GData.framework; sourceTree = SOURCE_ROOT; };
+		15AB2B7514133262000A4086 /* DDInvocationGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDInvocationGrabber.h; path = "other_libraries/DDFoundation-1.0b3/lib/DDInvocationGrabber.h"; sourceTree = "<group>"; };
+		15AB2B7614133262000A4086 /* DDInvocationGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDInvocationGrabber.m; path = "other_libraries/DDFoundation-1.0b3/lib/DDInvocationGrabber.m"; sourceTree = "<group>"; };
+		15AB2B7814133278000A4086 /* NSObject+DDExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+DDExtensions.h"; path = "other_libraries/DDFoundation-1.0b3/lib/NSObject+DDExtensions.h"; sourceTree = "<group>"; };
+		15AB2B7914133278000A4086 /* NSObject+DDExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+DDExtensions.m"; path = "other_libraries/DDFoundation-1.0b3/lib/NSObject+DDExtensions.m"; sourceTree = "<group>"; };
 		15B377E111C7E53E00EB9314 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = /System/Library/Frameworks/Security.framework; sourceTree = "<absolute>"; };
 		15B3785D11C80A2500EB9314 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
 		15B3785E11C80A2500EB9314 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
@@ -128,10 +134,6 @@
 		15C39D83120C21C4002B12A6 /* UIColor+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Extensions.h"; path = "other_libraries/UIColorExtensions/UIColor+Extensions.h"; sourceTree = "<group>"; };
 		15C39D84120C21C4002B12A6 /* UIColor+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Extensions.m"; path = "other_libraries/UIColorExtensions/UIColor+Extensions.m"; sourceTree = "<group>"; };
 		15CCCA7611D21AC900974A9F /* redButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redButton.png; sourceTree = "<group>"; };
-		15E3CBF011CBC96B002A9883 /* DDInvocationGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDInvocationGrabber.h; path = "../../Downloads/DDFoundation-1.0b3/lib/DDInvocationGrabber.h"; sourceTree = SOURCE_ROOT; };
-		15E3CBF111CBC96B002A9883 /* DDInvocationGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDInvocationGrabber.m; path = "../../Downloads/DDFoundation-1.0b3/lib/DDInvocationGrabber.m"; sourceTree = SOURCE_ROOT; };
-		15E3CBF411CBC991002A9883 /* NSObject+DDExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+DDExtensions.m"; path = "../../Downloads/DDFoundation-1.0b3/lib/NSObject+DDExtensions.m"; sourceTree = SOURCE_ROOT; };
-		15E3CBF511CBC991002A9883 /* NSObject+DDExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+DDExtensions.h"; path = "../../Downloads/DDFoundation-1.0b3/lib/NSObject+DDExtensions.h"; sourceTree = SOURCE_ROOT; };
 		15E7F7D811EBAB1600E4FCA6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		15EDB4251413263A00FEB825 /* TapkuLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TapkuLibrary.xcodeproj; path = lib/tapkulibrary/src/TapkuLibrary.xcodeproj; sourceTree = "<group>"; };
 		15EDB4311413264000FEB825 /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TapkuLibrary.bundle; path = lib/tapkulibrary/src/TapkuLibrary.bundle; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15AB2B74141331E0000A4086 /* GData.framework in Frameworks */,
 				15EDB4471413286800FEB825 /* libTapkuLibrary.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
@@ -287,10 +290,10 @@
 			children = (
 				15C39D83120C21C4002B12A6 /* UIColor+Extensions.h */,
 				15C39D84120C21C4002B12A6 /* UIColor+Extensions.m */,
-				15E3CBF011CBC96B002A9883 /* DDInvocationGrabber.h */,
-				15E3CBF111CBC96B002A9883 /* DDInvocationGrabber.m */,
-				15E3CBF411CBC991002A9883 /* NSObject+DDExtensions.m */,
-				15E3CBF511CBC991002A9883 /* NSObject+DDExtensions.h */,
+				15AB2B7514133262000A4086 /* DDInvocationGrabber.h */,
+				15AB2B7614133262000A4086 /* DDInvocationGrabber.m */,
+				15AB2B7814133278000A4086 /* NSObject+DDExtensions.h */,
+				15AB2B7914133278000A4086 /* NSObject+DDExtensions.m */,
 				15B37C6911C94F8F00EB9314 /* MBProgressHUD.h */,
 				15B37C6A11C94F8F00EB9314 /* MBProgressHUD.m */,
 				32CA4F630368D1EE00C91783 /* GoogleCal_Prefix.pch */,
@@ -321,6 +324,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				15AB2B73141331E0000A4086 /* GData.framework */,
 				15EDB4461413286800FEB825 /* libTapkuLibrary.a */,
 				15EDB4311413264000FEB825 /* TapkuLibrary.bundle */,
 				15EDB4251413263A00FEB825 /* TapkuLibrary.xcodeproj */,
@@ -507,12 +511,12 @@
 				15B37C6B11C94F8F00EB9314 /* MBProgressHUD.m in Sources */,
 				15B37D4C11CA3CD700EB9314 /* Event.m in Sources */,
 				15B3809311CB573300EB9314 /* Calendar.m in Sources */,
-				15E3CBF211CBC96B002A9883 /* DDInvocationGrabber.m in Sources */,
-				15E3CBF611CBC991002A9883 /* NSObject+DDExtensions.m in Sources */,
 				1566B76511CD63EC00EB12B8 /* EventCell.m in Sources */,
 				1566B83711CE1DA400EB12B8 /* Circle.m in Sources */,
 				15FBDF3511FB1449005D8522 /* MonthCalendar.m in Sources */,
 				15C39D85120C21C4002B12A6 /* UIColor+Extensions.m in Sources */,
+				15AB2B7714133262000A4086 /* DDInvocationGrabber.m in Sources */,
+				15AB2B7A14133278000A4086 /* NSObject+DDExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,7 +625,7 @@
 				);
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F0FBF37C-AA67-4AD3-B90D-6E4DFF9BB565";
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos;
 			};
 			name = Distribution;
 		};
@@ -630,9 +634,14 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GoogleCal_Prefix.pch;
+				GCC_VERSION = "";
+				GCC_WARN_UNUSED_FUNCTION = NO;
 				HEADER_SEARCH_PATHS = (
 					"/usr/include/libxml2/**",
 					"\"$(SRCROOT)/lib/tapkulibrary/src\"",
@@ -647,7 +656,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "g-Cal";
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 			};
 			name = Distribution;
 		};
@@ -685,11 +694,16 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GoogleCal_Prefix.pch;
+				GCC_VERSION = "";
+				GCC_WARN_UNUSED_FUNCTION = NO;
 				HEADER_SEARCH_PATHS = (
 					"/usr/include/libxml2/**",
 					"\"$(SRCROOT)/lib/tapkulibrary/src\"",
@@ -704,7 +718,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "g-Cal";
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -713,9 +727,14 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GoogleCal_Prefix.pch;
+				GCC_VERSION = "";
+				GCC_WARN_UNUSED_FUNCTION = NO;
 				HEADER_SEARCH_PATHS = (
 					"/usr/include/libxml2/**",
 					"\"$(SRCROOT)/lib/tapkulibrary/src\"",
@@ -730,7 +749,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "g-Cal";
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
@@ -754,7 +773,7 @@
 					"-lxml2",
 				);
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -778,7 +797,7 @@
 					"-lxml2",
 				);
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
@@ -793,7 +812,7 @@
 				15A6513111E66DAD0032CB42 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "g-Cal" */ = {
 			isa = XCConfigurationList;
@@ -803,7 +822,7 @@
 				15A6513011E66DAD0032CB42 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "GoogleCal" */ = {
 			isa = XCConfigurationList;
@@ -813,7 +832,7 @@
 				15A6512F11E66DAD0032CB42 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

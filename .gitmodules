@@ -1,0 +1,3 @@
+[submodule "lib/tapkulibrary"]
+	path = lib/tapkulibrary
+	url = git://github.com/devinross/tapkulibrary.git

@@ -27,7 +27,7 @@
 @synthesize circleColor;
 
 - (id)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
+    if (self == [super initWithFrame:frame]) {
 		self.backgroundColor = self.circleColor = [UIColor whiteColor];
 		self.opaque = YES;
 		self.clearsContextBeforeDrawing = YES;
@@ -37,7 +37,7 @@
 }
 
 - (id)initWithFrame:(CGRect)frame andColor:(UIColor *)color{
-    if (self = [super initWithFrame:frame]) {
+    if (self == [super initWithFrame:frame]) {
 		self.backgroundColor = [UIColor whiteColor];
 		self.opaque = YES;
 		self.clearsContextBeforeDrawing = YES;

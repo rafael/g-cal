@@ -1,0 +1,76 @@
+/*
+ 
+ Copyright (c) 2010 Rafael Chacon
+ g-Cal is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ g-Cal is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with g-Cal.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"nowKey" = "Сейчас";
+"allCalendarsKey" = "Все календари";
+"calendarsKey" = "Календари";
+"calendarKey" = "Календарь";
+"unexpectedErrorKey" = "Возникла непредвиденна ошибка";
+"noInternetKey" = "Нет доступа к сети.";
+"noInternetMsgKey" = "Приложение не может подсоединиться к интернету. Пожалуйста, проверьте подключение.";
+"authenticationFailedKey" = "Аутентификация невозможна";
+"authenticationFailedMsgKey" = "Неверное имя пользователя или пароль. Пожалуйста, проверьте данные аккаунта Google.";
+"loadingKey" = "Загрузка…";
+"retrieveDataKey" = "Получение информации от Google";
+"addingEventKey" = "Добавление события…";
+"myCalendarsKey" = "календари";
+"otherCalendarsKey" = "календари";
+
+"newEventKey" = "событие";
+"noCalendarErrorKey" = "Ошибка: календарь не найден";
+"noCalendarMsgErrorKey" = "сохранить событие без календаря. Пожалуйста, синхронизируйте g-Cal с вашим аккаунтом Google. Если у вас нет календаря Google, вам необходимо создать его для использования этого приложения.";
+"deletingKey" = "Удаление…";
+"deleteEventKey" = "Удалить событие";
+"areYouSureKey" = "уверены?";
+"cancelKey" = "Отменить";
+"whatKey" = "Что?";
+"whereKey" = "Где?";
+"startsKey" = "Начало";
+"endsKey" = "Завершение";
+"addEventKey" = "Добавить событие";
+"editEventKey" = "Изменить событие";
+"detailsKey" = "Редактировать свойства события";
+
+"doneKey" = "Готово";
+"noCalendarsKey" = "Календарь не найден";
+"noCalendarMsgKey" =  "Не найден календарь вашего аккаунта Google. Невозможно создать события";
+"descriptionKey" = "Описание";
+
+"whatAndWhereKey" = "Что и где";
+"whereNoMarkKey" = "Где";
+"whenKey" = "Когда:";
+"description:Key" = "Описание:";
+"eventKey" = "Событие";
+"editKey" = "Изменить";
+
+"checkDateKey" =  "Проверить дату начала и завершения";
+"checkDateMsgKey" = "Выбранная дата завершения события предшествует дате его начала. Пожалуйста, проверьте даты.";
+"wholeDayKey" = "Целый день";
+"startsAndEndsKey" = "Начинается и заканчивается";
+
+"gCalNotConfiguredTitle" = "Нет настроек для g-Cal";
+"gCalNotConfiguredMsg" = "Похоже, что g-Cal еще не был настроен. Пожалуйста, введите данные вашего аккаунта Google в настройках g-Cal в вашем iPhone.";
+
+
+"allDayKey" = "Весь день";
+"amKey" = "AM";
+"pmKey" = "PM";
+
+"likeAppKey"= "Нравится это приложение?";
+"likeAppMsgKey" = "Пожалуйста, оцените приложение в App Store!";
+"nothxsKey" = "Нет, спасибо";
+"rateKey" = "Оценить!";

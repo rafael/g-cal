@@ -200,6 +200,7 @@
 		1561C8D6110CB02E00176F1A /* AddDateEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDateEventViewController.h; sourceTree = "<group>"; };
 		1561C8D7110CB02E00176F1A /* AddDateEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDateEventViewController.m; sourceTree = "<group>"; };
 		1561C8D8110CB02E00176F1A /* AddDateEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddDateEventViewController.xib; sourceTree = "<group>"; };
+		1564A7271415D84D00E4BD1E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = "/Users/rafaelchacon/Sandboxes/iphone/g-cal/ru.lproj/Localizable.strings"; sourceTree = "<absolute>"; };
 		1564C70511C0EC9A00A80045 /* SelectCalendarForEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCalendarForEventViewController.h; sourceTree = "<group>"; };
 		1564C70611C0EC9A00A80045 /* SelectCalendarForEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCalendarForEventViewController.m; sourceTree = "<group>"; };
 		1564C70711C0EC9A00A80045 /* SelectCalendarForEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectCalendarForEventViewController.xib; sourceTree = "<group>"; };
@@ -1295,6 +1296,7 @@
 				15FBDF2411FB1110005D8522 /* es */,
 				15FBDF2611FB111C005D8522 /* fr */,
 				15BA729512099B920064F79B /* zh_CN */,
+				1564A7271415D84D00E4BD1E /* ru */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1381,7 +1383,7 @@
 				);
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F0FBF37C-AA67-4AD3-B90D-6E4DFF9BB565";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.3;
 			};
 			name = Distribution;
 		};
@@ -1412,7 +1414,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "g-Cal";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.3;
 			};
 			name = Distribution;
 		};
@@ -1474,7 +1476,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "g-Cal";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.3;
 			};
 			name = Debug;
 		};
@@ -1505,7 +1507,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "g-Cal";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.3;
 			};
 			name = Release;
 		};
@@ -1529,7 +1531,7 @@
 					"-lxml2",
 				);
 				PREBINDING = NO;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.3;
 			};
 			name = Debug;
 		};
@@ -1553,7 +1555,7 @@
 					"-lxml2",
 				);
 				PREBINDING = NO;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.3;
 			};
 			name = Release;
 		};

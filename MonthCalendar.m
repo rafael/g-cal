@@ -132,20 +132,27 @@
 
 
 - (NSArray*) calendarMonthView:(TKCalendarMonthView*)monthView marksFromDate:(NSDate*)startDate toDate:(NSDate*)lastDate{
-	NSMutableArray *marksArray = [NSMutableArray arrayWithCapacity:31];
+	NSMutableArray *marksArray = [NSMutableArray arrayWithCapacity:40];
 	NSDate *date = startDate;
 	NSArray *eventObjects = [self.fetchedResultsController fetchedObjects];
 	TKDateInformation info;
-	
+	NSCalendar *calendar = [NSCalendar currentCalendar];
 	NSMutableDictionary *objectsForMark = [NSMutableDictionary dictionaryWithCapacity:20];
 	for (Event *event in eventObjects) {
-		[objectsForMark setValue:[NSNumber numberWithInt:1] forKey:[event.startDate dateDescription]];
+        // hack to set date to current users timezone.
+        NSDateComponents *components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:event.startDate];
+        NSDate *currentCalendarStartDate = [calendar dateFromComponents:components];
+        components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit 
+                                 fromDate:event.endDate];
+        NSDate *currentCalendarEndDate = [calendar dateFromComponents:components];
+		[objectsForMark setValue:[NSNumber numberWithInt:1] forKey:[currentCalendarStartDate dateDescription]];
 	
-		//the event last from more the oone day
-		if ([event.endDate timeIntervalSinceDate:event.startDate]  >= 86400 ) {
-			NSDate *markDaysBetweenDate = event.startDate;
+		//the event last from more theoone day
+        if ([currentCalendarEndDate timeIntervalSinceDate:currentCalendarStartDate]  >= 86400 ) {
+            
+			NSDate *markDaysBetweenDate = currentCalendarStartDate;
 			TKDateInformation markDaysBetweenDateInf = [markDaysBetweenDate dateInformation];
-			TKDateInformation endDateInf = [event.endDate dateInformation];
+			TKDateInformation endDateInf = [currentCalendarEndDate dateInformation];
 			while (markDaysBetweenDateInf.day <  endDateInf.day || markDaysBetweenDateInf.month < endDateInf.month ) {
 				markDaysBetweenDate = [markDaysBetweenDate dateByAddingTimeInterval:86400];
 				markDaysBetweenDateInf = [markDaysBetweenDate dateInformation];
@@ -166,8 +173,8 @@
 	}
 	
 	while(YES){
-		
-		if ( [objectsForMark valueForKey:[date dateDescription]] != nil) 
+       
+		if ( [objectsForMark valueForKey:[date dateDescription]] != nil)
 			[marksArray addObject:[NSNumber numberWithBool:YES]];
 		else
 			[marksArray addObject:[NSNumber numberWithBool:NO]];
@@ -211,7 +218,7 @@
 	NSUInteger row = [indexPath row];	
 	EventCell *cell = (EventCell *)[tableView dequeueReusableCellWithIdentifier:keventCellIdentifier];
 	if( !cell ){
-		cell = [[[EventCell alloc] initWithFrame:CGRectZero reuseIdentifier:keventCellIdentifier] autorelease];
+		cell = [[[EventCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:keventCellIdentifier] autorelease];
 		cell.accessoryType = UITableViewCellAccessoryNone;
 	}
 	 

@@ -148,40 +148,35 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-	
 	UITableViewCell *cell = nil;
 	NSUInteger row = [indexPath row];
 	NSUInteger section = [indexPath section];
-	
 	static NSString *kcalendarCell_ID = @"calendarCell_ID";
 	cell = [tableView dequeueReusableCellWithIdentifier:kcalendarCell_ID];	
-	if (cell) {
-		
-		
-	
-	}
 	if( cell == nil) {
-		
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kcalendarCell_ID] autorelease];	
+		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault 
+                                         reuseIdentifier:kcalendarCell_ID] 
+                                                            autorelease];	
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		
-	}	
+	}
+    else {
+        UIView* subview;
+        while ((subview = [[[cell contentView] subviews] lastObject]) != nil)
+            [subview removeFromSuperview];
+    }
+
 	cell.textLabel.text= @"";
 
-	if (section == 0) {
+	if (section == 0) 
 		cell.textLabel.text =  NSLocalizedString(@"allCalendarsKey", @"All Calendars");
-	}
-
-	
 	else{
 		section = section -1 ;
 		NSIndexPath *fetchedIndex = [NSIndexPath indexPathForRow:row inSection:section];
 		Calendar *aCalendar = (Calendar *)[self.fetchedResultsController objectAtIndexPath:fetchedIndex];
-		UIColor *colorForCell = [UIColor colorWithHexString:aCalendar.color];
-		
-	
+		UIColor *colorForCell = [UIColor colorWithHexString:aCalendar.color];	
 		Circle *circle_view= [[Circle alloc] initWithFrame:CGRectMake(20, 20, 15, 15) andColor:colorForCell];
-		[cell addSubview:circle_view];
+		[cell.contentView addSubview:circle_view];
 		[circle_view release];
 		
 		if (![[cell contentView] viewWithTag:1] ) {
@@ -192,21 +187,11 @@
 			[cell.contentView addSubview:calendar_title];
 			[calendar_title release];
 		}
-		else{
-			
+		else{		
 			UILabel *calendar_title = (UILabel *)[cell.contentView viewWithTag:1];
-			calendar_title.text = aCalendar.name;
-			
+			calendar_title.text = aCalendar.name;			
 		}
-	
-		
-	
-	
-	
-	}
-
-
-	
+	}	
 	return cell;
 }
 

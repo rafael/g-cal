@@ -23,7 +23,7 @@
 
 @synthesize  time, name, addr;
 
-- (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
 	if( self=[super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier] ){
 		
 	

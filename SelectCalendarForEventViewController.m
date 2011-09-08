@@ -66,7 +66,7 @@
 			UITableViewCell *oldCell = [tableView cellForRowAtIndexPath: lastIndexPath]; 
 			oldCell.accessoryType = UITableViewCellAccessoryNone;
 			
-			lastIndexPath = indexPath;  
+			self.lastIndexPath = indexPath;  
 		}
 		else{
 			UITableViewCell *newCell = [tableView cellForRowAtIndexPath:indexPath];

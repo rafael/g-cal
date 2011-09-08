@@ -20,11 +20,9 @@
 "calendarKey" = "달력"; 
 "unexpectedErrorKey" = "예상치 못한 오류 발생";
 "noInternetKey" = "인터넷 접속 불가"; 
-"noInternetMsgKey" = "에플리케이션이 인터넷이 연결할 수 없습니다. 당신의
-인터넷 접속을 체크하세요"; 
+"noInternetMsgKey" = "에플리케이션이 인터넷이 연결할 수 없습니다. 당신의인터넷 접속을 체크하세요"; 
 "authenticationFailedKey" = "인증 실패"; 
-"authenticationFailedMsgKey" = "유효하지 않은 사용자이름/비밀번호. 당신의 아이폰에 있는G-cal 세팅으로 가서
-당신의 구글 계좌 크레덴셜을 바꾸세요";
+"authenticationFailedMsgKey" = "유효하지 않은 사용자이름/비밀번호. 당신의 아이폰에 있는G-cal 세팅으로 가서당신의 구글 계좌 크레덴셜을 바꾸세요";
 
 "loadingKey" = "읽는 중..."; 
 "retrieveDataKey" = "구글로부터 데이터 검생중"; 
@@ -34,8 +32,7 @@
 
 "newEventKey" = "현재 일정"; 
 "noCalendarErrorKey" = "달력 오류 없음"; 
-"noCalendarMsgErrorKey" = "당신은 달력 없이 일정을저장할 수 없습니다. 당신의 구글 계좌와 g-cal을 동기화 시키세요. 만약 구글에
-어떠한 달력도 없다면, 당신은 그 에플리케이션을 사용하기 위해 하나를 만들필요가 있습니다."; 
+"noCalendarMsgErrorKey" = "당신은 달력 없이 일정을저장할 수 없습니다. 당신의 구글 계좌와 g-cal을 동기화 시키세요. 만약 구글에어떠한 달력도 없다면, 당신은 그 에플리케이션을 사용하기 위해 하나를 만들필요가 있습니다."; 
 "deletingKey" = "삭제중..."; 
 "deleteEventKey" = "일정 삭제"; 
 "areYouSureKey" = "확실한가요?"; 
@@ -59,10 +56,12 @@
 "eventKey" = "일정"; 
 "editKey" = "수정"; 
 "checkDateKey" = "시작과 종료일자를 체크하시오"; 
-"checkDateMsgKey" = "종료일자가 시작일자 전으로 설정되었습니다. 당신의 일정을
-체크하세요" 
-"wholeDayKey" = "전체 일" 
-"startsAndEndsKey" = "시작 & 종료"
-"gCalNotConfiguredTitle" = "g-cal이 설정되지않았습니다."
-"gCalNotConfiguredMsg" = "g-cal이 아직 설정되지 않았습니다. 당신의 아이폰 세팅의 g-
-cal세팅으로 가서 당신의 구글 계좌정보를 설정하세요."
+"checkDateMsgKey" = "종료일자가 시작일자 전으로 설정되었습니다. 당신의 일정을체크하세요";
+"wholeDayKey" = "전체 일"; 
+"startsAndEndsKey" = "시작 & 종료";
+"gCalNotConfiguredTitle" = "g-cal이 설정되지않았습니다.";
+"gCalNotConfiguredMsg" = "g-cal이 아직 설정되지 않았습니다. 당신의 아이폰 세팅의 g-cal세팅으로 가서 당신의 구글 계좌정보를 설정하세요.";
+
+"allDayKey" = "Весь день";
+"amKey" = "a.m";
+"pmKey" = "p.m";

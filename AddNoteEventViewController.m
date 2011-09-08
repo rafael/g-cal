@@ -45,11 +45,8 @@
 	static NSString *kNoteCell_ID = @"noteCell";
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kNoteCell_ID];
 	
-	if (cell == nil) {
-		
+	if (cell == nil) {		
 		CGRect CellFrame = CGRectMake(0, 0, 300, 60);
-	
-
 		cell = [[[UITableViewCell alloc] initWithFrame:CellFrame reuseIdentifier:kNoteCell_ID] autorelease];
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
 

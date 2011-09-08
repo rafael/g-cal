@@ -155,7 +155,7 @@
 
 
 	if (cell == nil) {
-		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:kCell_ID] autorelease];
+		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCell_ID] autorelease];
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
 	}
@@ -266,7 +266,7 @@
 		[eventDetails release];
 		
 	}
-	//is kind of ugly this
+	//This is kind of ugly
 	[dateFormatter release];
 
 

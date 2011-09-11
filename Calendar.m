@@ -57,6 +57,7 @@
 	[request release];
 	[sortDescriptor release];
 	[sortDescriptors release];
+    aFetchedResultsController.delegate = nil;
 	[aFetchedResultsController release];
 	if (error) return nil;
 	if(result != nil && [result count] == 1)

@@ -20,6 +20,7 @@
 #import "EventViewController.h"
 #import "GoogleCalAppDelegate.h"
 #import "Calendar.h"
+#import "NSObject+DDExtensions.h"
 
 @implementation EventViewController
 @synthesize managedObjectContext;
@@ -46,21 +47,34 @@
 
 - (void)addEventViewController:(AddEventViewController *)addEventViewController didAddEvent:(Event *)event{
 	if (event != nil){
-		GoogleCalAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];	
-		GDataServiceGoogleCalendar *service = appDelegate.gCalService;
-		
-		NSURL *editURL = [NSURL URLWithString:event.editLink ];
-		GDataEntryCalendarEvent *entryToUpdate = [event eventGDataEntry];
-		[self.eventDetailTableView reloadData];
-		[service fetchEntryByUpdatingEntry:entryToUpdate
-								   forEntryURL:editURL
-									  delegate:self
-							 didFinishSelector:@selector(updateTicket:updatedEntry:error:)];
+        
+        HUD = [[MBProgressHUD alloc] initWithView:self.view];
+        [self.view addSubview:HUD];
+        HUD.delegate = self;
+        
+        HUD.labelText = NSLocalizedString(@"updatingKey", @"Updating...");
+        
+  		self.navigationItem.rightBarButtonItem.enabled = NO;	
+		self.navigationItem.hidesBackButton = YES;
+        [HUD showWhileExecuting:@selector(updateEvent:) onTarget:self withObject:event animated:YES];
+
 	}
+
 	[self.eventDetailTableView reloadData];
 	[self dismissModalViewControllerAnimated:YES];
 	
 	
+}
+
+
+
+
+
+- (void)hudWasHidden {
+    self.navigationItem.rightBarButtonItem.enabled = YES;	
+    self.navigationItem.hidesBackButton = NO;
+    [HUD removeFromSuperview];
+    [HUD release];  
 }
 
 - (void)addEventViewController:(AddEventViewController *)addEventViewController didDeleteEvent:(Event *)event{
@@ -86,12 +100,34 @@
 #pragma mark Google Methods 
 
 
-// event deleted callback
+-(void) updateEvent:(id)event{
+    Event *eventL = (Event *)event;
+    GoogleCalAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];	
+    GDataServiceGoogleCalendar *service = appDelegate.gCalService;
+    
+    NSURL *editURL = [NSURL URLWithString:eventL.editLink ];
+    GDataEntryCalendarEvent *entryToUpdate = [eventL eventGDataEntry];
+    [self.eventDetailTableView reloadData];
+    updateDone = NO;
+    [[service dd_invokeOnMainThread] fetchEntryByUpdatingEntry:entryToUpdate
+                                                   forEntryURL:editURL
+                                                      delegate:self
+                                             didFinishSelector:@selector(updateTicket:updatedEntry:error:)];
+    [waitForUpdateEventLock lock];
+    while( !updateDone) {
+        [waitForUpdateEventLock  wait];
+        
+    }
+    [waitForUpdateEventLock unlock];
+    
+    
+}
+
+
 - (void)updateTicket:(GDataServiceTicket *)ticket
         updatedEntry:(GDataFeedCalendarEvent *)entry
                error:(NSError *)error {
-
-	
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	NSString *title, *msg;
 	if ( error != nil){
 	if( [error code]==kGDataBadAuthentication ){
@@ -116,9 +152,7 @@
 										  cancelButtonTitle:@"Ok"
 										  otherButtonTitles:nil];
 		[alert show];
-		[alert release];
-		
-		
+		[alert release];		
 		
 	}
 	else{
@@ -130,14 +164,21 @@
 			NSLog(@"Unresolved error updating a event %@, %@", core_data_error, [core_data_error userInfo]);
 			
 		}
-	
-	
 	}
-
+    [pool release];
+	[waitForUpdateEventLock lock];
+	updateDone = YES;
+    [waitForUpdateEventLock  signal];
+    
 	
-
+	[waitForUpdateEventLock unlock];
 }
 
+#pragma mark -
+#pragma mark FetchedResultController
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    NSLog(@"esto esta sirviendo pa algo");
+}
 
 #pragma mark -
 #pragma mark Table View dataSource Methods
@@ -357,7 +398,7 @@
 		self.navigationItem.rightBarButtonItem = editButtonItem;
 		[editButtonItem release];
 	}
-	
+	waitForUpdateEventLock = [NSCondition new];
     [super viewDidLoad];	
 	
 }
@@ -379,6 +420,7 @@
 - (void)dealloc {
 	[managedObjectContext release];
 	[eventDetailTableView release];
+    [waitForUpdateEventLock release];
     [super dealloc];
 }
 

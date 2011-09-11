@@ -22,6 +22,7 @@
 #import "EventViewController.h"
 #import "Circle.h"
 #import "UIColor+Extensions.h"
+#import "NSObject+DDExtensions.h"
 
 
 @implementation MonthCalendar
@@ -328,7 +329,7 @@
     if (fetchedResultsController == nil) {
 		
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-		NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:managedObjectContext];
+		NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
         [fetchRequest setEntity:entity];
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"startDate" ascending:YES];
         NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
@@ -336,8 +337,8 @@
         [fetchRequest setSortDescriptors:sortDescriptors];
 		
         NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
-																									managedObjectContext:managedObjectContext 
-																									sectionNameKeyPath:nil cacheName:@"EventRoot"];
+																									managedObjectContext:self.managedObjectContext 
+																									sectionNameKeyPath:nil cacheName:nil];
         aFetchedResultsController.delegate = self;
         self.fetchedResultsController = aFetchedResultsController;
 		
@@ -351,6 +352,10 @@
 	return fetchedResultsController;
 }    
 
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    if (!self.tkmonthTableView.editing) 
+        [self.tkmonthTableView reloadData];
+}
 
 
 
@@ -747,7 +752,7 @@
 	[fetchRequest setSortDescriptors:sortDescriptors];
 	
 	NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
-																								managedObjectContext:managedObjectContext 
+																								managedObjectContext:self.managedObjectContext 
 																								  sectionNameKeyPath:nil cacheName:nil];
 	//aFetchedResultsController.delegate = self;
 	
@@ -1018,23 +1023,19 @@
 }
 
 
-
 #pragma mark -
 #pragma mark UIViewController functions
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated{
 
-
-	
 	NSIndexPath *tableSelection = [self.tkmonthTableView indexPathForSelectedRow];
 	[self.tkmonthTableView deselectRowAtIndexPath:tableSelection animated:YES];
 	//self.title = NSLocalizedString(@"allCalendarsKey", @"All Calendars");
 
 	if (self.selectedCalendar != nil) {
-	
+
 		NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-		NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:managedObjectContext];
+		NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
         [fetchRequest setEntity:entity];
 		
 		NSPredicate *predicate = [NSPredicate predicateWithFormat: @"calendar == %@", selectedCalendar];
@@ -1046,7 +1047,7 @@
         
         [fetchRequest setSortDescriptors:sortDescriptors];
 		
-        NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:@"EventRoot"];
+        NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
         aFetchedResultsController.delegate = self;
         self.fetchedResultsController = aFetchedResultsController;
 		

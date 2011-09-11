@@ -199,7 +199,7 @@
 	if (gCalService == nil) {
 		gCalService = [[GDataServiceGoogleCalendar alloc] init];
 
-		[gCalService setUserAgent:@"oubinite-GoogleCalc-1.0.3"];
+		[gCalService setUserAgent:@"oubinite-GoogleCalc-1.0.4"];
 
 //		[gCalService setShouldCacheDatedData:YES];
 		[gCalService setServiceShouldFollowNextLinks:YES];

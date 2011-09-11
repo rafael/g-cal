@@ -346,7 +346,7 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
     if (fetchedResultsController == nil) {
 		
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-		NSEntityDescription *entity = [NSEntityDescription entityForName:@"Calendar" inManagedObjectContext:managedObjectContext];
+		NSEntityDescription *entity = [NSEntityDescription entityForName:@"Calendar" inManagedObjectContext:self.managedObjectContext];
         [fetchRequest setEntity:entity];
 		
 		NSPredicate *predicate = [NSPredicate predicateWithFormat: @"edit_permission == %@", [NSNumber numberWithInt:1]];
@@ -358,7 +358,7 @@ static NSString *kNormalRowsizeKey =@"normalRowSizeKey";
         
         [fetchRequest setSortDescriptors:sortDescriptors];
 		
-        NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:@"Root"];
+        NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Root"];
         aFetchedResultsController.delegate = self;
         self.fetchedResultsController = aFetchedResultsController;
 

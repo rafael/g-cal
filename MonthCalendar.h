@@ -18,7 +18,6 @@
 
 #import "TapkuLibrary.h"
 #import "MBProgressHUD.h"
-#import "NSObject+DDExtensions.h"
 #import "AddEventViewController.h"
 #import "GDataCalendar.h"
 #import "EventCell.h"

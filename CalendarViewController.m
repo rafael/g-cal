@@ -227,6 +227,15 @@
 }
 
 
+#pragma mark -
+#pragma mark FetchedResultController Callbacks
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    if (!self.calendarsTableView.editing) 
+        [self.calendarsTableView reloadData];
+}
+
+
+
 
 #pragma mark -
 #pragma mark UIViewController functions

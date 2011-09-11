@@ -19,18 +19,25 @@
 #import <UIKit/UIKit.h>
 #import "AddCalendarEventViewController.h"
 #import "AddEventViewController.h"
+#import "MBProgressHUD.h"
 
 
-@interface EventViewController :  AddCalendarEventViewController <AddEventDelegate,UITableViewDataSource, UITableViewDelegate> {
+
+@interface EventViewController :  AddCalendarEventViewController <AddEventDelegate,
+                                                                  UITableViewDataSource, 
+                                                                  UITableViewDelegate,
+                                                                  MBProgressHUDDelegate> {
 	IBOutlet UITableView *eventDetailTableView;
 	@private
 		NSManagedObjectContext *managedObjectContext;
+        NSCondition  *waitForUpdateEventLock;
+        MBProgressHUD *HUD;						
+        BOOL updateDone; 
 
 
 }
 @property (nonatomic,retain ) IBOutlet UITableView *eventDetailTableView;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
-
 
 
 -(void)edit;

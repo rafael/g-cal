@@ -10,8 +10,6 @@
 		1516AC9A11D4FD4400A0DBDF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1516AC9911D4FD4400A0DBDF /* Default.png */; };
 		151D0A8110D11A1800C89C83 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 151D0A7F10D11A1800C89C83 /* EventViewController.m */; };
 		151D0A8210D11A1800C89C83 /* EventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 151D0A8010D11A1800C89C83 /* EventViewController.xib */; };
-		152CC3501419DC60004F3919 /* app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 152CC34F1419DC60004F3919 /* app_icon.png */; };
-		152CC3521419DC65004F3919 /* app_icon_hr.png in Resources */ = {isa = PBXBuildFile; fileRef = 152CC3511419DC65004F3919 /* app_icon_hr.png */; };
 		1536BAE010F73F770090FEF2 /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1536BADE10F73F770090FEF2 /* AddEventViewController.m */; };
 		1536BAE110F73F770090FEF2 /* AddEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1536BADF10F73F770090FEF2 /* AddEventViewController.xib */; };
 		1536BAE210F73F770090FEF2 /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1536BADE10F73F770090FEF2 /* AddEventViewController.m */; };
@@ -141,6 +139,8 @@
 		15B37C6B11C94F8F00EB9314 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B37C6A11C94F8F00EB9314 /* MBProgressHUD.m */; };
 		15B37D4C11CA3CD700EB9314 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B37D4911CA3CD700EB9314 /* Event.m */; };
 		15B3809311CB573300EB9314 /* Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B3809211CB573300EB9314 /* Calendar.m */; };
+		15B8D191141D50FA005A9D5E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 15B8D190141D50FA005A9D5E /* Icon.png */; };
+		15B8D193141D5104005A9D5E /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15B8D192141D5104005A9D5E /* Icon@2x.png */; };
 		15BE0CBD1209B38800917A0B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 15BE0CBC1209B38800917A0B /* Settings.bundle */; };
 		15C39D85120C21C4002B12A6 /* UIColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C39D84120C21C4002B12A6 /* UIColor+Extensions.m */; };
 		15CCCA7711D21AC900974A9F /* redButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 15CCCA7611D21AC900974A9F /* redButton.png */; };
@@ -192,8 +192,6 @@
 		151D0A8010D11A1800C89C83 /* EventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = EventViewController.xib; path = Classes/EventViewController.xib; sourceTree = "<group>"; };
 		1522510610E29FEA0088802F /* UnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1522510710E29FEA0088802F /* UnitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnitTests-Info.plist"; sourceTree = "<group>"; };
-		152CC34F1419DC60004F3919 /* app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_icon.png; sourceTree = "<group>"; };
-		152CC3511419DC65004F3919 /* app_icon_hr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_icon_hr.png; sourceTree = "<group>"; };
 		1536BADD10F73F770090FEF2 /* AddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventViewController.h; sourceTree = "<group>"; };
 		1536BADE10F73F770090FEF2 /* AddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventViewController.m; sourceTree = "<group>"; };
 		1536BADF10F73F770090FEF2 /* AddEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddEventViewController.xib; sourceTree = "<group>"; };
@@ -447,6 +445,8 @@
 		15B37D4911CA3CD700EB9314 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = ../Event.m; sourceTree = "<group>"; };
 		15B3809111CB573300EB9314 /* Calendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Calendar.h; path = ../Calendar.h; sourceTree = "<group>"; };
 		15B3809211CB573300EB9314 /* Calendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Calendar.m; path = ../Calendar.m; sourceTree = "<group>"; };
+		15B8D190141D50FA005A9D5E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		15B8D192141D5104005A9D5E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		15BA729512099B920064F79B /* zh_CN */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = zh_CN; path = zh_CN.lproj/Localizable.strings; sourceTree = "<group>"; };
 		15BE0CBC1209B38800917A0B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		15C39D83120C21C4002B12A6 /* UIColor+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Extensions.h"; path = "other_libraries/UIColorExtensions/UIColor+Extensions.h"; sourceTree = "<group>"; };
@@ -927,9 +927,9 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				15B8D192141D5104005A9D5E /* Icon@2x.png */,
+				15B8D190141D50FA005A9D5E /* Icon.png */,
 				15B14F56141C08690007DB77 /* Default@2x.png */,
-				152CC3511419DC65004F3919 /* app_icon_hr.png */,
-				152CC34F1419DC60004F3919 /* app_icon.png */,
 				1516AC9911D4FD4400A0DBDF /* Default.png */,
 				15BE0CBC1209B38800917A0B /* Settings.bundle */,
 				15CCCA5811D215E700974A9F /* images */,
@@ -1125,9 +1125,9 @@
 				156B5FFC14133C82007BD4BE /* GTMOAuth2Window.xib in Resources */,
 				156B5FFF14133C82007BD4BE /* GTMOAuth2ViewTouch.xib in Resources */,
 				156B610C141348D4007BD4BE /* TapkuLibrary.bundle in Resources */,
-				152CC3501419DC60004F3919 /* app_icon.png in Resources */,
-				152CC3521419DC65004F3919 /* app_icon_hr.png in Resources */,
 				15B14F57141C08690007DB77 /* Default@2x.png in Resources */,
+				15B8D191141D50FA005A9D5E /* Icon.png in Resources */,
+				15B8D193141D5104005A9D5E /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1373,6 +1373,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Rafael Chacon";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rafael Chacon";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1388,7 +1389,8 @@
 					"-ObjC",
 					"-lxml2",
 				);
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F0FBF37C-AA67-4AD3-B90D-6E4DFF9BB565";
+				PROVISIONING_PROFILE = "EA07AA67-170D-4B5E-831A-E838FC1AF77F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EA07AA67-170D-4B5E-831A-E838FC1AF77F";
 				SDKROOT = iphoneos4.3;
 			};
 			name = Distribution;
@@ -1397,6 +1399,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Rafael Chacon";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rafael Chacon";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1415,6 +1419,8 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "g-Cal";
+				PROVISIONING_PROFILE = "EA07AA67-170D-4B5E-831A-E838FC1AF77F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EA07AA67-170D-4B5E-831A-E838FC1AF77F";
 				SDKROOT = iphoneos4.3;
 			};
 			name = Distribution;
@@ -1451,6 +1457,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rafael Chacon (4WRUBE5K89)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1471,6 +1478,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "g-Cal";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3AEAFBF0-29BF-43E0-8C00-8ED8242D6C52";
 				SDKROOT = iphoneos4.3;
 			};
 			name = Debug;
@@ -1479,6 +1487,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Rafael Chacon";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rafael Chacon";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1497,6 +1507,8 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "g-Cal";
+				PROVISIONING_PROFILE = "EA07AA67-170D-4B5E-831A-E838FC1AF77F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EA07AA67-170D-4B5E-831A-E838FC1AF77F";
 				SDKROOT = iphoneos4.3;
 			};
 			name = Release;
@@ -1505,7 +1517,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rafael Chacon (4WRUBE5K89)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -1520,6 +1532,7 @@
 					"-ObjC",
 					"-lxml2",
 				);
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3AEAFBF0-29BF-43E0-8C00-8ED8242D6C52";
 				SDKROOT = iphoneos4.3;
 			};
 			name = Debug;
@@ -1528,7 +1541,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Rafael Chacon";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rafael Chacon";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -1543,6 +1557,8 @@
 					"-ObjC",
 					"-lxml2",
 				);
+				PROVISIONING_PROFILE = "EA07AA67-170D-4B5E-831A-E838FC1AF77F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EA07AA67-170D-4B5E-831A-E838FC1AF77F";
 				SDKROOT = iphoneos4.3;
 			};
 			name = Release;

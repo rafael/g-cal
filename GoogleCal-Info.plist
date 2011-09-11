@@ -12,10 +12,8 @@
 	<string>Icon.png</string>
 	<key>CFBundleIconFiles</key>
 	<array>
-		<string>g_cal_small.png</string>
-		<string>g_cal.png</string>
-		<string>app_icon.png</string>
-		<string>app_icon_hr.png</string>
+		<string>Icon.png</string>
+		<string>Icon@2x.png</string>
 	</array>
 	<key>CFBundleIcons</key>
 	<dict>
@@ -23,10 +21,8 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>g_cal_small.png</string>
-				<string>g_cal.png</string>
-				<string>app_icon.png</string>
-				<string>app_icon_hr.png</string>
+				<string>Icon.png</string>
+				<string>Icon@2x.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
@@ -49,6 +45,8 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.4</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>

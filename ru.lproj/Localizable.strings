@@ -70,6 +70,17 @@
 "amKey" = "AM";
 "pmKey" = "PM";
 
+//this for tapku 
+"Sun" =  "Вс";
+"Mon" = "Пн";
+"Tue" = "Вт";
+"Wed" = "Ср";
+"Thu" = "Чт";
+"Fri" = "Пт";
+"Sat" = "Сб";
+"amKey" = "上午";
+"pmKey" = "下午";
+
 "likeAppKey"= "Нравится это приложение?";
 "likeAppMsgKey" = "Пожалуйста, оцените приложение в App Store!";
 "nothxsKey" = "Нет, спасибо";

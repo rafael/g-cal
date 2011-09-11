@@ -1027,11 +1027,8 @@
 #pragma mark UIViewController functions
 
 - (void)viewWillAppear:(BOOL)animated{
-
 	NSIndexPath *tableSelection = [self.tkmonthTableView indexPathForSelectedRow];
 	[self.tkmonthTableView deselectRowAtIndexPath:tableSelection animated:YES];
-	//self.title = NSLocalizedString(@"allCalendarsKey", @"All Calendars");
-
 	if (self.selectedCalendar != nil) {
 
 		NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -1052,12 +1049,9 @@
         self.fetchedResultsController = aFetchedResultsController;
 		
 		NSError *error = nil;
-		if (![self.fetchedResultsController performFetch:&error]) {
-	
+		if (![self.fetchedResultsController performFetch:&error])
 			NSLog(@"Unresolved error fetching events MonthCalendar.m %@, %@", error, [error userInfo]);
-
-		}	
-		
+			
         [aFetchedResultsController release];
         [fetchRequest release];
         [sortDescriptor release];
@@ -1068,16 +1062,10 @@
 	else {
 		self.fetchedResultsController = nil;
 		NSError *error = nil;
-		if (![self.fetchedResultsController performFetch:&error]) {
-
+		if (![self.fetchedResultsController performFetch:&error])
 			NSLog(@"Unresolved error fetching events MonthCalendar.m %@, %@", error, [error userInfo]);
-		}	
-		
-		
 	}
-
 	[self reloadCalendar];
-
 }
 
 - (void)viewDidAppear:(BOOL)animated{

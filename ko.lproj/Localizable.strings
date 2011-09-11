@@ -62,9 +62,17 @@
 "gCalNotConfiguredTitle" = "g-cal이 설정되지않았습니다.";
 "gCalNotConfiguredMsg" = "g-cal이 아직 설정되지 않았습니다. 당신의 아이폰 세팅의 g-cal세팅으로 가서 당신의 구글 계좌정보를 설정하세요.";
 
-"allDayKey" = "Весь день";
-"amKey" = "a.m";
-"pmKey" = "p.m";
+"Sun" =  "일";
+"Mon" = "월";
+"Tue" = "화";
+"Wed" = "수";
+"Thu" = "목";
+"Fri" = "금";
+"Sat" = "토";
+
+"amKey" = "오전";
+"pmKey" = "오후";
 
 
+"allDayKey" = "하루 종일";
 "updatingKey" = "새롭게 함";

@@ -729,7 +729,9 @@
 	}
 	NSInteger daysSinceInstall = [[NSDate date] timeIntervalSinceDate:[defaults objectForKey:@"firstRun"]] / 86400;
 	if ( daysSinceInstall > 10 && [defaults boolForKey:@"askedForRating"] == NO) {
-		[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"likeAppKey",  @"Like This App?") message:NSLocalizedString(@"likeAppMsgKey",@"Please rate it in the App Store!") delegate:self cancelButtonTitle:NSLocalizedString(@"nothxsKey",@"No Thanks") otherButtonTitles:NSLocalizedString(@"rateKey",@"Rate It!"), nil] show];
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"likeAppKey",  @"Like This App?") message:NSLocalizedString(@"likeAppMsgKey",@"Please rate it in the App Store!") delegate:self cancelButtonTitle:NSLocalizedString(@"nothxsKey",@"No Thanks") otherButtonTitles:NSLocalizedString(@"rateKey",@"Rate It!"), nil];
+        [alert show];
+        [alert release];
 		[defaults setBool:YES forKey:@"askedForRating"];
 	}
 	
@@ -759,9 +761,11 @@
 	NSError *error;
 	
 	if (![aFetchedResultsController performFetch:&error]) {
-		
-		return nil;
-		//NSLog(@"Unresolved error fetching events MonthCalendar.m %@, %@", error, [error userInfo]);
+        [aFetchedResultsController release];
+        [fetchRequest release];
+        [sortDescriptor release];
+        [sortDescriptors release];
+        return nil;
 	}	
 	NSArray *calendars= [NSArray arrayWithArray:[aFetchedResultsController fetchedObjects]];
 	[aFetchedResultsController release];

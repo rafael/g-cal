@@ -22,6 +22,7 @@
 #import "Calendar.h"
 #import "GoogleCalAppDelegate.h"
 #import "MonthCalendar.h"
+#import "NSObject+DDExtensions.h"
 
 #define kTextFieldWidth	277
 #define kTextFieldHeight 31

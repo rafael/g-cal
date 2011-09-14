@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15017FB0141D8A3E00D07F83 /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 156B6108141348BF007BD4BE /* libTapkuLibrary.a */; };
 		1516AC9A11D4FD4400A0DBDF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1516AC9911D4FD4400A0DBDF /* Default.png */; };
 		151D0A8110D11A1800C89C83 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 151D0A7F10D11A1800C89C83 /* EventViewController.m */; };
 		151D0A8210D11A1800C89C83 /* EventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 151D0A8010D11A1800C89C83 /* EventViewController.xib */; };
@@ -127,7 +128,6 @@
 		156B604314133C82007BD4BE /* GDataServiceGoogleCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 156B5E6014133C80007BD4BE /* GDataServiceGoogleCalendar.m */; };
 		156B60EC141343DF007BD4BE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 156B60EB141343DF007BD4BE /* QuartzCore.framework */; };
 		156B610C141348D4007BD4BE /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 156B610B141348D4007BD4BE /* TapkuLibrary.bundle */; };
-		156B6110141348E8007BD4BE /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 156B610F141348E8007BD4BE /* libTapkuLibrary.a */; };
 		1577539810DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1577539610DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.m */; };
 		1577539910DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1577539710DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib */; };
 		15AB2B7714133262000A4086 /* DDInvocationGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 15AB2B7614133262000A4086 /* DDInvocationGrabber.m */; };
@@ -162,6 +162,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		15017FAE141D8A3600D07F83 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 156B60FF141348BE007BD4BE /* TapkuLibrary.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = TapkuLibrary;
+		};
 		156B6107141348BF007BD4BE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 156B60FF141348BE007BD4BE /* TapkuLibrary.xcodeproj */;
@@ -175,13 +182,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 3B6EDD521154791900E454DA;
 			remoteInfo = TapkuLibraryExtra;
-		};
-		156B610D141348E0007BD4BE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 156B60FF141348BE007BD4BE /* TapkuLibrary.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D;
-			remoteInfo = TapkuLibrary;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -424,7 +424,6 @@
 		156B60EB141343DF007BD4BE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		156B60FF141348BE007BD4BE /* TapkuLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TapkuLibrary.xcodeproj; path = lib/tapkulibrary/src/TapkuLibrary.xcodeproj; sourceTree = "<group>"; };
 		156B610B141348D4007BD4BE /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TapkuLibrary.bundle; path = lib/tapkulibrary/src/TapkuLibrary.bundle; sourceTree = "<group>"; };
-		156B610F141348E8007BD4BE /* libTapkuLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libTapkuLibrary.a; sourceTree = SOURCE_ROOT; };
 		1577539510DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTitlePlaceEventViewController.h; sourceTree = "<group>"; };
 		1577539610DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTitlePlaceEventViewController.m; sourceTree = "<group>"; };
 		1577539710DA85CC00B2F1D6 /* AddTitlePlaceEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTitlePlaceEventViewController.xib; sourceTree = "<group>"; };
@@ -486,7 +485,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				156B6110141348E8007BD4BE /* libTapkuLibrary.a in Frameworks */,
+				15017FB0141D8A3E00D07F83 /* libTapkuLibrary.a in Frameworks */,
 				156B60EC141343DF007BD4BE /* QuartzCore.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
@@ -985,7 +984,6 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				156B610F141348E8007BD4BE /* libTapkuLibrary.a */,
 				156B610B141348D4007BD4BE /* TapkuLibrary.bundle */,
 				156B60FF141348BE007BD4BE /* TapkuLibrary.xcodeproj */,
 				156B60EB141343DF007BD4BE /* QuartzCore.framework */,
@@ -1032,7 +1030,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				156B610E141348E0007BD4BE /* PBXTargetDependency */,
+				15017FAF141D8A3600D07F83 /* PBXTargetDependency */,
 			);
 			name = "g-Cal";
 			productName = GoogleCal;
@@ -1289,10 +1287,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		156B610E141348E0007BD4BE /* PBXTargetDependency */ = {
+		15017FAF141D8A3600D07F83 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = TapkuLibrary;
-			targetProxy = 156B610D141348E0007BD4BE /* PBXContainerItemProxy */;
+			targetProxy = 15017FAE141D8A3600D07F83 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1373,7 +1371,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Rafael Chacon";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rafael Chacon";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1383,13 +1381,13 @@
 					"\"$(SRCROOT)/lib/tapkulibrary/src/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DDEBUG=1";
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 					"-lxml2",
 				);
-				PROVISIONING_PROFILE = "EA07AA67-170D-4B5E-831A-E838FC1AF77F";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EA07AA67-170D-4B5E-831A-E838FC1AF77F";
 				SDKROOT = iphoneos4.3;
 			};
@@ -1399,7 +1397,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Rafael Chacon";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rafael Chacon";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1417,9 +1415,8 @@
 				INFOPLIST_FILE = "GoogleCal-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "g-Cal";
-				PROVISIONING_PROFILE = "EA07AA67-170D-4B5E-831A-E838FC1AF77F";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EA07AA67-170D-4B5E-831A-E838FC1AF77F";
 				SDKROOT = iphoneos4.3;
 			};
@@ -1487,7 +1484,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Rafael Chacon";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rafael Chacon";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1505,9 +1502,8 @@
 				INFOPLIST_FILE = "GoogleCal-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "g-Cal";
-				PROVISIONING_PROFILE = "EA07AA67-170D-4B5E-831A-E838FC1AF77F";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EA07AA67-170D-4B5E-831A-E838FC1AF77F";
 				SDKROOT = iphoneos4.3;
 			};
@@ -1526,6 +1522,7 @@
 					"\"$(SRCROOT)/lib/tapkulibrary/src/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DDEBUG=1";
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -1541,7 +1538,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Rafael Chacon";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rafael Chacon";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1551,13 +1548,13 @@
 					"\"$(SRCROOT)/lib/tapkulibrary/src/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DDEBUG=1";
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 					"-lxml2",
 				);
-				PROVISIONING_PROFILE = "EA07AA67-170D-4B5E-831A-E838FC1AF77F";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EA07AA67-170D-4B5E-831A-E838FC1AF77F";
 				SDKROOT = iphoneos4.3;
 			};
